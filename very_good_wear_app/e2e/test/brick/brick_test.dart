@@ -7,22 +7,18 @@ import 'package:mason/mason.dart';
 import 'package:path/path.dart' as path;
 import 'package:test/test.dart';
 
-/// Exit code indicating a command completed successfully.
-///
-/// [Source](https://www.freebsd.org/cgi/man.cgi?query=sysexits).
-const _sucessfulExitCode = 0;
-
 void main() {
   group('very_good_wear_app brick', () {
     test(
       'creates a tested application',
       timeout: const Timeout(Duration(minutes: 2)),
       () async {
-        final rootPath = Directory.current.parent.parent.path;
-        final brickPath = path.join(rootPath, 'brick');
+        final brickPath = Directory.current.parent.path;
         final brick = Brick.path(brickPath);
         final masonGenerator = await MasonGenerator.fromBrick(brick);
         final tempDirectory = Directory.systemTemp.createTempSync();
+        addTearDown(() => tempDirectory.deleteSync(recursive: true));
+
         final directoryGeneratorTarget = DirectoryGeneratorTarget(
           tempDirectory,
         );
@@ -46,7 +42,7 @@ void main() {
         );
         expect(
           flutterPubGetResult.exitCode,
-          equals(_sucessfulExitCode),
+          equals(ExitCode.success.code),
           reason: '`flutter pub get` failed',
         );
         expect(
@@ -61,9 +57,10 @@ void main() {
           workingDirectory: applicationPath,
           runInShell: true,
         );
+
         expect(
           flutterTest.exitCode,
-          equals(_sucessfulExitCode),
+          equals(ExitCode.success.code),
           reason: '`flutter test` failed',
         );
         expect(
@@ -71,8 +68,6 @@ void main() {
           isEmpty,
           reason: '`flutter test` failed',
         );
-
-        tempDirectory.deleteSync(recursive: true);
       },
     );
   });

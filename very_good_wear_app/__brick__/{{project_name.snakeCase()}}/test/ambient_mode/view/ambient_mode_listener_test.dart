@@ -5,6 +5,8 @@ import '../../helpers/helpers.dart';
 
 void main() {
   group('$AmbientModeListener', () {
+    TestWidgetsFlutterBinding.ensureInitialized();
+
     test('updates when ambient mode is activated', () {
       final listener = AmbientModeListener.instance..value = false;
 
@@ -29,7 +31,7 @@ void main() {
       expect(listener.isAmbientModeActive, isFalse);
     });
 
-    test('doesnt change on unkown method', () async {
+    test('does not change on unknown method', () async {
       final listener = AmbientModeListener.instance..value = true;
 
       await simulatePlatformCall('ambient_mode', 'onUnknownMethod');

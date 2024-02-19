@@ -65,3 +65,17 @@ jobs:
         uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
           path: output/test_app/coverage/lcov.info
+
+  e2e:
+    strategy:
+      matrix:
+        flutter-version:
+          # The version of Flutter to use should use the minimum Dart SDK version supported by the package,
+          # refer to https://docs.flutter.dev/development/tools/sdk/releases.
+          - "3.13.0"
+          - "any"
+
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      flutter_version: ${{ matrix.flutter-version }}
+      working_directory: "very_good_wear_app/e2e"
