@@ -45,7 +45,7 @@
   ],
   "useGitignore": true,
   "ignorePaths": [
-    "very_good_docs_site/__brick__/{{project_name.snakeCase()}}/docs/overview.md",
-    "very_good_docs_site/__brick__/{{project_name.snakeCase()}}/src/pages/index.tsx"
+    "very_good_docs_site/__brick__/*/docs/overview.md",
+    "very_good_docs_site/__brick__/*/src/pages/index.tsx"
   ]
 }
