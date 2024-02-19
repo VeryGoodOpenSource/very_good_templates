@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/brick/hooks"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/tool/generator"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/src/my_app"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/e2e"
+    schedule:
+      interval: "daily"

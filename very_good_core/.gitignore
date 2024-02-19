@@ -1,0 +1,17 @@
+.DS_Store
+.atom/
+.idea/*
+.vscode/*
+
+# Files and directories created by pub
+.dart_tool/
+.packages
+pubspec.lock
+
+# Conventional directory for build outputs
+build/
+
+# Files and directories created by mason
+.mason/
+mason-lock.json
+output/
