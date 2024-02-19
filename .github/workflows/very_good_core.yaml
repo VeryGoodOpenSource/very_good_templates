@@ -8,13 +8,13 @@ on:
   push:
     paths:
       - .github/workflows/very_good_core.yaml
-      - "very_good_core/brick/**"
+      - "very_good_core/**"
     branches:
       - main
   pull_request:
     paths:
       - .github/workflows/very_good_core.yaml
-      - "very_good_core/brick/**"
+      - "very_good_core/**"
     branches:
       - main
 
@@ -68,4 +68,4 @@ jobs:
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
-          path: very_good_core/brick/output/test_app/coverage/lcov.info
+          path: very_good_core/output/test_app/coverage/lcov.info
