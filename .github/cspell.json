@@ -12,14 +12,13 @@
       "name": "vgv_forbidden",
       "path": "https://raw.githubusercontent.com/verygoodopensource/very_good_dictionaries/main/forbidden.txt",
       "description": "Forbidden VGV Spellings"
+    },
+    {
+      "name": "dart_dictionary",
+      "path": "./.cspell/dart_dictionary.txt",
+      "addWords": true
     }
   ],
   "useGitignore": true,
-  "words": [
-    "Contador",
-    "localizable",
-    "mostrado",
-    "página",
-    "Texto"
-  ]
+  "words": ["Contador", "localizable", "mostrado", "página", "Texto"]
 }
