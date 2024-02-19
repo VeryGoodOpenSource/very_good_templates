@@ -9,3 +9,5 @@ bricks:
     path: very_good_dart_package
   very_good_flutter_package:
     path: very_good_flutter_package
+  very_good_docs_site:
+    path: very_good_docs_site
