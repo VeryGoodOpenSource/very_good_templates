@@ -3,10 +3,10 @@ Collection of open-source templates created and maintained by Very Good Ventures
 # Very Good Templates
 
 | Template                                                         | Description                     | Column | Build                                                                                         |
-| ---------------------------------------------------------------- | ------------------------------- | ------ | --------------------------------------------------------------------------------------------- | --- |
+| ---------------------------------------------------------------- | ------------------------------- | ------ | --------------------------------------------------------------------------------------------- |
 | [very_good_core][very_good_core_code_link]                       | A Very Good Flutter app.        |        | [![build][very_good_core_workflow_badge]][very_good_core_workflow_link]                       |
 | [very_good_dart_cli][very_good_dart_cli_code_link]               | A Very Good Dart CLI.           |        | [![build][very_good_dart_cli_workflow_badge]][very_good_dart_cli_workflow_link]               |
-| [very_good_dart_package][very_good_dart_package_code_link]       | A Very Good Dart package.       |        | [![build][very_good_dart_package_workflow_badge]][very_good_dart_package_workflow_link]       | ]   |
+| [very_good_dart_package][very_good_dart_package_code_link]       | A Very Good Dart package.       |        | [![build][very_good_dart_package_workflow_badge]][very_good_dart_package_workflow_link]       |
 | [very_good_docs_site][very_good_docs_site_code_link]             | A Very Good documentation site. |        | [![build][very_good_docs_site_workflow_badge]][very_good_docs_site_workflow_link]             |
 | [very_good_flame_game][very_good_flame_game_code_link]           | A Very Good Flame game.         |        | [![build][very_good_flame_game_workflow_badge]][very_good_flame_game_workflow_link]           |
 | [very_good_flutter_package][very_good_flutter_package_code_link] | A Very Good Flutter package.    |        | [![build][very_good_flutter_package_workflow_badge]][very_good_flutter_package_workflow_link] |
