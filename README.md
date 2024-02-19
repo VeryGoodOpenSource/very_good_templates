@@ -2,15 +2,15 @@ Collection of open-source templates created and maintained by Very Good Ventures
 
 # Very Good Templates
 
-| Template                                                         | Description                     | Documentation                             | Build                                                                                         |
-| ---------------------------------------------------------------- | ------------------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------- |
-| [very_good_core][very_good_core_code_link]                       | A Very Good Flutter app.        | [📖][very_good_core_docs_link]            | [![build][very_good_core_workflow_badge]][very_good_core_workflow_link]                       |
-| [very_good_dart_cli][very_good_dart_cli_code_link]               | A Very Good Dart CLI.           | [📖][very_good_dart_cli_docs_link]        | [![build][very_good_dart_cli_workflow_badge]][very_good_dart_cli_workflow_link]               |
-| [very_good_dart_package][very_good_dart_package_code_link]       | A Very Good Dart package.       | [📖][very_good_dart_package_docs_link]    | [![build][very_good_dart_package_workflow_badge]][very_good_dart_package_workflow_link]       |
-| [very_good_docs_site][very_good_docs_site_code_link]             | A Very Good documentation site. | [📖][very_good_docs_site_docs_link]       | [![build][very_good_docs_site_workflow_badge]][very_good_docs_site_workflow_link]             |
-| [very_good_flame_game][very_good_flame_game_code_link]           | A Very Good Flame game.         | [📖][very_good_flame_game_docs_link]      | [![build][very_good_flame_game_workflow_badge]][very_good_flame_game_workflow_link]           |
-| [very_good_flutter_package][very_good_flutter_package_code_link] | A Very Good Flutter package.    | [📖][very_good_flutter_package_docs_link] | [![build][very_good_flutter_package_workflow_badge]][very_good_flutter_package_workflow_link] |
-| [very_good_wear_app][very_good_wear_app_code_link]               | A Very Good WearOS Flutter app. | [📖][very_good_wear_app_docs_link]        | [![build][very_good_wear_app_workflow_badge]][very_good_wear_app_workflow_link]               |
+| Template                                                         | Description                     | Documentation                                        | Build                                                                                         |
+| ---------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| [very_good_core][very_good_core_code_link]                       | A Very Good Flutter app.        | [Documentation][very_good_core_docs_link]            | [![build][very_good_core_workflow_badge]][very_good_core_workflow_link]                       |
+| [very_good_dart_cli][very_good_dart_cli_code_link]               | A Very Good Dart CLI.           | [Documentation][very_good_dart_cli_docs_link]        | [![build][very_good_dart_cli_workflow_badge]][very_good_dart_cli_workflow_link]               |
+| [very_good_dart_package][very_good_dart_package_code_link]       | A Very Good Dart package.       | [Documentation][very_good_dart_package_docs_link]    | [![build][very_good_dart_package_workflow_badge]][very_good_dart_package_workflow_link]       |
+| [very_good_docs_site][very_good_docs_site_code_link]             | A Very Good documentation site. | [Documentation][very_good_docs_site_docs_link]       | [![build][very_good_docs_site_workflow_badge]][very_good_docs_site_workflow_link]             |
+| [very_good_flame_game][very_good_flame_game_code_link]           | A Very Good Flame game.         | [Documentation][very_good_flame_game_docs_link]      | [![build][very_good_flame_game_workflow_badge]][very_good_flame_game_workflow_link]           |
+| [very_good_flutter_package][very_good_flutter_package_code_link] | A Very Good Flutter package.    | [Documentation][very_good_flutter_package_docs_link] | [![build][very_good_flutter_package_workflow_badge]][very_good_flutter_package_workflow_link] |
+| [very_good_wear_app][very_good_wear_app_code_link]               | A Very Good WearOS Flutter app. | [Documentation][very_good_wear_app_docs_link]        | [![build][very_good_wear_app_workflow_badge]][very_good_wear_app_workflow_link]               |
 
 <!-- Very Good Core -->
 
