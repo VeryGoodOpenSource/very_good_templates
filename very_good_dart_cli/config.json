@@ -1,0 +1,6 @@
+{
+  "project_name": "test_cli",
+  "executable_name": "very_good_ventures",
+  "description": "very_good_core test configuration",
+  "publishable": false
+}
