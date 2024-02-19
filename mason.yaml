@@ -5,3 +5,5 @@ bricks:
     path: very_good_wear_app
   very_good_dart_cli:
     path: very_good_dart_cli
+  very_good_dart_package:
+    path: very_good_dart_package

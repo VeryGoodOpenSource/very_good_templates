@@ -1,0 +1,24 @@
+name: very_good_dart_package
+description: A Very Good Dart package created by Very Good Ventures.
+repository: https://github.com/VeryGoodOpenSource/very_good_dart_package
+version: 0.4.1
+
+environment:
+  mason: ">=0.1.0-dev.50 <0.1.0"
+
+vars:
+  project_name:
+    type: string
+    description: The package name
+    default: my_package
+    prompt: What is the project name?
+  description:
+    type: string
+    description: The package description
+    default: A very good dart package
+    prompt: What is the project description?
+  publishable:
+    type: boolean
+    description: Whether the generated package is intended to be published.
+    default: false
+    prompt: Will the package be published?

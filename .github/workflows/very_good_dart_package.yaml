@@ -1,0 +1,68 @@
+name: very_good_dart_package
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    paths:
+      - .github/workflows/very_good_dart_package.yaml
+      - "very_good_dart_package/**"
+    branches:
+      - main
+  pull_request:
+    paths:
+      - .github/workflows/very_good_dart_package.yaml
+      - "very_good_dart_package/**"
+    branches:
+      - main
+
+jobs:
+  brick:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        dart-version:
+          # The minimum Dart SDK version supported by the package,
+          # refer to https://docs.flutter.dev/development/tools/sdk/releases.
+          - "3.1.0"
+          - "stable"
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v4
+
+      - name: 🎯 Setup Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.dart-version }}
+
+      - name: 🧱 Mason Make
+        run: |
+          dart pub global activate mason_cli
+          mason get
+          mason make very_good_dart_package -c very_good_dart_package/config.json -o output --on-conflict overwrite
+
+      - name: 📦 Install Dependencies
+        run: dart pub get --directory output/test_package
+
+      - name: ✨ Check Formatting
+        run: dart format --set-exit-if-changed output/test_package
+
+      - name: 🕵️ Analyze
+        run: dart analyze --fatal-infos --fatal-warnings output/test_package
+
+      - name: 🧪 Run Tests
+        run: |
+          dart pub global activate coverage 1.2.0
+          cd output/test_package
+          dart test -j 4 --coverage=coverage
+          dart pub global run coverage:format_coverage --lcov --check-ignore --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on="lib"
+          cd ../../
+
+      - name: 📊 Check Code Coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v2
+        with:
+          path: output/test_package/coverage/lcov.info
