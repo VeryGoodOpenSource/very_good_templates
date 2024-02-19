@@ -4,12 +4,12 @@ version: 0.0.1
 {{^publishable}}publish_to: none{{/publishable}}
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
-  args: ^2.4.1
-  cli_completion: ^0.3.0
-  mason_logger: ^0.2.5
+  args: ^2.4.2
+  cli_completion: ^0.5.0
+  mason_logger: ^0.2.12
   pub_updater: ^0.4.0
 
 dev_dependencies:
