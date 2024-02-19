@@ -22,7 +22,7 @@ jobs:
   brick:
     defaults:
       run:
-        working-directory: brick
+        working-directory: very_good_flame_game/
 
     runs-on: ubuntu-latest
 
