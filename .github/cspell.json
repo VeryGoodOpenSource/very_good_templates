@@ -19,6 +19,5 @@
       "addWords": true
     }
   ],
-  "useGitignore": true,
-  "words": ["Contador", "localizable", "mostrado", "página", "Texto"]
+  "useGitignore": true
 }
