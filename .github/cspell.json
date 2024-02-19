@@ -1,6 +1,8 @@
 {
   "version": "0.2",
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "enabled": true,
+  "language": "en",
   "dictionaries": ["vgv_allowed", "vgv_forbidden", "dart_dictionary"],
   "dictionaryDefinitions": [
     {
