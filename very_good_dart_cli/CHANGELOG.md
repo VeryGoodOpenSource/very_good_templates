@@ -18,7 +18,7 @@
 # 0.3.2
 
 - feat: update workflows, add spellcheck
-- fix: remove unused pub updater from test 
+- fix: remove unused pub updater from test
 
 # 0.3.1
 
@@ -34,7 +34,7 @@
 
 # 0.2.2
 
-- fix: update silently fails when the sdk doesnt support most recent version
+- fix: update silently fails when the sdk doesn't support most recent version
 
 # 0.2.1
 
