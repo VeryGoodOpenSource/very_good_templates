@@ -1,0 +1,72 @@
+name: very_good_flame_game
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    paths:
+      - .github/workflows/very_good_flame_game.yaml
+      - "very_good_flame_game/**"
+    branches:
+      - main
+  pull_request:
+    paths:
+      - .github/workflows/very_good_flame_game.yaml
+      - "very_good_flame_game/**"
+    branches:
+      - main
+
+jobs:
+  brick:
+    defaults:
+      run:
+        working-directory: very_good_flame_game/
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        flutter-version:
+          # The version of Flutter to use should use the minimum Dart SDK version supported by the package,
+          # refer to https://docs.flutter.dev/development/tools/sdk/releases.
+          - "3.16.0"
+          - "3.x"
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v4
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ matrix.flutter-version }}
+
+      - name: 🧱 Mason Make
+        run: |
+          dart pub global activate mason_cli
+          mason get
+          mason make very_good_flame_game -c config.json -o output --on-conflict overwrite
+
+      - name: 📦 Install Dependencies
+        run: |
+          dart pub global activate very_good_cli
+          very_good packages get --recursive output/unicorn_game
+
+      - name: ✨ Check Formatting
+        run: dart format --set-exit-if-changed output/unicorn_game
+
+      - name: 🕵️ Analyze
+        run: dart analyze --fatal-infos --fatal-warnings output/unicorn_game
+
+      - name: 🧪 Run Tests
+        run: |
+          cd output/unicorn_game
+          very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
+
+      - name: 📊 Check Code Coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v2
+        with:
+          exclude: "**/*.gen.dart"
+          path: very_good_flame_game/output/unicorn_game/coverage/lcov.info

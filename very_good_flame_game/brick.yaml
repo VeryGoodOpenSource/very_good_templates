@@ -1,0 +1,24 @@
+name: very_good_flame_game
+description: A Very Good Flame Game created by Very Good Ventures.
+repository: https://github.com/VeryGoodOpenSource/very_good_flame_game
+version: 0.5.1
+
+environment:
+  mason: ">=0.1.0-dev.50 <0.1.0"
+
+vars:
+  project_name:
+    type: string
+    description: The project name
+    default: my_game
+    prompt: What is the project name?
+  org_name:
+    type: string
+    description: The organization name
+    default: com.example
+    prompt: What is the organization name?
+  description:
+    type: string
+    description: A short project description
+    default: A Very Good Flame Game
+    prompt: What is the project description?
