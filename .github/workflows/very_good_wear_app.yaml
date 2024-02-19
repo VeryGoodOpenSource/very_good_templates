@@ -67,6 +67,8 @@ jobs:
           path: output/test_app/coverage/lcov.info
 
   e2e:
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
         flutter-version:
@@ -75,7 +77,25 @@ jobs:
           - "3.13.0"
           - "any"
 
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
-    with:
-      flutter_version: ${{ matrix.flutter-version }}
-      working_directory: "very_good_wear_app/e2e"
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v4
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ matrix.flutter-version }}
+
+      - name: 📦 Install Dependencies
+        run: |
+          flutter pub global activate very_good_cli
+          very_good packages get --recursive
+
+      - name: ✨ Check Formatting
+        run: dart format --line-length 80 --set-exit-if-changed lib test
+
+      - name: 🕵️ Analyze
+        run: flutter analyze lib test
+
+      - name: 🧪 Run Tests
+        run: very_good test -j 4 --optimization --test-randomize-ordering-seed random
