@@ -1,0 +1,4 @@
+# Actual english words (or common abbreviations) missing from CSpell:
+CLI # Abbreviation for Command Line Interface.
+CLIs # Plural of the abbreviation for Command Line Interface.
+dependabot # Automated dependency updates built into GitHub.

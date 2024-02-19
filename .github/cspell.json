@@ -3,7 +3,12 @@
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "enabled": true,
   "language": "en",
-  "dictionaries": ["vgv_allowed", "vgv_forbidden", "dart_dictionary"],
+  "dictionaries": [
+    "vgv_allowed",
+    "vgv_forbidden",
+    "dart_dictionary",
+    "words_dictionary"
+  ],
   "dictionaryDefinitions": [
     {
       "name": "vgv_allowed",
@@ -18,6 +23,11 @@
     {
       "name": "dart_dictionary",
       "path": "./.cspell/dart_dictionary.txt",
+      "addWords": true
+    },
+    {
+      "name": "words_dictionary",
+      "path": "./.cspell/words_dictionary.txt",
       "addWords": true
     }
   ],

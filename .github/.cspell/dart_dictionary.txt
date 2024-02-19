@@ -1,7 +1,9 @@
 # Keywords or terms specific to the Dart/Flutter ecosystem:
 audioplayers # A Flutter plugin to play multiple simultaneously audio files.
 cupertino # Flutter module containing iOS-style widgets.
+endtemplate # Dart doc macro used to end a reusable piece of documentation.
 LTWH # From Flutter, abbreviation left, top, width and height.
 mockingjay # A Flutter package for mocking navigation.
 mocktail # A Dart mock package.
+pubspec # File name where all the package metadata goes in.
 unawaited # A Dart function to explicitly ignore a future.
