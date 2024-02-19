@@ -18,6 +18,7 @@ recase # Casing once again.
 roadmap # A plan or strategy intended to achieve a particular goal.
 routable # Capable of being routed.
 theming # Give a particular theme or setting.
+unicorn # A mythical animal.
 unmutes # To allow to produce sound again.
 verygood # Very Good, but without a space.
 xcode # Apple's integrated development environment.
