@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:mason_logger/mason_logger.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pub_updater/pub_updater.dart';
+import 'package:test/test.dart';
 import 'package:{{project_name.snakeCase()}}/src/command_runner.dart';
 import 'package:{{project_name.snakeCase()}}/src/commands/commands.dart';
 import 'package:{{project_name.snakeCase()}}/src/version.dart';
-import 'package:pub_updater/pub_updater.dart';
-import 'package:test/test.dart';
 
 class _MockLogger extends Mock implements Logger {}
 

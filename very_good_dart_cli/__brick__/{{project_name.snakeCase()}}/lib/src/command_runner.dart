@@ -2,9 +2,9 @@ import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:cli_completion/cli_completion.dart';
 import 'package:mason_logger/mason_logger.dart';
+import 'package:pub_updater/pub_updater.dart';
 import 'package:{{project_name.snakeCase()}}/src/commands/commands.dart';
 import 'package:{{project_name.snakeCase()}}/src/version.dart';
-import 'package:pub_updater/pub_updater.dart';
 
 const executableName = '{{executable_name.snakeCase()}}';
 const packageName = '{{project_name.snakeCase()}}';
