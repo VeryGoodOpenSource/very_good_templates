@@ -7,6 +7,7 @@
     "vgv_allowed",
     "vgv_forbidden",
     "dart_dictionary",
+    "dev_dictionary",
     "words_dictionary"
   ],
   "dictionaryDefinitions": [
@@ -23,6 +24,11 @@
     {
       "name": "dart_dictionary",
       "path": "./.cspell/dart_dictionary.txt",
+      "addWords": true
+    },
+    {
+      "name": "dev_dictionary",
+      "path": "./.cspell/dev_dictionary.txt",
       "addWords": true
     },
     {
