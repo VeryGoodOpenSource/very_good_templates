@@ -69,6 +69,10 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: very_good_wear_app/e2e
+
     strategy:
       matrix:
         flutter-version:
