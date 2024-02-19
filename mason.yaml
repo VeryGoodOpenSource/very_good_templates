@@ -1,3 +1,5 @@
 bricks:
   very_good_core:
     path: very_good_core
+  very_good_wear_app:
+    path: very_good_wear_app

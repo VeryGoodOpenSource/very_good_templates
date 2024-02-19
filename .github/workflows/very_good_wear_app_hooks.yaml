@@ -1,0 +1,21 @@
+name: very_good_wear_app_hooks
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/very_good_wear_app_hooks.yaml"
+      - "very_good_wear_app/hooks/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/very_good_wear_app_hooks.yaml"
+      - "very_good_wear_app/hooks/**"
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    with:
+      working_directory: "very_good_wear_app/hooks"
+      analyze_directories: "test"
+      report_on: "pre_gen.dart"
