@@ -1,0 +1,12 @@
+# Other phrases that are not words but are getting flagged. Typically contained in localization files or URLs:
+aplicación # "Application" in Spanish.
+botón # "Button" in Spanish.
+buen # "Good" in Spanish.
+contador # "Counter" in Spanish.
+empieza # "Begin" in Spanish.
+inicial # "Initial" in Spanish.
+inicio # "Start" in Spanish.
+juego # "Game" in Spanish.
+mostrado # "Shown" in Spanish.
+página # "Page" in Spanish.
+texto # "Text" in Spanish.

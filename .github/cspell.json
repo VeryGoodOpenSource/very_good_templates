@@ -1,7 +1,16 @@
 {
   "version": "0.2",
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-  "dictionaries": ["vgv_allowed", "vgv_forbidden"],
+  "enabled": true,
+  "language": "en",
+  "dictionaries": [
+    "vgv_allowed",
+    "vgv_forbidden",
+    "dart_dictionary",
+    "dev_dictionary",
+    "people_usernames",
+    "words_dictionary"
+  ],
   "dictionaryDefinitions": [
     {
       "name": "vgv_allowed",
@@ -12,14 +21,31 @@
       "name": "vgv_forbidden",
       "path": "https://raw.githubusercontent.com/verygoodopensource/very_good_dictionaries/main/forbidden.txt",
       "description": "Forbidden VGV Spellings"
+    },
+    {
+      "name": "dart_dictionary",
+      "path": "./.cspell/dart_dictionary.txt",
+      "addWords": true
+    },
+    {
+      "name": "dev_dictionary",
+      "path": "./.cspell/dev_dictionary.txt",
+      "addWords": true
+    },
+    {
+      "name": "people_usernames",
+      "path": "./.cspell/people_usernames.txt",
+      "addWords": true
+    },
+    {
+      "name": "words_dictionary",
+      "path": "./.cspell/words_dictionary.txt",
+      "addWords": true
     }
   ],
   "useGitignore": true,
-  "words": [
-    "Contador",
-    "localizable",
-    "mostrado",
-    "página",
-    "Texto"
+  "ignorePaths": [
+    "very_good_docs_site/__brick__/*/docs/overview.md",
+    "very_good_docs_site/__brick__/*/src/pages/index.tsx"
   ]
 }

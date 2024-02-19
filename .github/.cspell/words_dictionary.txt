@@ -1,0 +1,27 @@
+# Actual english words (or common abbreviations) missing from CSpell:
+CLI # Abbreviation for Command Line Interface.
+CLIs # Plural of the abbreviation for Command Line Interface.
+CLI's # Belonging to a CLI.
+dependabot # Automated dependency updates built into GitHub.
+docusaurs # An optimized site generator in React.
+genhtml # Tool to generate an HTML view from LCOV coverage data files.
+gradlew # Wrapper tool that uses Gradle.
+lcov # Graphical tool for displaying coverage reports.
+localizable # Capable of being localized.
+negatable # Capable of being negated.
+nojekyll # File to bypass Jekyll processing on GitHub.
+pngs # Abbreviation for an image format named Portable Network Graphics.
+preload # Put information onto a system before it is used.
+prettierignore # Ignore file name for Prettier.
+prettierrc # Configuration file name for Prettier.
+recase # Casing once again.
+roadmap # A plan or strategy intended to achieve a particular goal.
+routable # Capable of being routed.
+theming # Give a particular theme or setting.
+unicorn # A mythical animal.
+nicorn # "unicorn", but without the "u".
+unmutes # To allow to produce sound again.
+verygood # Very Good, but without a space.
+xcode # Apple's integrated development environment.
+xcworkspace # Abbreviation for Xcode workspace.
+xcassets # Abbreviation for Xcode assets.
