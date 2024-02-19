@@ -22,7 +22,7 @@ jobs:
   brick:
     defaults:
       run:
-        working-directory: very_good_core/brick
+        working-directory: very_good_core/
 
     runs-on: ubuntu-latest
 
