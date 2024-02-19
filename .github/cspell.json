@@ -8,6 +8,7 @@
     "vgv_forbidden",
     "dart_dictionary",
     "dev_dictionary",
+    "people_usernames",
     "words_dictionary"
   ],
   "dictionaryDefinitions": [
@@ -29,6 +30,11 @@
     {
       "name": "dev_dictionary",
       "path": "./.cspell/dev_dictionary.txt",
+      "addWords": true
+    },
+    {
+      "name": "people_usernames",
+      "path": "./.cspell/people_usernames.txt",
       "addWords": true
     },
     {
