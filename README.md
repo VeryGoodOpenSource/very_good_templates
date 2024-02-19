@@ -5,7 +5,7 @@
 
 Developed with 💙 by [Very Good Ventures][very_good_ventures_link] 🦄
 
-Collection of open-source templates created and maintained by Very Good Ventures.
+Collection of open-source templates created and maintained by the [Very Good Ventures Team][very_good_ventures_link].
 
 ---
 
