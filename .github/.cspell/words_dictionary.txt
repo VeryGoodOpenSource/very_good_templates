@@ -2,3 +2,5 @@
 CLI # Abbreviation for Command Line Interface.
 CLIs # Plural of the abbreviation for Command Line Interface.
 dependabot # Automated dependency updates built into GitHub.
+genhtml # Tool to generate an HTML view from LCOV coverage data files.
+lcov # Graphical tool for displaying coverage reports.
