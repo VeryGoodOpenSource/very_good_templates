@@ -1,6 +1,13 @@
+# Very Good Templates
+
+[![Very Good Ventures][logo_white]][very_good_ventures_link_dark]
+[![Very Good Ventures][logo_black]][very_good_ventures_link_light]
+
+Developed with 💙 by [Very Good Ventures][very_good_ventures_link] 🦄
+
 Collection of open-source templates created and maintained by Very Good Ventures.
 
-# Very Good Templates
+---
 
 | Template                                                         | Description                     | Documentation                                        | Build                                                                                         |
 | ---------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -11,6 +18,19 @@ Collection of open-source templates created and maintained by Very Good Ventures
 | [very_good_flame_game][very_good_flame_game_code_link]           | A Very Good Flame game.         | [Documentation][very_good_flame_game_docs_link]      | [![build][very_good_flame_game_workflow_badge]][very_good_flame_game_workflow_link]           |
 | [very_good_flutter_package][very_good_flutter_package_code_link] | A Very Good Flutter package.    | [Documentation][very_good_flutter_package_docs_link] | [![build][very_good_flutter_package_workflow_badge]][very_good_flutter_package_workflow_link] |
 | [very_good_wear_app][very_good_wear_app_code_link]               | A Very Good WearOS Flutter app. | [Documentation][very_good_wear_app_docs_link]        | [![build][very_good_wear_app_workflow_badge]][very_good_wear_app_workflow_link]               |
+
+<!-- Very Good Ventures -->
+
+[logo_black]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_black.png#gh-light-mode-only
+[logo_white]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_white.png#gh-dark-mode-only
+[very_good_ventures_link]: https://verygood.ventures
+[very_good_ventures_link_dark]: https://verygood.ventures#gh-dark-mode-only
+[very_good_ventures_link_light]: https://verygood.ventures#gh-light-mode-only
+
+<!-- License -->
+
+[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[license_link]: https://opensource.org/licenses/MIT
 
 <!-- Very Good Core -->
 
