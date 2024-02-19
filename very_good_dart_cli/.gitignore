@@ -1,0 +1,15 @@
+# Files and directories created by pub
+.dart_tool/
+.packages
+pubspec.lock
+
+# Android studio and IntelliJ
+.idea
+
+# Files and directories created by mason
+.mason/
+mason-lock.json
+output/
+
+# Files and directories created by MacOS
+.DS_Store
