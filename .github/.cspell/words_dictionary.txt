@@ -5,10 +5,13 @@ dependabot # Automated dependency updates built into GitHub.
 genhtml # Tool to generate an HTML view from LCOV coverage data files.
 gradlew # Wrapper tool that uses Gradle.
 lcov # Graphical tool for displaying coverage reports.
+localizable # Capable of being localized.
 negatable # Capable of being negated.
 pngs # Abbreviation for an image format named Portable Network Graphics.
 preload # Put information onto a system before it is used.
-unmute # To allow to produce sound again.
+recase # Casing once again.
+theming # Give a particular theme or setting.
+unmutes # To allow to produce sound again.
 xcode # Apple's integrated development environment.
 xcworkspace # Abbreviation for Xcode workspace.
 xcassets # Abbreviation for Xcode assets.
