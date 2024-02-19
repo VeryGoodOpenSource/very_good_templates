@@ -13,8 +13,6 @@ class _MockLogger extends Mock implements Logger {}
 
 class _MockProgress extends Mock implements Progress {}
 
-class _MockProcessResult extends Mock implements ProcessResult {}
-
 void main() {
   group('post_gen', () {
     late HookContext context;
@@ -36,7 +34,7 @@ void main() {
       progress = _MockProgress();
       when(() => logger.progress(any())).thenReturn(progress);
 
-      processResult = _MockProcessResult();
+      processResult = ProcessResult(0, ExitCode.success.code, null, null);
       invocations = [];
     });
 
@@ -85,10 +83,8 @@ void main() {
         switch (arguments.first) {
           case 'pub':
             await pubGetCompleter.future;
-            break;
           case 'fix':
             await fixCompleter.future;
-            break;
         }
         return processResult;
       };
