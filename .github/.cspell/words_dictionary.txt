@@ -10,6 +10,7 @@ negatable # Capable of being negated.
 pngs # Abbreviation for an image format named Portable Network Graphics.
 preload # Put information onto a system before it is used.
 recase # Casing once again.
+roadmap # A plan or strategy intended to achieve a particular goal.
 theming # Give a particular theme or setting.
 unmutes # To allow to produce sound again.
 xcode # Apple's integrated development environment.
