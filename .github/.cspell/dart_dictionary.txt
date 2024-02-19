@@ -1,4 +1,4 @@
-# Keywords or terms specific to the Dart/Flutter ecosystem:
+# Keywords or terms specific to the Dart or Flutter ecosystem:
 audioplayers # A Flutter plugin to play multiple simultaneously audio files.
 cupertino # Flutter module containing iOS-style widgets.
 endtemplate # Dart doc macro used to end a reusable piece of documentation.
