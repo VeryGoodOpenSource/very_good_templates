@@ -27,8 +27,8 @@ jobs:
         dart-version:
           # The minimum Dart SDK version supported by the package,
           # refer to https://docs.flutter.dev/development/tools/sdk/releases.
-          - "3.1.0"
-          - "stable"
+          - "3.3.0"
+          - "3.x"
 
     steps:
       - name: 📚 Git Checkout
