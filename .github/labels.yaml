@@ -1,0 +1,27 @@
+- name: very_good_core
+  color: "31E6FF"
+  description: Changes that affect the Very Good Core template.
+
+- name: very_good_dart_cli
+  color: "03505A"
+  description: Changes that affect the Very Good Dart CLI template.
+
+- name: very_good_dart_package
+  color: "008799"
+  description: Changes that affect the Very Good Dart Package template.
+
+- name: very_good_docs_site
+  color: "004699"
+  description: Changes that affect the Very Good Docs Site template.
+
+- name: very_good_flame_game
+  color: "990900"
+  description: Changes that affect the Very Good Flame Game template.
+
+- name: very_good_flutter_package
+  color: "00C9C9"
+  description: Changes that affect the Very Good Flutter Package template.
+
+- name: very_good_wear_app
+  color: "1B03AD"
+  description: Changes that affect the Very Good Wear App template.
