@@ -4,8 +4,8 @@ version: 0.1.0+1
 {{^publishable}}publish_to: none{{/publishable}}
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.10.0"
+  sdk: "^3.3.0"
+  flutter: "^3.19.0"
 
 dependencies:
   flutter:
@@ -14,5 +14,5 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mocktail: ^1.0.0
+  mocktail: ^1.0.3
   very_good_analysis: ^5.1.0

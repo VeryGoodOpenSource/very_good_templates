@@ -4,7 +4,7 @@ version: 0.0.1
 {{^publishable}}publish_to: none{{/publishable}}
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
+  sdk: "^3.3.0"
 
 dependencies:
   args: ^2.4.2
@@ -13,11 +13,11 @@ dependencies:
   pub_updater: ^0.4.0
 
 dev_dependencies:
-  build_runner: ^2.4.4
+  build_runner: ^2.4.8
   build_verify: ^3.1.0
   build_version: ^2.1.1
-  mocktail: ^1.0.0
-  test: ^1.24.6
+  mocktail: ^1.0.3
+  test: ^1.25.2
   very_good_analysis: ^5.1.0
 
 executables:
