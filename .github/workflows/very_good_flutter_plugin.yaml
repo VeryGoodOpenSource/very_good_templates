@@ -28,7 +28,7 @@ jobs:
           # The version of Flutter to use should use the minimum Dart SDK version supported by the package,
           # refer to https://docs.flutter.dev/development/tools/sdk/releases.
           - "3.13.0"
-          - "any"
+          - "3.x"
         platform:
           - android
           - ios
@@ -50,6 +50,9 @@ jobs:
         run: |
           dart pub global activate mason_cli
           dart pub global activate very_good_cli
+          rm -rf mason.yaml
+          mason init
+          mason add very_good_flutter_plugin --path very_good_flutter_plugin
           mason get
           mason make very_good_flutter_plugin -c very_good_flutter_plugin/config.json -o output --on-conflict overwrite --platforms ${{ matrix.platform }}
 
