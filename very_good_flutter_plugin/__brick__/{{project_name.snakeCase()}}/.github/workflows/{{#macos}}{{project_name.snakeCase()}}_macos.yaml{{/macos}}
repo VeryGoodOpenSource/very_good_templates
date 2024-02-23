@@ -1,0 +1,29 @@
+name: {{project_name.snakeCase()}}_macos
+
+concurrency:
+  group: ${{#mustacheCase}}github.workflow{{/mustacheCase}}-${{#mustacheCase}}github.ref{{/mustacheCase}}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/{{project_name.snakeCase()}}_macos.yaml"
+      - "{{project_name.snakeCase()}}_macos/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/{{project_name.snakeCase()}}_macos.yaml"
+      - "{{project_name.snakeCase()}}_macos/**"
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      flutter_channel: stable
+      flutter_version: 3.13.2
+      working_directory: {{project_name.snakeCase()}}_macos
+{{#publishable}}
+  pana:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/pana.yml@v1
+{{/publishable}}

@@ -1,0 +1,28 @@
+name: {{project_name.snakeCase()}}_web
+description: Web implementation of the {{project_name.snakeCase()}} plugin
+version: 0.1.0+1
+{{^publishable}}publish_to: none{{/publishable}}
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+flutter:
+  plugin:
+    implements: {{project_name.snakeCase()}}
+    platforms:
+      web:
+        pluginClass: {{project_name.pascalCase()}}Web
+        fileName: {{project_name.snakeCase()}}_web.dart
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  {{project_name.snakeCase()}}_platform_interface:
+    path: ../{{project_name.snakeCase()}}_platform_interface
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^5.1.0

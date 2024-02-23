@@ -1,0 +1,21 @@
+name: {{project_name.snakeCase()}}
+description: {{{description}}}
+version: 0.1.0+1
+{{^publishable}}publish_to: none{{/publishable}}
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+{{> plugin_platforms.dart }}
+
+dependencies:
+  flutter:
+    sdk: flutter
+{{> plugin_dependencies.dart }}
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.0
+  plugin_platform_interface: ^2.1.6
+  very_good_analysis: ^5.1.0
