@@ -1,0 +1,88 @@
+name: very_good_flutter_plugin
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    paths:
+      - .github/workflows/very_good_flutter_plugin.yaml
+      - "very_good_flutter_plugin/**"
+    branches:
+      - main
+  pull_request:
+    paths:
+      - .github/workflows/very_good_flutter_plugin.yaml
+      - "very_good_flutter_plugin/**"
+    branches:
+      - main
+
+jobs:
+  brick:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        flutter-version:
+          # The version of Flutter to use should use the minimum Dart SDK version supported by the package,
+          # refer to https://docs.flutter.dev/development/tools/sdk/releases.
+          - "3.13.0"
+          - "3.x"
+        platform:
+          - android
+          - ios
+          - linux
+          - macos
+          - web
+          - windows
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v4
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ matrix.flutter-version }}
+
+      - name: 🧱 Mason Make
+        run: |
+          dart pub global activate mason_cli
+          dart pub global activate very_good_cli
+          rm -rf mason.yaml
+          mason init
+          mason add very_good_flutter_plugin --path very_good_flutter_plugin
+          mason get
+          mason make very_good_flutter_plugin -c very_good_flutter_plugin/config.json -o output --on-conflict overwrite --platforms ${{ matrix.platform }}
+
+      - name: 📦 Install Dependencies
+        run: very_good packages get --recursive output
+
+      - name: ✨ Check Formatting
+        if: false
+        run: dart format --set-exit-if-changed output
+
+      - name: 🕵️ Analyze
+        if: false
+        run: dart analyze --fatal-infos --fatal-warnings output
+
+      - name: 🧪 Run Tests
+        run: |
+          cd output
+          very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
+
+      - name: 📑 Combine Code Coverage
+        run: |
+          sudo apt-get -y install lcov
+          very_good packages get --recursive very_good_flutter_plugin/tool/merge_coverage
+          cd output
+          dart run ../very_good_flutter_plugin/tool/merge_coverage/merge_coverage.dart
+
+      - name: 📊 Check Code Coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v2
+        with:
+          path: output/coverage/lcov.info
+          # TODO(alestiago): Remove once the following is solved:
+          # https://github.com/VeryGoodOpenSource/very_good_flutter_plugin/issues/158
+          min_coverage: 86

@@ -1,0 +1,43 @@
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/{{project_name.snakeCase()}}"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/{{project_name.snakeCase()}}/example"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/{{project_name.snakeCase()}}_platform_interface"
+    schedule:
+      interval: "daily"{{#android}}
+  - package-ecosystem: "pub"
+    directory: "/{{project_name.snakeCase()}}_android"
+    schedule:
+      interval: "daily"{{/android}}{{#ios}}
+  - package-ecosystem: "pub"
+    directory: "/{{project_name.snakeCase()}}_ios"
+    schedule:
+      interval: "daily"{{/ios}}{{#linux}}
+  - package-ecosystem: "pub"
+    directory: "/{{project_name.snakeCase()}}_linux"
+    schedule:
+      interval: "daily"{{/linux}}{{#macos}}
+  - package-ecosystem: "pub"
+    directory: "/{{project_name.snakeCase()}}_macos"
+    schedule:
+      interval: "daily"{{/macos}}{{#web}}
+  - package-ecosystem: "pub"
+    directory: "/{{project_name.snakeCase()}}_web"
+    schedule:
+      interval: "daily"{{/web}}{{#windows}}
+  - package-ecosystem: "pub"
+    directory: "/{{project_name.snakeCase()}}_windows"
+    schedule:
+      interval: "daily"{{/windows}}

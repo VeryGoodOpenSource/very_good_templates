@@ -1,0 +1,26 @@
+name: {{project_name.snakeCase()}}_macos
+description: MacOS implementation of the {{project_name.snakeCase()}} plugin
+version: 0.1.0+1
+{{^publishable}}publish_to: none{{/publishable}}
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+flutter:
+  plugin:
+    implements: {{project_name.snakeCase()}}
+    platforms:
+      macos:
+        pluginClass: {{project_name.pascalCase()}}Plugin
+        dartPluginClass: {{project_name.pascalCase()}}MacOS
+
+dependencies:
+  flutter:
+    sdk: flutter
+  {{project_name.snakeCase()}}_platform_interface:
+    path: ../{{project_name.snakeCase()}}_platform_interface
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^5.1.0

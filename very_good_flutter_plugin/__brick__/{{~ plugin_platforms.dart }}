@@ -1,0 +1,15 @@
+flutter:
+  plugin:
+    platforms:{{#android}}
+      android:
+        default_package: {{project_name.snakeCase()}}_android{{/android}}{{#ios}}
+      ios:
+        default_package: {{project_name.snakeCase()}}_ios{{/ios}}{{#linux}}
+      linux:
+        default_package: {{project_name.snakeCase()}}_linux{{/linux}}{{#macos}}
+      macos:
+        default_package: {{project_name.snakeCase()}}_macos{{/macos}}{{#web}}
+      web:
+        default_package: {{project_name.snakeCase()}}_web{{/web}}{{#windows}}
+      windows:
+        default_package: {{project_name.snakeCase()}}_windows{{/windows}}

@@ -1,0 +1,26 @@
+name: {{project_name.snakeCase()}}_windows
+description: Windows implementation of the {{project_name.snakeCase()}} plugin
+version: 0.1.0+1
+{{^publishable}}publish_to: none{{/publishable}}
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+flutter:
+  plugin:
+    implements: {{project_name.snakeCase()}}
+    platforms:
+      windows:
+        pluginClass: {{project_name.pascalCase()}}Windows
+        dartPluginClass: {{project_name.pascalCase()}}Windows
+
+dependencies:
+  flutter:
+    sdk: flutter
+  {{project_name.snakeCase()}}_platform_interface:
+    path: ../{{project_name.snakeCase()}}_platform_interface
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^5.1.0
