@@ -1,31 +1,39 @@
-- name: very_good_core
+- name: "product: very_good_core"
   color: "31E6FF"
   description: Changes that affect the Very Good Core template.
+  aliases: [very_good_core]
 
-- name: very_good_dart_cli
+- name: "product: very_good_dart_cli"
   color: "03505A"
   description: Changes that affect the Very Good Dart CLI template.
+  aliases: [very_good_dart_cli]
 
-- name: very_good_dart_package
+- name: "product: very_good_dart_package"
   color: "008799"
   description: Changes that affect the Very Good Dart Package template.
+  aliases: [very_good_dart_package]
 
-- name: very_good_docs_site
+- name: "product: very_good_docs_site"
   color: "004699"
   description: Changes that affect the Very Good Docs Site template.
+  aliases: [very_good_docs_site]
 
-- name: very_good_flame_game
+- name: "product: very_good_flame_game"
   color: "990900"
   description: Changes that affect the Very Good Flame Game template.
+  aliases: [very_good_flame_game]
 
-- name: very_good_flutter_package
+- name: "product: very_good_flutter_package"
   color: "00C9C9"
   description: Changes that affect the Very Good Flutter Package template.
+  aliases: [very_good_flutter_package]
 
-- name: very_good_flutter_plugin
+- name: "product: very_good_flutter_plugin"
   color: "553DEC"
   description: Changes that affect the Very Good Flutter Plugin template.
+  aliases: [very_good_flutter_plugin]
 
-- name: very_good_wear_app
+- name: "product: very_good_wear_app"
   color: "1B03AD"
   description: Changes that affect the Very Good Wear App template.
+  aliases: [very_good_wear_app]
