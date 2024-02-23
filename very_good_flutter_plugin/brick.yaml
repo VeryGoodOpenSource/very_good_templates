@@ -1,0 +1,53 @@
+name: very_good_flutter_plugin
+description: A Very Good federated Flutter plugin created by Very Good Ventures.
+repository: https://github.com/VeryGoodOpenSource/very_good_flutter_plugin
+version: 0.6.0
+
+environment:
+  mason: ">=0.1.0-dev.50 <0.1.0"
+
+vars:
+  project_name:
+    type: string
+    description: The name of the flutter plugin
+    default: my_plugin
+    prompt: What is the name of the plugin?
+  description:
+    type: string
+    description: A short description of the plugin
+    default: A very good flutter plugin
+    prompt: Please enter the plugin description.
+  org_name:
+    type: string
+    description: The organization name
+    default: com.example.verygood.plugin
+    prompt: What is the organization name?
+  platforms:
+    type: array
+    description: The list of supported platforms
+    prompt: Which platforms would you like to support?
+    defaults:
+      - android
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    values:
+      - android
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+  publishable:
+    type: boolean
+    description: Whether the generated package is intended to be published.
+    default: false
+    prompt: Will the package be published?
+  dart_fix_output:
+    type: boolean
+    description: >-
+      Whether or not the generated Dart output files should be fixed and formatted.
+    default: false
+    prompt: Should the generated output fix and format Dart files?

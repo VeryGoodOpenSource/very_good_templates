@@ -1,0 +1,29 @@
+name: {{project_name.snakeCase()}}_web
+
+concurrency:
+  group: ${{#mustacheCase}}github.workflow{{/mustacheCase}}-${{#mustacheCase}}github.ref{{/mustacheCase}}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/{{project_name.snakeCase()}}_web.yaml"
+      - "{{project_name.snakeCase()}}_web/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/{{project_name.snakeCase()}}_web.yaml"
+      - "{{project_name.snakeCase()}}_web/**"
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      flutter_channel: stable
+      flutter_version: 3.13.2
+      working_directory: {{project_name.snakeCase()}}_web
+{{#publishable}}
+  pana:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/pana.yml@v1
+{{/publishable}}

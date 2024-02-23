@@ -2,8 +2,11 @@
 audioplayers # A Flutter plugin to play multiple simultaneously audio files.
 cupertino # Flutter module containing iOS-style widgets.
 endtemplate # Dart doc macro used to end a reusable piece of documentation.
+fluttium # User flow testing tool for Flutter.
 LTWH # From Flutter, abbreviation left, top, width and height.
+macos # MacOs, apple's operating system for Mac.
 mockingjay # A Flutter package for mocking navigation.
 mocktail # A Dart mock package.
 pubspec # File name where all the package metadata goes in.
+tracefile # File that records the steps of map execution.
 unawaited # A Dart function to explicitly ignore a future.
