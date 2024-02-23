@@ -17,10 +17,6 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
-    directory: "/very_good_wear_app/e2e"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
     directory: "/very_good_flutter_plugin/hooks"
     schedule:
       interval: "daily"
