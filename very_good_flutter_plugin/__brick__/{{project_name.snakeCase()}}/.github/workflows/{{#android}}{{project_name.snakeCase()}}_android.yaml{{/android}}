@@ -21,7 +21,7 @@ jobs:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
     with:
       flutter_channel: stable
-      flutter_version: 3.13.2
+      flutter_version: {{{flutterVersion}}}
       working_directory: {{project_name.snakeCase()}}_android
 {{#publishable}}
   pana:

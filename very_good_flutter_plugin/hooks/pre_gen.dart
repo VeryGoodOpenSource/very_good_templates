@@ -28,6 +28,7 @@ void run(HookContext context) {
   context.logger.info(selectedPlatforms.toString());
 
   context.vars.addAll({
+    'flutterVersion': '3.13.2',
     'dartSdkVersionBounds': '>=3.0.0 <4.0.0',
     for (final platform in availablePlatforms)
       platform: selectedPlatforms.contains(platform),
