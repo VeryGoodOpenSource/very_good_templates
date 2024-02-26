@@ -1,3 +1,10 @@
+# 0.6.0
+
+- docs: fixed copy format and command ([#146](https://github.com/VeryGoodOpenSource/very_good_flame_game/pull/146))
+- fix: resolve image caching issue on flame_game template ([#143](https://github.com/VeryGoodOpenSource/very_good_flame_game/pull/143))
+- chore: migrate very_good_flame_game to very_good_templates ([#7](https://github.com/VeryGoodOpenSource/very_good_templates/pull/7))
+- feat(very_good_flame)!: update to Flutter 3.19.0 ([#20](https://github.com/VeryGoodOpenSource/very_good_templates/pull/20))
+
 # 0.5.1
 
 - fix: remove ephemeral and ignored files from template ([#141](https://github.com/VeryGoodOpenSource/very_good_flame_game/issues/141))
