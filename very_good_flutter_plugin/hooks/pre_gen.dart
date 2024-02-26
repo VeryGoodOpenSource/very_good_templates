@@ -1,4 +1,5 @@
 import 'package:mason/mason.dart';
+import 'package:very_good_flutter_plugin_hooks/version.dart';
 
 void run(HookContext context) {
   const availablePlatforms = [
@@ -28,8 +29,8 @@ void run(HookContext context) {
   context.logger.info(selectedPlatforms.toString());
 
   context.vars.addAll({
-    'flutterVersion': '3.13.2',
-    'dartSdkVersionBounds': '>=3.0.0 <4.0.0',
+    'flutterVersion': $flutterVersion,
+    'dartSdkVersionBounds': '^${$minDartVersion}',
     for (final platform in availablePlatforms)
       platform: selectedPlatforms.contains(platform),
   });
