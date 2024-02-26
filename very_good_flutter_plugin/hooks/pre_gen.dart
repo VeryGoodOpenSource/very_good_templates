@@ -27,8 +27,11 @@ void run(HookContext context) {
 
   context.logger.info(selectedPlatforms.toString());
 
-  for (final platform in availablePlatforms) {
-    context.vars[platform] = selectedPlatforms.contains(platform);
-  }
+  context.vars.addAll({
+    'dartSdkVersionBounds': '>=3.0.0 <4.0.0',
+    for (final platform in availablePlatforms)
+      platform: selectedPlatforms.contains(platform),
+  });
+
   context.logger.info(context.vars.toString());
 }
