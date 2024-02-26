@@ -1,9 +1,9 @@
-name: check_platform_name 
+name: check_platform_name
 description: A custom action for Fluttium.
 version: 0.1.0+1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: "{{{dartSdkVersionBounds}}}"
 
 dependencies:
   flutter:

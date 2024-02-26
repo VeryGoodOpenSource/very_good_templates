@@ -14,6 +14,15 @@ void main() {
       context = _MockHookContext();
     });
 
+    test('sets dartSdkVersionBounds', () {
+      final vars = <String, dynamic>{};
+      when(() => context.vars).thenReturn(vars);
+
+      pre_gen.run(context);
+
+      expect(vars['dartSdkVersionBounds'], '>=3.0.0 <4.0.0');
+    });
+
     group('android variable', () {
       const androidVariable = 'android';
 
