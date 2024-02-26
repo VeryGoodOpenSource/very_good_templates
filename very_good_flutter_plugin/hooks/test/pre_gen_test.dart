@@ -1,6 +1,7 @@
 import 'package:mason/mason.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
+import 'package:very_good_flutter_plugin_hooks/version.dart';
 
 import '../pre_gen.dart' as pre_gen;
 
@@ -14,13 +15,22 @@ void main() {
       context = _MockHookContext();
     });
 
+    test('sets flutterVersion', () {
+      final vars = <String, dynamic>{};
+      when(() => context.vars).thenReturn(vars);
+
+      pre_gen.run(context);
+
+      expect(vars['flutterVersion'], $flutterVersion);
+    });
+
     test('sets dartSdkVersionBounds', () {
       final vars = <String, dynamic>{};
       when(() => context.vars).thenReturn(vars);
 
       pre_gen.run(context);
 
-      expect(vars['dartSdkVersionBounds'], '>=3.0.0 <4.0.0');
+      expect(vars['dartSdkVersionBounds'], '^${$minDartVersion}');
     });
 
     group('android variable', () {
