@@ -1,3 +1,18 @@
+# 0.7.0
+
+- test: add pre generation tests ([#138](https://github.com/VeryGoodOpenSource/very_good_flutter_plugin/pull/138))
+- feat: allow optionally fixing template output ([#151](https://github.com/VeryGoodOpenSource/very_good_flutter_plugin/pull/151))
+- fix: add support for platform testing ([#155](https://github.com/VeryGoodOpenSource/very_good_flutter_plugin/pull/155))
+- feat: remove generator script ([#141](https://github.com/VeryGoodOpenSource/very_good_flutter_plugin/commit/78c1a6fb7619fa80d824e97065d00a87293bb7b5))
+- chore: update repository url ([#41](https://github.com/VeryGoodOpenSource/very_good_templates/pull/41))
+- refactor: template dartSdkVersionBounds ([#47](https://github.com/VeryGoodOpenSource/very_good_templates/pull/47))
+- refactor: template flutterVersion ([#48](https://github.com/VeryGoodOpenSource/very_good_templates/pull/48))
+- refactor: define versions in version.dart file ([#49](https://github.com/VeryGoodOpenSource/very_good_templates/pull/49))
+- feat!: bump version to 3.19.0 ([#50](https://github.com/VeryGoodOpenSource/very_good_templates/pull/50))
+- chore: tighten hook dependencies ([#51](https://github.com/VeryGoodOpenSource/very_good_templates/pull/51))
+- chore: update brick to Mason 0.1.0-dev.52 ([#52](https://github.com/VeryGoodOpenSource/very_good_templates/pull/52))
+- chore: tighten dependencies ([#53](https://github.com/VeryGoodOpenSource/very_good_templates/pull/53))
+
 # 0.6.0
 
 - fix: flaky integrated tests
