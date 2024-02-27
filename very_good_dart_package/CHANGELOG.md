@@ -1,3 +1,9 @@
+# 0.5.0
+
+- refactor: remove generator script ([#71](https://github.com/VeryGoodOpenSource/very_good_dart_package/pull/71))
+- feat!: update to Dart 3.3.0 ([#16](https://github.com/VeryGoodOpenSource/very_good_templates/pull/16))
+- chore: update bricks to Mason 0.1.0-dev.52 ([#28](https://github.com/VeryGoodOpenSource/very_good_templates/pull/28))
+
 # 0.4.1
 
 - feat: upgrade to very_good_analysis ^5.1.0
