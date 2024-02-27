@@ -1,4 +1,3 @@
-.DS_Store
 .atom/
 .idea/*
 .vscode/*
@@ -10,3 +9,6 @@ pubspec.lock
 
 # Conventional directory for build outputs
 build/
+
+# Files and directories created by MacOS
+.DS_Store
