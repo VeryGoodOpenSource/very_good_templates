@@ -1,3 +1,11 @@
+# 0.4.0
+
+- test: add tests for pre generation hook ([#41](https://github.com/VeryGoodOpenSource/very_good_wear_app/pull/41))
+- refactor: remove generator script ([#39](https://github.com/VeryGoodOpenSource/very_good_wear_app/pull/39))
+- chore: migrate very_good_wear_app ([#2](https://github.com/VeryGoodOpenSource/very_good_templates/pull/2))
+- feat!: update to Flutter 3.19.0 ([#27](https://github.com/VeryGoodOpenSource/very_good_templates/pull/27))
+- chore: update bricks to Mason 0.1.0-dev.52 ([#28](https://github.com/VeryGoodOpenSource/very_good_templates/pull/28))
+
 # 0.3.0
 
 - feat!: update to Flutter 3.13.2
