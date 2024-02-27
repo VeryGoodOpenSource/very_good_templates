@@ -1,3 +1,9 @@
+# 0.6.0
+
+- chore: migrate very_good_core ([#1](https://github.com/VeryGoodOpenSource/very_good_templates/pull/1))
+- feat!: update to Flutter 3.19.0 ([#24](https://github.com/VeryGoodOpenSource/very_good_templates/pull/24))
+- chore: update bricks to Mason 0.1.0-dev.52 ([#28](https://github.com/VeryGoodOpenSource/very_good_templates/pull/28))
+
 # 0.5.1
 
 - feat: minify icon pngs ([#317](https://github.com/VeryGoodOpenSource/very_good_core/pull/317))
