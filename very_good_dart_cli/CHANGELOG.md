@@ -1,3 +1,14 @@
+# 0.6.0
+
+- build(deps): bump pub_updater from 0.3.1 to 0.4.0 ([#116](https://github.com/VeryGoodOpenSource/very_good_dart_cli/pull/116))
+- build(deps): bump cli_completion from 0.3.0 to 0.4.0 ([#115](https://github.com/VeryGoodOpenSource/very_good_dart_cli/pull/115))
+- fix: sort directive ordering on post generation ([#122](https://github.com/VeryGoodOpenSource/very_good_dart_cli/pull/122))
+- feat: hook performs dart pub get ([#123](https://github.com/VeryGoodOpenSource/very_good_dart_cli/pull/123))
+- refactor: remove generator script ([#120](https://github.com/VeryGoodOpenSource/very_good_dart_cli/pull/120))
+- chore: migrate very_good_dart_cli ([#3](https://github.com/VeryGoodOpenSource/very_good_templates/pull/3))
+- feat!: update to Dart 3.3.0 ([#22](https://github.com/VeryGoodOpenSource/very_good_templates/pull/22))
+- chore: update bricks to Mason 0.1.0-dev.52 ([#28](https://github.com/VeryGoodOpenSource/very_good_templates/pull/28))
+
 # 0.5.1
 
 - feat: upgrade to very_good_analysis ^5.1.0
