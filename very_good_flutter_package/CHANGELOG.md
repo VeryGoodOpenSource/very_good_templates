@@ -1,3 +1,10 @@
+# 0.5.0
+
+- refactor: remove generator script ([#72](https://github.com/VeryGoodOpenSource/very_good_flutter_package/pull/72))
+- chore: migrate very_good_flutter_package ([#5](https://github.com/VeryGoodOpenSource/very_good_templates/pull/5))
+- feat!: update to Flutter 3.19.0 ([#18](https://github.com/VeryGoodOpenSource/very_good_templates/pull/18))
+- chore: update bricks to Mason 0.1.0-dev.52 ([#28](https://github.com/VeryGoodOpenSource/very_good_templates/pull/28))
+
 # 0.4.1
 
 - feat: upgrade to very_good_analysis ^5.1.0
