@@ -1,3 +1,8 @@
+# 0.0.3
+
+- chore: migrate very_good_docs_site ([#6](https://github.com/VeryGoodOpenSource/very_good_templates/pull/6))
+- chore: update bricks to Mason 0.1.0-dev.52 ([#28](https://github.com/VeryGoodOpenSource/very_good_templates/pull/28))
+
 # 0.0.2
 
 - build(deps-dev): bump @tsconfig/docusaurus in /src/very_good_docs_site ([#135](https://github.com/VeryGoodOpenSource/very_good_docs_site/pull/135))
