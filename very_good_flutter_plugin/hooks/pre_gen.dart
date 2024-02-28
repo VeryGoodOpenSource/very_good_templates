@@ -26,14 +26,10 @@ void run(HookContext context) {
     );
   }
 
-  context.logger.info(selectedPlatforms.toString());
-
   context.vars.addAll({
     'flutterVersion': $flutterVersion,
     'dartSdkVersionBounds': '^${$minDartVersion}',
     for (final platform in availablePlatforms)
       platform: selectedPlatforms.contains(platform),
   });
-
-  context.logger.info(context.vars.toString());
 }
