@@ -28,10 +28,6 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-
 android {
     namespace "{{org_name.dotCase()}}.{{project_name.snakeCase()}}"
     compileSdkVersion flutter.compileSdkVersion
