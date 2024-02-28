@@ -1,3 +1,7 @@
+# 0.7.1
+
+- refactor: remove logs during pre_gen ([#72](https://github.com/VeryGoodOpenSource/very_good_cli/pull/976))
+
 # 0.7.0
 
 - test: add pre generation tests ([#138](https://github.com/VeryGoodOpenSource/very_good_flutter_plugin/pull/138))
