@@ -6,7 +6,7 @@
 ///
 /// Should be removed once the following Very Good CLI issue is resolved:
 /// https://github.com/VeryGoodOpenSource/very_good_cli/issues/804
-library merge_coverage;
+library;
 
 import 'dart:io';
 
