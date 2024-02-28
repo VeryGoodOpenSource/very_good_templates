@@ -2,7 +2,7 @@
 ///
 /// This file is not automatically generated. It is manually maintained and
 /// should be updated when the template requires to be updated.
-library version;
+library;
 
 /// The version of the template.
 const $templateVersion = '0.7.0';
