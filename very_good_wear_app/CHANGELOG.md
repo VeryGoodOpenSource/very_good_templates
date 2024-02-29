@@ -1,6 +1,6 @@
 # 0.4.1
 
-- fix(very_good_wear_app): deprecated imperative apply of Flutter's Gradle plugins ([#79](https://github.com/VeryGoodOpenSource/very_good_templates/pull/79))
+- fix: deprecated imperative apply of Flutter's Gradle plugins ([#79](https://github.com/VeryGoodOpenSource/very_good_templates/pull/79))
 
 # 0.4.0
 
