@@ -1,3 +1,7 @@
+# 0.6.1
+
+- fix: deprecated imperative apply of Flutter's Gradle plugins ([#70](https://github.com/VeryGoodOpenSource/very_good_templates/pull/70))
+
 # 0.6.0
 
 - chore: migrate very_good_core ([#1](https://github.com/VeryGoodOpenSource/very_good_templates/pull/1))
