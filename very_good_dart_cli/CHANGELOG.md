@@ -1,3 +1,7 @@
+# 0.6.1
+
+- refactor: remove explicitly named libraries ([#77](https://github.com/VeryGoodOpenSource/very_good_templates/pull/77))
+
 # 0.6.0
 
 - build(deps): bump pub_updater from 0.3.1 to 0.4.0 ([#116](https://github.com/VeryGoodOpenSource/very_good_dart_cli/pull/116))
