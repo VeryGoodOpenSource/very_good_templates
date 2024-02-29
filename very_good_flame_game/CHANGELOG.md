@@ -1,3 +1,7 @@
+# 0.6.1
+
+- fix: deprecated imperative apply of Flutter's Gradle plugins ([#78](https://github.com/VeryGoodOpenSource/very_good_templates/pull/78))
+
 # 0.6.0
 
 - docs: fixed copy format and command ([#146](https://github.com/VeryGoodOpenSource/very_good_flame_game/pull/146))
