@@ -1,3 +1,7 @@
+# 0.4.1
+
+- fix(very_good_wear_app): deprecated imperative apply of Flutter's Gradle plugins ([#79](https://github.com/VeryGoodOpenSource/very_good_templates/pull/79))
+
 # 0.4.0
 
 - test: add tests for pre generation hook ([#41](https://github.com/VeryGoodOpenSource/very_good_wear_app/pull/41))
