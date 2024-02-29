@@ -1,3 +1,7 @@
+# 0.5.1
+
+- refactor: remove explicitly named libraries ([#77](https://github.com/VeryGoodOpenSource/very_good_templates/pull/77))
+
 # 0.5.0
 
 - refactor: remove generator script ([#72](https://github.com/VeryGoodOpenSource/very_good_flutter_package/pull/72))
