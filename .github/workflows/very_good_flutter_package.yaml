@@ -62,6 +62,6 @@ jobs:
           very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
 
       - name: 📊 Check Code Coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v2
+        uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
           path: output/test_package/coverage/lcov.info
