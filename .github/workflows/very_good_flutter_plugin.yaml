@@ -78,7 +78,7 @@ jobs:
           dart run ../very_good_flutter_plugin/tool/merge_coverage/merge_coverage.dart
 
       - name: 📊 Check Code Coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v2
+        uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
           path: output/coverage/lcov.info
           # TODO(alestiago): Remove once the following is solved:

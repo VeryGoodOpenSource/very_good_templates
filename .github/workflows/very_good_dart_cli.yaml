@@ -63,6 +63,6 @@ jobs:
           cd ../../
 
       - name: 📊 Check Code Coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v2
+        uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
           path: output/test_cli/coverage/lcov.info
