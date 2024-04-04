@@ -41,19 +41,98 @@ void main() {
       expect(await action.execute(tester), isFalse);
     });
 
-    test('show correct description', () {
+    test('show correct description for every platform', () {
+      bool isTrue() => true;
+      bool isFalse() => false;
+
+      final testCases = [
+        (
+          'Android',
+          CheckPlatformName(
+            isAndroid: isTrue,
+            isIOS: isFalse,
+            isWeb: isFalse(),
+            isWindows: isFalse,
+            isLinux: isFalse,
+            isMacOS: isFalse,
+          )
+        ),
+        (
+          'iOS',
+          CheckPlatformName(
+            isAndroid: isFalse,
+            isIOS: isTrue,
+            isWeb: isFalse(),
+            isWindows: isFalse,
+            isLinux: isFalse,
+            isMacOS: isFalse,
+          )
+        ),
+        (
+          'Web',
+          CheckPlatformName(
+            isAndroid: isFalse,
+            isIOS: isFalse,
+            isWeb: isTrue(),
+            isWindows: isFalse,
+            isLinux: isFalse,
+            isMacOS: isFalse,
+          )
+        ),
+        (
+          'Linux',
+          CheckPlatformName(
+            isAndroid: isFalse,
+            isIOS: isFalse,
+            isWeb: isFalse(),
+            isWindows: isFalse,
+            isLinux: isTrue,
+            isMacOS: isFalse,
+          )
+        ),
+        (
+          'MacOS',
+          CheckPlatformName(
+            isAndroid: isFalse,
+            isIOS: isFalse,
+            isWeb: isFalse(),
+            isWindows: isFalse,
+            isLinux: isFalse,
+            isMacOS: isTrue,
+          )
+        ),
+        (
+          'Windows',
+          CheckPlatformName(
+            isAndroid: isFalse,
+            isIOS: isFalse,
+            isWeb: isFalse(),
+            isWindows: isTrue,
+            isLinux: isFalse,
+            isMacOS: isFalse,
+          )
+        ),
+      ];
+
+      for (final testCase in testCases) {
+        expect(
+          testCase.$2.description(),
+          equals('Check platform name: "${testCase.$1}"'),
+        );
+      }
+    });
+
+    test('throws UnsupportedError on unknown platform', () {
       final action = CheckPlatformName(
-        isAndroid: () => true,
+        isAndroid: () => false,
         isIOS: () => false,
+        isWeb: false,
+        isWindows: () => false,
         isLinux: () => false,
         isMacOS: () => false,
-        isWindows: () => false,
       );
 
-      expect(
-        action.description(),
-        equals('Check platform name: "Android"'),
-      );
+      expect(action.description, throwsUnsupportedError);
     });
   });
 }
