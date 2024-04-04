@@ -61,8 +61,10 @@ class CheckPlatformName extends Action {
   String description() => 'Check platform name: "$_expectedPlatformName"';
 }
 
+// coverage:ignore-start these are just wrappers for overloading
 bool _platformIsAndroid() => Platform.isAndroid;
 bool _platformIsIOS() => Platform.isIOS;
 bool _platformIsLinux() => Platform.isLinux;
 bool _platformIsMacOS() => Platform.isMacOS;
 bool _platformIsWindows() => Platform.isWindows;
+// coverage:ignore-end
