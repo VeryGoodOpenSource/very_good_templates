@@ -4,6 +4,7 @@ CLIs # Plural of the abbreviation for Command Line Interface.
 CLI's # Belonging to a CLI.
 dependabot # Automated dependency updates built into GitHub.
 docusaurs # An optimized site generator in React.
+flakka # This project's name
 genhtml # Tool to generate an HTML view from LCOV coverage data files.
 gradlew # Wrapper tool that uses Gradle.
 lcov # Graphical tool for displaying coverage reports.

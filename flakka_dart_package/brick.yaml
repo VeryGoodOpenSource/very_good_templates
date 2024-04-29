@@ -1,0 +1,34 @@
+name: flakka_dart_package
+description: A flakka dart package
+repository: https://github.com/flakka-code/flakka_templates/tree/main/flakka_dart_package
+version: 0.5.1
+
+environment:
+  mason: ">=0.1.0-dev.52 <0.1.0"
+
+vars:
+  proto_package_space:
+    type: string
+    description: The FQN protobuf package-space this dart package hosts
+    default: tld.myorg.domain1
+    prompt: What is fully-qualified protobuf package-space name?
+  dart_package_name:
+    type: string
+    description: The dart package name
+    default: tld_myorg_domain1
+    prompt: What is the dart package name?
+  project_name:
+    type: string
+    description: The package name
+    default: my_package
+    prompt: What is the project name?
+  description:
+    type: string
+    description: The package description
+    default: Domain models in the tld.myorg.domain
+    prompt: What is the project description?
+  publishable:
+    type: boolean
+    description: Whether the generated package is intended to be published.
+    default: false
+    prompt: Will the package be published?
