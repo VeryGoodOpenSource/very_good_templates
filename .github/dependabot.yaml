@@ -12,11 +12,15 @@ updates:
     directory: "/very_good_dart_cli/hooks"
     schedule:
       interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "/very_good_wear_app/hooks"
+  - package-ecosystem: "npm"
+    directory: "/very_good_docs_site/__brick__/{{project_name.snakeCase()}}"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "/very_good_flutter_plugin/hooks"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/very_good_wear_app/hooks"
     schedule:
       interval: "daily"
