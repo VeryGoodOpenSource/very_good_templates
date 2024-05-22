@@ -1,6 +1,5 @@
 package {{org_name.dotCase()}}
 
-import android.content.Context
 import androidx.annotation.NonNull
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -11,17 +10,15 @@ import io.flutter.plugin.common.MethodChannel.Result
 
 class {{project_name.pascalCase()}}Plugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
-    private var context: Context? = null
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "{{project_name.snakeCase()}}_android")
         channel.setMethodCallHandler(this)
-        context = flutterPluginBinding.applicationContext
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
         if (call.method == "getPlatformName") {
-            result.success("Android")            
+            result.success("Android ${android.os.Build.VERSION.RELEASE}")            
         } else {
             result.notImplemented()
         }
@@ -29,6 +26,5 @@ class {{project_name.pascalCase()}}Plugin : FlutterPlugin, MethodCallHandler {
 
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
         channel.setMethodCallHandler(null)
-        context = null
     }
 }
