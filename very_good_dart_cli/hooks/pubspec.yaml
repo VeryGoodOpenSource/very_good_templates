@@ -1,7 +1,7 @@
 name: very_good_dart_cli_hooks
 
 environment:
-  sdk: "^3.3.0"
+  sdk: ^3.4.0
 
 dependencies:
   mason: ">=0.1.0-dev.52 <0.1.0"
