@@ -4,7 +4,7 @@ version: 0.1.0+1
 {{^publishable}}publish_to: none{{/publishable}}
 
 environment:
-  sdk: "{{{dartSdkVersionBounds}}}"
+  sdk: {{{dartSdkVersionBounds}}}
 
 flutter:
   plugin:
