@@ -22,7 +22,6 @@ class App extends StatelessWidget {
             colorScheme: isAmbientModeActive
                 ? const ColorScheme.dark(
                     primary: Colors.white24,
-                    onBackground: Colors.white10,
                     onSurface: Colors.white10,
                   )
                 : const ColorScheme.dark(
