@@ -1,3 +1,7 @@
+# 0.7.0 
+
+- feat!: ensure template uses Dart 3.4 ([#99](https://github.com/VeryGoodOpenSource/very_good_templates/pull/99))
+
 # 0.6.1
 
 - refactor: remove explicitly named libraries ([#77](https://github.com/VeryGoodOpenSource/very_good_templates/pull/77))
