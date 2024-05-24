@@ -1,3 +1,7 @@
+# 0.6.0 
+
+- feat: ensure template uses Flutter 3.22 with Dart 3.4 ([#101](https://github.com/VeryGoodOpenSource/very_good_templates/pull/101))
+
 # 0.5.1
 
 - refactor: remove explicitly named libraries ([#77](https://github.com/VeryGoodOpenSource/very_good_templates/pull/77))
