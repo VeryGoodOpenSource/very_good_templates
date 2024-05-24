@@ -1,6 +1,6 @@
 # 0.6.0 
 
-- feat: ensure template uses Dart 3.4 ([#100](https://github.com/VeryGoodOpenSource/very_good_templates/pull/100))
+- feat!: ensure template uses Dart 3.4 ([#100](https://github.com/VeryGoodOpenSource/very_good_templates/pull/100))
 
 # 0.5.1
 
