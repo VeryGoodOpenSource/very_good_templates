@@ -1,6 +1,6 @@
 # 0.7.0 
 
-- feat(very_good_dart_cli): ensure template uses Dart 3.4 ([#99](https://github.com/VeryGoodOpenSource/very_good_templates/pull/99))
+- feat: ensure template uses Dart 3.4 ([#99](https://github.com/VeryGoodOpenSource/very_good_templates/pull/99))
 
 # 0.6.1
 
