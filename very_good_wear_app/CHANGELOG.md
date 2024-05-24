@@ -1,3 +1,7 @@
+# 0.5.0 
+
+- feat!: ensure template uses Flutter 3.22 with Dart 3.4 ([#104](https://github.com/VeryGoodOpenSource/very_good_templates/pull/104))
+
 # 0.4.1
 
 - fix: deprecated imperative apply of Flutter's Gradle plugins ([#79](https://github.com/VeryGoodOpenSource/very_good_templates/pull/79))
