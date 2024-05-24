@@ -71,10 +71,7 @@ echo "CHANGELOG generated, validate entries here: $(pwd)/CHANGELOG.md"
 echo "Creating git branch for ver_good_cli@$new_version"
 git checkout -b "chore/very_good_core-v$new_version" > /dev/null
 
-git add CHANGELOG.md 
-if [ -f lib/src/version.dart ]; then
-  git add lib/src/version.dart
-fi
+git add brick.yaml CHANGELOG.md 
 
 echo ""
 echo "Run the following command if you wish to commit the changes:"
