@@ -65,7 +65,7 @@ if grep -q v$new_version "CHANGELOG.md"; then
 fi
 
 # Add a new version entry with the found commits to the CHANGELOG.md.
-echo "# ${new_version} \n\n ${commits}\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
+echo "# ${new_version} \n\n${commits}\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
 echo "CHANGELOG generated, validate entries here: $(pwd)/CHANGELOG.md"
 
 echo "Creating git branch for ver_good_cli@$new_version"
