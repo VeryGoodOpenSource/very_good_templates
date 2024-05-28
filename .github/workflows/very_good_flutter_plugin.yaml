@@ -81,6 +81,3 @@ jobs:
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
           path: output/coverage/lcov.info
-          # TODO(alestiago): Remove once the following is solved:
-          # https://github.com/VeryGoodOpenSource/very_good_flutter_plugin/issues/158
-          min_coverage: 86
