@@ -1,0 +1,15 @@
+name: publish_very_good_core
+
+on:
+  push:
+    tags:
+      - "very_good_core-v*.*.*"
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/mason_publish.yml@v1
+    with:
+      working_directory: "very_good_core"
+    secrets:
+      mason_credentials: secrets.MASON_CREDENTIALS

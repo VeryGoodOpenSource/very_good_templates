@@ -1,0 +1,15 @@
+name: publish_very_good_flame_game
+
+on:
+  push:
+    tags:
+      - "very_good_flame_game-v*.*.*"
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/mason_publish.yml@v1
+    with:
+      working_directory: "very_good_flame_game"
+    secrets:
+      mason_credentials: secrets.MASON_CREDENTIALS
