@@ -3,7 +3,7 @@ description: A custom action for Fluttium.
 version: 0.1.0+1
 
 environment:
-  sdk: {{{dartSdkVersionBounds}}}
+  sdk: { { { dartSdkVersionBounds } } }
 
 dependencies:
   flutter:
@@ -14,4 +14,4 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.0
-  very_good_analysis: ^5.1.0
+  very_good_analysis: ^6.0.0
