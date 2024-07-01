@@ -25,6 +25,6 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
-    directory: "tool/dependency_tightener"
+    directory: "/tool/dependency_tightener"
     schedule:
       interval: "daily"
