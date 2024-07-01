@@ -68,7 +68,6 @@ Future<void> tightenDependencies(
   }
 
   if (newPubspecContent != pubspecContent) {
-    print(newPubspecContent);
     pubspec.writeAsStringSync(newPubspecContent);
   }
 }
