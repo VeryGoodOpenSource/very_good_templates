@@ -13,7 +13,7 @@ const description = '{{description}}';
 /// {@template {{project_name.snakeCase()}}_command_runner}
 /// A [CommandRunner] for the CLI.
 ///
-/// ```
+/// ```bash
 /// $ {{executable_name.snakeCase()}} --version
 /// ```
 /// {@endtemplate}
