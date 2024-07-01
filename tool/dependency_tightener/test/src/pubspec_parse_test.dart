@@ -7,7 +7,7 @@ import '../fixtures/pubspec_fixtures/pubspec_fixtures.dart';
 
 void main() {
   test('parses templated pubspec', () async {
-    final dependencies = parseDirectDependencies(pubspec1);
+    final dependencies = parseDirectHostedDependencies(pubspec1);
 
     expect(dependencies, hasLength(2));
 

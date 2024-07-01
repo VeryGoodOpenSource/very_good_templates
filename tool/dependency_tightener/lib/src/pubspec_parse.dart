@@ -1,4 +1,5 @@
 import 'package:pub_semver/pub_semver.dart';
+import 'package:pub_updater/pub_updater.dart';
 import 'package:pubspec_parse/pubspec_parse.dart';
 import 'package:yaml/yaml.dart';
 
@@ -28,13 +29,14 @@ import 'package:yaml/yaml.dart';
 ///   very_good_analysis: ^5.1.0
 /// ```
 ///
-/// Would report the following dependencies:
-Set<Dependency> parseDirectDependencies(String yaml) {
+/// Would report the `plugin_platform_interface` and `very_good_analysis` as
+/// direct hosted dependencies.
+Set<HostedDependency> parseDirectHostedDependencies(String yaml) {
   final cleanedYaml = yaml.replaceAll(RegExp(r'\{{2,3}[^{}]+\}{2,3}'), '');
   final yamlTree = loadYaml(cleanedYaml);
   if (yamlTree is! YamlMap) return {};
 
-  final dependencies = <Dependency>{};
+  final dependencies = <HostedDependency>{};
 
   void addDependencies(YamlMap dependencyYamlMap) {
     for (final entry in dependencyYamlMap.entries) {
