@@ -8,6 +8,11 @@ import 'package:pub_updater/pub_updater.dart';
 /// directory.
 ///
 /// For a more comprehensive documentation, read the `README.md`.
+///
+/// See also:
+///
+/// * [tightenDependencies], which tightens the dependencies in a single
+/// `pubspec.yaml` file.
 Future<void> main(List<String> args) async {
   final argumentParser = ArgParser()
     ..addOption(
