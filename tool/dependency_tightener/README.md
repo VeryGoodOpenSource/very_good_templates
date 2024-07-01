@@ -6,7 +6,7 @@ Tightening dependencies refers to process of assigning version constraints such 
 
 ## When should I use this tool?
 
-The use-case of this script is to update the dependencies in a `pubspec.yaml` file that has a broken syntax due to templated [Mustache variables](https://mustache.github.io/mustache.5.html). Such YAML files are not considered to be a valid `pubspec.yaml`s by popular toolings like the [Dart dev tooling](https://github.com/dart-lang/sdk/tree/main/pkg/dartdev) or [Dependabot](https://github.com/dependabot).
+The use-case of this script is to update the dependencies in a `pubspec.yaml` file that have a broken syntax due to templated [Mustache variables](https://mustache.github.io/mustache.5.html). Such YAML files are not considered to be a valid `pubspec.yaml`s by popular toolings like the [Dart dev tooling](https://github.com/dart-lang/sdk/tree/main/pkg/dartdev) or [Dependabot](https://github.com/dependabot).
 
 Although the tool works for non-templated `pubspec.yaml` files, if you want to tighten those dependencies, consider using `dart pub update --tighten`, which is a command provided by the [Dart dev tooling](https://github.com/dart-lang/sdk/tree/main/pkg/dartdev) (available in [Dart SDK](https://github.com/dart-lang/sdk)). Such command is most likely to be more in sync with the latest Dart ecosystem.
 
