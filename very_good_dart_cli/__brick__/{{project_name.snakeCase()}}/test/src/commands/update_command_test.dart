@@ -49,8 +49,8 @@ void main() {
           currentVersion: any(named: 'currentVersion'),
         ),
       ).thenAnswer((_) async => true);
-      when(() => progress.complete(any())).thenAnswer((_) {
-        final message = _.positionalArguments.elementAt(0) as String?;
+      when(() => progress.complete(any())).thenAnswer((answer) {
+        final message = answer.positionalArguments.elementAt(0) as String?;
         if (message != null) progressLogs.add(message);
       });
       when(() => logger.progress(any())).thenReturn(progress);
