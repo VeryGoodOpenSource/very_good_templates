@@ -3,7 +3,7 @@ import 'package:pub_semver/pub_semver.dart';
 import 'package:pubspec_parse/pubspec_parse.dart';
 import 'package:test/test.dart';
 
-import '../fixtures/pubspec_fixtures/pubspec_fixtures.dart';
+import '../fixtures/fixtures.dart';
 
 void main() {
   test('parses templated pubspec', () async {

@@ -27,7 +27,9 @@ Future<void> tightenDependencies(
   void Function(Object? object) log = print,
 }) async {
   final pubspecContent = pubspec.readAsStringSync();
-  final dependencies = parseDirectHostedDependencies(pubspecContent);
+  var newPubspecContent = pubspecContent;
+
+  final dependencies = parseDirectHostedDependencies(newPubspecContent);
 
   for (final dependency in dependencies) {
     final name = dependency.hosted!.name;
@@ -56,13 +58,17 @@ Future<void> tightenDependencies(
       );
       final newVersionConstraint = '^$rawLatestVersion';
 
-      final newPubspecContent = pubspecContent.replaceAll(
+      newPubspecContent = newPubspecContent.replaceAll(
         '$name: $versionConstraint',
         '$name: $newVersionConstraint',
       );
-      pubspec.writeAsStringSync(newPubspecContent);
 
       log('Updated $name to $newVersionConstraint in ${pubspec.path}');
     }
+  }
+
+  if (newPubspecContent != pubspecContent) {
+    print(newPubspecContent);
+    pubspec.writeAsStringSync(newPubspecContent);
   }
 }
