@@ -1,4 +1,4 @@
-name: dependency_tightener
+name: bot_dependency_tightener
 
 on:
   schedule:
