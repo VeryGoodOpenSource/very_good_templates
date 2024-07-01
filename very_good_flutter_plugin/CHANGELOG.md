@@ -1,3 +1,10 @@
+# 0.8.0 
+
+- refactor: remove explicitly named libraries ([#77](https://github.com/VeryGoodOpenSource/very_good_templates/pull/77))
+- test: very_good_flutter_plugin doesn't have full code coverage ([#89](https://github.com/VeryGoodOpenSource/very_good_templates/pull/89))
+- feat: update android plugin template with latest flutter changes ([#95](https://github.com/VeryGoodOpenSource/very_good_templates/pull/95))
+- feat!: ensure template uses Flutter 3.22 with Dart 3.4 ([#105](https://github.com/VeryGoodOpenSource/very_good_templates/pull/105))
+
 # 0.7.1
 
 - refactor: remove logs during pre_gen ([#72](https://github.com/VeryGoodOpenSource/very_good_cli/pull/976))

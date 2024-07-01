@@ -41,7 +41,7 @@ class AppView extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFFFFFFF),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(const Color(0xFF2A48DF)),
+            backgroundColor: WidgetStateProperty.all(const Color(0xFF2A48DF)),
           ),
         ),
         textTheme: GoogleFonts.poppinsTextTheme(),

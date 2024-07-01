@@ -4,7 +4,7 @@ version: 0.1.0+1
 {{^publishable}}publish_to: none{{/publishable}}
 
 environment:
-  sdk: "{{{dartSdkVersionBounds}}}"
+  sdk: {{{dartSdkVersionBounds}}}
 
 flutter:
   plugin:
@@ -25,4 +25,4 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^5.1.0
+  very_good_analysis: ^6.0.0
