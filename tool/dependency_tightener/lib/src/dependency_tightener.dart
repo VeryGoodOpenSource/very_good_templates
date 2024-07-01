@@ -48,8 +48,8 @@ Future<void> tightenDependencies(
     if (versionConstraint is VersionRange && versionConstraint.min != null) {
       minVersion = versionConstraint.min!;
     } else {
-      // If the version constraint is doesn't have a min version, skip it,
-      // since we can't determine the minimum version.
+      // If the version constraint doesn't have a min version, skip it, since we
+      // can't determine the minimum version.
       continue;
     }
 
