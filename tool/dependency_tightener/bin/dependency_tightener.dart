@@ -17,11 +17,19 @@ Future<void> main(List<String> args) async {
   final argumentParser = ArgParser()
     ..addOption(
       'directory',
+      help: 'The directory to search for `pubspec.yaml` files.',
       defaultsTo: Directory.current.path,
+    )
+    ..addOption(
+      'skip-packages',
+      help:
+          'A comma-separated list of package names to skip version tightening.',
     );
   final arguments = argumentParser.parse(args);
 
   final targetDirectory = Directory(arguments['directory'] as String);
+  final skipPackages =
+      (arguments['skip-packages'] as String?)?.split(',').toSet();
 
   final pubspecFiles = targetDirectory
       .listSync(recursive: true)
@@ -33,6 +41,7 @@ Future<void> main(List<String> args) async {
   for (final pubspec in pubspecFiles) {
     await tightenDependencies(
       pubspec,
+      skipPackages: skipPackages,
       pubUpdater: pubUpdater,
     );
   }

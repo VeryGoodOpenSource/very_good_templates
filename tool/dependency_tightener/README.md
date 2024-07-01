@@ -22,7 +22,9 @@ dart bin/dependency_tightener.dart --directory path/to/directory
 ```
 
 **Arguments:**
-The `--directory` flag is optional and defaults to the current directory. If provided the tool will only update the dependencies in the provided directory.
+
+- `directory`: The directory containing the `pubspec.yaml` files to be updated. When unspecified, it defaults to the current working directory.
+- `skip-packages`: A comma-separated list of package names to skip version tightening. When unspecified, no packages are skipped.
 
 ### Output
 

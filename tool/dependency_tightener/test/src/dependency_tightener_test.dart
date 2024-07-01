@@ -122,6 +122,22 @@ dev_dependencies:
     verify(() => pubspec.writeAsStringSync(expectedPubspec)).called(1);
   });
 
+  test('skips packages', () async {
+    await tightenDependencies(
+      pubspec,
+      pubUpdater: pubUpdater,
+      log: (object) => {},
+      skipPackages: {
+        'plugin_platform_interface',
+        'pub_updater',
+        'mocktail',
+        'very_good_analysis',
+      },
+    );
+
+    verifyNever(() => pubspec.writeAsStringSync(any()));
+  });
+
   test('logs updated dependencies', () async {
     final logs = <Object?>[];
 

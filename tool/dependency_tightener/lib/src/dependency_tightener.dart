@@ -15,6 +15,9 @@ import 'package:pub_updater/pub_updater.dart';
 /// latest version, and writing is as a ranged version constraint with the
 /// caret syntax. Even if it was previously pinned.
 ///
+/// If you wish to skip tightening the version of certain packages, you can
+/// provide the name of those packages in [skipPackages].
+///
 /// See also:
 ///
 /// * [parseDirectHostedDependencies], which parses the direct hosted
@@ -24,6 +27,7 @@ import 'package:pub_updater/pub_updater.dart';
 Future<void> tightenDependencies(
   File pubspec, {
   required PubUpdater pubUpdater,
+  Set<String>? skipPackages,
   void Function(Object? object) log = print,
 }) async {
   final pubspecContent = pubspec.readAsStringSync();
@@ -34,6 +38,10 @@ Future<void> tightenDependencies(
   for (final dependency in dependencies) {
     final name = dependency.hosted!.name;
     final versionConstraint = dependency.version;
+
+    if (skipPackages != null && skipPackages.contains(name)) {
+      continue;
+    }
 
     late Version minVersion;
 
