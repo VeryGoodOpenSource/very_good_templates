@@ -13,7 +13,7 @@ Although the tool works for non-templated `pubspec.yaml` files, if you want to t
 Alternatively, if you would like to update dependencies within your GitHub CI on non-templated `pubspec.yaml` files consider using [Dependabot](https://github.com/dependabot). The Dependabot ecosystem provides a more robust solution for updating dependencies in a CI environment, with
 the bot being able to not only create pull requests for you, but also rebase upon request, report the CHANGELOGS of the updated packages, and more.
 
-💡 **Note**: The dependency tightener tooling is bespoke to the Very Good Templates repository and is a first iteration to helping automate tightening dependencies in an `pubspec.yaml` with invalid syntax due to templated [Mustache variables](https://mustache.github.io/mustache.5.html).
+💡 **Note**: The dependency tightener tooling is bespoke to the Very Good Templates repository and is a first iteration to help automate tightening dependencies in an `pubspec.yaml` with invalid syntax due to templated [Mustache variables](https://mustache.github.io/mustache.5.html).
 
 ## Usage 🚀
 
