@@ -1,0 +1,15 @@
+name: dependency_tightener
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/dependency_tightener.yaml"
+      - "tool/dependency_tightener"
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    with:
+      working_directory: "tool/dependency_tightener"
+    secrets:
+      ssh_key: ${{secrets.EXAMPLE_KEY}}
