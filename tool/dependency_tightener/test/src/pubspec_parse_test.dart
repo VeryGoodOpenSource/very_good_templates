@@ -1,4 +1,4 @@
-import 'package:dependency_tightener/src/pubspec_parse.dart';
+import 'package:dependency_tightener/src/graceful_pubspec_parse.dart';
 import 'package:pub_semver/pub_semver.dart';
 import 'package:pubspec_parse/pubspec_parse.dart';
 import 'package:test/test.dart';

@@ -1,11 +1,16 @@
+/// Provides utility functions for parsing `pubspec.yaml` files gracefully.
+///
+/// Especially those `pubspec.yaml`s with invalid syntax due the usage of
+/// [Mustache variables]((https://mustache.github.io/mustache.5.html)).
+library;
+
 import 'package:pub_semver/pub_semver.dart';
-import 'package:pub_updater/pub_updater.dart';
 import 'package:pubspec_parse/pubspec_parse.dart';
 import 'package:yaml/yaml.dart';
 
 /// Parses the direct hosted dependencies from the provided [yaml].
 ///
-/// The provided yaml may contain templated mustache variables. It gracefully,
+/// The provided YAML may contain templated mustache variables. It gracefully,
 /// ignores those unlike [Pubspec.parse].
 ///
 /// For example:
@@ -31,6 +36,11 @@ import 'package:yaml/yaml.dart';
 ///
 /// Would report the `plugin_platform_interface` and `very_good_analysis` as
 /// direct hosted dependencies.
+///
+/// See also:
+///
+/// * [The pubspec file documentation](https://dart.dev/tools/pub/pubspec)
+/// * [Mustache language manual](https://mustache.github.io/mustache.5.html)
 Set<HostedDependency> parseDirectHostedDependencies(String yaml) {
   final cleanedYaml = yaml.replaceAll(RegExp(r'\{{2,3}[^{}]+\}{2,3}'), '');
   final yamlTree = loadYaml(cleanedYaml);
