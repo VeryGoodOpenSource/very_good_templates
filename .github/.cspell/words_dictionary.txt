@@ -2,6 +2,7 @@
 CLI # Abbreviation for Command Line Interface.
 CLIs # Plural of the abbreviation for Command Line Interface.
 CLI's # Belonging to a CLI.
+CHANGELOGS # Plural of CHANGELOG
 dependabot # Automated dependency updates built into GitHub.
 docusaurs # An optimized site generator in React.
 genhtml # Tool to generate an HTML view from LCOV coverage data files.

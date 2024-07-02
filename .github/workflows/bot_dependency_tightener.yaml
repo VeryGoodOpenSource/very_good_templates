@@ -1,0 +1,44 @@
+name: bot_dependency_tightener
+
+on:
+  schedule:
+    # weekly on mondays at 8 am utc
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dart-lang/setup-dart@v1
+
+      - name: Tighten dependencies
+        run: |
+          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_core/__brick__
+          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_dart_cli/__brick__
+          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_dart_package/__brick__
+          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_flame_game/__brick__
+          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_flutter_package/__brick__
+          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_flutter_plugin/__brick__
+          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_wear_app/__brick__
+
+      - name: Config Git User
+        run: |
+          git config user.name VGV Bot
+          git config user.email vgvbot@users.noreply.github.com
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6.1.0
+        with:
+          base: main
+          branch: vgvbot/dependency_tightener
+          commit-message: "chore: tighten template dependencies"
+          title: "chore: tighten template dependencies"
+          body: |
+            Tighten dependencies for all direct hosted dependencies in templated pubspec.yaml files.
+          labels: bot
+          author: VGV Bot <vgvbot@users.noreply.github.com>
+          assignees: vgvbot
+          committer: VGV Bot <vgvbot@users.noreply.github.com>

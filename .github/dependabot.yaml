@@ -24,3 +24,7 @@ updates:
     directory: "/very_good_wear_app/hooks"
     schedule:
       interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/tool/dependency_tightener"
+    schedule:
+      interval: "daily"
