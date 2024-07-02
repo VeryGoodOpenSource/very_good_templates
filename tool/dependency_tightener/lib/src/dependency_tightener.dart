@@ -11,9 +11,10 @@ import 'package:pub_updater/pub_updater.dart';
 /// It parses the [pubspec] file gracefully, by using
 /// [parseDirectHostedDependencies].
 ///
-/// If a dependency is not up-to-date, it will update the dependency to the
-/// latest version, and writing is as a ranged version constraint with the
-/// caret syntax. Even if it was previously pinned.
+/// It will replace the previous versions, of those not up-to-date direct hosted
+/// dependencies with a version constraint range that is tightened to the latest
+/// version. It will always use the [caret syntax](https://dart.dev/tools/pub/dependencies#caret-syntax),
+/// even if the previous version was pinned.
 ///
 /// If you wish to skip tightening the version of certain packages, you can
 /// provide the name of those packages in [skipPackages].
