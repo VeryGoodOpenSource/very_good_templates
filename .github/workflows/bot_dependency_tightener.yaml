@@ -14,7 +14,10 @@ jobs:
 
       - uses: dart-lang/setup-dart@v1
 
-      - name: Tighten dependencies
+      - name: 📦 Install dependencies
+        run: dart pub get --directory tool/dependency_tightener
+
+      - name: 🪢 Tighten dependencies
         run: |
           dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_core/__brick__
           dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_dart_cli/__brick__
@@ -24,12 +27,12 @@ jobs:
           dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_flutter_plugin/__brick__
           dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_wear_app/__brick__
 
-      - name: Config Git User
+      - name: 🤖 Config Git User
         run: |
           git config user.name VGV Bot
           git config user.email vgvbot@users.noreply.github.com
 
-      - name: Create Pull Request
+      - name: 🤖 Create Pull Request
         uses: peter-evans/create-pull-request@v6.1.0
         with:
           base: main
