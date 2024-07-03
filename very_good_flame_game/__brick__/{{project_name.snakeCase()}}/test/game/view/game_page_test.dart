@@ -74,37 +74,33 @@ void main() {
     });
 
     testWidgets('is routable', (tester) async {
-      await tester.runAsync(() async {
-        await tester.pumpApp(
-          Builder(
-            builder: (context) => Scaffold(
-              floatingActionButton: FloatingActionButton(
-                onPressed: () => Navigator.of(context).push(GamePage.route()),
-              ),
+      await tester.pumpApp(
+        Builder(
+          builder: (context) => Scaffold(
+            floatingActionButton: FloatingActionButton(
+              onPressed: () => Navigator.of(context).push(GamePage.route()),
             ),
           ),
-          preloadCubit: preloadCubit,
-        );
+        ),
+        preloadCubit: preloadCubit,
+      );
 
-        await tester.tap(find.byType(FloatingActionButton));
+      await tester.tap(find.byType(FloatingActionButton));
 
-        await tester.pump();
-        await tester.pump();
+      await tester.pump();
+      await tester.pump();
 
-        expect(find.byType(GamePage), findsOneWidget);
+      expect(find.byType(GamePage), findsOneWidget);
 
-        await tester.pumpWidget(Container());
-      });
+      await tester.pumpWidget(Container());
     });
 
     testWidgets('renders GameView', (tester) async {
-      await tester.runAsync(() async {
-        await tester.pumpApp(
-          const GamePage(),
-          preloadCubit: preloadCubit,
-        );
-        expect(find.byType(GameView), findsOneWidget);
-      });
+      await tester.pumpApp(
+        const GamePage(),
+        preloadCubit: preloadCubit,
+      );
+      expect(find.byType(GameView), findsOneWidget);
     });
   });
 
