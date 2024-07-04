@@ -1,4 +1,9 @@
-# 0.6.0 
+# 0.6.1
+
+- chore: update to VGA 6.0.0 in all templates ([#135](https://github.com/VeryGoodOpenSource/very_good_templates/pull/135))
+- chore: tighten template dependencies ([#137](https://github.com/VeryGoodOpenSource/very_good_templates/pull/137))
+
+# 0.6.0
 
 - feat!: ensure template uses Flutter 3.22 with Dart 3.4 ([#101](https://github.com/VeryGoodOpenSource/very_good_templates/pull/101))
 
