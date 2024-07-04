@@ -5,7 +5,7 @@
 library;
 
 /// The version of the template.
-const $templateVersion = '0.8.0';
+const $templateVersion = '0.8.1';
 
 /// The Flutter version associated with the template version.
 const $flutterVersion = '3.22.0';
