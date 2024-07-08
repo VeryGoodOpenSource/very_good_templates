@@ -1,4 +1,11 @@
-# 0.8.0 
+# 0.8.1
+
+- style: Adding extra space to the application opening tag ([#126](https://github.com/VeryGoodOpenSource/very_good_templates/pull/126))
+- chore(deps): bump very_good_analysis from 5.1.0 to 6.0.0 in /very_good_flutter_plugin/hooks ([#133](https://github.com/VeryGoodOpenSource/very_good_templates/pull/133))
+- chore: update to Very Good Analysis 6.0.0 ([#135](https://github.com/VeryGoodOpenSource/very_good_templates/pull/135))
+- chore: tighten template dependencies ([#137](https://github.com/VeryGoodOpenSource/very_good_templates/pull/137))
+
+# 0.8.0
 
 - refactor: remove explicitly named libraries ([#77](https://github.com/VeryGoodOpenSource/very_good_templates/pull/77))
 - test: very_good_flutter_plugin doesn't have full code coverage ([#89](https://github.com/VeryGoodOpenSource/very_good_templates/pull/89))
