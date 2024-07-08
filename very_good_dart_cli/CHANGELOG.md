@@ -1,4 +1,9 @@
-# 0.7.0 
+# 0.7.1
+
+- chore: update to Very Good Analysis 6.0.0 ([#135](https://github.com/VeryGoodOpenSource/very_good_templates/pull/135))
+- chore: tighten template dependencies ([#137](https://github.com/VeryGoodOpenSource/very_good_templates/pull/137))
+
+# 0.7.0
 
 - feat!: ensure template uses Dart 3.4 ([#99](https://github.com/VeryGoodOpenSource/very_good_templates/pull/99))
 

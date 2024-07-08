@@ -1,4 +1,11 @@
-# 0.7.0 
+# 0.7.1
+
+- style: Adding extra space to the application opening tag ([#126](https://github.com/VeryGoodOpenSource/very_good_templates/pull/126))
+- chore: update Java version for Very Good Flame Game ([#129](https://github.com/VeryGoodOpenSource/very_good_templates/pull/129))
+- chore: update to Very Good Analysis 6.0.0 ([#135](https://github.com/VeryGoodOpenSource/very_good_templates/pull/135))
+- chore: tighten template dependencies ([#137](https://github.com/VeryGoodOpenSource/very_good_templates/pull/137))
+
+# 0.7.0
 
 - feat!: ensure template uses Flutter 3.22 with Dart 3.4 ([#102](https://github.com/VeryGoodOpenSource/very_good_templates/pull/102))
 - fix: update index.html to support latest convention ([#107](https://github.com/VeryGoodOpenSource/very_good_templates/pull/107))

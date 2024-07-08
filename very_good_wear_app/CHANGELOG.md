@@ -1,4 +1,10 @@
-# 0.5.0 
+# 0.5.1
+
+- style: Adding extra space to the application opening tag ([#126](https://github.com/VeryGoodOpenSource/very_good_templates/pull/126))
+- chore: update to Very Good Analysis 6.0.0 ([#135](https://github.com/VeryGoodOpenSource/very_good_templates/pull/135))
+- chore: tighten template dependencies ([#137](https://github.com/VeryGoodOpenSource/very_good_templates/pull/137))
+
+# 0.5.0
 
 - feat!: ensure template uses Flutter 3.22 with Dart 3.4 ([#104](https://github.com/VeryGoodOpenSource/very_good_templates/pull/104))
 
