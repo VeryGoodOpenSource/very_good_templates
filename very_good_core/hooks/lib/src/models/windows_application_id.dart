@@ -1,5 +1,6 @@
 import 'package:mason/mason.dart';
 
+// TODO(alestiago): Add documentation
 /// {@template windows_application_id}
 ///
 /// {@endtemplate}
