@@ -64,11 +64,11 @@ class VeryGoodCoreConfiguration {
   })  : projectName = projectName ?? 'my_app',
         organizationName = organizationName ?? 'com.example',
         description = description ?? 'A Very Good App' {
-    this.applicationId = applicationId ??
+    final fallbackApplicationId = applicationId ??
         '${this.organizationName.paramCase}.${this.projectName.paramCase}';
 
-    this.windowsApplicationId = windowsApplicationId ?? this.applicationId;
-    this.iosApplicationId = iosApplicationId ?? this.applicationId;
+    this.windowsApplicationId = windowsApplicationId ?? fallbackApplicationId;
+    this.iosApplicationId = iosApplicationId ?? fallbackApplicationId;
 
     this.androidApplicationId = androidApplicationId ??
         AndroidApplicationId.fallback(
@@ -144,9 +144,6 @@ class VeryGoodCoreConfiguration {
   /// {@macro very_good_core_configuration_variables.description}
   final String description;
 
-  /// {@macro very_good_core_configuration_variables.application_id}
-  late final String applicationId;
-
   /// Identifies the Windows application.
   late final String windowsApplicationId;
 
@@ -158,20 +155,4 @@ class VeryGoodCoreConfiguration {
 
   /// {@macro android_application_id}
   late final AndroidApplicationId androidApplicationId;
-
-  /// Serializes a [VeryGoodCoreConfiguration] to a `Map<String, dynamic>`.
-  ///
-  /// Only those [_VeryGoodCoreConfigurationVariables] properties get
-  /// serialized.
-  Map<String, dynamic> toJson() {
-    {
-      return {
-        _VeryGoodCoreConfigurationVariables.projectName.key: projectName,
-        _VeryGoodCoreConfigurationVariables.organizationName.key:
-            organizationName,
-        _VeryGoodCoreConfigurationVariables.applicationId.key: applicationId,
-        _VeryGoodCoreConfigurationVariables.description.key: description,
-      };
-    }
-  }
 }

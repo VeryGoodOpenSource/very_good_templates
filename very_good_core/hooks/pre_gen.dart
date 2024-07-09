@@ -1,11 +1,6 @@
 import 'package:mason/mason.dart';
 import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 
-enum Platform {
-  android,
-  ios,
-}
-
 void run(HookContext context) {
   final configuration = VeryGoodCoreConfiguration.fromJson(context.vars);
 
@@ -40,23 +35,10 @@ void run(HookContext context) {
     /// * [Mason conditional documentation](https://docs.brickhub.dev/brick-syntax#-conditionals)
     'project_name': configuration.projectName,
     'org_name': configuration.organizationName,
-    'application_id': _appId(context),
     'description': configuration.description,
     'android_namespace': configuration.androidNamespace.value,
     'android_application_id': configuration.androidApplicationId.value,
-    'ios_application_id': configuration.applicationId,
-    'windows_application_id': configuration.applicationId,
+    'ios_application_id': configuration.iosApplicationId,
+    'windows_application_id': configuration.windowsApplicationId,
   };
-}
-
-String _appId(HookContext context, {Platform? platform}) {
-  final orgName = context.vars['org_name'] as String;
-  final projectName = context.vars['project_name'] as String;
-
-  var applicationId = context.vars['application_id'] as String?;
-  applicationId = (applicationId?.isNotEmpty ?? false)
-      ? applicationId
-      : '''$orgName.${platform == Platform.android ? projectName.snakeCase : projectName.paramCase}''';
-
-  return applicationId!;
 }

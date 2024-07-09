@@ -11,10 +11,7 @@ import 'package:mason/mason.dart';
 ///
 /// * [Set the application ID Android documentation](https://developer.android.com/build/configure-app-module#set-application-id)
 /// {@endtemplate}
-class AndroidApplicationId {
-  /// {@macro android_application_id}
-  AndroidApplicationId(this.value);
-
+extension type AndroidApplicationId(String value) {
   /// Creates a new [AndroidApplicationId] from the provided [organizationName]
   /// and [projectName].
   ///
@@ -66,7 +63,4 @@ class AndroidApplicationId {
 
     return true;
   }
-
-  /// The default application ID value.
-  final String value;
 }

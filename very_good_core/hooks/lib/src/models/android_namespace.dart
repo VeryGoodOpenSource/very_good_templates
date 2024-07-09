@@ -17,21 +17,16 @@ import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 ///
 /// * [Set the namespace Android documentation](https://developer.android.com/studio/build/application-id)
 /// {@endtemplate}
-class AndroidNamespace {
-  /// {@macro android_namespace}
-  const AndroidNamespace(this.value);
-
+extension type AndroidNamespace(String value) {
   /// Creates a new [AndroidNamespace] from the provided [applicationId].
   ///
   /// If a specific namespace is not provided, the namespace will default to the
-  /// application ID.
-  ///
-  /// From the [Set the namespace Android documentation](https://developer.android.com/build/configure-app-module#set-namespace):
+  /// application ID. Such follows the documentation [Set the namespace Android documentation](https://developer.android.com/build/configure-app-module#set-namespace):
   ///
   /// > For a simpler workflow, keep your namespace the same as your application
   /// > ID, as they are by default.
   ///
-  /// In addition, from the [Set the application ID Android documentation](https://developer.android.com/build/configure-app-module#set-application-id):
+  /// In addition, to the [Set the application ID Android documentation](https://developer.android.com/build/configure-app-module#set-application-id):
   ///
   /// > Keep the application ID the same as the namespace. The distinction
   /// > between the two properties can be a bit confusing, but if you keep them
@@ -39,7 +34,4 @@ class AndroidNamespace {
   AndroidNamespace.fromApplicationId(
     AndroidApplicationId applicationId,
   ) : this(applicationId.value);
-
-  /// The namespace value.
-  final String value;
 }
