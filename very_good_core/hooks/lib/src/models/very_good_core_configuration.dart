@@ -57,19 +57,23 @@ class VeryGoodCoreConfiguration {
     String? organizationName,
     String? applicationId,
     String? description,
-    String? windowsApplicationId,
-    String? iosApplicationId,
+    WindowsApplicationId? windowsApplicationId,
+    IosApplicationId? iosApplicationId,
     AndroidApplicationId? androidApplicationId,
     AndroidNamespace? androidNamespace,
   })  : projectName = projectName ?? 'my_app',
         organizationName = organizationName ?? 'com.example',
         description = description ?? 'A Very Good App' {
-    final fallbackApplicationId = applicationId ??
-        '${this.organizationName.paramCase}.${this.projectName.paramCase}';
-
-    this.windowsApplicationId = windowsApplicationId ?? fallbackApplicationId;
-    this.iosApplicationId = iosApplicationId ?? fallbackApplicationId;
-
+    this.windowsApplicationId = windowsApplicationId ??
+        WindowsApplicationId.fallback(
+          organizationName: this.organizationName,
+          projectName: this.projectName,
+        );
+    this.iosApplicationId = iosApplicationId ??
+        IosApplicationId.fallback(
+          organizationName: this.organizationName,
+          projectName: this.projectName,
+        );
     this.androidApplicationId = androidApplicationId ??
         AndroidApplicationId.fallback(
           organizationName: this.organizationName,
@@ -144,11 +148,11 @@ class VeryGoodCoreConfiguration {
   /// {@macro very_good_core_configuration_variables.description}
   final String description;
 
-  /// Identifies the Windows application.
-  late final String windowsApplicationId;
+  /// {@macro windows_application_id}
+  late final WindowsApplicationId windowsApplicationId;
 
-  /// Identifies the iOS application.
-  late final String iosApplicationId;
+  /// {@macro ios_application_id}
+  late final IosApplicationId iosApplicationId;
 
   /// {@macro android_namespace}
   late final AndroidNamespace androidNamespace;
