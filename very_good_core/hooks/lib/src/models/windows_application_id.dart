@@ -1,8 +1,9 @@
 import 'package:mason/mason.dart';
 
-// TODO(alestiago): Add documentation
 /// {@template windows_application_id}
+/// Identifies the Windows application.
 ///
+/// Gets used as part of the Runner.rc company name and its copyright notice.
 /// {@endtemplate}
 extension type WindowsApplicationId(String value) {
   /// Creates a new [WindowsApplicationId] from the provided [organizationName]
