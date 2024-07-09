@@ -1,4 +1,3 @@
-import 'package:mason/mason.dart';
 import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 
 /// The variables specified by this hook.
@@ -55,7 +54,6 @@ class VeryGoodCoreConfiguration {
   VeryGoodCoreConfiguration({
     String? projectName,
     String? organizationName,
-    String? applicationId,
     String? description,
     WindowsApplicationId? windowsApplicationId,
     IosApplicationId? iosApplicationId,
@@ -132,7 +130,10 @@ class VeryGoodCoreConfiguration {
     return VeryGoodCoreConfiguration(
       projectName: projectName,
       organizationName: organizationName,
-      applicationId: applicationId,
+      iosApplicationId:
+          applicationId != null ? IosApplicationId(applicationId) : null,
+      windowsApplicationId:
+          applicationId != null ? WindowsApplicationId(applicationId) : null,
       androidApplicationId:
           applicationId != null ? AndroidApplicationId(applicationId) : null,
       description: description,
