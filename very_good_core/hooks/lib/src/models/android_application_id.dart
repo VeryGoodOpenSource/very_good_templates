@@ -20,12 +20,17 @@ extension type AndroidApplicationId(String value) {
     required String organizationName,
     required String projectName,
   }) {
-    return AndroidApplicationId(
-      '${organizationName.snakeCase}.${projectName.snakeCase}',
-    );
+    final segments = <String>[];
+    for (final segment in organizationName.split('.')) {
+      if (segment.isEmpty) continue;
+      segments.add(segment.snakeCase);
+    }
+    segments.add(projectName.snakeCase);
+
+    return AndroidApplicationId(segments.join('.'));
   }
 
-  /// Checks if the provided [applicationId] is valid, returning `true` if it is
+  /// Checks if the [AndroidApplicationId] is valid, returning `true` if it is
   /// and `false` otherwise.
   ///
   /// Although the application ID looks like a traditional Kotlin or Java
@@ -39,8 +44,8 @@ extension type AndroidApplicationId(String value) {
   /// See also:
   ///
   /// * [Set the application ID Android documentation](https://developer.android.com/build/configure-app-module#set-application-id)
-  static bool isValid(AndroidApplicationId applicationId) {
-    final segments = applicationId.value.split('.');
+  bool get isValid {
+    final segments = value.split('.');
     if (segments.length < 2) {
       // It must have at least two segments (one or more dots).
       return false;

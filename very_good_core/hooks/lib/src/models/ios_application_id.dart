@@ -20,8 +20,13 @@ extension type IosApplicationId(String value) {
     required String organizationName,
     required String projectName,
   }) {
-    return IosApplicationId(
-      '${organizationName.paramCase}.${projectName.paramCase}',
-    );
+    final parts = <String>[];
+    for (final part in organizationName.split('.')) {
+      if (part.isEmpty) continue;
+      parts.add(part.paramCase);
+    }
+    parts.add(projectName.paramCase);
+
+    return IosApplicationId(parts.join('.'));
   }
 }

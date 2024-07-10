@@ -2,7 +2,7 @@ import 'package:mason/mason.dart';
 import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 
 void run(HookContext context) {
-  final configuration = VeryGoodCoreConfiguration.fromJson(context.vars);
+  final configuration = VeryGoodCoreConfiguration.fromHooksVars(context.vars);
 
   context.vars = {
     /// Below are all the variables that are accessible in the templates.

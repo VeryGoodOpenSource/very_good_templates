@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 
 /// The variables specified by this hook.
@@ -49,7 +50,7 @@ enum _VeryGoodCoreConfigurationVariables {
 /// {@template very_good_core_configuration}
 /// Configuration for the `very_good_core` brick.
 /// {@endtemplate}
-class VeryGoodCoreConfiguration {
+class VeryGoodCoreConfiguration extends Equatable {
   /// {@macro very_good_core_configuration}
   VeryGoodCoreConfiguration({
     String? projectName,
@@ -77,7 +78,7 @@ class VeryGoodCoreConfiguration {
           organizationName: this.organizationName,
           projectName: this.projectName,
         );
-    if (!AndroidApplicationId.isValid(this.androidApplicationId)) {
+    if (!this.androidApplicationId.isValid) {
       throw InvalidAndroidApplicationIdFormat(this.androidApplicationId);
     }
 
@@ -85,44 +86,45 @@ class VeryGoodCoreConfiguration {
         AndroidNamespace.fromApplicationId(this.androidApplicationId);
   }
 
-  /// Deserializes a [VeryGoodCoreConfiguration] from a `Map<String, dynamic>`.
-  factory VeryGoodCoreConfiguration.fromJson(Map<String, dynamic> json) {
+  /// Deserializes a [VeryGoodCoreConfiguration] from a `Map<String, dynamic>`
+  /// used to represent the configuration in the `HookContext.vars` map.
+  factory VeryGoodCoreConfiguration.fromHooksVars(Map<String, dynamic> vars) {
     final projectName =
-        json[_VeryGoodCoreConfigurationVariables.projectName.key];
+        vars[_VeryGoodCoreConfigurationVariables.projectName.key];
     if (projectName is! String?) {
       throw ArgumentError.value(
-        json,
-        'json',
+        vars,
+        'vars',
         '''Expected a value for key "${_VeryGoodCoreConfigurationVariables.projectName.key}" to be of type String?, got $projectName.''',
       );
     }
 
     final organizationName =
-        json[_VeryGoodCoreConfigurationVariables.organizationName.key];
+        vars[_VeryGoodCoreConfigurationVariables.organizationName.key];
     if (organizationName is! String?) {
       throw ArgumentError.value(
-        json,
-        'json',
+        vars,
+        'vars',
         '''Expected a value for key "${_VeryGoodCoreConfigurationVariables.organizationName.key}" to be of type String?, got $organizationName.''',
       );
     }
 
     final applicationId =
-        json[_VeryGoodCoreConfigurationVariables.applicationId.key];
+        vars[_VeryGoodCoreConfigurationVariables.applicationId.key];
     if (applicationId is! String?) {
       throw ArgumentError.value(
-        json,
-        'json',
+        vars,
+        'vars',
         '''Expected a value for key "${_VeryGoodCoreConfigurationVariables.applicationId.key}" to be of type String?, got $applicationId.''',
       );
     }
 
     final description =
-        json[_VeryGoodCoreConfigurationVariables.description.key];
+        vars[_VeryGoodCoreConfigurationVariables.description.key];
     if (description is! String?) {
       throw ArgumentError.value(
-        json,
-        'json',
+        vars,
+        'vars',
         '''Expected a value for key "${_VeryGoodCoreConfigurationVariables.description.key}" to be of type String?, got $description.''',
       );
     }
@@ -160,4 +162,15 @@ class VeryGoodCoreConfiguration {
 
   /// {@macro android_application_id}
   late final AndroidApplicationId androidApplicationId;
+
+  @override
+  List<Object?> get props => [
+        projectName,
+        organizationName,
+        description,
+        windowsApplicationId,
+        iosApplicationId,
+        androidNamespace,
+        androidApplicationId,
+      ];
 }

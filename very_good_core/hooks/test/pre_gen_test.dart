@@ -14,6 +14,30 @@ void main() {
       context = _MockHookContext();
     });
 
+    test('populates variables', () {
+      final vars = {
+        'project_name': 'my_app',
+        'org_name': 'com.example',
+        'application_id': 'app_id',
+        'description': 'A new Flutter project.',
+      };
+      when(() => context.vars).thenReturn(vars);
+
+      pre_gen.run(context);
+
+      expect(
+        context.vars,
+        {
+          'project_name': 'my_app',
+          'org_name': 'com.example',
+          'application_id': 'app_id',
+          'description': 'A new Flutter project.',
+          'application_id_android': 'com.example.my_app',
+          'application_id': 'com.example.my-app',
+        },
+      );
+    });
+
     group('application_id_android', () {
       test('when specified is unmodified', () {
         final vars = <String, String>{

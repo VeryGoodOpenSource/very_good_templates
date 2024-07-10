@@ -14,8 +14,13 @@ extension type WindowsApplicationId(String value) {
     required String organizationName,
     required String projectName,
   }) {
-    return WindowsApplicationId(
-      '${organizationName.paramCase}.${projectName.paramCase}',
-    );
+    final parts = <String>[];
+    for (final part in organizationName.split('.')) {
+      if (part.isEmpty) continue;
+      parts.add(part.paramCase);
+    }
+    parts.add(projectName.paramCase);
+
+    return WindowsApplicationId(parts.join('.'));
   }
 }
