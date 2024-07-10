@@ -88,7 +88,7 @@ class VeryGoodCoreConfiguration extends Equatable {
 
   /// Deserializes a [VeryGoodCoreConfiguration] from a `Map<String, dynamic>`
   /// used to represent the configuration in the `HookContext.vars` map.
-  factory VeryGoodCoreConfiguration.fromHooksVars(Map<String, dynamic> vars) {
+  factory VeryGoodCoreConfiguration.fromHookVars(Map<String, dynamic> vars) {
     final projectName =
         vars[_VeryGoodCoreConfigurationVariables.projectName.key];
     if (projectName is! String?) {

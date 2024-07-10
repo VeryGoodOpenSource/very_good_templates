@@ -67,7 +67,7 @@ void main() {
       });
     });
 
-    group('fromHooksVars', () {
+    group('fromHookVars', () {
       test('decodes as expected', () {
         final vars = {
           'project_name': 'very good app',
@@ -76,7 +76,7 @@ void main() {
           'description': 'A Very Good App',
         };
 
-        final configuration = VeryGoodCoreConfiguration.fromHooksVars(vars);
+        final configuration = VeryGoodCoreConfiguration.fromHookVars(vars);
         expect(
           configuration,
           equals(
@@ -100,7 +100,7 @@ void main() {
           final vars = <String, dynamic>{'project_name': 42};
 
           expect(
-            () => VeryGoodCoreConfiguration.fromHooksVars(vars),
+            () => VeryGoodCoreConfiguration.fromHookVars(vars),
             throwsA(
               isA<ArgumentError>().having(
                 (error) => error.message,
@@ -115,7 +115,7 @@ void main() {
           final vars = <String, dynamic>{'org_name': 42};
 
           expect(
-            () => VeryGoodCoreConfiguration.fromHooksVars(vars),
+            () => VeryGoodCoreConfiguration.fromHookVars(vars),
             throwsA(
               isA<ArgumentError>().having(
                 (error) => error.message,
@@ -130,7 +130,7 @@ void main() {
           final vars = <String, dynamic>{'application_id': 42};
 
           expect(
-            () => VeryGoodCoreConfiguration.fromHooksVars(vars),
+            () => VeryGoodCoreConfiguration.fromHookVars(vars),
             throwsA(
               isA<ArgumentError>().having(
                 (error) => error.message,
@@ -145,7 +145,7 @@ void main() {
           final vars = <String, dynamic>{'description': 42};
 
           expect(
-            () => VeryGoodCoreConfiguration.fromHooksVars(vars),
+            () => VeryGoodCoreConfiguration.fromHookVars(vars),
             throwsA(
               isA<ArgumentError>().having(
                 (error) => error.message,

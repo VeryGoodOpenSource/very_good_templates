@@ -18,89 +18,29 @@ void main() {
       final vars = {
         'project_name': 'my_app',
         'org_name': 'com.example',
-        'application_id': 'app_id',
+        'application_id': 'app.id',
         'description': 'A new Flutter project.',
       };
       when(() => context.vars).thenReturn(vars);
 
       pre_gen.run(context);
 
+      final newVars = verify(() => context.vars = captureAny()).captured.last
+          as Map<String, dynamic>;
+
       expect(
-        context.vars,
-        {
-          'project_name': 'my_app',
-          'org_name': 'com.example',
-          'application_id': 'app_id',
-          'description': 'A new Flutter project.',
-          'application_id_android': 'com.example.my_app',
-          'application_id': 'com.example.my-app',
-        },
-      );
-    });
-
-    group('application_id_android', () {
-      test('when specified is unmodified', () {
-        final vars = <String, String>{
-          'project_name': 'project_name',
-          'org_name': 'org_name',
-          'application_id': 'com.example.app',
-        };
-        when(() => context.vars).thenReturn(vars);
-
-        pre_gen.run(context);
-
-        expect(context.vars['application_id_android'], 'com.example.app');
-      });
-
-      test(
-        '''when not specified is set to `org_name + "." + project_name(snake_case)`''',
-        () {
-          final vars = <String, String>{
-            'project_name': 'Project Name',
-            'org_name': 'org_name',
-          };
-          when(() => context.vars).thenReturn(vars);
-
-          pre_gen.run(context);
-
-          expect(
-            context.vars['application_id_android'],
-            'org_name.project_name',
-          );
-        },
-      );
-    });
-
-    group('application_id', () {
-      test('when specified is unmodified', () {
-        final vars = <String, String>{
-          'project_name': 'project_name',
-          'org_name': 'org_name',
-          'application_id': 'com.example.app',
-        };
-        when(() => context.vars).thenReturn(vars);
-
-        pre_gen.run(context);
-
-        expect(context.vars['application_id'], 'com.example.app');
-      });
-
-      test(
-        '''when not specified is set to `org_name + "." + project_name(param-case)`''',
-        () {
-          final vars = <String, String>{
-            'project_name': 'Project Name',
-            'org_name': 'org_name',
-          };
-          when(() => context.vars).thenReturn(vars);
-
-          pre_gen.run(context);
-
-          expect(
-            context.vars['application_id'],
-            'org_name.project-name',
-          );
-        },
+        newVars,
+        equals(
+          {
+            'project_name': 'my_app',
+            'org_name': 'com.example',
+            'description': 'A new Flutter project.',
+            'android_namespace': 'app.id',
+            'android_application_id': 'app.id',
+            'ios_application_id': 'app.id',
+            'windows_application_id': 'app.id',
+          },
+        ),
       );
     });
   });
