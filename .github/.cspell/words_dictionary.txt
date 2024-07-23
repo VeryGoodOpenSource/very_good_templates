@@ -4,6 +4,7 @@ CLIs # Plural of the abbreviation for Command Line Interface.
 CLI's # Belonging to a CLI.
 CHANGELOGS # Plural of CHANGELOG
 dependabot # Automated dependency updates built into GitHub.
+deserializes # The process of reconstructing a data structure or object from a series of bytes or a string in order to instantiate the object for consumption.
 docusaurs # An optimized site generator in React.
 genhtml # Tool to generate an HTML view from LCOV coverage data files.
 gradlew # Wrapper tool that uses Gradle.

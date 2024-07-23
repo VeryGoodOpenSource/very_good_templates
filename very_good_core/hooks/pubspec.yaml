@@ -4,6 +4,7 @@ environment:
   sdk: ^3.4.0
 
 dependencies:
+  equatable: ^2.0.5
   mason: ^0.1.0-dev.52
 
 dev_dependencies:
