@@ -179,6 +179,7 @@ class VeryGoodCoreConfiguration extends Equatable {
         description,
         windowsApplicationId,
         iOsApplicationId,
+        macOsApplicationId,
         androidNamespace,
         androidApplicationId,
       ];
