@@ -10,15 +10,21 @@ vars:
   project_name:
     type: string
     description: The project name
-    default: my_game
+    default: my_app
     prompt: What is the project name?
   org_name:
     type: string
     description: The organization name
     default: com.example
     prompt: What is the organization name?
+  application_id:
+    type: string
+    description: >-
+      The application id on Android, Bundle ID on iOS and company name on Windows.
+      If omitted value will be formed based on org_name and project_name.
+    prompt: What is the application id?
   description:
     type: string
     description: A short project description
-    default: A Very Good Flame Game
+    default: A Very Good App
     prompt: What is the project description?
