@@ -57,7 +57,8 @@ class VeryGoodCoreConfiguration extends Equatable {
     String? organizationName,
     String? description,
     WindowsApplicationId? windowsApplicationId,
-    IosApplicationId? iosApplicationId,
+    AppleApplicationId? iOsApplicationId,
+    AppleApplicationId? macOsApplicationId,
     AndroidApplicationId? androidApplicationId,
     AndroidNamespace? androidNamespace,
   })  : projectName = projectName ?? 'my_app',
@@ -68,8 +69,13 @@ class VeryGoodCoreConfiguration extends Equatable {
           organizationName: this.organizationName,
           projectName: this.projectName,
         );
-    this.iosApplicationId = iosApplicationId ??
-        IosApplicationId.fallback(
+    this.iOsApplicationId = iOsApplicationId ??
+        AppleApplicationId.fallback(
+          organizationName: this.organizationName,
+          projectName: this.projectName,
+        );
+    this.macOsApplicationId = macOsApplicationId ??
+        AppleApplicationId.fallback(
           organizationName: this.organizationName,
           projectName: this.projectName,
         );
@@ -132,8 +138,10 @@ class VeryGoodCoreConfiguration extends Equatable {
     return VeryGoodCoreConfiguration(
       projectName: projectName,
       organizationName: organizationName,
-      iosApplicationId:
-          applicationId != null ? IosApplicationId(applicationId) : null,
+      iOsApplicationId:
+          applicationId != null ? AppleApplicationId(applicationId) : null,
+      macOsApplicationId:
+          applicationId != null ? AppleApplicationId(applicationId) : null,
       windowsApplicationId:
           applicationId != null ? WindowsApplicationId(applicationId) : null,
       androidApplicationId:
@@ -154,8 +162,11 @@ class VeryGoodCoreConfiguration extends Equatable {
   /// {@macro windows_application_id}
   late final WindowsApplicationId windowsApplicationId;
 
-  /// {@macro ios_application_id}
-  late final IosApplicationId iosApplicationId;
+  /// {@macro apple_application_id}
+  late final AppleApplicationId iOsApplicationId;
+
+  /// {@macro apple_application_id}
+  late final AppleApplicationId macOsApplicationId;
 
   /// {@macro android_namespace}
   late final AndroidNamespace androidNamespace;
@@ -169,7 +180,8 @@ class VeryGoodCoreConfiguration extends Equatable {
         organizationName,
         description,
         windowsApplicationId,
-        iosApplicationId,
+        iOsApplicationId,
+        macOsApplicationId,
         androidNamespace,
         androidApplicationId,
       ];
