@@ -26,5 +26,5 @@ vars:
   description:
     type: string
     description: A short project description
-    default: A Very Good App
+    default: A Very Good Flame Game
     prompt: What is the project description?
