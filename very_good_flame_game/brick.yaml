@@ -10,7 +10,7 @@ vars:
   project_name:
     type: string
     description: The project name
-    default: my_app
+    default: my_game
     prompt: What is the project name?
   org_name:
     type: string
