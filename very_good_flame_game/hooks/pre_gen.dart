@@ -39,7 +39,8 @@ void run(HookContext context) {
     'description': configuration.description,
     'android_namespace': configuration.androidNamespace,
     'android_application_id': configuration.androidApplicationId,
-    'ios_application_id': configuration.iosApplicationId,
+    'ios_application_id': configuration.iOsApplicationId,
+    'macos_application_id': configuration.macOsApplicationId,
     'windows_application_id': configuration.windowsApplicationId,
   };
 }
