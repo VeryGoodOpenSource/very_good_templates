@@ -19,17 +19,22 @@ void main() {
         expect(configuration.description, 'A Very Good App');
       });
 
-      test('windows_application_id to "com.example.my-app"', () {
+      test('windowsApplicationId to "com.example.my-app"', () {
         final configuration = VeryGoodCoreConfiguration();
         expect(configuration.windowsApplicationId.value, 'com.example.my-app');
       });
 
-      test('ios_application_id to "com.example.my-app"', () {
+      test('iOsApplicationId to "com.example.my-app"', () {
         final configuration = VeryGoodCoreConfiguration();
-        expect(configuration.iosApplicationId.value, 'com.example.my-app');
+        expect(configuration.iOsApplicationId.value, 'com.example.my-app');
       });
 
-      test('android_application_id to "com.example.my_app"', () {
+      test('macOsApplicationId to "com.example.my-app"', () {
+        final configuration = VeryGoodCoreConfiguration();
+        expect(configuration.macOsApplicationId.value, 'com.example.my-app');
+      });
+
+      test('androidApplicationId to "com.example.my_app"', () {
         final configuration = VeryGoodCoreConfiguration();
         expect(configuration.androidApplicationId.value, 'com.example.my_app');
       });
@@ -86,7 +91,10 @@ void main() {
               description: 'A Very Good App',
               windowsApplicationId:
                   WindowsApplicationId('com.verygood.very_good_app'),
-              iosApplicationId: IosApplicationId('com.verygood.very_good_app'),
+              iOsApplicationId:
+                  AppleApplicationId('com.verygood.very_good_app'),
+              macOsApplicationId:
+                  AppleApplicationId('com.verygood.very_good_app'),
               androidApplicationId:
                   AndroidApplicationId('com.verygood.very_good_app'),
               androidNamespace: AndroidNamespace('com.verygood.very_good_app'),
