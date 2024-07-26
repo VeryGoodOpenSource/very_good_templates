@@ -140,6 +140,8 @@ class VeryGoodCoreConfiguration extends Equatable {
       organizationName: organizationName,
       iOsApplicationId:
           applicationId != null ? AppleApplicationId(applicationId) : null,
+      macOsApplicationId:
+          applicationId != null ? AppleApplicationId(applicationId) : null,
       windowsApplicationId:
           applicationId != null ? WindowsApplicationId(applicationId) : null,
       androidApplicationId:
