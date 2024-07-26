@@ -1,0 +1,21 @@
+name: very_good_flame_game_hooks
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/very_good_flame_game_hooks.yaml"
+      - "very_good_flame_game/hooks/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/very_good_flame_game_hooks.yaml"
+      - "very_good_flame_game/hooks/**"
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    with:
+      working_directory: "very_good_flame_game/hooks"
+      analyze_directories: "lib test"
+      report_on: "pre_gen.dart"
