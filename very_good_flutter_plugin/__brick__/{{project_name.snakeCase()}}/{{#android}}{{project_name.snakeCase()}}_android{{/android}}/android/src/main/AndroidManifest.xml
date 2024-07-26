@@ -1,3 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="{{org_name.dotCase()}}">
-</manifest>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"/>
