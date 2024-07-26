@@ -25,6 +25,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace = "{{org_name.dotCase()}}.example"
+    
     if (project.android.hasProperty("namespace")) {
         namespace '{{org_name.dotCase()}}'
     }

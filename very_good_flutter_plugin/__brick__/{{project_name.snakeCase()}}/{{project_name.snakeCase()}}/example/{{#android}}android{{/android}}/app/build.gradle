@@ -23,6 +23,7 @@ if (flutterVersionName == null) {
 }
 
 android {
+    namespace = "{{org_name.dotCase()}}.example"
     compileSdkVersion flutter.compileSdkVersion
 
     compileOptions {
