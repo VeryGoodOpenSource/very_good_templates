@@ -1,3 +1,9 @@
+# 0.7.2
+
+- fix: update application identifier usage ([#148](https://github.com/VeryGoodOpenSource/very_good_templates/pull/148))
+- feat: use application id on macOS project ([#159](https://github.com/VeryGoodOpenSource/very_good_templates/pull/159))
+- fix: default id when application id is empty ([#165](https://github.com/VeryGoodOpenSource/very_good_templates/pull/165))
+
 # 0.7.1
 
 - style: Adding extra space to the application opening tag ([#126](https://github.com/VeryGoodOpenSource/very_good_templates/pull/126))
