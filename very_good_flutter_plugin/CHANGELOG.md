@@ -1,3 +1,11 @@
+# 0.8.2 
+
+- chore: update gradle to 7.6.1 ([#150](https://github.com/VeryGoodOpenSource/very_good_templates/pull/150))
+- chore: update example Kotlin and AGP ([#151](https://github.com/VeryGoodOpenSource/very_good_templates/pull/151))
+- chore: deprecate imperative apply of Flutter's Gradle plugins ([#152](https://github.com/VeryGoodOpenSource/very_good_templates/pull/152))
+- chore: remove legacy package tag in AndroidManifest.xml ([#160](https://github.com/VeryGoodOpenSource/very_good_templates/pull/160))
+- chore: android flutter plugin to use recommended plugin DSL ([#153](https://github.com/VeryGoodOpenSource/very_good_templates/pull/153))
+
 # 0.8.1
 
 - style: Adding extra space to the application opening tag ([#126](https://github.com/VeryGoodOpenSource/very_good_templates/pull/126))
