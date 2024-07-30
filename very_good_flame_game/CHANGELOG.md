@@ -1,3 +1,7 @@
+# 0.7.2
+
+- feat: update usage of application_id var ([#157](https://github.com/VeryGoodOpenSource/very_good_templates/pull/157))
+
 # 0.7.1
 
 - style: Adding extra space to the application opening tag ([#126](https://github.com/VeryGoodOpenSource/very_good_templates/pull/126))
