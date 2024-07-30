@@ -1,0 +1,15 @@
+name: very_good_flame_game_hooks
+
+environment:
+  sdk: ^3.4.0
+
+dependencies:
+  equatable: ^2.0.5
+  mason: ^0.1.0-dev.52
+  very_good_core_hooks:
+    path: ../../very_good_core/hooks
+
+dev_dependencies:
+  mocktail: ^1.0.3
+  test: ^1.25.2
+  very_good_analysis: ^6.0.0

@@ -1,4 +1,4 @@
-package {{org_name.dotCase()}}.{{project_name.snakeCase()}}
+package {{application_id}}
 
 import android.os.Bundle
 import androidx.annotation.NonNull

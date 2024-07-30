@@ -1,8 +1,9 @@
 import 'package:mason/mason.dart';
-import 'package:very_good_core_hooks/very_good_core_hooks.dart';
+import 'package:very_good_flame_game_hooks/very_good_core_hooks.dart';
 
 void run(HookContext context) {
-  final configuration = VeryGoodCoreConfiguration.fromHookVars(context.vars);
+  final configuration =
+      VeryGoodFlameGameConfiguration.fromHookVars(context.vars);
 
   context.vars = {
     /// Below are all the variables that are accessible in the templates.

@@ -16,10 +16,10 @@ void main() {
 
     test('populates variables', () {
       final vars = {
-        'project_name': 'my_app',
+        'project_name': 'my_game',
         'org_name': 'com.example',
         'application_id': 'app.id',
-        'description': 'A new Flutter project.',
+        'description': 'A new Flame project.',
       };
       when(() => context.vars).thenReturn(vars);
 
@@ -32,9 +32,9 @@ void main() {
         newVars,
         equals(
           {
-            'project_name': 'my_app',
+            'project_name': 'my_game',
             'org_name': 'com.example',
-            'description': 'A new Flutter project.',
+            'description': 'A new Flame project.',
             'android_namespace': 'app.id',
             'android_application_id': 'app.id',
             'ios_application_id': 'app.id',
