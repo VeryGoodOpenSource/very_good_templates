@@ -103,6 +103,36 @@ void main() {
         );
       });
 
+      test('defaults id when empty', () {
+        final vars = {
+          'project_name': 'very good app',
+          'org_name': 'com.verygood',
+          'application_id': '',
+          'description': 'A Very Good App',
+        };
+
+        final configuration = VeryGoodCoreConfiguration.fromHookVars(vars);
+        expect(
+          configuration,
+          equals(
+            VeryGoodCoreConfiguration(
+              projectName: 'very good app',
+              organizationName: 'com.verygood',
+              description: 'A Very Good App',
+              windowsApplicationId:
+                  WindowsApplicationId('com.verygood.very-good-app'),
+              iOsApplicationId:
+                  AppleApplicationId('com.verygood.very-good-app'),
+              macOsApplicationId:
+                  AppleApplicationId('com.verygood.very-good-app'),
+              androidApplicationId:
+                  AndroidApplicationId('com.verygood.very_good_app'),
+              androidNamespace: AndroidNamespace('com.verygood.very_good_app'),
+            ),
+          ),
+        );
+      });
+
       group('throws $ArgumentError', () {
         test('when "project_name" is not a String?', () {
           final vars = <String, dynamic>{'project_name': 42};

@@ -138,14 +138,18 @@ class VeryGoodCoreConfiguration extends Equatable {
     return VeryGoodCoreConfiguration(
       projectName: projectName,
       organizationName: organizationName,
-      iOsApplicationId:
-          applicationId != null ? AppleApplicationId(applicationId) : null,
-      macOsApplicationId:
-          applicationId != null ? AppleApplicationId(applicationId) : null,
-      windowsApplicationId:
-          applicationId != null ? WindowsApplicationId(applicationId) : null,
-      androidApplicationId:
-          applicationId != null ? AndroidApplicationId(applicationId) : null,
+      iOsApplicationId: applicationId == null || applicationId.isEmpty
+          ? null
+          : AppleApplicationId(applicationId),
+      macOsApplicationId: applicationId == null || applicationId.isEmpty
+          ? null
+          : AppleApplicationId(applicationId),
+      windowsApplicationId: applicationId == null || applicationId.isEmpty
+          ? null
+          : WindowsApplicationId(applicationId),
+      androidApplicationId: applicationId == null || applicationId.isEmpty
+          ? null
+          : AndroidApplicationId(applicationId),
       description: description,
     );
   }
