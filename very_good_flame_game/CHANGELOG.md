@@ -1,3 +1,7 @@
+# 0.7.3 
+
+- chore: use git dependency over path dependency ([#171](https://github.com/VeryGoodOpenSource/very_good_templates/pull/171))
+
 # 0.7.2
 
 - feat: update usage of application_id var ([#157](https://github.com/VeryGoodOpenSource/very_good_templates/pull/157))
