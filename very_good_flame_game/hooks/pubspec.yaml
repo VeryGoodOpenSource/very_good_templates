@@ -7,7 +7,10 @@ dependencies:
   equatable: ^2.0.5
   mason: ^0.1.0-dev.52
   very_good_core_hooks:
-    path: ../../very_good_core/hooks
+    git: 
+      url: https://github.com/VeryGoodOpenSource/very_good_templates
+      path: very_good_core/hooks
+      ref: 1a0affa08696084d10b965eb54720edc41e97558
 
 dev_dependencies:
   mocktail: ^1.0.3
