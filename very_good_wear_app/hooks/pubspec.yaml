@@ -1,7 +1,7 @@
 name: very_good_wear_app_hooks
 
 environment:
-  sdk: ^3.4.0
+  sdk: ^3.5.0
 
 dependencies:
   mason: ^0.1.0-dev.52
