@@ -1,3 +1,7 @@
+# 0.8.0 
+
+- feat: update to Flutter 3.24 and Dart 3.5 ([#177](https://github.com/VeryGoodOpenSource/very_good_templates/pull/177))
+
 # 0.7.2
 
 - fix: update application identifier usage ([#148](https://github.com/VeryGoodOpenSource/very_good_templates/pull/148))
