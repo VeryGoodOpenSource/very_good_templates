@@ -163,6 +163,9 @@ class VeryGoodCoreConfiguration extends Equatable {
   /// {@macro very_good_core_configuration_variables.description}
   final String description;
 
+  /// {@macro very_good_core_configuration_variables.current_year}
+  final int currentYear = DateTime.now().year;
+
   /// {@macro windows_application_id}
   late final WindowsApplicationId windowsApplicationId;
 
