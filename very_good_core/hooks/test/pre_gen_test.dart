@@ -20,6 +20,7 @@ void main() {
         'org_name': 'com.example',
         'application_id': 'app.id',
         'description': 'A new Flutter project.',
+        'current_year': '2024',
       };
       when(() => context.vars).thenReturn(vars);
 
@@ -40,6 +41,7 @@ void main() {
             'ios_application_id': 'app.id',
             'macos_application_id': 'app.id',
             'windows_application_id': 'app.id',
+            'current_year': 2024,
           },
         ),
       );
