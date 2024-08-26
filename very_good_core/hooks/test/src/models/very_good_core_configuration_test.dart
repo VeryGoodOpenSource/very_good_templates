@@ -38,6 +38,11 @@ void main() {
         final configuration = VeryGoodCoreConfiguration();
         expect(configuration.androidApplicationId.value, 'com.example.my_app');
       });
+
+      test('currentYear to the current year', () {
+        final configuration = VeryGoodCoreConfiguration();
+        expect(configuration.currentYear, DateTime.now().year);
+      });
     });
 
     group('throws', () {
@@ -79,6 +84,7 @@ void main() {
           'org_name': 'com.verygood',
           'application_id': 'com.verygood.very_good_app',
           'description': 'A Very Good App',
+          'current_year': 2024,
         };
 
         final configuration = VeryGoodCoreConfiguration.fromHookVars(vars);
@@ -109,6 +115,7 @@ void main() {
           'org_name': 'com.verygood',
           'application_id': '',
           'description': 'A Very Good App',
+          'current_year': 2024,
         };
 
         final configuration = VeryGoodCoreConfiguration.fromHookVars(vars);
@@ -119,6 +126,7 @@ void main() {
               projectName: 'very good app',
               organizationName: 'com.verygood',
               description: 'A Very Good App',
+              currentYear: 2024,
               windowsApplicationId:
                   WindowsApplicationId('com.verygood.very-good-app'),
               iOsApplicationId:
@@ -189,6 +197,21 @@ void main() {
                 (error) => error.message,
                 'message',
                 '''Expected a value for key "description" to be of type String?, got 42.''',
+              ),
+            ),
+          );
+        });
+
+        test('when "current_year" is not an int?', () {
+          final vars = <String, dynamic>{'current_year': 'string_value'};
+
+          expect(
+            () => VeryGoodCoreConfiguration.fromHookVars(vars),
+            throwsA(
+              isA<ArgumentError>().having(
+                (error) => error.message,
+                'message',
+                '''Expected a value for key "current_year" to be of type int?, got string_value.''',
               ),
             ),
           );

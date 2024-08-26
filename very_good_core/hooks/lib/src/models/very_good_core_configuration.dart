@@ -61,6 +61,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     String? projectName,
     String? organizationName,
     String? description,
+    int? currentYear,
     WindowsApplicationId? windowsApplicationId,
     AppleApplicationId? iOsApplicationId,
     AppleApplicationId? macOsApplicationId,
