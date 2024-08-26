@@ -37,7 +37,12 @@ enum _VeryGoodCoreConfigurationVariables {
   ///
   /// Defaults to `A Very Good App`.
   /// {@endtemplate}
-  description._('description');
+  description._('description'),
+
+  /// {@template very_good_core_configuration_variables.current_year}
+  /// Defaults to the current year.
+  /// {@endtemplate}
+  currentYear._('current_year');
 
   const _VeryGoodCoreConfigurationVariables._(this.key);
 
@@ -135,6 +140,16 @@ class VeryGoodCoreConfiguration extends Equatable {
       );
     }
 
+    final currentYear =
+        vars[_VeryGoodCoreConfigurationVariables.currentYear.key];
+    if (currentYear is! int?) {
+      throw ArgumentError.value(
+        vars,
+        'vars',
+        '''Expected a value for key "${_VeryGoodCoreConfigurationVariables.currentYear.key}" to be of type int?, got $currentYear.''',
+      );
+    }
+
     return VeryGoodCoreConfiguration(
       projectName: projectName,
       organizationName: organizationName,
@@ -162,6 +177,9 @@ class VeryGoodCoreConfiguration extends Equatable {
 
   /// {@macro very_good_core_configuration_variables.description}
   final String description;
+
+  /// {@macro very_good_core_configuration_variables.current_year}
+  final int currentYear = DateTime.now().year;
 
   /// {@macro windows_application_id}
   late final WindowsApplicationId windowsApplicationId;

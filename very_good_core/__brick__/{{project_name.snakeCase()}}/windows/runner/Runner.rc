@@ -93,7 +93,7 @@ BEGIN
             VALUE "FileDescription", "{{project_name.snakeCase()}}" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "{{project_name.snakeCase()}}" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 {{windows_application_id}}. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) {{current_year}} {{windows_application_id}}. All rights reserved." "\0"
             VALUE "OriginalFilename", "{{project_name.snakeCase()}}.exe" "\0"
             VALUE "ProductName", "{{project_name.titleCase()}}" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
