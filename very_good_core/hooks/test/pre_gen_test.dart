@@ -1,3 +1,4 @@
+import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
@@ -15,12 +16,15 @@ void main() {
     });
 
     test('populates variables', () {
+      // Fake the current year to ensure the test is deterministic.
+      final clock = Clock.fixed(DateTime(2024));
+
       final vars = {
         'project_name': 'my_app',
         'org_name': 'com.example',
         'application_id': 'app.id',
         'description': 'A new Flutter project.',
-        'current_year': '2024',
+        'current_year': clock.now().year,
       };
       when(() => context.vars).thenReturn(vars);
 
@@ -41,7 +45,7 @@ void main() {
             'ios_application_id': 'app.id',
             'macos_application_id': 'app.id',
             'windows_application_id': 'app.id',
-            'current_year': 2024,
+            'current_year': clock.now().year,
           },
         ),
       );
