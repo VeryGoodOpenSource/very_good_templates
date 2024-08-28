@@ -23,7 +23,6 @@ void main() {
           'org_name': 'com.example',
           'application_id': 'app.id',
           'description': 'A new Flame project.',
-          'current_year': clock.now().year,
         };
         when(() => context.vars).thenReturn(vars);
 
