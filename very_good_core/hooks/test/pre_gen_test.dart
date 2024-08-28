@@ -16,7 +16,6 @@ void main() {
     });
 
     test('populates variables', () {
-      // Fake the current year to ensure the test is deterministic.
       final clock = Clock.fixed(DateTime(2020));
       withClock(clock, () {
         final vars = {
