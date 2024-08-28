@@ -4,6 +4,7 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
+  clock: ^1.1.1
   equatable: ^2.0.5
   mason: ^0.1.0-dev.52
   very_good_core_hooks:
