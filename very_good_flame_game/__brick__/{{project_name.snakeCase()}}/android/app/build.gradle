@@ -29,7 +29,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "{{android_namespace}"
+    namespace "{{android_namespace}}"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
