@@ -164,8 +164,10 @@ class VeryGoodCoreConfiguration extends Equatable {
   /// {@macro very_good_core_configuration_variables.description}
   final String description;
 
-  /// {@macro very_good_core_configuration_variables.current_year}
-  final int currentYear = clock.now().year;
+  /// The current year.
+  /// 
+  /// Usually used for copyright headers.
+  final String currentYear = clock.now().year.toString();
 
   /// {@macro windows_application_id}
   late final WindowsApplicationId windowsApplicationId;

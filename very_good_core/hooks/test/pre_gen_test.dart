@@ -17,14 +17,13 @@ void main() {
 
     test('populates variables', () {
       // Fake the current year to ensure the test is deterministic.
-      final clock = Clock.fixed(DateTime.now());
+      final clock = Clock.fixed(DateTime(2020));
       withClock(clock, () {
         final vars = {
           'project_name': 'my_app',
           'org_name': 'com.example',
           'application_id': 'app.id',
           'description': 'A new Flutter project.',
-          'current_year': clock.now().year,
         };
         when(() => context.vars).thenReturn(vars);
 
@@ -45,7 +44,7 @@ void main() {
               'ios_application_id': 'app.id',
               'macos_application_id': 'app.id',
               'windows_application_id': 'app.id',
-              'current_year': clock.now().year,
+              'current_year': '2020',
             },
           ),
         );
