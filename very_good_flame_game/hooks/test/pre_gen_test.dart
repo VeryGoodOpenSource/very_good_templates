@@ -15,8 +15,8 @@ void main() {
       context = _MockHookContext();
     });
 
-    final clock = Clock.fixed(DateTime(2020));
     test('populates variables', () {
+      final clock = Clock.fixed(DateTime(2020));
       withClock(clock, () {
         final vars = {
           'project_name': 'my_game',
