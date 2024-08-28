@@ -4,11 +4,11 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
+  clock: ^1.1.1
   equatable: ^2.0.5
   mason: ^0.1.0-dev.52
 
 dev_dependencies:
-  clock: ^1.1.1
   mocktail: ^1.0.3
   test: ^1.25.2
   very_good_analysis: ^6.0.0
