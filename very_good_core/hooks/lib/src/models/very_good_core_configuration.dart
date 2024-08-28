@@ -165,7 +165,7 @@ class VeryGoodCoreConfiguration extends Equatable {
   final String description;
 
   /// The current year.
-  /// 
+  ///
   /// Usually used for copyright headers.
   final String currentYear = clock.now().year.toString();
 
