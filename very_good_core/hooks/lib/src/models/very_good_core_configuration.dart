@@ -1,3 +1,4 @@
+import 'package:clock/clock.dart';
 import 'package:equatable/equatable.dart';
 import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 
@@ -162,6 +163,11 @@ class VeryGoodCoreConfiguration extends Equatable {
 
   /// {@macro very_good_core_configuration_variables.description}
   final String description;
+
+  /// The current year.
+  ///
+  /// Usually used for copyright headers.
+  final String currentYear = clock.now().year.toString();
 
   /// {@macro windows_application_id}
   late final WindowsApplicationId windowsApplicationId;
