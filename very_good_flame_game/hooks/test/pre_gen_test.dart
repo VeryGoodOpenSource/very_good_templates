@@ -16,8 +16,7 @@ void main() {
     });
 
     test('populates variables', () {
-      final clock = Clock.fixed(DateTime(2020));
-      withClock(clock, () {
+      withClock(Clock.fixed(DateTime(2020)), () {
         final vars = {
           'project_name': 'my_game',
           'org_name': 'com.example',
@@ -43,7 +42,7 @@ void main() {
               'ios_application_id': 'app.id',
               'macos_application_id': 'app.id',
               'windows_application_id': 'app.id',
-              'current_year': clock.now().year,
+              'current_year': '2020',
             },
           ),
         );
