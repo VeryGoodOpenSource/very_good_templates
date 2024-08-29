@@ -1,3 +1,4 @@
+import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
 import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 
@@ -41,6 +42,6 @@ void run(HookContext context) {
     'ios_application_id': configuration.iOsApplicationId,
     'macos_application_id': configuration.macOsApplicationId,
     'windows_application_id': configuration.windowsApplicationId,
-    'current_year': configuration.currentYear,
+    'current_year': clock.now().year.toString(),
   };
 }

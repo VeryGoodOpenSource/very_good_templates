@@ -16,8 +16,7 @@ void main() {
     });
 
     test('populates variables', () {
-      final clock = Clock.fixed(DateTime(2020));
-      withClock(clock, () {
+      withClock(Clock.fixed(DateTime(2020)), () {
         final vars = {
           'project_name': 'my_app',
           'org_name': 'com.example',
