@@ -1,0 +1,49 @@
+name: Rule Request
+description: Request a new rule.
+title: "rule: "
+labels: ["feature", "product: very_good_dep_test"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this bug report!
+
+  - type: checkboxes
+    attributes:
+      label: Is there an existing rule request for this?
+      description: Please search to see if an issue already exists for the rule you would like to see.
+      options:
+        - label: I have searched the existing issues.
+          required: true
+
+  - type: input
+    validations:
+      required: true
+    id: command
+    attributes:
+      label: Rule name
+      description: What is the name of the rule you would like to request?
+      placeholder: "Avoid depending on Flutter"
+
+  - type: textarea
+    validations:
+      required: true
+    id: description
+    attributes:
+      label: Description
+      description: Give us a clear and concise description of what the rule is and what it would do.
+      placeholder: I would like the rule to be able to ...
+
+  - type: textarea
+    validations:
+      required: true
+    id: reasoning
+    attributes:
+      label: Reasoning
+      description: What is the reason for your request? Why do you think this rule would be useful?
+      placeholder: I think this rule would be useful because...
+
+  - type: textarea
+    id: comments
+    attributes:
+      label: Additional context and comments
+      description: Anything else you want to say?
