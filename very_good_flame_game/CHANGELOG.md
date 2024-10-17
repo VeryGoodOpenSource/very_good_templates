@@ -1,6 +1,6 @@
 # 0.9.0
 
-- fix(flame_game): set current year copyright ([#192](https://github.com/VeryGoodOpenSource/very_good_templates/pull/192))
+- fix: set current year copyright ([#192](https://github.com/VeryGoodOpenSource/very_good_templates/pull/192))
 - chore: tighten template dependencies ([#204](https://github.com/VeryGoodOpenSource/very_good_templates/pull/204))
 - fix: update android build versions ([#205](https://github.com/VeryGoodOpenSource/very_good_templates/pull/205))
 
