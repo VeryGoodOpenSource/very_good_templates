@@ -122,10 +122,15 @@ dart analyze --fatal-infos --fatal-warnings .
 
 💡 **Note**: While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional work, tests, or other changes before your pull request can be accepted.
 
-
 ## Releasing a new version
 
-1. Ensure your local `main` branch is up to date with the remote `main` branch:
+1. Install dependencies
+
+```sh
+brew install pcre
+```
+
+2. Ensure your local `main` branch is up to date with the remote `main` branch:
 
 ```sh
 git checkout main
@@ -144,6 +149,7 @@ git commit -m "chore: v<new-version>"
 ```
 
 This script will:
+
 - Create a new branch named `chore/v<new-version>`
 - Update the version info on `brick/brick.yaml`
 - Update the version info on `brick/CHANGELOG.md`
