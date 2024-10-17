@@ -124,7 +124,7 @@ dart analyze --fatal-infos --fatal-warnings .
 
 ## Releasing a new version
 
-1. Install dependencies
+1. Install the release script dependencies:
 
 ```sh
 brew install pcre
