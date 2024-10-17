@@ -1,13 +1,19 @@
-# 0.8.1 
+# 0.9.0
+
+- fix(flame_game): set current year copyright ([#192](https://github.com/VeryGoodOpenSource/very_good_templates/pull/192))
+- chore: tighten template dependencies ([#204](https://github.com/VeryGoodOpenSource/very_good_templates/pull/204))
+- fix: update android build versions ([#205](https://github.com/VeryGoodOpenSource/very_good_templates/pull/205))
+
+  # 0.8.1
 
 - chore: tighten template dependencies ([#190](https://github.com/VeryGoodOpenSource/very_good_templates/pull/190))
 - fix: add closing } in build.gradle ([#189](https://github.com/VeryGoodOpenSource/very_good_templates/pull/189))
 
-# 0.8.0 
+# 0.8.0
 
 - feat: update to Flutter 3.24 and Dart 3.5 ([#177](https://github.com/VeryGoodOpenSource/very_good_templates/pull/177))
 
-# 0.7.3 
+# 0.7.3
 
 - chore: use git dependency over path dependency ([#171](https://github.com/VeryGoodOpenSource/very_good_templates/pull/171))
 
