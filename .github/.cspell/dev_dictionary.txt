@@ -9,4 +9,5 @@ inicio # "Start" in Spanish.
 juego # "Game" in Spanish.
 mostrado # "Shown" in Spanish.
 página # "Page" in Spanish.
+pcre # Tool used in release_ready.sh script
 texto # "Text" in Spanish.

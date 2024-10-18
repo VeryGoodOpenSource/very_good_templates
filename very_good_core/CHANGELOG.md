@@ -1,4 +1,10 @@
-# 0.8.0 
+# 0.9.0
+
+- chore: update copyright year in Windows Runner.rc ([#188](https://github.com/VeryGoodOpenSource/very_good_templates/pull/188))
+- refactor: move current_year out from configuration ([#193](https://github.com/VeryGoodOpenSource/very_good_templates/pull/193))
+- fix: update android build versions ([#205](https://github.com/VeryGoodOpenSource/very_good_templates/pull/205))
+
+# 0.8.0
 
 - feat: update to Flutter 3.24 and Dart 3.5 ([#177](https://github.com/VeryGoodOpenSource/very_good_templates/pull/177))
 
