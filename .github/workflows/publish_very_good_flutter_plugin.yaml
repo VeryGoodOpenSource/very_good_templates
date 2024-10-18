@@ -12,4 +12,4 @@ jobs:
     with:
       working_directory: "very_good_flutter_plugin"
     secrets:
-      mason_credentials: secrets.MASON_CREDENTIALS
+      mason_credentials: ${{ secrets.MASON_CREDENTIALS }}
