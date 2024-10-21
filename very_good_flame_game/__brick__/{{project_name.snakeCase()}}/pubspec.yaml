@@ -10,8 +10,8 @@ dependencies:
   audioplayers: ^6.1.0
   bloc: ^8.1.4
   equatable: ^2.0.5
-  flame: ^1.20.0
-  flame_audio: ^2.10.4
+  flame: ^1.21.0
+  flame_audio: ^2.10.5
   flame_behaviors: ^1.2.0
   flutter:
     sdk: flutter
@@ -23,7 +23,7 @@ dependencies:
 
 dev_dependencies:
   bloc_test: ^9.1.7
-  flame_test: ^1.17.1
+  flame_test: ^1.17.2
   flutter_test:
     sdk: flutter
   mockingjay: ^0.6.0
