@@ -68,7 +68,7 @@ fi
 echo "# ${new_version} \n\n${commits}\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
 echo "CHANGELOG generated, validate entries here: $(pwd)/CHANGELOG.md"
 
-echo "Creating git branch for ver_good_cli@$new_version"
+echo "Creating git branch for very_good_dart_cli@$new_version"
 git checkout -b "chore/very_good_dart_cli-v$new_version" > /dev/null
 
 git add brick.yaml CHANGELOG.md 
