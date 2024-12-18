@@ -1,4 +1,10 @@
-# 0.8.0 
+# 0.9.0
+
+- chore: update to Flutter 3.27 and Dart 3.6 ([#223](https://github.com/VeryGoodOpenSource/very_good_templates/pull/223))
+- feat: update pull request templates to add `test` type option ([#214](https://github.com/VeryGoodOpenSource/very_good_templates/pull/214))
+- chore: tighten template dependencies ([#194](https://github.com/VeryGoodOpenSource/very_good_templates/pull/194), [#198](https://github.com/VeryGoodOpenSource/very_good_templates/pull/198), [#203](https://github.com/VeryGoodOpenSource/very_good_templates/pull/203), [#211](https://github.com/VeryGoodOpenSource/very_good_templates/pull/211), [#220](https://github.com/VeryGoodOpenSource/very_good_templates/pull/220), [#221](https://github.com/VeryGoodOpenSource/very_good_templates/pull/221))
+
+# 0.8.0
 
 - feat: update to Flutter 3.24 and Dart 3.5 ([#177](https://github.com/VeryGoodOpenSource/very_good_templates/pull/177))
 - chore: tighten template dependencies ([#173](https://github.com/VeryGoodOpenSource/very_good_templates/pull/173), [#178](https://github.com/VeryGoodOpenSource/very_good_templates/pull/178))
