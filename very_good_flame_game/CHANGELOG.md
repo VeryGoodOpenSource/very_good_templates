@@ -1,10 +1,16 @@
+# 0.10.0
+
+- chore: tighten template dependencies ([#211](https://github.com/VeryGoodOpenSource/very_good_templates/pull/211), [#213](https://github.com/VeryGoodOpenSource/very_good_templates/pull/213), [#220](https://github.com/VeryGoodOpenSource/very_good_templates/pull/220))
+- feat: update pull request templates to add `test` type option ([#214](https://github.com/VeryGoodOpenSource/very_good_templates/pull/214))
+- chore: update to Flutter 3.27 and Dart 3.6 ([#223](https://github.com/VeryGoodOpenSource/very_good_templates/pull/223))
+
 # 0.9.0
 
 - fix: set current year copyright ([#192](https://github.com/VeryGoodOpenSource/very_good_templates/pull/192))
 - chore: tighten template dependencies ([#204](https://github.com/VeryGoodOpenSource/very_good_templates/pull/204))
 - fix: update android build versions ([#205](https://github.com/VeryGoodOpenSource/very_good_templates/pull/205))
 
-  # 0.8.1
+# 0.8.1
 
 - chore: tighten template dependencies ([#190](https://github.com/VeryGoodOpenSource/very_good_templates/pull/190))
 - fix: add closing } in build.gradle ([#189](https://github.com/VeryGoodOpenSource/very_good_templates/pull/189))

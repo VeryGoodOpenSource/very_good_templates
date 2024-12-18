@@ -1,3 +1,11 @@
+# 0.0.4
+
+- feat: update pull request templates to add `test` type option ([#214](https://github.com/VeryGoodOpenSource/very_good_templates/pull/214))
+- chore(deps-dev): bump @docusaurus/module-type-aliases from 3.3.2 to 3.4.0 in /very_good_docs_site/**brick**/{{project_name.snakeCase()}} ([#118](https://github.com/VeryGoodOpenSource/very_good_templates/pull/118))
+- chore(deps-dev): bump eslint from 8.57.0 to 9.2.0 in /very_good_docs_site/**brick**/{{project_name.snakeCase()}} ([#94](https://github.com/VeryGoodOpenSource/very_good_templates/pull/94))
+- chore(deps-dev): bump @docusaurus/module-type-aliases from 3.4.0 to 3.5.2 in /very_good_docs_site/**brick**/{{project_name.snakeCase()}} ([#175](https://github.com/VeryGoodOpenSource/very_good_templates/pull/175))
+- chore(deps-dev): bump @docusaurus/module-type-aliases from 3.5.2 to 3.6.0 in /very_good_docs_site/**brick**/{{project_name.snakeCase()}} ([#212](https://github.com/VeryGoodOpenSource/very_good_templates/pull/212))
+
 # 0.0.3
 
 - chore: migrate very_good_docs_site ([#6](https://github.com/VeryGoodOpenSource/very_good_templates/pull/6))

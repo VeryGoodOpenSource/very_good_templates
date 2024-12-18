@@ -44,7 +44,7 @@ if [[ "$new_version" == "$old_version" ]]; then
 fi
 
 # Retrieving all the commits in the current directory since the last tag.
-previousTag="very_good_core-v${old_version}"
+previousTag="very_good_docs_site-v${old_version}"
 raw_commits="$(git log --pretty=format:"%s" --no-merges --reverse $previousTag..HEAD -- .)"
 markdown_commits=$(echo "$raw_commits" | sed -En "s/\(#([0-9]+)\)/([#\1](https:\/\/github.com\/VeryGoodOpenSource\/very_good_templates\/pull\/\1))/p")
 
@@ -68,11 +68,11 @@ fi
 echo "# ${new_version} \n\n${commits}\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
 echo "CHANGELOG generated, validate entries here: $(pwd)/CHANGELOG.md"
 
-echo "Creating git branch for very_good_core@$new_version"
-git checkout -b "chore/very_good_core-v$new_version" > /dev/null
+echo "Creating git branch for very_good_docs_site@$new_version"
+git checkout -b "chore/very_good_docs_site-v$new_version" > /dev/null
 
 git add brick.yaml CHANGELOG.md 
 
 echo ""
 echo "Run the following command if you wish to commit the changes:"
-echo "git commit -m \"chore(very_good_core): v$new_version\""
+echo "git commit -m \"chore(very_good_docs_site): v$new_version\""
