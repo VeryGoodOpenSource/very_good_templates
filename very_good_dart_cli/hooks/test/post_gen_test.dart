@@ -73,6 +73,7 @@ void main() {
       final pubGetCompleter = Completer<void>();
       final fixCompleter = Completer<void>();
 
+      // Using the shortcut here as its just a test
       // ignore: prefer_function_declarations_over_variables
       final runProcess = (
         String executable,
