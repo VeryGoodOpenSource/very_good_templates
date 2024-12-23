@@ -1,3 +1,4 @@
+// Make test files more explicit rather then collapsing calls
 // ignore_for_file: cascade_invocations
 
 import 'package:audioplayers/audioplayers.dart';
