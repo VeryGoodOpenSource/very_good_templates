@@ -4,6 +4,7 @@ import 'package:{{project_name.snakeCase()}}/ambient_mode/ambient_mode.dart';
 
 class _TestAmbientModeListener extends ValueNotifier<bool>
     implements AmbientModeListener {
+  // Taking the short hand syntax for a test file
   // ignore: avoid_positional_boolean_parameters
   _TestAmbientModeListener(super.value);
 
