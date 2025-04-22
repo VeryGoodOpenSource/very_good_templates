@@ -22,6 +22,7 @@ void main() {
           'org_name': 'com.example',
           'application_id': 'app.id',
           'description': 'A new Flame project.',
+          'dart_fix_output': false,
         };
         when(() => context.vars).thenReturn(vars);
 
