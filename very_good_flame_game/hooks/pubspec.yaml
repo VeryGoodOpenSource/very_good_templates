@@ -7,11 +7,17 @@ dependencies:
   clock: ^1.1.1
   equatable: ^2.0.5
   mason: ^0.1.0
+  meta: ^1.16.0
   very_good_core_hooks:
     git:
+      ref: main
       url: https://github.com/VeryGoodOpenSource/very_good_templates
       path: very_good_core/hooks
-      ref: 1a0affa08696084d10b965eb54720edc41e97558
+  very_good_flutter_plugin_hooks:
+    git:
+      ref: main
+      url: https://github.com/VeryGoodOpenSource/very_good_templates
+      path: very_good_flutter_plugin/hooks
 
 dev_dependencies:
   mocktail: ^1.0.3
