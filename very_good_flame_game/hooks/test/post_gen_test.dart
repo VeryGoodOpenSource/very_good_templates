@@ -55,7 +55,7 @@ void main() {
         when(
           () => veryGoodCli.packagesGet(
             logger: logger,
-            recursive: true,
+            recursive: any(named: 'recursive', that: isFalse),
             cwd: any(named: 'cwd'),
           ),
         ).thenAnswer((_) async {});
@@ -84,7 +84,7 @@ void main() {
         verify(
           () => veryGoodCli.packagesGet(
             logger: logger,
-            recursive: true,
+            recursive: any(named: 'recursive', that: isFalse),
             cwd: any(named: 'cwd'),
           ),
         ).called(1);
@@ -176,7 +176,7 @@ void main() {
             when(
               () => veryGoodCli.packagesGet(
                 logger: logger,
-                recursive: true,
+                recursive: any(named: 'recursive'),
                 cwd: any(named: 'cwd'),
               ),
             ).thenAnswer((_) => Future.error(exception));
@@ -203,7 +203,7 @@ ${exception.message}
             when(
               () => veryGoodCli.packagesGet(
                 logger: logger,
-                recursive: true,
+                recursive: any(named: 'recursive'),
                 cwd: any(named: 'cwd'),
               ),
             ).thenAnswer((_) => Future.error(exception));
