@@ -1,10 +1,18 @@
 import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
+import 'package:meta/meta.dart';
 import 'package:very_good_flame_game_hooks/very_good_flame_game_hooks.dart';
+
+/// The key for the `dartFixOutput` context variable.
+@visibleForTesting
+const dartFixOutputVariableKey = 'dart_fix_output';
 
 void run(HookContext context) {
   final configuration =
       VeryGoodFlameGameConfiguration.fromHookVars(context.vars);
+
+  final dartFixOutput = context.vars.containsKey(dartFixOutputVariableKey) &&
+      context.vars[dartFixOutputVariableKey] as bool;
 
   context.vars = {
     /// Below are all the variables that are accessible in the templates.
@@ -44,5 +52,6 @@ void run(HookContext context) {
     'macos_application_id': configuration.macOsApplicationId,
     'windows_application_id': configuration.windowsApplicationId,
     'current_year': clock.now().year.toString(),
+    dartFixOutputVariableKey: dartFixOutput,
   };
 }

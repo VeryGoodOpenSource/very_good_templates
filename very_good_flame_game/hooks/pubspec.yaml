@@ -9,9 +9,15 @@ dependencies:
   mason: ^0.1.0
   meta: ^1.16.0
   very_good_core_hooks:
-    path: ../../very_good_core/hooks
+    git:
+      path: very_good_core/hooks
+      ref: 021b2828dc78684474aa25a6e614b757683dad68
+      url: https://github.com/VeryGoodOpenSource/very_good_templates
   very_good_flutter_plugin_hooks:
-    path: ../../very_good_flutter_plugin/hooks
+    git:
+      path: very_good_flutter_plugin/hooks
+      ref: 021b2828dc78684474aa25a6e614b757683dad68
+      url: https://github.com/VeryGoodOpenSource/very_good_templates
 
 dev_dependencies:
   mocktail: ^1.0.3

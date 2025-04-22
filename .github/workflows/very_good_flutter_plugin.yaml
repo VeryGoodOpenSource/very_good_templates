@@ -52,32 +52,32 @@ jobs:
           dart pub global activate mason_cli
           dart pub global activate very_good_cli
           mason get
-          mason make very_good_flutter_plugin -c very_good_flutter_plugin/config.json -o output --on-conflict overwrite --platforms ${{ matrix.platform }}
+          mason make very_good_flutter_plugin -c very_good_flutter_plugin/config.json --on-conflict overwrite --platforms ${{ matrix.platform }}
 
       - name: 📦 Install Dependencies
-        run: very_good packages get --recursive output
+        run: very_good packages get --recursive very_good_flutter_plugin_output
 
       - name: ✨ Check Formatting
         if: false
-        run: dart format --set-exit-if-changed output
+        run: dart format --set-exit-if-changed very_good_flutter_plugin_output
 
       - name: 🕵️ Analyze
         if: false
-        run: dart analyze --fatal-infos --fatal-warnings output
+        run: dart analyze --fatal-infos --fatal-warnings very_good_flutter_plugin_output
 
       - name: 🧪 Run Tests
         run: |
-          cd output
+          cd very_good_flutter_plugin_output
           very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
 
       - name: 📑 Combine Code Coverage
         run: |
           sudo apt-get -y install lcov
           very_good packages get --recursive very_good_flutter_plugin/tool/merge_coverage
-          cd output
+          cd very_good_flutter_plugin_output
           dart run ../very_good_flutter_plugin/tool/merge_coverage/merge_coverage.dart
 
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
-          path: output/coverage/lcov.info
+          path: very_good_flutter_plugin_output/coverage/lcov.info

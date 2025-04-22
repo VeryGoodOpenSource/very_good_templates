@@ -15,6 +15,7 @@ Future<void> run(
 }) async {
   final dartFixOutput = context.vars.containsKey(dartFixOutputVariableKey) &&
       context.vars[dartFixOutputVariableKey] as bool;
+
   if (dartFixOutput) {
     await _dartFixOutput(
       logger: context.logger,
@@ -47,16 +48,15 @@ Future<void> _dartFixOutput({
   required DartCli dartCli,
 }) async {
   if (!await dartCli.isInstalled(logger: logger)) {
-    logger.warn(
+    return logger.warn(
       '''Could not fix output because Dart CLI is not installed.''',
     );
-    return;
   }
+
   if (!await veryGoodCli.isInstalled(logger: logger)) {
-    logger.warn(
+    return logger.warn(
       '''Could not fix output because Very Good CLI is not installed.''',
     );
-    return;
   }
 
   try {
@@ -65,11 +65,13 @@ Future<void> _dartFixOutput({
       recursive: true,
       cwd: workingDirectory,
     );
+
     await dartCli.fix(
       logger: logger,
       apply: true,
       cwd: workingDirectory,
     );
+
     await dartCli.format(
       logger: logger,
       cwd: workingDirectory,
