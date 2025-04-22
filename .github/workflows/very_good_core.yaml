@@ -68,4 +68,4 @@ jobs:
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
-          path: very_good_core_output/coverage/lcov.info
+          path: very_good_core/very_good_core_output/coverage/lcov.info

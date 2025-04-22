@@ -69,4 +69,4 @@ jobs:
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
           exclude: "**/*.gen.dart"
-          path: very_good_flame_game_output/coverage/lcov.info
+          path: very_good_flame_game/very_good_flame_game_output/coverage/lcov.info
