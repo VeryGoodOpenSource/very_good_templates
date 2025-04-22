@@ -1,6 +1,6 @@
 import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
-import 'package:very_good_flame_game_hooks/very_good_core_hooks.dart';
+import 'package:very_good_flame_game_hooks/very_good_flame_game_hooks.dart';
 
 void run(HookContext context) {
   final configuration =
