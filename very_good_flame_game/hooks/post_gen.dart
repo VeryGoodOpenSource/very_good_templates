@@ -61,8 +61,9 @@ Future<void> _dartFixOutput({
 
   try {
     await veryGoodCli.packagesGet(
-      logger: logger,
       cwd: workingDirectory,
+      logger: logger,
+      recursive: true,
     );
 
     await dartCli.fix(
