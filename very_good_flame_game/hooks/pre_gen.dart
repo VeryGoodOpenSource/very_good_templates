@@ -8,11 +8,7 @@ import 'package:very_good_flame_game_hooks/very_good_flame_game_hooks.dart';
 const dartFixOutputVariableKey = 'dart_fix_output';
 
 void run(HookContext context) {
-  final configuration =
-      VeryGoodFlameGameConfiguration.fromHookVars(context.vars);
-
-  final dartFixOutput = context.vars.containsKey(dartFixOutputVariableKey) &&
-      context.vars[dartFixOutputVariableKey] as bool;
+  final config = VeryGoodFlameGameConfiguration.fromHookVars(context.vars);
 
   context.vars = {
     /// Below are all the variables that are accessible in the templates.
@@ -43,15 +39,14 @@ void run(HookContext context) {
     ///
     /// * [Mustache documentation](https://mustache.github.io/mustache.5.html)
     /// * [Mason conditional documentation](https://docs.brickhub.dev/brick-syntax#-conditionals)
-    'project_name': configuration.projectName,
-    'org_name': configuration.organizationName,
-    'description': configuration.description,
-    'android_namespace': configuration.androidNamespace,
-    'android_application_id': configuration.androidApplicationId,
-    'ios_application_id': configuration.iOsApplicationId,
-    'macos_application_id': configuration.macOsApplicationId,
-    'windows_application_id': configuration.windowsApplicationId,
+    'project_name': config.projectName,
+    'org_name': config.organizationName,
+    'description': config.description,
+    'android_namespace': config.androidNamespace,
+    'android_application_id': config.androidApplicationId,
+    'ios_application_id': config.iOsApplicationId,
+    'macos_application_id': config.macOsApplicationId,
+    'windows_application_id': config.windowsApplicationId,
     'current_year': clock.now().year.toString(),
-    dartFixOutputVariableKey: dartFixOutput,
   };
 }

@@ -20,6 +20,10 @@ on:
 
 jobs:
   brick:
+    defaults:
+      run:
+        working-directory: very_good_dart_cli/
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -43,7 +47,7 @@ jobs:
         run: |
           dart pub global activate mason_cli
           mason get
-          mason make very_good_dart_cli -c very_good_dart_cli/config.json --on-conflict overwrite
+          mason make very_good_dart_cli -c config.json --on-conflict overwrite
 
       - name: 📦 Install Dependencies
         run: dart pub get --directory very_good_dart_cli_output

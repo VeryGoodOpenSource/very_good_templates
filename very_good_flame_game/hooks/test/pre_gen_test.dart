@@ -22,7 +22,6 @@ void main() {
           'org_name': 'com.example',
           'application_id': 'app.id',
           'description': 'A new Flame project.',
-          'dart_fix_output': false,
         };
         when(() => context.vars).thenReturn(vars);
 
@@ -43,7 +42,6 @@ void main() {
             'macos_application_id': 'app.id',
             'windows_application_id': 'app.id',
             'current_year': '2020',
-            'dart_fix_output': false,
           }),
         );
       });

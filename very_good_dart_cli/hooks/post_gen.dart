@@ -11,11 +11,10 @@ typedef RunProcess = Future<ProcessResult> Function(
   bool runInShell,
 });
 
-Future<void> run(HookContext context,
-// We intentionally ignore the trailing comma until the following mason issue is
-// fixed: https://github.com/felangel/mason/pull/1164
-// ignore: require_trailing_commas
-    {@visibleForTesting RunProcess runProcess = Process.run}) async {
+Future<void> run(
+  HookContext context, {
+  @visibleForTesting RunProcess runProcess = Process.run,
+}) async {
   final projectName = context.vars['project_name'] as String;
 
   final progress = context.logger.progress('Getting Dart dependencies...');

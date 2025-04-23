@@ -28,9 +28,3 @@ vars:
     description: A short project description
     default: A Very Good Flame Game
     prompt: What is the project description?
-  dart_fix_output:
-    type: boolean
-    description: >-
-      Whether or not the generated Dart output files should be fixed and formatted.
-    default: false
-    prompt: Should the generated output fix and format Dart files?

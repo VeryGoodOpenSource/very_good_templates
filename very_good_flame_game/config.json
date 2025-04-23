@@ -2,6 +2,5 @@
   "project_name": "very_good_flame_game_output",
   "org_name": "very_good_ventures",
   "application_id": "verygood.ventures.test",
-  "description": "A very_good_flame_game configuration.",
-  "dart_fix_output": true
+  "description": "A very_good_flame_game configuration."
 }
