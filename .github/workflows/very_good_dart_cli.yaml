@@ -69,4 +69,4 @@ jobs:
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
-          path: very_good_dart_cli_output/coverage/lcov.info
+          path: very_good_dart_cli/very_good_dart_cli_output/coverage/lcov.info

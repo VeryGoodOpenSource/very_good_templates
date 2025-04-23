@@ -4,7 +4,7 @@ import 'package:flame_audio/bgm.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:{{project_name.snakeCase()}}/game/cubit/cubit.dart';
+import 'package:very_good_flame_game_output/game/cubit/cubit.dart';
 
 class _MockAudioCache extends Mock implements AudioCache {}
 
@@ -27,20 +27,30 @@ void main() {
       bgm = _MockBgm();
       bgmPlayer = _MockAudioPlayer();
       when(() => bgm.audioPlayer).thenReturn(bgmPlayer);
+      when(() => effectPlayer.audioCache).thenReturn(audioCache);
 
-      when(effectPlayer.dispose).thenAnswer((_) => Future.value());
-      when(bgmPlayer.dispose).thenAnswer((_) => Future.value());
+      when(bgm.dispose).thenAnswer((_) async {});
+      when(bgmPlayer.dispose).thenAnswer((_) async {});
+      when(effectPlayer.dispose).thenAnswer((_) async {});
 
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
-        const MethodChannel('xyz.luan/audioplayers'),
-        (_) => null,
-      );
+            const MethodChannel('xyz.luan/audioplayers'),
+            (_) => null,
+          );
     });
 
-    test('can be instantiated', () {
-      expect(AudioCubit(audioCache: audioCache), isA<AudioCubit>());
-    });
+    test(
+      'can be instantiated',
+      () => expect(
+        AudioCubit(
+          audioCache: audioCache,
+          audioPlayer: effectPlayer,
+          backgroundMusic: bgm,
+        ),
+        isA<AudioCubit>(),
+      ),
+    );
 
     blocTest<AudioCubit, AudioState>(
       'toggleVolume mutes the volume when the volume is not 0',
