@@ -2,86 +2,51 @@ import 'dart:io';
 
 import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
-import 'package:very_good_flutter_plugin_hooks/src/cli/cli.dart';
 
-/// The key for the `dartFixOutput` context variable.
-@visibleForTesting
-const dartFixOutputVariableKey = 'dart_fix_output';
+/// Type definition for [Process.run].
+typedef RunProcess = Future<ProcessResult> Function(
+  String executable,
+  List<String> arguments, {
+  String? workingDirectory,
+  bool runInShell,
+});
 
 Future<void> run(
   HookContext context, {
-  @visibleForTesting VeryGoodCli veryGoodCli = VeryGoodCli.instance,
-  @visibleForTesting DartCli dartCli = DartCli.instance,
+  @visibleForTesting RunProcess runProcess = Process.run,
 }) async {
-  final dartFixOutput = context.vars.containsKey(dartFixOutputVariableKey) &&
-      context.vars[dartFixOutputVariableKey] as bool;
-  if (dartFixOutput) {
-    await _dartFixOutput(
-      logger: context.logger,
-      workingDirectory: Directory.current.path,
-      veryGoodCli: veryGoodCli,
-      dartCli: dartCli,
-    );
-  }
-}
+  final projectName = context.vars['project_name'] as String;
+  final progress = context.logger.progress('Getting Dart dependencies...');
 
-/// Attempts to `dart` fix and format the output.
-///
-/// Since the template includes Dart files with templated variables, generating
-/// the template can cause the generated Dart files to be invalid. For example,
-/// if the user inputs a long enough package name, the generated Dart files may
-/// exceed the 80 character line limit enforced by the the Dart formatter.
-/// Running `dart fix` and `dart format` on the generated output ensures that
-/// the generated output is always valid.
-///
-/// Before we can run `dart fix` and `dart format`, we need to ensure that the
-/// dependencies are installed. Doing so allows getting remote analysis options
-/// and allows the Dart code to resolve the imports.
-///
-/// If the [DartCli] or [VeryGoodCli] is not installed, this function will log
-/// a warning and return immediately.
-Future<void> _dartFixOutput({
-  required Logger logger,
-  required String workingDirectory,
-  required VeryGoodCli veryGoodCli,
-  required DartCli dartCli,
-}) async {
-  if (!await dartCli.isInstalled(logger: logger)) {
-    logger.warn(
-      '''Could not fix output because Dart CLI is not installed.''',
-    );
-    return;
-  }
-  if (!await veryGoodCli.isInstalled(logger: logger)) {
-    logger.warn(
-      '''Could not fix output because Very Good CLI is not installed.''',
-    );
-    return;
-  }
+  // We have to `very_good packages get` the generated project to ensure that
+  // the analysis is able to fix the imports with the correct analysis options.
+  await runProcess(
+    'very_good',
+    ['packages', 'get', projectName],
+    workingDirectory: Directory.current.path,
+  );
 
-  try {
-    await veryGoodCli.packagesGet(
-      logger: logger,
-      recursive: true,
-      cwd: workingDirectory,
-    );
-    await dartCli.fix(
-      logger: logger,
-      apply: true,
-      cwd: workingDirectory,
-    );
-    await dartCli.format(
-      logger: logger,
-      cwd: workingDirectory,
-    );
-  } on ProcessException catch (e) {
-    logger.err(
-      '''
-Running process ${e.executable} with ${e.arguments} failed:
-${e.message}
-''',
-    );
-  } on Exception catch (e) {
-    logger.err('Unknown error occurred when fixing output: $e');
-  }
+  progress.update('Fixing Dart imports ordering...');
+
+  // Some imports are relative to the user specified package name, hence
+  // we try to fix the import directive ordering after the template has
+  // been generated.
+  //
+  // We only fix for the [directives_ordering](https://dart.dev/tools/linter-rules/directives_ordering)
+  // linter rules, as the other rule should be tackled by the template itself.
+  await runProcess(
+    'dart',
+    ['fix', projectName, '--apply', '--code=directives_ordering'],
+    workingDirectory: Directory.current.path,
+  );
+
+  progress.update('Fixing formatting...');
+
+  await runProcess(
+    'dart',
+    ['format', '--set-exit-if-changed', projectName],
+    workingDirectory: Directory.current.path,
+  );
+
+  progress.complete('Completed post generation');
 }

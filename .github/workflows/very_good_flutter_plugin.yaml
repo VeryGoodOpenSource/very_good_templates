@@ -82,4 +82,4 @@ jobs:
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
-          path: very_good_flutter_plugin_output/coverage/lcov.info
+          path: very_good_flutter_plugin/very_good_flutter_plugin_output/coverage/lcov.info
