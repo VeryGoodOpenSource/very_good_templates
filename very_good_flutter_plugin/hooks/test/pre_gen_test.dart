@@ -16,7 +16,9 @@ void main() {
     });
 
     test('sets flutterVersion', () {
-      final vars = <String, dynamic>{};
+      final vars = <String, dynamic>{
+        'platforms': ['android', 'ios', 'macos', 'linux', 'web', 'windows'],
+      };
       when(() => context.vars).thenReturn(vars);
 
       pre_gen.run(context);
@@ -25,7 +27,9 @@ void main() {
     });
 
     test('sets dartSdkVersionBounds', () {
-      final vars = <String, dynamic>{};
+      final vars = <String, dynamic>{
+        'platforms': ['android', 'ios', 'macos', 'linux', 'web', 'windows'],
+      };
       when(() => context.vars).thenReturn(vars);
 
       pre_gen.run(context);

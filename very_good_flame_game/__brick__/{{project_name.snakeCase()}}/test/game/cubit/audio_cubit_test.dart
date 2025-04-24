@@ -43,11 +43,7 @@ void main() {
     test(
       'can be instantiated',
       () => expect(
-        AudioCubit(
-          audioCache: audioCache,
-          audioPlayer: effectPlayer,
-          backgroundMusic: bgm,
-        ),
+        AudioCubit(audioPlayer: effectPlayer, backgroundMusic: bgm),
         isA<AudioCubit>(),
       ),
     );

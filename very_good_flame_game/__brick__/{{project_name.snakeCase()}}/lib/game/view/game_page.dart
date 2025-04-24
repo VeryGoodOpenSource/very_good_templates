@@ -21,7 +21,6 @@ class GamePage extends StatelessWidget {
       create: (context) {
         final audioCache = context.read<PreloadCubit>().audio;
         return AudioCubit(
-          audioCache: audioCache,
           audioPlayer: AudioPlayer()..audioCache = audioCache,
           backgroundMusic: Bgm(audioCache: audioCache),
         );
