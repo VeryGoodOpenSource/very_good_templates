@@ -2,68 +2,25 @@ import 'dart:io';
 
 import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
-
-/// Type definition for [Process.run].
-typedef RunProcess = Future<ProcessResult> Function(
-  String executable,
-  List<String> arguments, {
-  String? workingDirectory,
-  bool runInShell,
-});
+import 'package:very_good_flutter_plugin_hooks/src/cli/cli.dart';
 
 /// The key for the `dartFixOutput` context variable.
 @visibleForTesting
 const dartFixOutputVariableKey = 'dart_fix_output';
 
-/// The key for the `projectName` context variable.
-@visibleForTesting
-const projectNameOutputVariableKey = 'project_name';
-
-/// The key for the `platforms` context variable.
-@visibleForTesting
-const platformsOutputVariableKey = 'platforms';
-
 Future<void> run(
   HookContext context, {
-  @visibleForTesting RunProcess runProcess = Process.run,
+  @visibleForTesting VeryGoodCli veryGoodCli = VeryGoodCli.instance,
+  @visibleForTesting DartCli dartCli = DartCli.instance,
 }) async {
   final dartFixOutput = context.vars.containsKey(dartFixOutputVariableKey) &&
       context.vars[dartFixOutputVariableKey] as bool;
-
-  if (!dartFixOutput) return;
-
-  final projectName = context.vars[projectNameOutputVariableKey] as String;
-  final platforms = context.vars[platformsOutputVariableKey] as String;
-  final selectedPlatforms = platforms.split(',')..forEach((e) => e.trim());
-  final workingDirectory = Directory.current.path;
-
-  final progress = context.logger.progress('Getting dependencies...');
-
-  // We have to `very_good packages get` the generated project
-  // to ensure that the analysis is able to fix the imports
-  // with the correct analysis options.
-  await runProcess(
-    'very_good',
-    ['packages', 'get', '--recursive', projectName],
-    workingDirectory: workingDirectory,
-  );
-
-  progress.complete('Got dependencies!');
-
-  await _dartFixAndFormatOutput(
-    logger: context.logger,
-    runProcess: runProcess,
-    projectName: '$projectName/$projectName',
-    workingDirectory: workingDirectory,
-  );
-
-  for (final platform in selectedPlatforms) {
-    final platformProjectName = '$projectName/${projectName}_$platform';
-    await _dartFixAndFormatOutput(
+  if (dartFixOutput) {
+    await _dartFixOutput(
       logger: context.logger,
-      runProcess: runProcess,
-      projectName: platformProjectName,
-      workingDirectory: workingDirectory,
+      workingDirectory: Directory.current.path,
+      veryGoodCli: veryGoodCli,
+      dartCli: dartCli,
     );
   }
 }
@@ -80,41 +37,49 @@ Future<void> run(
 /// Before we can run `dart fix` and `dart format`, we need to ensure that the
 /// dependencies are installed. Doing so allows getting remote analysis options
 /// and allows the Dart code to resolve the imports.
-Future<void> _dartFixAndFormatOutput({
+///
+/// If the [DartCli] or [VeryGoodCli] is not installed, this function will log
+/// a warning and return immediately.
+Future<void> _dartFixOutput({
   required Logger logger,
-  required String projectName,
   required String workingDirectory,
-  RunProcess runProcess = Process.run,
+  required VeryGoodCli veryGoodCli,
+  required DartCli dartCli,
 }) async {
+  if (!await dartCli.isInstalled(logger: logger)) {
+    logger.warn(
+      '''Could not fix output because Dart CLI is not installed.''',
+    );
+    return;
+  }
+  if (!await veryGoodCli.isInstalled(logger: logger)) {
+    logger.warn(
+      '''Could not fix output because Very Good CLI is not installed.''',
+    );
+    return;
+  }
+
   try {
-    final progress = logger.progress(
-      'Fixing Dart imports ordering in $projectName...',
+    await veryGoodCli.packagesGet(
+      logger: logger,
+      recursive: true,
+      cwd: workingDirectory,
     );
-
-    // Some imports are relative to the user specified package name, hence
-    // we try to fix the import directive ordering after the template has
-    // been generated.
-    //
-    // We only fix for the [directives_ordering](https://dart.dev/tools/linter-rules/directives_ordering)
-    // linter rules, as the other rule should be tackled by the template itself.
-    await runProcess(
-      'dart',
-      ['fix', projectName, '--apply', '--code=directives_ordering'],
-      workingDirectory: workingDirectory,
+    await dartCli.fix(
+      logger: logger,
+      apply: true,
+      cwd: workingDirectory,
     );
-
-    progress.update('Fixing formatting in $projectName...');
-
-    await runProcess(
-      'dart',
-      ['format', '--set-exit-if-changed', projectName],
-      workingDirectory: workingDirectory,
+    await dartCli.format(
+      logger: logger,
+      cwd: workingDirectory,
     );
-
-    progress.complete('Fixed and formatted $projectName!');
   } on ProcessException catch (e) {
     logger.err(
-      '''Running process ${e.executable} with ${e.arguments} failed: ${e.message}''',
+      '''
+Running process ${e.executable} with ${e.arguments} failed:
+${e.message}
+''',
     );
   } on Exception catch (e) {
     logger.err('Unknown error occurred when fixing output: $e');
