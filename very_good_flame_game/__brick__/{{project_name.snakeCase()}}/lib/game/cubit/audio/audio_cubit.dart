@@ -13,14 +13,6 @@ class AudioCubit extends Cubit<AudioState> {
     required Bgm backgroundMusic,
   }) : effectPlayer = audioPlayer,
        bgm = backgroundMusic,
-       assert(
-         audioPlayer.audioCache == audioCache,
-         'AudioPlayer must have the same AudioCache instance provided',
-       ),
-       assert(
-         backgroundMusic.audioCache == audioCache,
-         'Bgm must have the same AudioCache instance provided',
-       ),
        super(const AudioState());
 
   @visibleForTesting

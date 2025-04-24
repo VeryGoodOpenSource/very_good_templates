@@ -77,9 +77,9 @@ jobs:
       - name: 📑 Combine Code Coverage
         run: |
           sudo apt-get -y install lcov
-          very_good packages get --recursive very_good_flutter_plugin/tool/merge_coverage
+          very_good packages get --recursive tool/merge_coverage
           cd very_good_flutter_plugin_output
-          dart run ../very_good_flutter_plugin/tool/merge_coverage/merge_coverage.dart
+          dart run ../tool/merge_coverage/merge_coverage.dart
 
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v3
