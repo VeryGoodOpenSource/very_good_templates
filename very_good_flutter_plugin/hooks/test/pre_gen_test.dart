@@ -37,6 +37,13 @@ void main() {
       expect(vars['dartSdkVersionBounds'], '^${$minDartVersion}');
     });
 
+    test('throws ArgumentError when no platforms are passed', () {
+      final vars = <String, dynamic>{};
+      when(() => context.vars).thenReturn(vars);
+
+      expect(() => pre_gen.run(context), throwsArgumentError);
+    });
+
     group('android variable', () {
       const androidVariable = 'android';
 
