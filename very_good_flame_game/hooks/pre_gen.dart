@@ -1,11 +1,6 @@
 import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
-import 'package:meta/meta.dart';
 import 'package:very_good_flame_game_hooks/very_good_flame_game_hooks.dart';
-
-/// The key for the `dartFixOutput` context variable.
-@visibleForTesting
-const dartFixOutputVariableKey = 'dart_fix_output';
 
 void run(HookContext context) {
   final config = VeryGoodFlameGameConfiguration.fromHookVars(context.vars);

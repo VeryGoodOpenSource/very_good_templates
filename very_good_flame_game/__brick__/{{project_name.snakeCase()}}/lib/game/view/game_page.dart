@@ -66,7 +66,7 @@ class _GameViewState extends State<GameView> {
 
     _game ??=
         widget.game ??
-        VeryGoodFlameGameOutput(
+        {{project_name.pascalCase()}}(
           l10n: context.l10n,
           effectPlayer: context.read<AudioCubit>().effectPlayer,
           textStyle: textStyle,
