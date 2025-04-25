@@ -6,7 +6,7 @@ This CONTRIBUTING file is for a developer that wants to modify or contribute to 
 
 We highly recommend [creating an issue][bug_report_link] if you have found a bug, want to suggest a feature, or recommend a change. Please do not immediately open a pull request. Opening an issue first allows us to reach an agreement on a fix before you put significant effort into a pull request.
 
-When reporting a bug, please use the built-in [Bug Report][bug_report_link] template and provide as much information as possible including detailed reproduction steps. Once one of the package maintainers has reviewed the issue and we reach an agreement on the fix, open a pull request.
+When reporting a bug, please use the built-in [Bug Report][bug_report_link] template and provide as much information as possible, including detailed reproduction steps. Once one of the package maintainers has reviewed the issue and we reach an agreement on the fix, open a pull request.
 
 [bug_report_link]: https://github.com/VeryGoodOpenSource/very_good_templates/labels/product%3A%20very_good_dart_cli
 
