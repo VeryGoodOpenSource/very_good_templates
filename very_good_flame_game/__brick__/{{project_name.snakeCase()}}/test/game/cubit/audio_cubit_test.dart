@@ -27,20 +27,26 @@ void main() {
       bgm = _MockBgm();
       bgmPlayer = _MockAudioPlayer();
       when(() => bgm.audioPlayer).thenReturn(bgmPlayer);
+      when(() => effectPlayer.audioCache).thenReturn(audioCache);
 
-      when(effectPlayer.dispose).thenAnswer((_) => Future.value());
-      when(bgmPlayer.dispose).thenAnswer((_) => Future.value());
+      when(bgm.dispose).thenAnswer((_) async {});
+      when(bgmPlayer.dispose).thenAnswer((_) async {});
+      when(effectPlayer.dispose).thenAnswer((_) async {});
 
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
-        const MethodChannel('xyz.luan/audioplayers'),
-        (_) => null,
-      );
+            const MethodChannel('xyz.luan/audioplayers'),
+            (_) => null,
+          );
     });
 
-    test('can be instantiated', () {
-      expect(AudioCubit(audioCache: audioCache), isA<AudioCubit>());
-    });
+    test(
+      'can be instantiated',
+      () => expect(
+        AudioCubit(audioPlayer: effectPlayer, backgroundMusic: bgm),
+        isA<AudioCubit>(),
+      ),
+    );
 
     blocTest<AudioCubit, AudioState>(
       'toggleVolume mutes the volume when the volume is not 0',

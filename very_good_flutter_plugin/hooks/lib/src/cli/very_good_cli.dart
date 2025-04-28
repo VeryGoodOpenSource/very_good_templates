@@ -23,7 +23,7 @@ class VeryGoodCli {
         logger: logger,
       );
       return true;
-    } catch (_) {
+    } on Exception {
       return false;
     }
   }

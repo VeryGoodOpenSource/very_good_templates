@@ -43,21 +43,21 @@ jobs:
         run: |
           dart pub global activate mason_cli
           mason get
-          mason make very_good_dart_package -c very_good_dart_package/config.json -o output --on-conflict overwrite
+          mason make very_good_dart_package -c very_good_dart_package/config.json --on-conflict overwrite
 
       - name: 📦 Install Dependencies
-        run: dart pub get --directory output/test_package
+        run: dart pub get --directory very_good_dart_package_output
 
       - name: ✨ Check Formatting
-        run: dart format --set-exit-if-changed output/test_package
+        run: dart format --set-exit-if-changed very_good_dart_package_output
 
       - name: 🕵️ Analyze
-        run: dart analyze --fatal-infos --fatal-warnings output/test_package
+        run: dart analyze --fatal-infos --fatal-warnings very_good_dart_package_output
 
       - name: 🧪 Run Tests
         run: |
           dart pub global activate coverage 1.2.0
-          cd output/test_package
+          cd very_good_dart_package_output
           dart test -j 4 --coverage=coverage
           dart pub global run coverage:format_coverage --lcov --check-ignore --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on="lib"
           cd ../../
@@ -65,4 +65,4 @@ jobs:
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
-          path: output/test_package/coverage/lcov.info
+          path: very_good_dart_package_output/coverage/lcov.info

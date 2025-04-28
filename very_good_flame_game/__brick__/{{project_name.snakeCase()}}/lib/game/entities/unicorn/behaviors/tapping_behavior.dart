@@ -6,7 +6,7 @@ import 'package:{{project_name.snakeCase()}}/game/game.dart';
 import 'package:{{project_name.snakeCase()}}/gen/assets.gen.dart';
 
 class TappingBehavior extends Behavior<Unicorn>
-    with TapCallbacks, HasGameRef<{{project_name.pascalCase()}}> {
+    with TapCallbacks, HasGameReference<{{project_name.pascalCase()}}> {
   @override
   bool containsLocalPoint(Vector2 point) {
     return parent.containsLocalPoint(point);
@@ -17,9 +17,9 @@ class TappingBehavior extends Behavior<Unicorn>
     if (parent.isAnimationPlaying()) {
       return;
     }
-    gameRef.counter++;
+    game.counter++;
     parent.playAnimation();
 
-    gameRef.effectPlayer.play(AssetSource(Assets.audio.effect));
+    game.effectPlayer.play(AssetSource(Assets.audio.effect));
   }
 }

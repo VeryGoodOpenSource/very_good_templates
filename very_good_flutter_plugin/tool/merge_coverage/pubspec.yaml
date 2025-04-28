@@ -2,11 +2,11 @@ name: merge_coverage
 description: Merge coverage reports from multiple packages into a single report.
 
 environment:
-  sdk: "^3.3.0"
-
-dev_dependencies:
-  very_good_analysis: ^6.0.0
+  sdk: ^3.6.0
 
 dependencies:
   glob: ^2.1.2
   path: ^1.8.3
+
+dev_dependencies:
+  very_good_analysis: ^7.0.0

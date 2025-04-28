@@ -81,7 +81,7 @@ Running process ${e.executable} with ${e.arguments} failed:
 ${e.message}
 ''',
     );
-  } catch (e) {
+  } on Exception catch (e) {
     logger.err('Unknown error occurred when fixing output: $e');
   }
 }

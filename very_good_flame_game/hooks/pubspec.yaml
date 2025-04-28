@@ -7,13 +7,14 @@ dependencies:
   clock: ^1.1.1
   equatable: ^2.0.5
   mason: ^0.1.0
+  meta: ^1.16.0
   very_good_core_hooks:
     git:
-      url: https://github.com/VeryGoodOpenSource/very_good_templates
       path: very_good_core/hooks
-      ref: 1a0affa08696084d10b965eb54720edc41e97558
+      ref: 021b2828dc78684474aa25a6e614b757683dad68
+      url: https://github.com/VeryGoodOpenSource/very_good_templates
 
 dev_dependencies:
   mocktail: ^1.0.3
   test: ^1.25.2
-  very_good_analysis: ^6.0.0
+  very_good_analysis: ^7.0.0
