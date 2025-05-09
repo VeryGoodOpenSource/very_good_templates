@@ -41,17 +41,16 @@ void main() {
 
       expect(exitCode, ExitCode.usage.code);
 
-      verify(() => logger.err('Could not find an option or flag "-p".'))
-          .called(1);
       verify(
-        () => logger.info(
-          '''
+        () => logger.err('Could not find an option or flag "-p".'),
+      ).called(1);
+      verify(
+        () => logger.info('''
 Usage: $executableName sample [arguments]
 -h, --help    Print this usage information.
 -c, --cyan    Prints the same joke, but in cyan
 
-Run "$executableName help" to see global options.''',
-        ),
+Run "$executableName help" to see global options.'''),
       ).called(1);
     });
   });

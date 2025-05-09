@@ -42,19 +42,19 @@ void main() {
   setUpAll(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(
-      MethodChannel('xyz.luan/audioplayers'),
-      (message) => null,
-    );
+          MethodChannel('xyz.luan/audioplayers'),
+          (message) => null,
+        );
 
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(
-      const MethodChannel('plugins.flutter.io/path_provider'),
-      (message) async => switch (message.method) {
-        ('getTemporaryDirectory' || 'getApplicationSupportDirectory') =>
-          Directory.systemTemp.createTempSync('fake').path,
-        _ => null,
-      },
-    );
+          const MethodChannel('plugins.flutter.io/path_provider'),
+          (message) async => switch (message.method) {
+            ('getTemporaryDirectory' || 'getApplicationSupportDirectory') =>
+              Directory.systemTemp.createTempSync('fake').path,
+            _ => null,
+          },
+        );
   });
 
   group('GamePage', () {
@@ -77,11 +77,12 @@ void main() {
     testWidgets('is routable', (tester) async {
       await tester.pumpApp(
         Builder(
-          builder: (context) => Scaffold(
-            floatingActionButton: FloatingActionButton(
-              onPressed: () => Navigator.of(context).push(GamePage.route()),
-            ),
-          ),
+          builder:
+              (context) => Scaffold(
+                floatingActionButton: FloatingActionButton(
+                  onPressed: () => Navigator.of(context).push(GamePage.route()),
+                ),
+              ),
         ),
         preloadCubit: preloadCubit,
       );
@@ -97,10 +98,7 @@ void main() {
     });
 
     testWidgets('renders GameView', (tester) async {
-      await tester.pumpApp(
-        const GamePage(),
-        preloadCubit: preloadCubit,
-      );
+      await tester.pumpApp(const GamePage(), preloadCubit: preloadCubit);
       expect(find.byType(GameView), findsOneWidget);
     });
   });

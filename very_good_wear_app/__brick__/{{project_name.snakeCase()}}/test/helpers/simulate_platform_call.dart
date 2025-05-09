@@ -10,8 +10,8 @@ Future<void> simulatePlatformCall(
 
   await TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .handlePlatformMessage(
-    channel,
-    standardMethod.encodeMethodCall(MethodCall(method, arguments)),
-    null,
-  );
+        channel,
+        standardMethod.encodeMethodCall(MethodCall(method, arguments)),
+        null,
+      );
 }

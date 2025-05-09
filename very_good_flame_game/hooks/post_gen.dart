@@ -5,12 +5,13 @@ import 'package:meta/meta.dart';
 import 'package:very_good_flame_game_hooks/very_good_flame_game_hooks.dart';
 
 /// Type definition for [Process.run].
-typedef RunProcess = Future<ProcessResult> Function(
-  String executable,
-  List<String> arguments, {
-  String? workingDirectory,
-  bool runInShell,
-});
+typedef RunProcess =
+    Future<ProcessResult> Function(
+      String executable,
+      List<String> arguments, {
+      String? workingDirectory,
+      bool runInShell,
+    });
 
 Future<void> run(
   HookContext context, {
@@ -22,11 +23,11 @@ Future<void> run(
 
   // We have to `very_good packages get` the generated project to ensure that
   // the analysis is able to fix the imports with the correct analysis options.
-  await runProcess(
-    'very_good',
-    ['packages', 'get', config.projectName],
-    workingDirectory: Directory.current.path,
-  );
+  await runProcess('very_good', [
+    'packages',
+    'get',
+    config.projectName,
+  ], workingDirectory: Directory.current.path);
 
   progress.update('Fixing Dart imports ordering...');
 
@@ -36,19 +37,20 @@ Future<void> run(
   //
   // We only fix for the [directives_ordering](https://dart.dev/tools/linter-rules/directives_ordering)
   // linter rules, as the other rule should be tackled by the template itself.
-  await runProcess(
-    'dart',
-    ['fix', config.projectName, '--apply', '--code=directives_ordering'],
-    workingDirectory: Directory.current.path,
-  );
+  await runProcess('dart', [
+    'fix',
+    config.projectName,
+    '--apply',
+    '--code=directives_ordering',
+  ], workingDirectory: Directory.current.path);
 
   progress.update('Fixing formatting...');
 
-  await runProcess(
-    'dart',
-    ['format', '--set-exit-if-changed', config.projectName],
-    workingDirectory: Directory.current.path,
-  );
+  await runProcess('dart', [
+    'format',
+    '--set-exit-if-changed',
+    config.projectName,
+  ], workingDirectory: Directory.current.path);
 
   progress.complete('Completed post generation');
 }

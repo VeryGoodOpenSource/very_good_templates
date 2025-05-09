@@ -54,12 +54,7 @@ void main() {
       });
 
       test('returns false when dart is not installed', () async {
-        final processResult = ProcessResult(
-          42,
-          ExitCode.software.code,
-          '',
-          '',
-        );
+        final processResult = ProcessResult(42, ExitCode.software.code, '', '');
 
         when(
           () => process.run(
@@ -112,19 +107,20 @@ void main() {
       });
 
       test(
-          '''calls `very_good packages get --recursive .` when recursive is true''',
-          () {
-        VeryGoodCli.instance.packagesGet(logger: logger, recursive: true);
+        '''calls `very_good packages get --recursive .` when recursive is true''',
+        () {
+          VeryGoodCli.instance.packagesGet(logger: logger, recursive: true);
 
-        verify(
-          () => process.run(
-            'very_good',
-            ['packages', 'get', '--recursive'],
-            runInShell: true,
-            workingDirectory: '.',
-          ),
-        ).called(1);
-      });
+          verify(
+            () => process.run(
+              'very_good',
+              ['packages', 'get', '--recursive'],
+              runInShell: true,
+              workingDirectory: '.',
+            ),
+          ).called(1);
+        },
+      );
     });
   });
 }

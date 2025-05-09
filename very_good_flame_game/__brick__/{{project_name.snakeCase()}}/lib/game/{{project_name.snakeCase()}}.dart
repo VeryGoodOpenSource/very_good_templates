@@ -32,12 +32,7 @@ class {{project_name.pascalCase()}} extends FlameGame {
     final world = World(
       children: [
         Unicorn(position: size / 2),
-        CounterComponent(
-          position: (size / 2)
-            ..sub(
-              Vector2(0, 16),
-            ),
-        ),
+        CounterComponent(position: (size / 2)..sub(Vector2(0, 16))),
       ],
     );
 

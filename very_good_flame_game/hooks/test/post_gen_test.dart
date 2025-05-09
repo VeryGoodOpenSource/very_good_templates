@@ -171,9 +171,8 @@ Matcher isVeryGoodPackagesGet({required String directory}) {
 }
 
 class _IsVeryGoodPackagesGet extends Matcher {
-  const _IsVeryGoodPackagesGet({
-    required String directory,
-  }) : _directory = directory;
+  const _IsVeryGoodPackagesGet({required String directory})
+    : _directory = directory;
 
   /// The value of the directory argument passed to `very_good packages get`.
   final String _directory;

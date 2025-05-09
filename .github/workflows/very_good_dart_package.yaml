@@ -27,7 +27,7 @@ jobs:
         dart-version:
           # The minimum Dart SDK version supported by the package,
           # refer to https://docs.flutter.dev/development/tools/sdk/releases.
-          - "3.6.0"
+          - "3.7.0"
           - "stable"
 
     steps:

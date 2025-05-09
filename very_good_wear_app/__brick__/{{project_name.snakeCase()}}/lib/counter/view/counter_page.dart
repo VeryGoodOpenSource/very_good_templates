@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:{{project_name.snakeCase()}}/counter/counter.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
-import 'package:wearable_rotary/wearable_rotary.dart' as wearable_rotary
+import 'package:wearable_rotary/wearable_rotary.dart'
+    as wearable_rotary
     show rotaryEvents;
 import 'package:wearable_rotary/wearable_rotary.dart' hide rotaryEvents;
 
@@ -13,18 +14,13 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => CounterCubit(),
-      child: CounterView(),
-    );
+    return BlocProvider(create: (_) => CounterCubit(), child: CounterView());
   }
 }
 
 class CounterView extends StatefulWidget {
-  CounterView({
-    super.key,
-    @visibleForTesting Stream<RotaryEvent>? rotaryEvents,
-  }) : rotaryEvents = rotaryEvents ?? wearable_rotary.rotaryEvents;
+  CounterView({super.key, @visibleForTesting Stream<RotaryEvent>? rotaryEvents})
+    : rotaryEvents = rotaryEvents ?? wearable_rotary.rotaryEvents;
 
   final Stream<RotaryEvent> rotaryEvents;
 
@@ -68,9 +64,7 @@ class _CounterViewState extends State<CounterView> {
               onPressed: () => context.read<CounterCubit>().increment(),
               child: const Icon(Icons.add),
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             Text(l10n.counterAppBarTitle),
             const CounterText(),
             const SizedBox(height: 10),

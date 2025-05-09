@@ -13,7 +13,8 @@ Future<void> run(
   @visibleForTesting VeryGoodCli veryGoodCli = VeryGoodCli.instance,
   @visibleForTesting DartCli dartCli = DartCli.instance,
 }) async {
-  final dartFixOutput = context.vars.containsKey(dartFixOutputVariableKey) &&
+  final dartFixOutput =
+      context.vars.containsKey(dartFixOutputVariableKey) &&
       context.vars[dartFixOutputVariableKey] as bool;
   if (dartFixOutput) {
     await _dartFixOutput(
@@ -47,9 +48,7 @@ Future<void> _dartFixOutput({
   required DartCli dartCli,
 }) async {
   if (!await dartCli.isInstalled(logger: logger)) {
-    logger.warn(
-      '''Could not fix output because Dart CLI is not installed.''',
-    );
+    logger.warn('''Could not fix output because Dart CLI is not installed.''');
     return;
   }
   if (!await veryGoodCli.isInstalled(logger: logger)) {
@@ -65,22 +64,13 @@ Future<void> _dartFixOutput({
       recursive: true,
       cwd: workingDirectory,
     );
-    await dartCli.fix(
-      logger: logger,
-      apply: true,
-      cwd: workingDirectory,
-    );
-    await dartCli.format(
-      logger: logger,
-      cwd: workingDirectory,
-    );
+    await dartCli.fix(logger: logger, apply: true, cwd: workingDirectory);
+    await dartCli.format(logger: logger, cwd: workingDirectory);
   } on ProcessException catch (e) {
-    logger.err(
-      '''
+    logger.err('''
 Running process ${e.executable} with ${e.arguments} failed:
 ${e.message}
-''',
-    );
+''');
   } on Exception catch (e) {
     logger.err('Unknown error occurred when fixing output: $e');
   }

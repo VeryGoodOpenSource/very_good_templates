@@ -25,10 +25,10 @@ Future<void> main() async {
   final result = await Process.run('lcov', [
     for (final coverageFile in coverageFiles) ...[
       '--add-tracefile',
-      coverageFile
+      coverageFile,
     ],
     '--output-file',
-    outputLcovPath
+    outputLcovPath,
   ]);
 
   print(result.stdout);

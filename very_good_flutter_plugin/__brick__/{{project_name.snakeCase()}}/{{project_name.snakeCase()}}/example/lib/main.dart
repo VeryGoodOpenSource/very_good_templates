@@ -25,7 +25,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('{{project_name.pascalCase()}} Example')),
+      appBar: AppBar(
+        title: const Text('{{project_name.pascalCase()}} Example'),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -56,45 +56,33 @@ void main() {
       );
     }
 
-    testWithGame(
-      'has all behaviors',
-      createFlameGame,
-      (game) async {
-        final unicorn = Unicorn(position: Vector2.all(1));
-        await game.ensureAdd(unicorn);
+    testWithGame('has all behaviors', createFlameGame, (game) async {
+      final unicorn = Unicorn(position: Vector2.all(1));
+      await game.ensureAdd(unicorn);
 
-        expect(unicorn.findBehavior<TappingBehavior>(), isNotNull);
-      },
-    );
+      expect(unicorn.findBehavior<TappingBehavior>(), isNotNull);
+    });
 
-    testWithGame(
-      'loads correctly',
-      createFlameGame,
-      (game) async {
-        final unicorn = Unicorn(position: Vector2.all(1));
-        await game.ensureAdd(unicorn);
+    testWithGame('loads correctly', createFlameGame, (game) async {
+      final unicorn = Unicorn(position: Vector2.all(1));
+      await game.ensureAdd(unicorn);
 
-        expect(unicorn.isAnimationPlaying(), equals(false));
-      },
-    );
+      expect(unicorn.isAnimationPlaying(), equals(false));
+    });
 
     group('animation', () {
-      testWithGame(
-        'plays animation',
-        createFlameGame,
-        (game) async {
-          final unicorn = Unicorn.test(position: Vector2.all(1));
-          await game.ensureAdd(unicorn);
+      testWithGame('plays animation', createFlameGame, (game) async {
+        final unicorn = Unicorn.test(position: Vector2.all(1));
+        await game.ensureAdd(unicorn);
 
-          unicorn.playAnimation();
-          expect(unicorn.animationTicker.currentIndex, equals(0));
+        unicorn.playAnimation();
+        expect(unicorn.animationTicker.currentIndex, equals(0));
 
-          game.update(0.1);
+        game.update(0.1);
 
-          expect(unicorn.animationTicker.currentIndex, equals(1));
-          expect(unicorn.isAnimationPlaying(), equals(true));
-        },
-      );
+        expect(unicorn.animationTicker.currentIndex, equals(1));
+        expect(unicorn.isAnimationPlaying(), equals(true));
+      });
 
       testWithGame(
         'reset animation back to frame one and stops it',

@@ -48,33 +48,25 @@ void main() {
       );
     }
 
-    testWithGame(
-      'has all components',
-      createFlameGame,
-      (game) async {
-        final component = CounterComponent(position: Vector2.all(1));
-        await game.ensureAdd(component);
+    testWithGame('has all components', createFlameGame, (game) async {
+      final component = CounterComponent(position: Vector2.all(1));
+      await game.ensureAdd(component);
 
-        expect(component.text, isNotNull);
-      },
-    );
+      expect(component.text, isNotNull);
+    });
 
-    testWithGame(
-      'changes text count correctly',
-      createFlameGame,
-      (game) async {
-        final component = CounterComponent(position: Vector2.all(1));
-        await game.ensureAdd(component);
+    testWithGame('changes text count correctly', createFlameGame, (game) async {
+      final component = CounterComponent(position: Vector2.all(1));
+      await game.ensureAdd(component);
 
-        expect(component.text.text, equals(''));
-        game.counter = 1;
-        game.update(0.1);
-        expect(component.text.text, equals('counterText: 1'));
+      expect(component.text.text, equals(''));
+      game.counter = 1;
+      game.update(0.1);
+      expect(component.text.text, equals('counterText: 1'));
 
-        game.counter = 2;
-        game.update(0.1);
-        expect(component.text.text, equals('counterText: 2'));
-      },
-    );
+      game.counter = 2;
+      game.update(0.1);
+      expect(component.text.text, equals('counterText: 2'));
+    });
   });
 }

@@ -27,8 +27,9 @@ void main() {
 
         pre_gen.run(context);
 
-        final newVars = verify(() => context.vars = captureAny()).captured.last
-            as Map<String, dynamic>;
+        final newVars =
+            verify(() => context.vars = captureAny()).captured.last
+                as Map<String, dynamic>;
 
         expect(
           newVars,

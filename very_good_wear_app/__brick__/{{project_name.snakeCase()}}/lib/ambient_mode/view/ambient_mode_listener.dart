@@ -28,7 +28,7 @@ class AmbientModeListener extends ValueNotifier<bool> {
     value = switch (call.method) {
       'onEnterAmbient' || 'onUpdateAmbient' => true,
       'onExitAmbient' => false,
-      _ => value
+      _ => value,
     };
   }
 }

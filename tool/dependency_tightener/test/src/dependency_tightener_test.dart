@@ -28,10 +28,7 @@ void main() {
           named: 'packageName',
           that: equals('plugin_platform_interface'),
         ),
-        currentVersion: any(
-          named: 'currentVersion',
-          that: equals('2.1.0'),
-        ),
+        currentVersion: any(named: 'currentVersion', that: equals('2.1.0')),
       ),
     ).thenAnswer((_) async => false);
     when(
@@ -42,33 +39,19 @@ void main() {
 
     when(
       () => pubUpdater.isUpToDate(
-        packageName: any(
-          named: 'packageName',
-          that: equals('pub_updater'),
-        ),
-        currentVersion: any(
-          named: 'currentVersion',
-          that: equals('0.3.0'),
-        ),
+        packageName: any(named: 'packageName', that: equals('pub_updater')),
+        currentVersion: any(named: 'currentVersion', that: equals('0.3.0')),
       ),
     ).thenAnswer((_) async => true);
 
     when(
       () => pubUpdater.isUpToDate(
-        packageName: any(
-          named: 'packageName',
-          that: equals('mocktail'),
-        ),
-        currentVersion: any(
-          named: 'currentVersion',
-          that: equals('1.0.3'),
-        ),
+        packageName: any(named: 'packageName', that: equals('mocktail')),
+        currentVersion: any(named: 'currentVersion', that: equals('1.0.3')),
       ),
     ).thenAnswer((_) async => false);
     when(
-      () => pubUpdater.getLatestVersion(
-        any(that: equals('mocktail')),
-      ),
+      () => pubUpdater.getLatestVersion(any(that: equals('mocktail'))),
     ).thenAnswer((_) async => '1.0.4');
 
     when(
@@ -77,16 +60,12 @@ void main() {
           named: 'packageName',
           that: equals('very_good_analysis'),
         ),
-        currentVersion: any(
-          named: 'currentVersion',
-          that: equals('5.1.0'),
-        ),
+        currentVersion: any(named: 'currentVersion', that: equals('5.1.0')),
       ),
     ).thenAnswer((_) async => false);
     when(
-      () => pubUpdater.getLatestVersion(
-        any(that: equals('very_good_analysis')),
-      ),
+      () =>
+          pubUpdater.getLatestVersion(any(that: equals('very_good_analysis'))),
     ).thenAnswer((_) async => '6.0.0');
   });
 
@@ -141,11 +120,7 @@ dev_dependencies:
   test('logs updated dependencies', () async {
     final logs = <Object?>[];
 
-    await tightenDependencies(
-      pubspec,
-      pubUpdater: pubUpdater,
-      log: logs.add,
-    );
+    await tightenDependencies(pubspec, pubUpdater: pubUpdater, log: logs.add);
 
     expect(
       logs,

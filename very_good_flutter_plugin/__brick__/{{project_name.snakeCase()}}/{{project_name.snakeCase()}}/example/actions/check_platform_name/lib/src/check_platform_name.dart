@@ -21,12 +21,12 @@ class CheckPlatformName extends Action {
     @visibleForTesting bool Function() isMacOS = _platformIsMacOS,
     @visibleForTesting bool Function() isWindows = _platformIsWindows,
     @visibleForTesting bool isWeb = kIsWeb,
-  })  : _isAndroid = isAndroid,
-        _isIOS = isIOS,
-        _isLinux = isLinux,
-        _isMacOS = isMacOS,
-        _isWindows = isWindows,
-        _isWeb = isWeb;
+  }) : _isAndroid = isAndroid,
+       _isIOS = isIOS,
+       _isLinux = isLinux,
+       _isMacOS = isMacOS,
+       _isWindows = isWindows,
+       _isWeb = isWeb;
 
   final bool _isWeb;
 

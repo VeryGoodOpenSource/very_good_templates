@@ -39,10 +39,7 @@ void main() {
 
           pre_gen.run(context);
 
-          expect(
-            context.vars['application_id'],
-            'org_name.project_name',
-          );
+          expect(context.vars['application_id'], 'org_name.project_name');
         },
       );
     });

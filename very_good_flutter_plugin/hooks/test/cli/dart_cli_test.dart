@@ -54,12 +54,7 @@ void main() {
       });
 
       test('returns false when dart is not installed', () async {
-        final processResult = ProcessResult(
-          42,
-          ExitCode.software.code,
-          '',
-          '',
-        );
+        final processResult = ProcessResult(42, ExitCode.software.code, '', '');
 
         when(
           () => process.run(
@@ -79,10 +74,7 @@ void main() {
 
     group('format', () {
       test('completes normally', () async {
-        await expectLater(
-          DartCli.instance.format(logger: logger),
-          completes,
-        );
+        await expectLater(DartCli.instance.format(logger: logger), completes);
       });
 
       test('calls with given working directory', () {
@@ -114,10 +106,7 @@ void main() {
 
     group('fix', () {
       test('completes normally', () async {
-        await expectLater(
-          DartCli.instance.fix(logger: logger),
-          completes,
-        );
+        await expectLater(DartCli.instance.fix(logger: logger), completes);
       });
 
       test('calls with given working directory', () {

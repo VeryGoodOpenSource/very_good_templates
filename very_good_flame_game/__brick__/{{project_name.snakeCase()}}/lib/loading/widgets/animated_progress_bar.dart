@@ -13,9 +13,9 @@ class AnimatedProgressBar extends StatelessWidget {
     required this.foregroundColor,
     super.key,
   }) : assert(
-          progress >= 0.0 && progress <= 1.0,
-          'Progress should be set between 0.0 and 1.0',
-        );
+         progress >= 0.0 && progress <= 1.0,
+         'Progress should be set between 0.0 and 1.0',
+       );
 
   /// The background color of the progress bar.
   final Color backgroundColor;
@@ -27,8 +27,9 @@ class AnimatedProgressBar extends StatelessWidget {
   final double progress;
 
   /// The duration of the animation on [AnimatedProgressBar]
-  static const Duration intrinsicAnimationDuration =
-      Duration(milliseconds: 300);
+  static const Duration intrinsicAnimationDuration = Duration(
+    milliseconds: 300,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +54,7 @@ class AnimatedProgressBar extends StatelessWidget {
                   widthFactor: progress,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(1),
-                    child: ColoredBox(
-                      color: foregroundColor,
-                    ),
+                    child: ColoredBox(color: foregroundColor),
                   ),
                 );
               },
