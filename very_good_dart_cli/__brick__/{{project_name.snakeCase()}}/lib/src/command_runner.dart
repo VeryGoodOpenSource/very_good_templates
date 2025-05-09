@@ -19,12 +19,10 @@ const description = '{{description}}';
 /// {@endtemplate}
 class {{project_name.pascalCase()}}CommandRunner extends CompletionCommandRunner<int> {
   /// {@macro {{project_name.snakeCase()}}_command_runner}
-  {{project_name.pascalCase()}}CommandRunner({
-    Logger? logger,
-    PubUpdater? pubUpdater,
-  })  : _logger = logger ?? Logger(),
-        _pubUpdater = pubUpdater ?? PubUpdater(),
-        super(executableName, description) {
+  {{project_name.pascalCase()}}CommandRunner({Logger? logger, PubUpdater? pubUpdater})
+    : _logger = logger ?? Logger(),
+      _pubUpdater = pubUpdater ?? PubUpdater(),
+      super(executableName, description) {
     // Add root options and flags
     argParser
       ..addFlag(
@@ -133,11 +131,9 @@ class {{project_name.pascalCase()}}CommandRunner extends CompletionCommandRunner
       if (!isUpToDate) {
         _logger
           ..info('')
-          ..info(
-            '''
+          ..info('''
 ${lightYellow.wrap('Update available!')} ${lightCyan.wrap(packageVersion)} \u2192 ${lightCyan.wrap(latestVersion)}
-Run ${lightCyan.wrap('$executableName update')} to update''',
-          );
+Run ${lightCyan.wrap('$executableName update')} to update''');
       }
     } on Exception catch (_) {}
   }
