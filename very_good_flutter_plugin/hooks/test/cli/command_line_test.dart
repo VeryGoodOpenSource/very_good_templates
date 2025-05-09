@@ -46,14 +46,8 @@ void main() {
 
     group('logs', () {
       test('when started running', () {
-        CommandLine.run(
-          'foo',
-          ['bar'],
-          logger: logger,
-        );
-        verify(
-          () => logger.detail('Running: foo with [bar]'),
-        ).called(1);
+        CommandLine.run('foo', ['bar'], logger: logger);
+        verify(() => logger.detail('Running: foo with [bar]')).called(1);
       });
 
       test('stdout when finished running', () async {
@@ -73,11 +67,7 @@ void main() {
           ),
         ).thenAnswer((_) async => processResult);
 
-        await CommandLine.run(
-          'foo',
-          ['bar'],
-          logger: logger,
-        );
+        await CommandLine.run('foo', ['bar'], logger: logger);
 
         verify(() => logger.detail('stdout:\n$stdout')).called(1);
       });
@@ -99,11 +89,7 @@ void main() {
           ),
         ).thenAnswer((_) async => processResult);
 
-        await CommandLine.run(
-          'foo',
-          ['bar'],
-          logger: logger,
-        );
+        await CommandLine.run('foo', ['bar'], logger: logger);
 
         verify(() => logger.detail('stderr:\n$stderr')).called(1);
       });
@@ -111,12 +97,7 @@ void main() {
 
     group('throws ProcessException', () {
       test('when exit code is non-zero', () async {
-        final processResult = ProcessResult(
-          42,
-          ExitCode.software.code,
-          '',
-          '',
-        );
+        final processResult = ProcessResult(42, ExitCode.software.code, '', '');
         when(
           () => process.run(
             any(),
@@ -129,11 +110,7 @@ void main() {
         const executable = 'foo';
         const arguments = ['bar'];
         await expectLater(
-          CommandLine.run(
-            executable,
-            arguments,
-            logger: logger,
-          ),
+          CommandLine.run(executable, arguments, logger: logger),
           throwsA(
             isA<ProcessException>()
                 .having(
@@ -155,41 +132,29 @@ void main() {
         );
       });
 
-      test(
-        'with "Unknown error" message if stderr and stdout are empty',
-        () {
-          final processResult = ProcessResult(
-            42,
-            ExitCode.software.code,
-            '',
-            '',
-          );
-          when(
-            () => process.run(
-              any(),
-              any(),
-              runInShell: any(named: 'runInShell'),
-              workingDirectory: any(named: 'workingDirectory'),
-            ),
-          ).thenAnswer((_) async => processResult);
+      test('with "Unknown error" message if stderr and stdout are empty', () {
+        final processResult = ProcessResult(42, ExitCode.software.code, '', '');
+        when(
+          () => process.run(
+            any(),
+            any(),
+            runInShell: any(named: 'runInShell'),
+            workingDirectory: any(named: 'workingDirectory'),
+          ),
+        ).thenAnswer((_) async => processResult);
 
-          const message = 'Unknown error';
-          expect(
-            () => CommandLine.run(
-              'foo',
-              ['bar'],
-              logger: logger,
+        const message = 'Unknown error';
+        expect(
+          () => CommandLine.run('foo', ['bar'], logger: logger),
+          throwsA(
+            isA<ProcessException>().having(
+              (exception) => exception.message,
+              'message',
+              equals(message),
             ),
-            throwsA(
-              isA<ProcessException>().having(
-                (exception) => exception.message,
-                'message',
-                equals(message),
-              ),
-            ),
-          );
-        },
-      );
+          ),
+        );
+      });
 
       test(
         'with stdout and stderr message if stderr and stdout are non-empty',
@@ -217,11 +182,7 @@ hello stdout!
 Standard error:
 hello stderr!''';
           expect(
-            () => CommandLine.run(
-              'foo',
-              ['bar'],
-              logger: logger,
-            ),
+            () => CommandLine.run('foo', ['bar'], logger: logger),
             throwsA(
               isA<ProcessException>().having(
                 (exception) => exception.message,

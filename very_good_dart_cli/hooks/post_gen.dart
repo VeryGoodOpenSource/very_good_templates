@@ -4,12 +4,13 @@ import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
 
 /// Type definition for [Process.run].
-typedef RunProcess = Future<ProcessResult> Function(
-  String executable,
-  List<String> arguments, {
-  String? workingDirectory,
-  bool runInShell,
-});
+typedef RunProcess =
+    Future<ProcessResult> Function(
+      String executable,
+      List<String> arguments, {
+      String? workingDirectory,
+      bool runInShell,
+    });
 
 Future<void> run(
   HookContext context, {
@@ -21,15 +22,11 @@ Future<void> run(
 
   // We have to `pub get` the generated project to ensure that the analysis
   // is able to fix the imports with the correct analysis options.
-  await runProcess(
-    'dart',
-    [
-      'pub',
-      'get',
-      '--directory=$projectName',
-    ],
-    workingDirectory: Directory.current.path,
-  );
+  await runProcess('dart', [
+    'pub',
+    'get',
+    '--directory=$projectName',
+  ], workingDirectory: Directory.current.path);
 
   progress.update('Fixing Dart imports ordering...');
 
@@ -39,16 +36,12 @@ Future<void> run(
   //
   // We only fix for the [directives_ordering](https://dart.dev/tools/linter-rules/directives_ordering)
   // linter rules, as the other rule should be tackled by the template itself.
-  await runProcess(
-    'dart',
-    [
-      'fix',
-      projectName,
-      '--apply',
-      '--code=directives_ordering',
-    ],
-    workingDirectory: Directory.current.path,
-  );
+  await runProcess('dart', [
+    'fix',
+    projectName,
+    '--apply',
+    '--code=directives_ordering',
+  ], workingDirectory: Directory.current.path);
 
   progress.complete('Completed post generation');
 }

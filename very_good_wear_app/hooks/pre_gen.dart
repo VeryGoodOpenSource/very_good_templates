@@ -9,9 +9,10 @@ String _appId(HookContext context) {
   final projectName = context.vars['project_name'] as String;
 
   var applicationId = context.vars['application_id'] as String?;
-  applicationId = (applicationId?.isNotEmpty ?? false)
-      ? applicationId
-      : '$orgName.${projectName.snakeCase}';
+  applicationId =
+      (applicationId?.isNotEmpty ?? false)
+          ? applicationId
+          : '$orgName.${projectName.snakeCase}';
 
   return applicationId!;
 }

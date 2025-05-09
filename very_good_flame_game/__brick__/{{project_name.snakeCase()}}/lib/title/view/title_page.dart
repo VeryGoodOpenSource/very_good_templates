@@ -6,9 +6,7 @@ class TitlePage extends StatelessWidget {
   const TitlePage({super.key});
 
   static Route<void> route() {
-    return MaterialPageRoute<void>(
-      builder: (_) => const TitlePage(),
-    );
+    return MaterialPageRoute<void>(builder: (_) => const TitlePage());
   }
 
   @override
@@ -16,9 +14,7 @@ class TitlePage extends StatelessWidget {
     final l10n = context.l10n;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.titleAppBarTitle),
-      ),
+      appBar: AppBar(title: Text(l10n.titleAppBarTitle)),
       body: const SafeArea(child: TitleView()),
     );
   }
