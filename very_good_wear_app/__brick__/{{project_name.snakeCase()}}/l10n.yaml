@@ -7,4 +7,5 @@ synthetic-package: false
 
 # Needed to ensure the formatter does not run on the generated files.
 # See https://github.com/dart-lang/dart_style/issues/864 for more information
-header: "// dart format off"
+# We also ignore coverage as there is no logic in these generated files.
+header: "// dart format off\n// coverage:ignore-file"
