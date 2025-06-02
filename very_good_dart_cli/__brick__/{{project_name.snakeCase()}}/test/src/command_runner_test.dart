@@ -18,10 +18,10 @@ class _MockPubUpdater extends Mock implements PubUpdater {}
 const latestVersion = '0.0.0';
 
 final updatePrompt =
-    '''
-${lightYellow.wrap('Update available!')} ${lightCyan.wrap(packageVersion)} \u2192 ${lightCyan.wrap(latestVersion)}
-Run ${lightCyan.wrap('$executableName update')} to update
-''';
+    // We need to ignore this lint in order to match the exact message format.
+    // ignore: leading_newlines_in_multiline_strings
+    '''${lightYellow.wrap('Update available!')} ${lightCyan.wrap(packageVersion)} \u2192 ${lightCyan.wrap(latestVersion)}
+Run ${lightCyan.wrap('$executableName update')} to update''';
 
 void main() {
   group('{{project_name.pascalCase()}}CommandRunner', () {
