@@ -4,7 +4,7 @@ version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.8.0
 
 dependencies:
   audioplayers: ^6.1.0
@@ -19,7 +19,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   google_fonts: ^6.2.1
-  intl: ^0.19.0
+  intl: ^0.20.2
 
 dev_dependencies:
   bloc_test: ^10.0.0
