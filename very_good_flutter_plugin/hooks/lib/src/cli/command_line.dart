@@ -4,12 +4,13 @@ import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
 
 /// [Process.run] function signature.
-typedef RunProcess = Future<ProcessResult> Function(
-  String executable,
-  List<String> arguments, {
-  String? workingDirectory,
-  bool runInShell,
-});
+typedef RunProcess =
+    Future<ProcessResult> Function(
+      String executable,
+      List<String> arguments, {
+      String? workingDirectory,
+      bool runInShell,
+    });
 
 /// Starts a process and runs it non-interactively to completion.
 ///

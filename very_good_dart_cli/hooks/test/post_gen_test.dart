@@ -97,8 +97,9 @@ void main() {
       pubGetCompleter.complete();
       await Future<void>.delayed(Duration.zero);
 
-      verify(() => progress.update('Fixing Dart imports ordering...'))
-          .called(1);
+      verify(
+        () => progress.update('Fixing Dart imports ordering...'),
+      ).called(1);
 
       fixCompleter.complete();
       await Future<void>.delayed(Duration.zero);
@@ -152,8 +153,9 @@ class _IsDartDirectiveOrderingFix extends Matcher {
     Map<dynamic, dynamic> matchState,
     bool verbose,
   ) {
-    return mismatchDescription
-        .add('is not a `dart fix` for directives_ordering');
+    return mismatchDescription.add(
+      'is not a `dart fix` for directives_ordering',
+    );
   }
 }
 
@@ -162,9 +164,7 @@ Matcher isDartPubGet({required String directory}) {
 }
 
 class _IsDartPubGet extends Matcher {
-  const _IsDartPubGet({
-    required String directory,
-  }) : _directory = directory;
+  const _IsDartPubGet({required String directory}) : _directory = directory;
 
   /// The value of the `--directory` argument passed to `dart pub get`.
   final String _directory;

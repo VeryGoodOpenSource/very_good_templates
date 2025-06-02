@@ -34,7 +34,6 @@ extension type AndroidNamespace(String value) {
   /// > Keep the application ID the same as the namespace. The distinction
   /// > between the two properties can be a bit confusing, but if you keep them
   /// > the same, you have nothing to worry about.
-  AndroidNamespace.fromApplicationId(
-    AndroidApplicationId applicationId,
-  ) : this(applicationId.value);
+  AndroidNamespace.fromApplicationId(AndroidApplicationId applicationId)
+    : this(applicationId.value);
 }

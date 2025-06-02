@@ -23,9 +23,10 @@ extension PumpApp on WidgetTester {
         child: MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          home: navigator != null
-              ? MockNavigatorProvider(navigator: navigator, child: widget)
-              : widget,
+          home:
+              navigator != null
+                  ? MockNavigatorProvider(navigator: navigator, child: widget)
+                  : widget,
         ),
       ),
     );

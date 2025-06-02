@@ -28,9 +28,7 @@ void main() {
 
         expect(
           getMaterialApp().theme?.colorScheme,
-          const ColorScheme.dark(
-            primary: Color(0xFF00B5FF),
-          ),
+          const ColorScheme.dark(primary: Color(0xFF00B5FF)),
         );
 
         await simulatePlatformCall('ambient_mode', 'onUpdateAmbient');
@@ -49,9 +47,7 @@ void main() {
 
         expect(
           getMaterialApp().theme?.colorScheme,
-          const ColorScheme.dark(
-            primary: Color(0xFF00B5FF),
-          ),
+          const ColorScheme.dark(primary: Color(0xFF00B5FF)),
         );
       });
     });

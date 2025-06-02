@@ -52,19 +52,16 @@ void main() {
       verify(() => logger.info(updatePrompt)).called(1);
     });
 
-    test(
-      'Does not show update message when the shell calls the '
-      'completion command',
-      () async {
-        when(
-          () => pubUpdater.getLatestVersion(any()),
-        ).thenAnswer((_) async => latestVersion);
+    test('Does not show update message when the shell calls the '
+        'completion command', () async {
+      when(
+        () => pubUpdater.getLatestVersion(any()),
+      ).thenAnswer((_) async => latestVersion);
 
-        final result = await commandRunner.run(['completion']);
-        expect(result, equals(ExitCode.success.code));
-        verifyNever(() => logger.info(updatePrompt));
-      },
-    );
+      final result = await commandRunner.run(['completion']);
+      expect(result, equals(ExitCode.success.code));
+      verifyNever(() => logger.info(updatePrompt));
+    });
 
     test('does not show update message when using update command', () async {
       when(
@@ -98,12 +95,14 @@ void main() {
       verifyNever(() => logger.info(updatePrompt));
     });
 
-    test('can be instantiated without an explicit analytics/logger instance',
-        () {
-      final commandRunner = {{project_name.pascalCase()}}CommandRunner();
-      expect(commandRunner, isNotNull);
-      expect(commandRunner, isA<CompletionCommandRunner<int>>());
-    });
+    test(
+      'can be instantiated without an explicit analytics/logger instance',
+      () {
+        final commandRunner = {{project_name.pascalCase()}}CommandRunner();
+        expect(commandRunner, isNotNull);
+        expect(commandRunner, isA<CompletionCommandRunner<int>>());
+      },
+    );
 
     test('handles FormatException', () async {
       const exception = FormatException('oops!');
