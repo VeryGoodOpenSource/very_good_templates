@@ -75,20 +75,21 @@ void main() {
 
       // Using the shortcut here as its just a test
       // ignore: prefer_function_declarations_over_variables
-      final runProcess = (
-        String executable,
-        List<String> arguments, {
-        String? workingDirectory,
-        bool runInShell = false,
-      }) async {
-        switch (arguments.first) {
-          case 'pub':
-            await pubGetCompleter.future;
-          case 'fix':
-            await fixCompleter.future;
-        }
-        return processResult;
-      };
+      final runProcess =
+          (
+            String executable,
+            List<String> arguments, {
+            String? workingDirectory,
+            bool runInShell = false,
+          }) async {
+            switch (arguments.first) {
+              case 'pub':
+                await pubGetCompleter.future;
+              case 'fix':
+                await fixCompleter.future;
+            }
+            return processResult;
+          };
 
       final postGen = post_gen.run(context, runProcess: runProcess);
 

@@ -60,11 +60,17 @@ void main() {
           ),
         ).thenAnswer((_) async {});
         when(
-          () =>
-              dartCli.fix(logger: logger, apply: true, cwd: any(named: 'cwd')),
+          () => dartCli.fix(
+            logger: logger,
+            apply: true,
+            cwd: any(named: 'cwd'),
+          ),
         ).thenAnswer((_) async {});
         when(
-          () => dartCli.format(logger: logger, cwd: any(named: 'cwd')),
+          () => dartCli.format(
+            logger: logger,
+            cwd: any(named: 'cwd'),
+          ),
         ).thenAnswer((_) async {});
       });
 
@@ -79,11 +85,17 @@ void main() {
           ),
         ).called(1);
         verify(
-          () =>
-              dartCli.fix(logger: logger, apply: true, cwd: any(named: 'cwd')),
+          () => dartCli.fix(
+            logger: logger,
+            apply: true,
+            cwd: any(named: 'cwd'),
+          ),
         ).called(1);
         verify(
-          () => dartCli.format(logger: logger, cwd: any(named: 'cwd')),
+          () => dartCli.format(
+            logger: logger,
+            cwd: any(named: 'cwd'),
+          ),
         ).called(1);
       });
 
@@ -245,7 +257,10 @@ ${exception.message}
         test('if a $ProcessException is thrown by DartCli.format', () async {
           const exception = ProcessException('executable', ['arguments']);
           when(
-            () => dartCli.format(logger: logger, cwd: any(named: 'cwd')),
+            () => dartCli.format(
+              logger: logger,
+              cwd: any(named: 'cwd'),
+            ),
           ).thenAnswer((_) => Future.error(exception));
 
           await post_gen.run(
@@ -265,7 +280,10 @@ ${exception.message}
         test('if an unknown error is thrown by DartCli.format', () async {
           final exception = Exception('error');
           when(
-            () => dartCli.format(logger: logger, cwd: any(named: 'cwd')),
+            () => dartCli.format(
+              logger: logger,
+              cwd: any(named: 'cwd'),
+            ),
           ).thenAnswer((_) => Future.error(exception));
 
           await post_gen.run(

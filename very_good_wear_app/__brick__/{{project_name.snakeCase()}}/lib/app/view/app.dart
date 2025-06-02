@@ -19,13 +19,12 @@ class App extends StatelessWidget {
             // real state.
             visualDensity: VisualDensity.compact,
             // When in ambient mode, change the apps color scheme
-            colorScheme:
-                isAmbientModeActive
-                    ? const ColorScheme.dark(
-                      primary: Colors.white24,
-                      onSurface: Colors.white10,
-                    )
-                    : const ColorScheme.dark(primary: Color(0xFF00B5FF)),
+            colorScheme: isAmbientModeActive
+                ? const ColorScheme.dark(
+                    primary: Colors.white24,
+                    onSurface: Colors.white10,
+                  )
+                : const ColorScheme.dark(primary: Color(0xFF00B5FF)),
           ),
           debugShowCheckedModeBanner: false,
           localizationsDelegates: AppLocalizations.localizationsDelegates,

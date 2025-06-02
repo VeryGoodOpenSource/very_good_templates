@@ -15,7 +15,8 @@ abstract class VeryGoodCoreHooksException implements Exception {
   final String help;
 
   @override
-  String toString() => '''
+  String toString() =>
+      '''
 [$VeryGoodCoreHooksException] $description.
 
 $help
@@ -32,7 +33,8 @@ class InvalidAndroidApplicationIdFormat extends VeryGoodCoreHooksException {
     : super(
         description:
             '''An invalid Android application ID (${applicationId.value}) format was provided.''',
-        help: '''
+        help:
+            '''
 Try adjusting your Android application ID (${applicationId.value}) to match the following format:
 
 * It must have at least two segments (one or more dots).
