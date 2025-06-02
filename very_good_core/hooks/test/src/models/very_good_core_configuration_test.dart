@@ -54,8 +54,9 @@ void main() {
         test('parts start with numeric character', () {
           expect(
             () => VeryGoodCoreConfiguration(
-              androidApplicationId:
-                  AndroidApplicationId('1com.1example.1my_app'),
+              androidApplicationId: AndroidApplicationId(
+                '1com.1example.1my_app',
+              ),
             ),
             throwsA(isA<InvalidAndroidApplicationIdFormat>()),
           );
@@ -89,14 +90,18 @@ void main() {
               projectName: 'very good app',
               organizationName: 'com.verygood',
               description: 'A Very Good App',
-              windowsApplicationId:
-                  WindowsApplicationId('com.verygood.very_good_app'),
-              iOsApplicationId:
-                  AppleApplicationId('com.verygood.very_good_app'),
-              macOsApplicationId:
-                  AppleApplicationId('com.verygood.very_good_app'),
-              androidApplicationId:
-                  AndroidApplicationId('com.verygood.very_good_app'),
+              windowsApplicationId: WindowsApplicationId(
+                'com.verygood.very_good_app',
+              ),
+              iOsApplicationId: AppleApplicationId(
+                'com.verygood.very_good_app',
+              ),
+              macOsApplicationId: AppleApplicationId(
+                'com.verygood.very_good_app',
+              ),
+              androidApplicationId: AndroidApplicationId(
+                'com.verygood.very_good_app',
+              ),
               androidNamespace: AndroidNamespace('com.verygood.very_good_app'),
             ),
           ),
@@ -119,14 +124,18 @@ void main() {
               projectName: 'very good app',
               organizationName: 'com.verygood',
               description: 'A Very Good App',
-              windowsApplicationId:
-                  WindowsApplicationId('com.verygood.very-good-app'),
-              iOsApplicationId:
-                  AppleApplicationId('com.verygood.very-good-app'),
-              macOsApplicationId:
-                  AppleApplicationId('com.verygood.very-good-app'),
-              androidApplicationId:
-                  AndroidApplicationId('com.verygood.very_good_app'),
+              windowsApplicationId: WindowsApplicationId(
+                'com.verygood.very-good-app',
+              ),
+              iOsApplicationId: AppleApplicationId(
+                'com.verygood.very-good-app',
+              ),
+              macOsApplicationId: AppleApplicationId(
+                'com.verygood.very-good-app',
+              ),
+              androidApplicationId: AndroidApplicationId(
+                'com.verygood.very_good_app',
+              ),
               androidNamespace: AndroidNamespace('com.verygood.very_good_app'),
             ),
           ),

@@ -40,17 +40,17 @@ void main() {
         dartCli = _MockDartCli();
         veryGoodCli = _MockVeryGoodCli();
 
-        when(() => dartCli.isInstalled(logger: logger)).thenAnswer(
-          (_) => Future.value(true),
-        );
+        when(
+          () => dartCli.isInstalled(logger: logger),
+        ).thenAnswer((_) => Future.value(true));
 
-        when(() => veryGoodCli.isInstalled(logger: logger)).thenAnswer(
-          (_) => Future.value(true),
-        );
+        when(
+          () => veryGoodCli.isInstalled(logger: logger),
+        ).thenAnswer((_) => Future.value(true));
 
-        when(() => context.vars).thenReturn(
-          {post_gen.dartFixOutputVariableKey: true},
-        );
+        when(
+          () => context.vars,
+        ).thenReturn({post_gen.dartFixOutputVariableKey: true});
 
         when(
           () => veryGoodCli.packagesGet(
@@ -75,11 +75,7 @@ void main() {
       });
 
       test('runs when enabled', () async {
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
         verify(
           () => veryGoodCli.packagesGet(
@@ -104,15 +100,11 @@ void main() {
       });
 
       test('does not run when disabled', () async {
-        when(() => context.vars).thenReturn(
-          {post_gen.dartFixOutputVariableKey: false},
-        );
+        when(
+          () => context.vars,
+        ).thenReturn({post_gen.dartFixOutputVariableKey: false});
 
-        await post_gen.run(
-          context,
-          veryGoodCli: veryGoodCli,
-          dartCli: dartCli,
-        );
+        await post_gen.run(context, veryGoodCli: veryGoodCli, dartCli: dartCli);
 
         verifyZeroInteractions(dartCli);
         verifyZeroInteractions(veryGoodCli);
@@ -121,11 +113,7 @@ void main() {
       test('does not run when no key exists', () async {
         when(() => context.vars).thenReturn({});
 
-        await post_gen.run(
-          context,
-          veryGoodCli: veryGoodCli,
-          dartCli: dartCli,
-        );
+        await post_gen.run(context, veryGoodCli: veryGoodCli, dartCli: dartCli);
 
         verifyZeroInteractions(dartCli);
         verifyZeroInteractions(veryGoodCli);
@@ -133,14 +121,11 @@ void main() {
 
       group('warns', () {
         test('if Dart CLI is not installed', () async {
-          when(() => dartCli.isInstalled(logger: logger)).thenAnswer(
-            (_) => Future.value(false),
-          );
+          when(
+            () => dartCli.isInstalled(logger: logger),
+          ).thenAnswer((_) => Future.value(false));
 
-          await post_gen.run(
-            context,
-            dartCli: dartCli,
-          );
+          await post_gen.run(context, dartCli: dartCli);
 
           verify(
             () => logger.warn(
@@ -150,9 +135,9 @@ void main() {
         });
 
         test('if Very Good CLI is not installed', () async {
-          when(() => veryGoodCli.isInstalled(logger: logger)).thenAnswer(
-            (_) => Future.value(false),
-          );
+          when(
+            () => veryGoodCli.isInstalled(logger: logger),
+          ).thenAnswer((_) => Future.value(false));
 
           await post_gen.run(
             context,
@@ -222,109 +207,97 @@ ${exception.message}
           },
         );
 
-        test(
-          'if a $ProcessException is thrown by DartCli.fix',
-          () async {
-            const exception = ProcessException('executable', ['arguments']);
-            when(
-              () => dartCli.fix(
-                logger: logger,
-                apply: true,
-                cwd: any(named: 'cwd'),
-              ),
-            ).thenAnswer((_) => Future.error(exception));
+        test('if a $ProcessException is thrown by DartCli.fix', () async {
+          const exception = ProcessException('executable', ['arguments']);
+          when(
+            () => dartCli.fix(
+              logger: logger,
+              apply: true,
+              cwd: any(named: 'cwd'),
+            ),
+          ).thenAnswer((_) => Future.error(exception));
 
-            await post_gen.run(
-              context,
-              dartCli: dartCli,
-              veryGoodCli: veryGoodCli,
-            );
+          await post_gen.run(
+            context,
+            dartCli: dartCli,
+            veryGoodCli: veryGoodCli,
+          );
 
-            verify(
-              () => logger.err('''
+          verify(
+            () => logger.err('''
 Running process ${exception.executable} with ${exception.arguments} failed:
 ${exception.message}
 '''),
-            ).called(1);
-          },
-        );
+          ).called(1);
+        });
 
-        test(
-          'if an unknown error is thrown by DartCli.fix',
-          () async {
-            final exception = Exception('error');
-            when(
-              () => dartCli.fix(
-                logger: logger,
-                apply: true,
-                cwd: any(named: 'cwd'),
-              ),
-            ).thenAnswer((_) => Future.error(exception));
+        test('if an unknown error is thrown by DartCli.fix', () async {
+          final exception = Exception('error');
+          when(
+            () => dartCli.fix(
+              logger: logger,
+              apply: true,
+              cwd: any(named: 'cwd'),
+            ),
+          ).thenAnswer((_) => Future.error(exception));
 
-            await post_gen.run(
-              context,
-              dartCli: dartCli,
-              veryGoodCli: veryGoodCli,
-            );
+          await post_gen.run(
+            context,
+            dartCli: dartCli,
+            veryGoodCli: veryGoodCli,
+          );
 
-            verify(
-              () => logger.err(
-                '''Unknown error occurred when fixing output: $exception''',
-              ),
-            ).called(1);
-          },
-        );
+          verify(
+            () => logger.err(
+              '''Unknown error occurred when fixing output: $exception''',
+            ),
+          ).called(1);
+        });
 
-        test(
-          'if a $ProcessException is thrown by DartCli.format',
-          () async {
-            const exception = ProcessException('executable', ['arguments']);
-            when(
-              () => dartCli.format(
-                logger: logger,
-                cwd: any(named: 'cwd'),
-              ),
-            ).thenAnswer((_) => Future.error(exception));
+        test('if a $ProcessException is thrown by DartCli.format', () async {
+          const exception = ProcessException('executable', ['arguments']);
+          when(
+            () => dartCli.format(
+              logger: logger,
+              cwd: any(named: 'cwd'),
+            ),
+          ).thenAnswer((_) => Future.error(exception));
 
-            await post_gen.run(
-              context,
-              dartCli: dartCli,
-              veryGoodCli: veryGoodCli,
-            );
+          await post_gen.run(
+            context,
+            dartCli: dartCli,
+            veryGoodCli: veryGoodCli,
+          );
 
-            verify(
-              () => logger.err('''
+          verify(
+            () => logger.err('''
 Running process ${exception.executable} with ${exception.arguments} failed:
 ${exception.message}
 '''),
-            ).called(1);
-          },
-        );
+          ).called(1);
+        });
 
-        test(
-          'if an unknown error is thrown by DartCli.format',
-          () async {
-            final exception = Exception('error');
-            when(
-              () => dartCli.format(
-                logger: logger,
-                cwd: any(named: 'cwd'),
-              ),
-            ).thenAnswer((_) => Future.error(exception));
+        test('if an unknown error is thrown by DartCli.format', () async {
+          final exception = Exception('error');
+          when(
+            () => dartCli.format(
+              logger: logger,
+              cwd: any(named: 'cwd'),
+            ),
+          ).thenAnswer((_) => Future.error(exception));
 
-            await post_gen.run(
-              context,
-              dartCli: dartCli,
-              veryGoodCli: veryGoodCli,
-            );
+          await post_gen.run(
+            context,
+            dartCli: dartCli,
+            veryGoodCli: veryGoodCli,
+          );
 
-            verify(
-              () => logger.err(
-                '''Unknown error occurred when fixing output: $exception''',
-              ),
-            ).called(1);
-          },
-        );
+          verify(
+            () => logger.err(
+              '''Unknown error occurred when fixing output: $exception''',
+            ),
+          ).called(1);
+        });
       });
     });
   });

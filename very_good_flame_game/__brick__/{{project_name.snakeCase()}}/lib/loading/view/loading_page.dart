@@ -24,14 +24,10 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<PreloadCubit, PreloadState>(
-      listenWhen: (prevState, state) =>
-          !prevState.isComplete && state.isComplete,
+      listenWhen:
+          (prevState, state) => !prevState.isComplete && state.isComplete,
       listener: (context, state) => onPreloadComplete(context),
-      child: const Scaffold(
-        body: Center(
-          child: _LoadingInternal(),
-        ),
-      ),
+      child: const Scaffold(body: Center(child: _LoadingInternal())),
     );
   }
 }

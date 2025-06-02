@@ -61,25 +61,29 @@ class VeryGoodCoreConfiguration extends Equatable {
     AppleApplicationId? macOsApplicationId,
     AndroidApplicationId? androidApplicationId,
     AndroidNamespace? androidNamespace,
-  })  : projectName = projectName ?? 'my_app',
-        organizationName = organizationName ?? 'com.example',
-        description = description ?? 'A Very Good App' {
-    this.windowsApplicationId = windowsApplicationId ??
+  }) : projectName = projectName ?? 'my_app',
+       organizationName = organizationName ?? 'com.example',
+       description = description ?? 'A Very Good App' {
+    this.windowsApplicationId =
+        windowsApplicationId ??
         WindowsApplicationId.fallback(
           organizationName: this.organizationName,
           projectName: this.projectName,
         );
-    this.iOsApplicationId = iOsApplicationId ??
+    this.iOsApplicationId =
+        iOsApplicationId ??
         AppleApplicationId.fallback(
           organizationName: this.organizationName,
           projectName: this.projectName,
         );
-    this.macOsApplicationId = macOsApplicationId ??
+    this.macOsApplicationId =
+        macOsApplicationId ??
         AppleApplicationId.fallback(
           organizationName: this.organizationName,
           projectName: this.projectName,
         );
-    this.androidApplicationId = androidApplicationId ??
+    this.androidApplicationId =
+        androidApplicationId ??
         AndroidApplicationId.fallback(
           organizationName: this.organizationName,
           projectName: this.projectName,
@@ -88,7 +92,8 @@ class VeryGoodCoreConfiguration extends Equatable {
       throw InvalidAndroidApplicationIdFormat(this.androidApplicationId);
     }
 
-    this.androidNamespace = androidNamespace ??
+    this.androidNamespace =
+        androidNamespace ??
         AndroidNamespace.fromApplicationId(this.androidApplicationId);
   }
 
@@ -180,13 +185,13 @@ class VeryGoodCoreConfiguration extends Equatable {
 
   @override
   List<Object?> get props => [
-        projectName,
-        organizationName,
-        description,
-        windowsApplicationId,
-        iOsApplicationId,
-        macOsApplicationId,
-        androidNamespace,
-        androidApplicationId,
-      ];
+    projectName,
+    organizationName,
+    description,
+    windowsApplicationId,
+    iOsApplicationId,
+    macOsApplicationId,
+    androidNamespace,
+    androidApplicationId,
+  ];
 }

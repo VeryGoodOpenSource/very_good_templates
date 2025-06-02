@@ -5,10 +5,7 @@ import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 /// {@endtemplate}
 abstract class VeryGoodCoreHooksException implements Exception {
   /// {@macro very_good_core_exception}
-  VeryGoodCoreHooksException({
-    required this.description,
-    required this.help,
-  });
+  VeryGoodCoreHooksException({required this.description, required this.help});
 
   /// A message describing the exception.
   final String description;
@@ -18,7 +15,8 @@ abstract class VeryGoodCoreHooksException implements Exception {
   final String help;
 
   @override
-  String toString() => '''
+  String toString() =>
+      '''
 [$VeryGoodCoreHooksException] $description.
 
 $help
@@ -32,10 +30,11 @@ $help
 class InvalidAndroidApplicationIdFormat extends VeryGoodCoreHooksException {
   /// {@macro InvalidAndroidApplicationIdFormat}
   InvalidAndroidApplicationIdFormat(AndroidApplicationId applicationId)
-      : super(
-          description:
-              '''An invalid Android application ID (${applicationId.value}) format was provided.''',
-          help: '''
+    : super(
+        description:
+            '''An invalid Android application ID (${applicationId.value}) format was provided.''',
+        help:
+            '''
 Try adjusting your Android application ID (${applicationId.value}) to match the following format:
 
 * It must have at least two segments (one or more dots).
@@ -49,5 +48,5 @@ restrictive.
 For more information, see the "Set the application ID" Android documentation:
 * https://developer.android.com/build/configure-app-module#set-application-id.
 ''',
-        );
+      );
 }
