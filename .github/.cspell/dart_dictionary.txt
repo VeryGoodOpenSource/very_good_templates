@@ -11,3 +11,4 @@ pubspec # File name where all the package metadata goes in.
 tracefile # File that records the steps of map execution.
 unawaited # A Dart function to explicitly ignore a future.
 semver # Abbreviation for semantic versioning used in `package:pub_semver`
+multiline # Referring to multiline string format.

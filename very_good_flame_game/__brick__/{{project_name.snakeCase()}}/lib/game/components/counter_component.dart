@@ -1,10 +1,9 @@
 import 'package:flame/components.dart';
 import 'package:{{project_name.snakeCase()}}/game/game.dart';
 
-class CounterComponent extends PositionComponent with HasGameRef<{{project_name.pascalCase()}}> {
-  CounterComponent({
-    required super.position,
-  }) : super(anchor: Anchor.center);
+class CounterComponent extends PositionComponent
+    with HasGameReference<{{project_name.pascalCase()}}> {
+  CounterComponent({required super.position}) : super(anchor: Anchor.center);
 
   late final TextComponent text;
 
@@ -13,15 +12,13 @@ class CounterComponent extends PositionComponent with HasGameRef<{{project_name.
     await add(
       text = TextComponent(
         anchor: Anchor.center,
-        textRenderer: TextPaint(
-          style: game.textStyle,
-        ),
+        textRenderer: TextPaint(style: game.textStyle),
       ),
     );
   }
 
   @override
   void update(double dt) {
-    text.text = gameRef.l10n.counterText(gameRef.counter);
+    text.text = game.l10n.counterText(game.counter);
   }
 }

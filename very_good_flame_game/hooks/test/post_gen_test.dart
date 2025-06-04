@@ -60,42 +60,43 @@ void main() {
     }
 
     test(
-      '''fixes `directives_ordering` Dart linter rule after `pub get`''',
+      '''fixes `directives_ordering` Dart linter rule and formats after `very_good packages get`''',
       () async {
         await post_gen.run(context, runProcess: runProcess);
 
-        expect(invocations[0], isDartPubGet(directory: projectName));
+        expect(invocations[0], isVeryGoodPackagesGet(directory: projectName));
         expect(invocations[1], isDartDirectiveOrderingFix(path: projectName));
+        expect(invocations[2], isDartFormat(path: projectName));
       },
     );
 
     test('logs progress', () async {
-      final pubGetCompleter = Completer<void>();
+      final packagesGetCompleter = Completer<void>();
       final fixCompleter = Completer<void>();
+      final formatCompleter = Completer<void>();
 
-      // Using the shortcut here as its just a test
-      // ignore: prefer_function_declarations_over_variables
-      final runProcess =
-          (
-            String executable,
-            List<String> arguments, {
-            String? workingDirectory,
-            bool runInShell = false,
-          }) async {
-            switch (arguments.first) {
-              case 'pub':
-                await pubGetCompleter.future;
-              case 'fix':
-                await fixCompleter.future;
-            }
-            return processResult;
-          };
+      Future<ProcessResult> runProcess(
+        String executable,
+        List<String> arguments, {
+        String? workingDirectory,
+        bool runInShell = false,
+      }) async {
+        switch (arguments.first) {
+          case 'packages':
+            await packagesGetCompleter.future;
+          case 'fix':
+            await fixCompleter.future;
+          case 'format':
+            await formatCompleter.future;
+        }
+        return processResult;
+      }
 
       final postGen = post_gen.run(context, runProcess: runProcess);
 
       verify(() => logger.progress('Getting Dart dependencies...')).called(1);
 
-      pubGetCompleter.complete();
+      packagesGetCompleter.complete();
       await Future<void>.delayed(Duration.zero);
 
       verify(
@@ -103,6 +104,11 @@ void main() {
       ).called(1);
 
       fixCompleter.complete();
+      await Future<void>.delayed(Duration.zero);
+
+      verify(() => progress.update('Fixing formatting...')).called(1);
+
+      formatCompleter.complete();
       await Future<void>.delayed(Duration.zero);
 
       verify(() => progress.complete('Completed post generation')).called(1);
@@ -160,38 +166,37 @@ class _IsDartDirectiveOrderingFix extends Matcher {
   }
 }
 
-Matcher isDartPubGet({required String directory}) {
-  return _IsDartPubGet(directory: directory);
+Matcher isVeryGoodPackagesGet({required String directory}) {
+  return _IsVeryGoodPackagesGet(directory: directory);
 }
 
-class _IsDartPubGet extends Matcher {
-  const _IsDartPubGet({required String directory}) : _directory = directory;
+class _IsVeryGoodPackagesGet extends Matcher {
+  const _IsVeryGoodPackagesGet({required String directory})
+    : _directory = directory;
 
-  /// The value of the `--directory` argument passed to `dart pub get`.
+  /// The value of the directory argument passed to `very_good packages get`.
   final String _directory;
 
   @override
   bool matches(dynamic item, Map<dynamic, dynamic> matchState) {
-    if (item is! Invocation) {
-      return false;
-    }
+    if (item is! Invocation) return false;
 
     final invocation = item;
-    final executableName = invocation.positionalArguments[0] as String;
-    final arguments = invocation.positionalArguments[1] as List<String>;
+    final executableName = invocation.positionalArguments.first as String;
+    final arguments = invocation.positionalArguments.last as List<String>;
     final workingDirectory =
         invocation.namedArguments[const Symbol('workingDirectory')] as String?;
 
-    return executableName == 'dart' &&
-        arguments.contains('pub') &&
+    return executableName == 'very_good' &&
+        arguments.contains('packages') &&
         arguments.contains('get') &&
-        arguments.contains('--directory=$_directory') &&
+        arguments.contains(_directory) &&
         workingDirectory == Directory.current.path;
   }
 
   @override
   Description describe(Description description) {
-    return description.add('is a `dart pub get --directory=$_directory`');
+    return description.add('is a `very_good packages get $_directory`');
   }
 
   @override
@@ -202,7 +207,52 @@ class _IsDartPubGet extends Matcher {
     bool verbose,
   ) {
     return mismatchDescription.add(
-      'is not a `dart pub get --directory=$_directory`',
+      'is not a `very_good packages get $_directory`',
+    );
+  }
+}
+
+Matcher isDartFormat({required String path}) {
+  return _IsDartFormat(path: path);
+}
+
+class _IsDartFormat extends Matcher {
+  const _IsDartFormat({required String path}) : _path = path;
+
+  /// The value of the path to apply the `dart format` to.
+  final String _path;
+
+  @override
+  bool matches(dynamic item, Map<dynamic, dynamic> matchState) {
+    if (item is! Invocation) return false;
+
+    final invocation = item;
+    final executableName = invocation.positionalArguments.first as String;
+    final arguments = invocation.positionalArguments.last as List<String>;
+    final workingDirectory =
+        invocation.namedArguments[const Symbol('workingDirectory')] as String?;
+
+    return executableName == 'dart' &&
+        arguments.contains('format') &&
+        arguments.contains('--set-exit-if-changed') &&
+        arguments.contains(_path) &&
+        workingDirectory == Directory.current.path;
+  }
+
+  @override
+  Description describe(Description description) {
+    return description.add('is a `dart format --set-exit-if-changed $_path`');
+  }
+
+  @override
+  Description describeMismatch(
+    dynamic item,
+    Description mismatchDescription,
+    Map<dynamic, dynamic> matchState,
+    bool verbose,
+  ) {
+    return mismatchDescription.add(
+      'is not a `dart format --set-exit-if-changed $_path`',
     );
   }
 }

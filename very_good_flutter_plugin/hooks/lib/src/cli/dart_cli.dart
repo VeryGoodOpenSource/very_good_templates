@@ -20,22 +20,15 @@ class DartCli {
   /// Determine whether dart is installed.
   Future<bool> isInstalled({required Logger logger}) async {
     try {
-      await CommandLine.run(
-        _executableName,
-        ['--version'],
-        logger: logger,
-      );
+      await CommandLine.run(_executableName, ['--version'], logger: logger);
       return true;
-    } catch (_) {
+    } on Exception {
       return false;
     }
   }
 
   /// Idiomatically format Dart source code.
-  Future<void> format({
-    required Logger logger,
-    String cwd = '.',
-  }) async {
+  Future<void> format({required Logger logger, String cwd = '.'}) async {
     await CommandLine.run(
       _executableName,
       ['format'],

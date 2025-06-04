@@ -17,13 +17,9 @@ class VeryGoodCli {
   /// Determine whether dart is installed.
   Future<bool> isInstalled({required Logger logger}) async {
     try {
-      await CommandLine.run(
-        _executableName,
-        ['--version'],
-        logger: logger,
-      );
+      await CommandLine.run(_executableName, ['--version'], logger: logger);
       return true;
-    } catch (_) {
+    } on Exception {
       return false;
     }
   }

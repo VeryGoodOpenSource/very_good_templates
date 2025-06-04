@@ -27,7 +27,7 @@ jobs:
         flutter-version:
           # The version of Flutter to use should use the minimum Dart SDK version supported by the package,
           # refer to https://docs.flutter.dev/development/tools/sdk/releases.
-          - "3.27.0"
+          - "3.32.0"
           - "3.x"
 
     steps:
@@ -43,25 +43,25 @@ jobs:
         run: |
           dart pub global activate mason_cli
           mason get
-          mason make very_good_wear_app -c very_good_wear_app/config.json -o output --on-conflict overwrite
+          mason make very_good_wear_app -c very_good_wear_app/config.json --on-conflict overwrite
 
       - name: 📦 Install Dependencies
         run: |
           dart pub global activate very_good_cli
-          very_good packages get --recursive output/test_app
+          very_good packages get --recursive very_good_wear_app_output
 
       - name: ✨ Check Formatting
-        run: dart format --set-exit-if-changed output/test_app
+        run: dart format --set-exit-if-changed very_good_wear_app_output
 
       - name: 🕵️ Analyze
-        run: dart analyze --fatal-infos --fatal-warnings output/test_app
+        run: dart analyze --fatal-infos --fatal-warnings very_good_wear_app_output
 
       - name: 🧪 Run Tests
         run: |
-          cd output/test_app
+          cd very_good_wear_app_output
           very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
 
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
-          path: output/test_app/coverage/lcov.info
+          path: very_good_wear_app_output/coverage/lcov.info

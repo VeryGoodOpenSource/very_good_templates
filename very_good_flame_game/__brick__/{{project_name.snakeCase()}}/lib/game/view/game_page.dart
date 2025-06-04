@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/game.dart' hide Route;
 import 'package:flame_audio/bgm.dart';
 import 'package:flutter/material.dart';
@@ -11,20 +12,20 @@ class GamePage extends StatelessWidget {
   const GamePage({super.key});
 
   static Route<void> route() {
-    return MaterialPageRoute<void>(
-      builder: (_) => const GamePage(),
-    );
+    return MaterialPageRoute<void>(builder: (_) => const GamePage());
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) {
-        return AudioCubit(audioCache: context.read<PreloadCubit>().audio);
+        final audioCache = context.read<PreloadCubit>().audio;
+        return AudioCubit(
+          audioPlayer: AudioPlayer()..audioCache = audioCache,
+          backgroundMusic: Bgm(audioCache: audioCache),
+        );
       },
-      child: const Scaffold(
-        body: SafeArea(child: GameView()),
-      ),
+      child: const Scaffold(body: SafeArea(child: GameView())),
     );
   }
 }
@@ -58,12 +59,12 @@ class _GameViewState extends State<GameView> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.bodySmall!.copyWith(
-          color: Colors.white,
-          fontSize: 4,
-        );
+    final textStyle = Theme.of(
+      context,
+    ).textTheme.bodySmall!.copyWith(color: Colors.white, fontSize: 4);
 
-    _game ??= widget.game ??
+    _game ??=
+        widget.game ??
         {{project_name.pascalCase()}}(
           l10n: context.l10n,
           effectPlayer: context.read<AudioCubit>().effectPlayer,

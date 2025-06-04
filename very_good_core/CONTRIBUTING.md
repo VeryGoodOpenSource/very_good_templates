@@ -8,7 +8,7 @@ We highly recommend [creating an issue][bug_report_link] if you have found a bug
 
 When reporting a bug, please use the built-in [Bug Report][bug_report_link] template and provide as much information as possible including detailed reproduction steps. Once one of the package maintainers has reviewed the issue and we reach an agreement on the fix, open a pull request.
 
-[bug_report_link]: https://github.com/VeryGoodOpenSource/very_good_core/issues
+[bug_report_link]: https://github.com/VeryGoodOpenSource/very_good_templates/labels/product%3A%20very_good_core
 
 ## Developing for Very Good Core
 
@@ -45,16 +45,16 @@ mason get
 
 ```sh
 # 🧱 Generate a project using the local Very Good Core version
-mason make very_good_core --config-path brick/config.json --output-dir output --watch
+mason make very_good_core --config-path very_good_core/config.json --watch
 ```
 
-This will generate a project using Very Good Core under [`output`](output) with the variables specified by the [configuration](brick/config.json) file. When any file under [`__brick__`](brick/__brick__/) is changed.
+This will generate a project using Very Good Core under [`very_good_core_output`](very_good_core_output) with the variables specified by the [configuration](config.json) file. When any file under [`__brick__`](__brick__/) is changed.
 
 ### Creating a Pull Request
 
 Before creating a Pull Request please:
 
-1. [Fork](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) the [GitHub repository](https://github.com/VeryGoodOpenSource/very_good_core) and create your branch from `main`:
+1. [Fork](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) the [GitHub repository](https://github.com/VeryGoodOpenSource/very_good_templates) and create your branch from `main`:
 
 ```sh
 # 🪵 Branch from `main`
@@ -75,40 +75,40 @@ mason get
 
 ```sh
 # 🧱 Generate a project using the local Very Good Core brick (from project root)
-mason make very_good_core --config-path brick/config.json --output-dir output
+mason make very_good_core --config-path very_good_core/config.json
 ```
 
 4. Add tests! Pull Requests without 100% test coverage will **not** be merged. If you're unsure on how to do so watch our [Testing Fundamentals Course](https://www.youtube.com/watch?v=M_eZg-X789w&list=PLprI2satkVdFwpxo_bjFkCxXz5RluG8FY).
 
 ```sh
-# 📊 Check code coverage (from output/test_app)
+# 📊 Check code coverage (from very_good_core_output)
 very_good test -x pull-request-only --min-coverage 100
 ```
 
 Optionally, you can generate a detailed coverage report:
 
 ```sh
-# 📊 Generate coverage report (from output/test_app)
+# 📊 Generate coverage report (from very_good_core_output)
 very_good test -x pull-request-only --coverage
 
-# 🕸️ Generate a readable HTML website (from output/test_app)
+# 🕸️ Generate a readable HTML website (from very_good_core_output)
 genhtml -o coverage/html coverage/lcov.info
 
-# 👀 Open the coverage report HTML website (from output/test_app)
+# 👀 Open the coverage report HTML website (from very_good_core_output)   
 open coverage/html/index.html
 ```
 
 5. Ensure the generated project is well formatted:
 
 ```sh
-# 🧼 Run Dart's formatter (from output/test_app)
+# 🧼 Run Dart's formatter (from very_good_core_output)
 dart format lib test --set-exit-if-changed
 ```
 
 6. Analyze the generated project:
 
 ```sh
-# 🔍 Run Dart's analyzer (from output/test_app)
+# 🔍 Run Dart's analyzer (from very_good_core_output)
 dart analyze --fatal-infos --fatal-warnings .
 ```
 
@@ -118,7 +118,7 @@ dart analyze --fatal-infos --fatal-warnings .
 
 8. Create the Pull Request with a meaningful description, linking to the original issue where possible.
 
-9. Verify that all [status checks](https://github.com/VeryGoodOpenSource/very_good_core/actions/) are passing for your Pull Request once they have been approved to run by a maintainer.
+9. Verify that all [status checks](https://github.com/VeryGoodOpenSource/very_good_templates/actions) are passing for your Pull Request once they have been approved to run by a maintainer.
 
 💡 **Note**: While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional work, tests, or other changes before your pull request can be accepted.
 
@@ -138,7 +138,7 @@ git pull origin main
 git status
 ```
 
-2. Ensure the current pipeline is passing on the `main` branch, [here](https://github.com/VeryGoodOpenSource/very_good_core/actions/workflows/very_good_core.yaml?query=branch%3Amain).
+2. Ensure the current pipeline is passing on the `main` branch, [here](https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_core.yaml?query=branch:main).
 
 3. From the repository, run the script to release a new version:
 
@@ -151,6 +151,6 @@ git commit -m "chore: v<new-version>"
 This script will:
 
 - Create a new branch named `chore/v<new-version>`
-- Update the version info on `brick/brick.yaml`
-- Update the version info on `brick/CHANGELOG.md`
+- Update the version info on `brick.yaml`
+- Update the version info on `CHANGELOG.md`
 - Then commit those changes with the message `chore: v<new-version>`

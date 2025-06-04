@@ -110,3 +110,6 @@ app.*.map.json
 !.idea/codeStyles/
 !.idea/dictionaries/
 !.idea/runConfigurations/
+
+# Generated l10n files
+lib/l10n/gen/

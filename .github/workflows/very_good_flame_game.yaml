@@ -31,7 +31,7 @@ jobs:
         flutter-version:
           # The version of Flutter to use should use the minimum Dart SDK version supported by the package,
           # refer to https://docs.flutter.dev/development/tools/sdk/releases.
-          - "3.27.0"
+          - "3.32.0"
           - "3.x"
 
     steps:
@@ -46,27 +46,26 @@ jobs:
       - name: 🧱 Mason Make
         run: |
           dart pub global activate mason_cli
+          dart pub global activate very_good_cli
           mason get
-          mason make very_good_flame_game -c config.json -o output --on-conflict overwrite
+          mason make very_good_flame_game -c config.json --on-conflict overwrite
 
       - name: 📦 Install Dependencies
-        run: |
-          dart pub global activate very_good_cli
-          very_good packages get --recursive output/unicorn_game
+        run: very_good packages get very_good_flame_game_output
 
       - name: ✨ Check Formatting
-        run: dart format --set-exit-if-changed output/unicorn_game
+        run: dart format --set-exit-if-changed very_good_flame_game_output
 
       - name: 🕵️ Analyze
-        run: dart analyze --fatal-infos --fatal-warnings output/unicorn_game
+        run: dart analyze --fatal-infos --fatal-warnings very_good_flame_game_output
 
       - name: 🧪 Run Tests
         run: |
-          cd output/unicorn_game
+          cd very_good_flame_game_output
           very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
 
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
           exclude: "**/*.gen.dart"
-          path: very_good_flame_game/output/unicorn_game/coverage/lcov.info
+          path: very_good_flame_game/very_good_flame_game_output/coverage/lcov.info

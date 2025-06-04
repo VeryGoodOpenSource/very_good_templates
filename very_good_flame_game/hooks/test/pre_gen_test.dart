@@ -27,24 +27,23 @@ void main() {
 
         pre_gen.run(context);
 
-        final newVars = verify(() => context.vars = captureAny()).captured.last
-            as Map<String, dynamic>;
+        final newVars =
+            verify(() => context.vars = captureAny()).captured.last
+                as Map<String, dynamic>;
 
         expect(
           newVars,
-          equals(
-            {
-              'project_name': 'my_game',
-              'org_name': 'com.example',
-              'description': 'A new Flame project.',
-              'android_namespace': 'app.id',
-              'android_application_id': 'app.id',
-              'ios_application_id': 'app.id',
-              'macos_application_id': 'app.id',
-              'windows_application_id': 'app.id',
-              'current_year': '2020',
-            },
-          ),
+          equals({
+            'project_name': 'my_game',
+            'org_name': 'com.example',
+            'description': 'A new Flame project.',
+            'android_namespace': 'app.id',
+            'android_application_id': 'app.id',
+            'ios_application_id': 'app.id',
+            'macos_application_id': 'app.id',
+            'windows_application_id': 'app.id',
+            'current_year': '2020',
+          }),
         );
       });
     });

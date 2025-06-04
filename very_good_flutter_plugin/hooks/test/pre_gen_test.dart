@@ -16,7 +16,9 @@ void main() {
     });
 
     test('sets flutterVersion', () {
-      final vars = <String, dynamic>{};
+      final vars = <String, dynamic>{
+        'platforms': ['android', 'ios', 'macos', 'linux', 'web', 'windows'],
+      };
       when(() => context.vars).thenReturn(vars);
 
       pre_gen.run(context);
@@ -25,12 +27,21 @@ void main() {
     });
 
     test('sets dartSdkVersionBounds', () {
-      final vars = <String, dynamic>{};
+      final vars = <String, dynamic>{
+        'platforms': ['android', 'ios', 'macos', 'linux', 'web', 'windows'],
+      };
       when(() => context.vars).thenReturn(vars);
 
       pre_gen.run(context);
 
       expect(vars['dartSdkVersionBounds'], '^${$minDartVersion}');
+    });
+
+    test('throws ArgumentError when no platforms are passed', () {
+      final vars = <String, dynamic>{};
+      when(() => context.vars).thenReturn(vars);
+
+      expect(() => pre_gen.run(context), throwsArgumentError);
     });
 
     group('android variable', () {
@@ -48,9 +59,7 @@ void main() {
       });
 
       test('is set to false if it is not in `platforms` variable', () {
-        final vars = <String, dynamic>{
-          'platforms': <String>[],
-        };
+        final vars = <String, dynamic>{'platforms': <String>[]};
         when(() => context.vars).thenReturn(vars);
 
         pre_gen.run(context);
@@ -74,9 +83,7 @@ void main() {
       });
 
       test('is set to false if it is not in `platforms` variable', () {
-        final vars = <String, dynamic>{
-          'platforms': <String>[],
-        };
+        final vars = <String, dynamic>{'platforms': <String>[]};
         when(() => context.vars).thenReturn(vars);
 
         pre_gen.run(context);
@@ -100,9 +107,7 @@ void main() {
       });
 
       test('is set to false if it is not in `platforms` variable', () {
-        final vars = <String, dynamic>{
-          'platforms': <String>[],
-        };
+        final vars = <String, dynamic>{'platforms': <String>[]};
         when(() => context.vars).thenReturn(vars);
 
         pre_gen.run(context);
@@ -126,9 +131,7 @@ void main() {
       });
 
       test('is set to false if it is not in `platforms` variable', () {
-        final vars = <String, dynamic>{
-          'platforms': <String>[],
-        };
+        final vars = <String, dynamic>{'platforms': <String>[]};
         when(() => context.vars).thenReturn(vars);
 
         pre_gen.run(context);
@@ -152,9 +155,7 @@ void main() {
       });
 
       test('is set to false if it is not in `platforms` variable', () {
-        final vars = <String, dynamic>{
-          'platforms': <String>[],
-        };
+        final vars = <String, dynamic>{'platforms': <String>[]};
         when(() => context.vars).thenReturn(vars);
 
         pre_gen.run(context);
@@ -178,9 +179,7 @@ void main() {
       });
 
       test('is set to false if it is not in `platforms` variable', () {
-        final vars = <String, dynamic>{
-          'platforms': <String>[],
-        };
+        final vars = <String, dynamic>{'platforms': <String>[]};
         when(() => context.vars).thenReturn(vars);
 
         pre_gen.run(context);

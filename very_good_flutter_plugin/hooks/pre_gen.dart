@@ -10,21 +10,18 @@ void run(HookContext context) {
     'web',
     'windows',
   ];
+
   final selectedPlatformsVar = context.vars['platforms'];
 
-  late final List<dynamic> selectedPlatforms;
-  if (selectedPlatformsVar is String) {
-    selectedPlatforms = selectedPlatformsVar.split(',')
-      ..forEach((e) => e.trim());
-  } else if (selectedPlatformsVar is List) {
-    selectedPlatforms = selectedPlatformsVar;
-  } else {
-    throw ArgumentError.value(
+  final selectedPlatforms = switch (selectedPlatformsVar) {
+    final String value => value.split(',')..forEach((e) => e.trim()),
+    final List<dynamic> value => value,
+    _ => throw ArgumentError.value(
       selectedPlatformsVar,
       'platforms',
       'Expected a List of platforms',
-    );
-  }
+    ),
+  };
 
   context.vars.addAll({
     'flutterVersion': $flutterVersion,

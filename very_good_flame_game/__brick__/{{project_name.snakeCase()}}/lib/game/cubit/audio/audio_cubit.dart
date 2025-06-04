@@ -7,10 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'audio_state.dart';
 
 class AudioCubit extends Cubit<AudioState> {
-  AudioCubit({required AudioCache audioCache})
-      : effectPlayer = AudioPlayer()..audioCache = audioCache,
-        bgm = Bgm(audioCache: audioCache),
-        super(const AudioState());
+  AudioCubit({required AudioPlayer audioPlayer, required Bgm backgroundMusic})
+    : effectPlayer = audioPlayer,
+      bgm = backgroundMusic,
+      super(const AudioState());
 
   @visibleForTesting
   AudioCubit.test({

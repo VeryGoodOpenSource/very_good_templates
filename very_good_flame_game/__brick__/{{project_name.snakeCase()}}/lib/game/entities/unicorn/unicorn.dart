@@ -5,22 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/game/entities/unicorn/behaviors/tapping_behavior.dart';
 import 'package:{{project_name.snakeCase()}}/gen/assets.gen.dart';
 
-class Unicorn extends PositionedEntity with HasGameRef {
-  Unicorn({
-    required super.position,
-  }) : super(
-          anchor: Anchor.center,
-          size: Vector2.all(32),
-          behaviors: [
-            TappingBehavior(),
-          ],
-        );
+class Unicorn extends PositionedEntity with HasGameReference {
+  Unicorn({required super.position})
+    : super(
+        anchor: Anchor.center,
+        size: Vector2.all(32),
+        behaviors: [TappingBehavior()],
+      );
 
   @visibleForTesting
-  Unicorn.test({
-    required super.position,
-    super.behaviors,
-  }) : super(size: Vector2.all(32));
+  Unicorn.test({required super.position, super.behaviors})
+    : super(size: Vector2.all(32));
 
   late SpriteAnimationComponent _animationComponent;
 
@@ -31,7 +26,7 @@ class Unicorn extends PositionedEntity with HasGameRef {
   @override
   Future<void> onLoad() async {
     final animation = SpriteAnimation.fromFrameData(
-      gameRef.images.fromCache(Assets.images.unicornAnimation.path),
+      game.images.fromCache(Assets.images.unicornAnimation.path),
       SpriteAnimationData.sequenced(
         amount: 16,
         stepTime: 0.1,
