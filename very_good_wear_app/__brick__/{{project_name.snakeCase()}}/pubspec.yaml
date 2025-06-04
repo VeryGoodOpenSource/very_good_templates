@@ -1,4 +1,4 @@
-name: "{{ project_name.snakeCase() }}"
+name: "{{project_name.snakeCase()}}"
 description: A new Flutter WearOS project.
 version: 1.0.0+1
 publish_to: none
@@ -21,8 +21,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.4
-  very_good_analysis: ^8.0.0
+  very_good_analysis: ^9.0.0-rc.1
 
 flutter:
   uses-material-design: true
-  generate: true
