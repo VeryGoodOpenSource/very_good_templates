@@ -1,5 +1,5 @@
-name: { { project_name.snakeCase() } }
-description: { { { description } } }
+name: {{project_name.snakeCase()}}
+description: {{{ description }}}
 version: 1.0.0+1
 publish_to: none
 
@@ -32,8 +32,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  generate: true
-
   assets:
     - assets/audio/
     - assets/images/
