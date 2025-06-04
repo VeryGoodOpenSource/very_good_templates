@@ -7,15 +7,15 @@ environment:
   sdk: ^3.8.0
 
 dependencies:
-  audioplayers: ^6.1.0
+  audioplayers: ^6.4.0
   bloc: ^9.0.0
   equatable: ^2.0.7
-  flame: ^1.23.0
-  flame_audio: ^2.10.7
+  flame: ^1.29.0
+  flame_audio: ^2.11.6
   flame_behaviors: ^1.2.0
   flutter:
     sdk: flutter
-  flutter_bloc: ^9.0.0
+  flutter_bloc: ^9.1.1
   flutter_localizations:
     sdk: flutter
   google_fonts: ^6.2.1
@@ -23,12 +23,12 @@ dependencies:
 
 dev_dependencies:
   bloc_test: ^10.0.0
-  flame_test: ^1.17.4
+  flame_test: ^1.19.2
   flutter_test:
     sdk: flutter
-  mockingjay: ^0.6.0
+  mockingjay: ^2.0.0
   mocktail: ^1.0.4
-  very_good_analysis: ^7.0.0
+  very_good_analysis: ^8.0.0
 
 flutter:
   uses-material-design: true
