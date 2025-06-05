@@ -17,18 +17,15 @@ void main() {
         },
       );
 
-      test(
-        'ignores empty segments',
-        () {
-          const organizationName = 'com..example..hello-world';
-          const projectName = 'my app';
-          final androidApplicationId = AndroidApplicationId.fallback(
-            organizationName: organizationName,
-            projectName: projectName,
-          );
-          expect(androidApplicationId.value, 'com.example.hello_world.my_app');
-        },
-      );
+      test('ignores empty segments', () {
+        const organizationName = 'com..example..hello-world';
+        const projectName = 'my app';
+        final androidApplicationId = AndroidApplicationId.fallback(
+          organizationName: organizationName,
+          projectName: projectName,
+        );
+        expect(androidApplicationId.value, 'com.example.hello_world.my_app');
+      });
     });
 
     group('isValid', () {

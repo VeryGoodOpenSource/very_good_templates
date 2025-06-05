@@ -24,9 +24,7 @@ class App extends StatelessWidget {
                     primary: Colors.white24,
                     onSurface: Colors.white10,
                   )
-                : const ColorScheme.dark(
-                    primary: Color(0xFF00B5FF),
-                  ),
+                : const ColorScheme.dark(primary: Color(0xFF00B5FF)),
           ),
           debugShowCheckedModeBanner: false,
           localizationsDelegates: AppLocalizations.localizationsDelegates,

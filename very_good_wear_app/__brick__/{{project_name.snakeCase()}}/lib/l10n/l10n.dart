@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:{{project_name.snakeCase()}}/l10n/gen/app_localizations.dart';
 
-export 'package:flutter_gen/gen_l10n/app_localizations.dart';
+export 'package:{{project_name.snakeCase()}}/l10n/gen/app_localizations.dart';
 
 extension AppLocalizationsX on BuildContext {
   AppLocalizations get l10n => AppLocalizations.of(this);

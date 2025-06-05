@@ -55,7 +55,7 @@ void main() {
             isWindows: isFalse,
             isLinux: isFalse,
             isMacOS: isFalse,
-          )
+          ),
         ),
         (
           'iOS',
@@ -66,7 +66,7 @@ void main() {
             isWindows: isFalse,
             isLinux: isFalse,
             isMacOS: isFalse,
-          )
+          ),
         ),
         (
           'Web',
@@ -77,7 +77,7 @@ void main() {
             isWindows: isFalse,
             isLinux: isFalse,
             isMacOS: isFalse,
-          )
+          ),
         ),
         (
           'Linux',
@@ -88,7 +88,7 @@ void main() {
             isWindows: isFalse,
             isLinux: isTrue,
             isMacOS: isFalse,
-          )
+          ),
         ),
         (
           'MacOS',
@@ -99,7 +99,7 @@ void main() {
             isWindows: isFalse,
             isLinux: isFalse,
             isMacOS: isTrue,
-          )
+          ),
         ),
         (
           'Windows',
@@ -110,7 +110,7 @@ void main() {
             isWindows: isTrue,
             isLinux: isFalse,
             isMacOS: isFalse,
-          )
+          ),
         ),
       ];
 

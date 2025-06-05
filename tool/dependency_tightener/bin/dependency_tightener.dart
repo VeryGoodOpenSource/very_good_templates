@@ -28,8 +28,9 @@ Future<void> main(List<String> args) async {
   final arguments = argumentParser.parse(args);
 
   final targetDirectory = Directory(arguments['directory'] as String);
-  final skipPackages =
-      (arguments['skip-packages'] as String?)?.split(',').toSet();
+  final skipPackages = (arguments['skip-packages'] as String?)
+      ?.split(',')
+      .toSet();
 
   final pubspecFiles = targetDirectory
       .listSync(recursive: true)
