@@ -1,3 +1,14 @@
+# 0.11.0
+
+- chore: tighten template dependencies [#237](https://github.com/VeryGoodOpenSource/very_good_templates/pull/237)
+- chore: tighten template dependencies [#240](https://github.com/VeryGoodOpenSource/very_good_templates/pull/240)
+- fix: evaluate brick output correctly on ci [#248](https://github.com/VeryGoodOpenSource/very_good_templates/pull/248)
+- chore: update to Flutter 3.29 and Dart 3.7 [#250](https://github.com/VeryGoodOpenSource/very_good_templates/pull/250)
+- chore: update flutter 3.32.0 and dart 3.8.0 [#253](https://github.com/VeryGoodOpenSource/very_good_templates/pull/253)
+- chore(very_good_flame_game): update to mockingjay 2.0.0 [#260](https://github.com/VeryGoodOpenSource/very_good_templates/pull/260)
+- chore: tighten template dependencies [#243](https://github.com/VeryGoodOpenSource/very_good_templates/pull/243)
+- chore: bump very_good_analysis to 9.0.0 [#261](https://github.com/VeryGoodOpenSource/very_good_templates/pull/261)
+
 # 0.10.0
 
 - chore: tighten template dependencies ([#211](https://github.com/VeryGoodOpenSource/very_good_templates/pull/211), [#213](https://github.com/VeryGoodOpenSource/very_good_templates/pull/213), [#220](https://github.com/VeryGoodOpenSource/very_good_templates/pull/220))
