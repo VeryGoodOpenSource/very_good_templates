@@ -22,7 +22,7 @@ Future<void> main() async {
 
   final coverageFiles = matches.listSync().map((entity) => entity.path);
 
-  await Process.run('lcov', [
+  final result = await Process.run('lcov', [
     for (final coverageFile in coverageFiles) ...[
       '--add-tracefile',
       coverageFile,
@@ -30,4 +30,6 @@ Future<void> main() async {
     '--output-file',
     outputLcovPath,
   ]);
+
+  print(result.stdout);
 }
