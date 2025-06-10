@@ -1,3 +1,15 @@
+# 0.11.0
+
+- chore(deps): bump very_good_analysis from 6.0.0 to 7.0.0 in /very_good_core/hooks [#233](https://github.com/VeryGoodOpenSource/very_good_templates/pull/233)
+- chore: tighten template dependencies [#237](https://github.com/VeryGoodOpenSource/very_good_templates/pull/237)
+- chore: tighten template dependencies [#240](https://github.com/VeryGoodOpenSource/very_good_templates/pull/240)
+- fix: evaluate brick output correctly on ci [#248](https://github.com/VeryGoodOpenSource/very_good_templates/pull/248)
+- chore: update to Flutter 3.29 and Dart 3.7 [#250](https://github.com/VeryGoodOpenSource/very_good_templates/pull/250)
+- chore: update flutter 3.32.0 and dart 3.8.0 [#253](https://github.com/VeryGoodOpenSource/very_good_templates/pull/253)
+- chore: tighten template dependencies [#243](https://github.com/VeryGoodOpenSource/very_good_templates/pull/243)
+- fix(very_good_core): Update concurrency group name template [#255](https://github.com/VeryGoodOpenSource/very_good_templates/pull/255)
+- chore: bump very_good_analysis to 9.0.0 [#261](https://github.com/VeryGoodOpenSource/very_good_templates/pull/261)
+
 # 0.10.0
 
 - feat: update pull request templates to add `test` type option ([#214](https://github.com/VeryGoodOpenSource/very_good_templates/pull/214))
