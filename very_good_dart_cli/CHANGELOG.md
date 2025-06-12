@@ -1,3 +1,7 @@
+# 0.10.1
+
+- test(very_good_dart_cli): add missing test [#278](https://github.com/VeryGoodOpenSource/very_good_dart_cli/pull/278)
+
 # 0.10.0
 
 - chore(deps): bump very_good_analysis from 6.0.0 to 7.0.0 in /very_good_dart_cli/hooks [#236](https://github.com/VeryGoodOpenSource/very_good_dart_cli/pull/236)
