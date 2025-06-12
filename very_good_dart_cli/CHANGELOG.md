@@ -1,6 +1,6 @@
 # 0.10.1
 
-- test(very_good_dart_cli): add missing test [#278](https://github.com/VeryGoodOpenSource/very_good_dart_cli/pull/278)
+- test: add missing test [#278](https://github.com/VeryGoodOpenSource/very_good_dart_cli/pull/278)
 
 # 0.10.0
 
