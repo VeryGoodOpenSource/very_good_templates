@@ -1,3 +1,7 @@
+# 0.11.1
+
+- fix: linting issues [#280](https://github.com/VeryGoodOpenSource/very_good_templates/pull/280)
+
 # 0.11.0
 
 - chore(deps): bump very_good_analysis from 6.0.0 to 7.0.0 in /very_good_flutter_plugin/hooks [#235](https://github.com/VeryGoodOpenSource/very_good_templates/pull/235)
