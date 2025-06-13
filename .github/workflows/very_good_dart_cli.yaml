@@ -63,7 +63,7 @@ jobs:
           dart pub global activate coverage 1.2.0
           cd very_good_dart_cli_output
           dart test -j 4 --coverage=coverage
-          dart pub global run coverage:format_coverage --lcov --check-ignore --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on="lib"
+          dart run coverage:format_coverage --lcov --check-ignore --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on="lib"
           cd ../../
 
       - name: 📊 Check Code Coverage
