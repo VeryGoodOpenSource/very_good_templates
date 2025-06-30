@@ -135,6 +135,8 @@ class {{project_name.pascalCase()}}CommandRunner extends CompletionCommandRunner
 ${lightYellow.wrap('Update available!')} ${lightCyan.wrap(packageVersion)} \u2192 ${lightCyan.wrap(latestVersion)}
 Run ${lightCyan.wrap('$executableName update')} to update''');
       }
-    } on Exception catch (_) {}
+    } on Exception catch (_) {
+      _logger.err('Failed to check for updates.');
+    }
   }
 }
