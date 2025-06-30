@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 try {
                   final result = await getPlatformName();
                   setState(() => _platformName = result);
-                } catch (error) {
+                } on Exception catch (error) {
                   if (!context.mounted) return;
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(

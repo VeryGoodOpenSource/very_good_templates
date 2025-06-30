@@ -15,7 +15,7 @@ import 'package:glob/list_local_fs.dart';
 import 'package:path/path.dart' as path;
 
 Future<void> main() async {
-  final coverageFilePath = 'coverage/lcov.info';
+  const coverageFilePath = 'coverage/lcov.info';
   final matches = Glob('**/$coverageFilePath');
   final outputLcovPath = path.join(Directory.current.path, coverageFilePath);
   File(outputLcovPath).createSync(recursive: true);
