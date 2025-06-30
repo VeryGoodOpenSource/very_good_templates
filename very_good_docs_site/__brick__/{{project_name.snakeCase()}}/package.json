@@ -35,7 +35,7 @@
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
     "jest": "^30.0.0",
-    "eslint-plugin-jest": "^28.6.0"
+    "eslint-plugin-jest": "^29.0.1"
   },
   "browserslist": {
     "production": [
