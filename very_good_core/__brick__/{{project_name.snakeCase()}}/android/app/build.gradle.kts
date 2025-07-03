@@ -7,24 +7,6 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-val localProperties = Properties()
-val localPropertiesFile = rootProject.file("local.properties")
-if (localPropertiesFile.exists()) {
-    localPropertiesFile.bufferedReader(Charsets.UTF_8).use { reader ->
-        localProperties.load(reader)
-    }
-}
-
-var flutterVersionCode = localProperties.getProperty("flutter.versionCode")
-if (flutterVersionCode == null) {
-    flutterVersionCode = "1"
-}
-
-var flutterVersionName = localProperties.getProperty("flutter.versionName")
-if (flutterVersionName == null) {
-    flutterVersionName = "1.0"
-}
-
 val keystoreProperties = Properties()
 val keystorePropertiesFile = rootProject.file("key.properties")
 if (keystorePropertiesFile.exists()) {
@@ -45,10 +27,8 @@ android {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
-    sourceSets {
-        named("main") {
-            java.setSrcDirs(listOf("src/main/kotlin"))
-        }
+    sourceSets.getByName("main") {
+        java.setSrcDirs(listOf("src/main/kotlin"))
     }
 
     defaultConfig {
@@ -63,19 +43,18 @@ android {
     }
 
     signingConfigs {
-        if (System.getenv("ANDROID_KEYSTORE_PATH") != null) {
-            create("release") {
-                storeFile file(System.getenv("ANDROID_KEYSTORE_PATH"))
-                keyAlias System.getenv("ANDROID_KEYSTORE_ALIAS")
-                keyPassword System.getenv("ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
-                storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
-            }
-        } else {
-            create("release") {
+        create("release") {
+            if (System.getenv("ANDROID_KEYSTORE_PATH") != null) {
+                storeFile = file(System.getenv("ANDROID_KEYSTORE_PATH"))
+                keyAlias = System.getenv("ANDROID_KEYSTORE_ALIAS")
+                keyPassword = System.getenv("ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+                storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                
+            } else {
                 keyAlias = keystoreProperties["keyAlias"] as String
                 keyPassword = keystoreProperties["keyPassword"] as String
                 storeFile = keystoreProperties["storeFile"]?.let { file(it) }
-                storePassword = keystoreProperties["storePassword"] as String
+                storePassword = keystoreProperties["storePassword"] as String?
             }
         }
     }
@@ -103,7 +82,10 @@ android {
         getByName("release") {
             signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android.txt"),
+                "proguard-rules.pro"
+            )
         }
         getByName("debug") {
             signingConfig = signingConfigs.getByName("debug")
