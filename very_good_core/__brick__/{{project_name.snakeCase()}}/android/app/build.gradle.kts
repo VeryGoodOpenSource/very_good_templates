@@ -27,10 +27,6 @@ android {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
-    sourceSets.getByName("main") {
-        java.setSrcDirs(listOf("src/main/kotlin"))
-    }
-
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "{{android_application_id}}"
