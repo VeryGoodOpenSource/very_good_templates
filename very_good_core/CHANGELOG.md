@@ -1,3 +1,10 @@
+# 0.11.1 
+
+- docs: update test command in very good core README ([#287](https://github.com/VeryGoodOpenSource/very_good_templates/pull/287))
+- chore(very_good_core): deprecated script-based application of the flutter gradle plugin ([#249](https://github.com/VeryGoodOpenSource/very_good_templates/pull/249))
+- chore(very_good_core): update format on MainActivity.kt ([#290](https://github.com/VeryGoodOpenSource/very_good_templates/pull/290))
+- fix(android): correct source sets to ensure plugin compatibility ([#292](https://github.com/VeryGoodOpenSource/very_good_templates/pull/292))
+
 # 0.11.0
 
 - chore(deps): bump very_good_analysis from 6.0.0 to 7.0.0 in /very_good_core/hooks [#233](https://github.com/VeryGoodOpenSource/very_good_templates/pull/233)
