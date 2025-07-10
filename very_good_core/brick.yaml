@@ -1,7 +1,7 @@
 name: very_good_core
 description: A Very Good Flutter app created by Very Good Ventures.
 repository: https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_core
-version: 0.11.0
+version: 0.11.1
 
 environment:
   mason: ^0.1.0
