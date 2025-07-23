@@ -63,9 +63,10 @@ class _GameViewState extends State<GameView> {
       context,
     ).textTheme.bodySmall!.copyWith(color: Colors.white, fontSize: 4);
 
-    _game ??=
-        widget.game ??
-        {{project_name.pascalCase()}}(
+    _game ??= widget.game ??
+        {
+          {project_name.pascalCase()}
+        }(
           l10n: context.l10n,
           effectPlayer: context.read<AudioCubit>().effectPlayer,
           textStyle: textStyle,
