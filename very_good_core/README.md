@@ -80,6 +80,14 @@ _\* Learn more at [Flutter Starter App: Very Good Core & CLI][very_good_cli_blog
 └── windows   
 ```
 
+
+By default `mason make` will generate the output in the current working directory but a custom output directory can be specified via the [-o option][mason_output_dir]:
+
+```sh
+mason make very_good_core -o ./output_folder
+```
+
+[mason_output_dir]: https://docs.brickhub.dev/mason-make#-custom-output-directory
 [bloc_link]: https://bloclibrary.dev
 [flutter_cross_platform_link]: https://flutter.dev/docs/development/tools/sdk/release-notes/supported-platforms
 [flutter_flavors_link]: https://flutter.dev/docs/deployment/flavors

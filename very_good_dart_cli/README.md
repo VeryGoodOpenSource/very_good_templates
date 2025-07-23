@@ -58,6 +58,13 @@ A Very Good Dart CLI created by Very Good Ventures 🦄.
             └── update_command_test.dart
 ```
 
+By default `mason make` will generate the output in the current working directory but a custom output directory can be specified via the [-o option][mason_output_dir]:
+
+```sh
+mason make very_good_dart_cli -o ./output_folder
+```
+
+[mason_output_dir]: https://docs.brickhub.dev/mason-make#-custom-output-directory
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
 [logo_white]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_white.png#gh-dark-mode-only
