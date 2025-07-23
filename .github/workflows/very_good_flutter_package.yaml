@@ -43,7 +43,7 @@ jobs:
         run: |
           dart pub global activate mason_cli
           mason get
-          mason make very_good_flutter_package -c very_good_flutter_package/config.json --on-conflict overwrite
+          mason make very_good_flutter_package -c very_good_flutter_package/config.json --on-conflict overwrite -o very_good_flutter_package_output
 
       - name: 📦 Install Dependencies
         run: |
