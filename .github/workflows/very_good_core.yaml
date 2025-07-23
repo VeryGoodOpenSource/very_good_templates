@@ -47,24 +47,25 @@ jobs:
         run: |
           dart pub global activate mason_cli
           mason get
-          mason make very_good_core -c config.json --on-conflict overwrite
+          mason make very_good_core -c config.json --on-conflict overwrite -o very_good_core_output
 
       - name: 📦 Install Dependencies
         run: |
           dart pub global activate very_good_cli
-          very_good packages get --recursive
+          very_good packages get --recursive very_good_core_output
 
       - name: ✨ Check Formatting
-        run: dart format --set-exit-if-changed
+        run: dart format --set-exit-if-changed very_good_core_output
 
       - name: 🕵️ Analyze
-        run: dart analyze --fatal-infos --fatal-warnings
+        run: dart analyze --fatal-infos --fatal-warnings very_good_core_output
 
       - name: 🧪 Run Tests
         run: |
+          cd very_good_core_output
           very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
 
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
-          path: very_good_core/coverage/lcov.info
+          path: very_good_core/very_good_core_output/coverage/lcov.info
