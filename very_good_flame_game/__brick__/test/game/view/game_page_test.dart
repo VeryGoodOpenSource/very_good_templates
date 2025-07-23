@@ -77,12 +77,11 @@ void main() {
     testWidgets('is routable', (tester) async {
       await tester.pumpApp(
         Builder(
-          builder:
-              (context) => Scaffold(
-                floatingActionButton: FloatingActionButton(
-                  onPressed: () => Navigator.of(context).push(GamePage.route()),
-                ),
-              ),
+          builder: (context) => Scaffold(
+            floatingActionButton: FloatingActionButton(
+              onPressed: () => Navigator.of(context).push(GamePage.route()),
+            ),
+          ),
         ),
         preloadCubit: preloadCubit,
       );
