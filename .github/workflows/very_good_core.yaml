@@ -52,20 +52,19 @@ jobs:
       - name: 📦 Install Dependencies
         run: |
           dart pub global activate very_good_cli
-          very_good packages get --recursive very_good_core_output
+          very_good packages get --recursive
 
       - name: ✨ Check Formatting
-        run: dart format --set-exit-if-changed very_good_core_output
+        run: dart format --set-exit-if-changed
 
       - name: 🕵️ Analyze
-        run: dart analyze --fatal-infos --fatal-warnings very_good_core_output
+        run: dart analyze --fatal-infos --fatal-warnings
 
       - name: 🧪 Run Tests
         run: |
-          cd very_good_core_output
           very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
 
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
-          path: very_good_core/very_good_core_output/coverage/lcov.info
+          path: very_good_core/coverage/lcov.info
