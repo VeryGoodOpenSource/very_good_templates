@@ -72,6 +72,13 @@ A Very Good documentation site template powered by [Docusaurus][docusaurus_link]
 └── yarn.lock
 ```
 
+By default `mason make` will generate the output in the current working directory but a custom output directory can be specified via the [-o option][mason_output_dir]:
+
+```sh
+mason make very_good_docs_site -o ./output_folder
+```
+
+[mason_output_dir]: https://docs.brickhub.dev/mason-make#-custom-output-directory
 [docusaurus_link]: https://docusaurus.io
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
