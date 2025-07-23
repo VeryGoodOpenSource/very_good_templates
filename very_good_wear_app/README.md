@@ -24,7 +24,13 @@ Out of the box, Very Good Wear App includes:
 - ✅ [Logging][logging_link] - Built-in, extensible logging to capture uncaught Flutter and Dart Exceptions
 - ✅ Dependabot Integration
 
+By default `mason make` will generate the output in the current working directory but a custom output directory can be specified via the [-o option][mason_output_dir]:
 
+```sh
+mason make very_good_wear_app -o ./output_folder
+```
+
+[mason_output_dir]: https://docs.brickhub.dev/mason-make#-custom-output-directory
 [wearos_link]: https://wearos.google.com/
 [bloc_link]: https://bloclibrary.dev
 [flutter_flavors_link]: https://flutter.dev/docs/deployment/flavors
