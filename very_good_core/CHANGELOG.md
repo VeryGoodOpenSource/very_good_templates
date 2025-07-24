@@ -1,9 +1,5 @@
 # 1.0.0
 
-```
-Note: This release has breaking changes.
-```
-
 refactor(very_good_core)!: remove root-level project_name folder from brick structure.
 
 ## Migration details
