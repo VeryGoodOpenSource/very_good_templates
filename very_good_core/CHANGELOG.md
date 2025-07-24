@@ -1,5 +1,13 @@
 # 0.11.1 
 
+```
+Note: This release has breaking changes.
+```
+
+refactor(very_good_core)!: remove root-level project_name folder from brick structure
+
+# 0.11.1 
+
 - docs: update test command in very good core README ([#287](https://github.com/VeryGoodOpenSource/very_good_templates/pull/287))
 - chore(very_good_core): deprecated script-based application of the flutter gradle plugin ([#249](https://github.com/VeryGoodOpenSource/very_good_templates/pull/249))
 - chore(very_good_core): update format on MainActivity.kt ([#290](https://github.com/VeryGoodOpenSource/very_good_templates/pull/290))
