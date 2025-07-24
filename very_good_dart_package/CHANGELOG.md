@@ -1,3 +1,22 @@
+# 1.0.0
+
+refactor(very_good_dart_package)!: remove root-level project_name folder from brick structure.
+
+## Migration details
+
+The `very_good_dart_package` brick no longer includes a top-level project name folder.
+This allows generating the project directly into the current or a custom directory.
+
+If you prefer to keep the output inside its own folder (as before), use the -o flag:
+
+```dart
+// Before:
+mason make very_good_dart_package
+
+// After:
+mason make very_good_dart_package -o ./output_folder
+```
+
 # 0.9.0
 
 - chore: tighten template dependencies [#237](https://github.com/VeryGoodOpenSource/very_good_templates/pull/237)
