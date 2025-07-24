@@ -1,3 +1,22 @@
+# 1.0.0
+
+refactor(very_good_wear_app)!: remove root-level project_name folder from brick structure.
+
+## Migration details
+
+The `very_good_wear_app` brick no longer includes a top-level project name folder.
+This allows generating the project directly into the current or a custom directory.
+
+If you prefer to keep the output inside its own folder (as before), use the -o flag:
+
+```dart
+// Before:
+mason make very_good_wear_app
+
+// After:
+mason make very_good_wear_app -o ./output_folder
+```
+
 # 0.9.0
 
 - chore(deps): bump very_good_analysis from 6.0.0 to 7.0.0 in /very_good_wear_app/hooks [#234](https://github.com/VeryGoodOpenSource/very_good_templates/pull/234)
