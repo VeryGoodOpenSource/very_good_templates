@@ -56,7 +56,7 @@ jobs:
           dart pub global activate mason_cli
           dart pub global activate very_good_cli
           mason get
-          mason make very_good_flutter_plugin -c config.json --on-conflict overwrite --platforms ${{ matrix.platform }}
+          mason make very_good_flutter_plugin -c config.json --on-conflict overwrite --platforms ${{ matrix.platform }} -o very_good_flutter_plugin_output
 
       - name: 📦 Install Dependencies
         run: very_good packages get --recursive very_good_flutter_plugin_output
