@@ -10,12 +10,12 @@
   "pull-request-header": ":rotating_light: There are changes ready for release :rocket:\n\nℹ Merge this PR once the team confirms the release is ready.\n",
   "pull-request-title-pattern": "chore(${component}): ${version}",
   "separate-pull-requests": true,
+  "component-no-space": true,
   "packages": {
     "very_good_core": {
       "release-type": "simple",
       "version-file": "version.txt",
       "component": "very_good_core",
-      "component-no-space": true,
       "extra-files": [
         "brick.yaml"
       ]
@@ -24,7 +24,6 @@
       "release-type": "simple",
       "version-file": "version.txt",
       "component": "very_good_dart_cli",
-      "component-no-space": true,
       "extra-files": [
         "brick.yaml"
       ]
@@ -33,7 +32,6 @@
       "release-type": "simple",
       "version-file": "version.txt",
       "component": "very_good_dart_package",
-      "component-no-space": true,
       "extra-files": [
         "brick.yaml"
       ]
@@ -42,7 +40,6 @@
       "release-type": "simple",
       "version-file": "version.txt",
       "component": "very_good_docs_site",
-      "component-no-space": true,
       "extra-files": [
         "brick.yaml"
       ]
@@ -51,7 +48,6 @@
       "release-type": "simple",
       "version-file": "version.txt",
       "component": "very_good_flame_game",
-      "component-no-space": true,
       "extra-files": [
         "brick.yaml"
       ]
@@ -60,7 +56,6 @@
       "release-type": "simple",
       "version-file": "version.txt",
       "component": "very_good_flutter_package",
-      "component-no-space": true,
       "extra-files": [
         "brick.yaml"
       ]
@@ -69,7 +64,6 @@
       "release-type": "simple",
       "version-file": "version.txt",
       "component": "very_good_flutter_plugin",
-      "component-no-space": true,
       "extra-files": [
         "brick.yaml"
       ]
@@ -78,7 +72,6 @@
       "release-type": "simple",
       "version-file": "version.txt",
       "component": "very_good_wear_app",
-      "component-no-space": true,
       "extra-files": [
         "brick.yaml"
       ]
