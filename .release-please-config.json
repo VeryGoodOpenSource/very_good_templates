@@ -1,0 +1,87 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "changelog-sections": [
+    { "type": "feat", "section": "Features" },
+    { "type": "fix", "section": "Bug Fixes" },
+    { "type": "refactor","section": "Refactors" },
+    { "type": "chore", "section": "Miscellaneous Chores" },
+    { "type": "docs", "section": "Docs" }
+  ],
+  "pull-request-header": ":rotating_light: There are changes ready for release :rocket:\n\nℹ Merge this PR once the team confirms the release is ready.\n",
+  "pull-request-title-pattern": "chore(${component}): ${version}",
+  "separate-pull-requests": true,
+  "packages": {
+    "very_good_core": {
+      "release-type": "simple",
+      "version-file": "version.txt",
+      "component": "very_good_core",
+      "component-no-space": true,
+      "extra-files": [
+        "brick.yaml"
+      ]
+    },
+    "very_good_dart_cli": {
+      "release-type": "simple",
+      "version-file": "version.txt",
+      "component": "very_good_dart_cli",
+      "component-no-space": true,
+      "extra-files": [
+        "brick.yaml"
+      ]
+    },
+    "very_good_dart_package": {
+      "release-type": "simple",
+      "version-file": "version.txt",
+      "component": "very_good_dart_package",
+      "component-no-space": true,
+      "extra-files": [
+        "brick.yaml"
+      ]
+    },
+    "very_good_docs_site": {
+      "release-type": "simple",
+      "version-file": "version.txt",
+      "component": "very_good_docs_site",
+      "component-no-space": true,
+      "extra-files": [
+        "brick.yaml"
+      ]
+    },
+    "very_good_flame_game": {
+      "release-type": "simple",
+      "version-file": "version.txt",
+      "component": "very_good_flame_game",
+      "component-no-space": true,
+      "extra-files": [
+        "brick.yaml"
+      ]
+    },
+    "very_good_flutter_package": {
+      "release-type": "simple",
+      "version-file": "version.txt",
+      "component": "very_good_flutter_package",
+      "component-no-space": true,
+      "extra-files": [
+        "brick.yaml"
+      ]
+    },
+    "very_good_flutter_plugin": {
+      "release-type": "simple",
+      "version-file": "version.txt",
+      "component": "very_good_flutter_plugin",
+      "component-no-space": true,
+      "extra-files": [
+        "brick.yaml"
+      ]
+    },
+    "very_good_wear_app": {
+      "release-type": "simple",
+      "version-file": "version.txt",
+      "component": "very_good_wear_app",
+      "component-no-space": true,
+      "extra-files": [
+        "brick.yaml"
+      ]
+    }
+  }
+}
