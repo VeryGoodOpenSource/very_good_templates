@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_package-v1.0.0...very_good_flutter_package-v1.0.1) (2025-08-11)
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
 
 ## 1.0.0
 
