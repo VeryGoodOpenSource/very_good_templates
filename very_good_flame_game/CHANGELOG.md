@@ -1,3 +1,16 @@
+## [1.0.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.0.0...very_good_flame_game-v1.0.1) (2025-08-11)
+
+
+### Bug Fixes
+
+* **very_good_flame_game:** deprecated android gradle plugin version ([#315](https://github.com/VeryGoodOpenSource/very_good_templates/issues/315)) ([fb4385d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/fb4385dd5acb3c7eaae3b1a1bdc0a4fac5e91449))
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
+* tighten template dependencies ([#318](https://github.com/VeryGoodOpenSource/very_good_templates/issues/318)) ([70a1f0c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/70a1f0ced2ec663bcace86166ca31de616b8de59))
+* **very_good_flame_game:** migrates Groovy scripts to Kotlin DSL ([#314](https://github.com/VeryGoodOpenSource/very_good_templates/issues/314)) ([e384bed](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e384bedad9c4f32cb97ed1395ceb02ad85200de9))
 
 ## 1.0.0
 
