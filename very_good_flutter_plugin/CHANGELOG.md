@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.0.0...very_good_flutter_plugin-v1.0.1) (2025-08-11)
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
+* **very_good_flutter_plugin:** migrates Groovy scripts to Kotlin DSL ([#316](https://github.com/VeryGoodOpenSource/very_good_templates/issues/316)) ([3e5628d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3e5628d65d2c33ab01c443df8b33e6e0ff35a07a))
 
 ## 1.0.0
 
