@@ -1,4 +1,5 @@
 # Actual english words (or common abbreviations) missing from CSpell:
+brickhub # BrickHub is a platform where developers can discover, install, and publish reusable templates called bricks
 CLI # Abbreviation for Command Line Interface.
 CLIs # Plural of the abbreviation for Command Line Interface.
 CLI's # Belonging to a CLI.
