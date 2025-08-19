@@ -11,8 +11,8 @@ class CounterComponent extends PositionComponent
   Future<void> onLoad() async {
     await add(
       text = TextComponent(
-        anchor: Anchor.center,
-        textRenderer: TextPaint(style: game.textStyle),
+        anchor: Anchor.bottomLeft,
+        textRenderer: TextPaint(style: game.textStyle.copyWith(fontSize: 20)),
       ),
     );
   }
