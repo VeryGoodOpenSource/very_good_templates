@@ -28,12 +28,6 @@ jobs:
 
     strategy:
       matrix:
-        flutter-version:
-          # The version of Flutter to use should use the minimum Dart SDK version supported by the package,
-          # refer to https://docs.flutter.dev/development/tools/sdk/releases.
-          - "3.32.0"
-          - "3.x"
-
         platform:
           - android
           - ios
@@ -49,7 +43,7 @@ jobs:
       - name: 🐦 Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: ${{ matrix.flutter-version }}
+          flutter-version: "3.32.0"
 
       - name: 🧱 Mason Make
         run: |
