@@ -49,7 +49,7 @@ void main() {
             'macos': true,
             'linux': true,
             'web': false,
-            'windows': true
+            'windows': true,
           }),
         );
       });
