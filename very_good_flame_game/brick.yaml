@@ -28,3 +28,21 @@ vars:
     description: A short project description
     default: A Very Good Flame Game
     prompt: What is the project description?
+  platforms:
+    type: array
+    description: The list of supported platforms
+    prompt: Which platforms would you like to support?
+    defaults:
+      - android
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    values:
+      - android
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
