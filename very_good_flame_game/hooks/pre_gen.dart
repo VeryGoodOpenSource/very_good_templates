@@ -8,7 +8,6 @@ void run(HookContext context) {
     'android',
     'ios',
     'macos',
-    'linux',
     'web',
     'windows',
   ];

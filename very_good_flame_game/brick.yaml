@@ -35,14 +35,12 @@ vars:
     defaults:
       - android
       - ios
-      - linux
       - macos
       - web
       - windows
     values:
       - android
       - ios
-      - linux
       - macos
       - web
       - windows

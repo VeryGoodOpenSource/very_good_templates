@@ -22,7 +22,7 @@ void main() {
           'org_name': 'com.example',
           'application_id': 'app.id',
           'description': 'A new Flame project.',
-          'platforms': ['android', 'ios', 'linux', 'macos', 'windows', 'web'],
+          'platforms': ['android', 'ios', 'macos', 'windows', 'web'],
         };
         when(() => context.vars).thenReturn(vars);
 
@@ -47,7 +47,6 @@ void main() {
             'android': true,
             'ios': true,
             'macos': true,
-            'linux': true,
             'web': true,
             'windows': true,
           }),
@@ -75,7 +74,6 @@ void main() {
         expect(newVars['android'], isTrue);
         expect(newVars['web'], isTrue);
         expect(newVars['ios'], isFalse);
-        expect(newVars['linux'], isFalse);
         expect(newVars['macos'], isFalse);
         expect(newVars['windows'], isFalse);
       });
