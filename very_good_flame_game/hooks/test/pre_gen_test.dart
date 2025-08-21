@@ -89,7 +89,7 @@ void main() {
           'platforms': 2345,
         };
         when(() => context.vars).thenReturn(vars);
-        
+
         await expectLater(
           () => pre_gen.run(context),
           throwsA(isA<ArgumentError>()),
