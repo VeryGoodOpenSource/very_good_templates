@@ -16,6 +16,7 @@ jobs:
   build:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
     with:
+      dart_sdk: "3.9.0"
+      report_on: "pre_gen.dart"
       working_directory: "very_good_core/hooks"
       analyze_directories: "lib test"
-      report_on: "pre_gen.dart"
