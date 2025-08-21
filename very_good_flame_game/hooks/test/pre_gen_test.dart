@@ -22,7 +22,7 @@ void main() {
           'org_name': 'com.example',
           'application_id': 'app.id',
           'description': 'A new Flame project.',
-          'platforms': ['android', 'linux', 'macos', 'windows'],
+          'platforms': ['android', 'ios', 'linux', 'macos', 'windows', 'web'],
         };
         when(() => context.vars).thenReturn(vars);
 
@@ -45,13 +45,39 @@ void main() {
             'windows_application_id': 'app.id',
             'current_year': '2020',
             'android': true,
-            'ios': false,
+            'ios': true,
             'macos': true,
             'linux': true,
-            'web': false,
+            'web': true,
             'windows': true,
           }),
         );
+      });
+    });
+
+    test('platform options', () {
+      withClock(Clock.fixed(DateTime(2020)), () {
+        final vars = {
+          'project_name': 'my_game',
+          'org_name': 'com.example',
+          'application_id': 'app.id',
+          'description': 'A new Flame project.',
+          'platforms': ['android', 'web'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        final newVars =
+        verify(() => context.vars = captureAny()).captured.last
+        as Map<String, dynamic>;
+        
+        expect(newVars['android'], isTrue);
+        expect(newVars['web'], isTrue);
+        expect(newVars['ios'], isFalse);
+        expect(newVars['linux'], isFalse);
+        expect(newVars['macos'], isFalse);
+        expect(newVars['windows'], isFalse);
       });
     });
   });
