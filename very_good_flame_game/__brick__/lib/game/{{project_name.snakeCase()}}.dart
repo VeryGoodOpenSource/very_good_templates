@@ -24,6 +24,8 @@ class {{project_name.pascalCase()}} extends FlameGame {
 
   int counter = 0;
 
+  CounterComponent? counterComponent;
+
   @override
   Color backgroundColor() => const Color(0xFF2A48DF);
 
@@ -32,7 +34,6 @@ class {{project_name.pascalCase()}} extends FlameGame {
     final world = World(
       children: [
         Unicorn(position: size / 2),
-        CounterComponent(position: (size / 2)..sub(Vector2(0, 16))),
       ],
     );
 
@@ -41,5 +42,20 @@ class {{project_name.pascalCase()}} extends FlameGame {
 
     camera.viewfinder.position = size / 2;
     camera.viewfinder.zoom = 8;
+
+    // add a HUD component showing number of taps on unicorn
+    counterComponent = CounterComponent(position: Vector2(0, 0));
+    camera.viewport.add(counterComponent!);
+    _positionCounterComponent(size);
+  }
+
+  @override
+  void onGameResize(Vector2 size) {
+    super.onGameResize(size);
+    _positionCounterComponent(size);
+  }
+
+  void _positionCounterComponent(Vector2 size) {
+    counterComponent?.position = Vector2(10, size.y - 10);
   }
 }

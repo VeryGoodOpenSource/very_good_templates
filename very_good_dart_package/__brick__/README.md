@@ -31,7 +31,7 @@ Out of the box, on each pull request and push, the CI `formats`, `lints`, and `t
 To run all unit tests:
 
 ```sh
-dart pub global activate coverage 1.2.0
+dart pub global activate coverage 1.15.0
 dart test --coverage=coverage
 dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info
 ```
