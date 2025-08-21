@@ -1,4 +1,4 @@
-name: {{project_name.snakeCase()}}
+name: { { project_name.snakeCase() } }
 
 concurrency:
   group: ${{#mustacheCase}}github.workflow{{/mustacheCase}}-${{#mustacheCase}}github.ref{{/mustacheCase}}
@@ -19,7 +19,7 @@ jobs:
   build:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
     with:
-      flutter_version: "3.32.0"
+      flutter_version: "3.35.x"
 
   spell-check:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
