@@ -78,5 +78,23 @@ void main() {
         expect(newVars['windows'], isFalse);
       });
     });
+
+    test('throws $ArgumentError if platforms is not a list', () {
+      withClock(Clock.fixed(DateTime(2020)), () async {
+        final vars = {
+          'project_name': 'my_game',
+          'org_name': 'com.example',
+          'application_id': 'app.id',
+          'description': 'A new Flame project.',
+          'platforms': 2345,
+        };
+        when(() => context.vars).thenReturn(vars);
+        
+        await expectLater(
+          () => pre_gen.run(context),
+          throwsA(isA<ArgumentError>()),
+        );
+      });
+    });
   });
 }
