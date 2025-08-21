@@ -69,9 +69,9 @@ void main() {
         pre_gen.run(context);
 
         final newVars =
-        verify(() => context.vars = captureAny()).captured.last
-        as Map<String, dynamic>;
-        
+            verify(() => context.vars = captureAny()).captured.last
+                as Map<String, dynamic>;
+
         expect(newVars['android'], isTrue);
         expect(newVars['web'], isTrue);
         expect(newVars['ios'], isFalse);
