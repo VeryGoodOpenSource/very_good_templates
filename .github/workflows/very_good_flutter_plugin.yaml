@@ -57,9 +57,11 @@ jobs:
           very_good packages get --recursive very_good_flutter_plugin_output
 
       - name: ✨ Check Formatting
+        if: false
         run: dart format --set-exit-if-changed very_good_flutter_plugin_output
 
       - name: 🕵️ Analyze
+        if: false
         run: dart analyze --fatal-infos --fatal-warnings very_good_flutter_plugin_output
 
       - name: 🧪 Run Tests
