@@ -48,19 +48,18 @@ jobs:
       - name: 🧱 Mason Make
         run: |
           dart pub global activate mason_cli
-          dart pub global activate very_good_cli
           mason get
           mason make very_good_flutter_plugin -c config.json --on-conflict overwrite --platforms ${{ matrix.platform }} -o very_good_flutter_plugin_output
 
       - name: 📦 Install Dependencies
-        run: very_good packages get --recursive very_good_flutter_plugin_output
+        run: |
+          dart pub global activate very_good_cli
+          very_good packages get --recursive very_good_flutter_plugin_output
 
       - name: ✨ Check Formatting
-        if: false
         run: dart format --set-exit-if-changed very_good_flutter_plugin_output
 
       - name: 🕵️ Analyze
-        if: false
         run: dart analyze --fatal-infos --fatal-warnings very_good_flutter_plugin_output
 
       - name: 🧪 Run Tests
