@@ -24,7 +24,7 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  very_good_analysis: ^9.0.0
+  very_good_analysis: ^10.0.0-rc.1
 
 flutter:
   uses-material-design: true
