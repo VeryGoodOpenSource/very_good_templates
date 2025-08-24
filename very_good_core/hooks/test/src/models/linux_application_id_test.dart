@@ -9,22 +9,22 @@ void main() {
         () {
           const organizationName = 'com.example.hello-world';
           const projectName = 'my app';
-          final appleApplicationId = LinuxApplicationId.fallback(
+          final linuxApplicationId = LinuxApplicationId.fallback(
             organizationName: organizationName,
             projectName: projectName,
           );
-          expect(appleApplicationId.value, 'com.example.hello-world.my-app');
+          expect(linuxApplicationId.value, 'com.example.hello-world.my-app');
         },
       );
 
       test('ignores empty parts', () {
         const organizationName = 'com.example.hello_world';
         const projectName = 'my app';
-        final appleApplicationId = LinuxApplicationId.fallback(
+        final linuxApplicationId = LinuxApplicationId.fallback(
           organizationName: organizationName,
           projectName: projectName,
         );
-        expect(appleApplicationId.value, 'com.example.hello-world.my-app');
+        expect(linuxApplicationId.value, 'com.example.hello-world.my-app');
       });
     });
   });
