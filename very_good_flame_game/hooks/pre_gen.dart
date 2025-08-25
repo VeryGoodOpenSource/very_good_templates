@@ -23,7 +23,7 @@ void run(HookContext context) {
       'Expected a List of platforms',
     ),
   };
-  context.vars = {
+  context.vars.addAll({
     /// Below are all the variables that are accessible in the templates.
     ///
     /// You can access them using the Mustache syntax within the template files
@@ -63,5 +63,5 @@ void run(HookContext context) {
     'current_year': clock.now().year.toString(),
     for (final platform in availablePlatforms)
       platform: selectedPlatforms.contains(platform),
-  };
+  });
 }
