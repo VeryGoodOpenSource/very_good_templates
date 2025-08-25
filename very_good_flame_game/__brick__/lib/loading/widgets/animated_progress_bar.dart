@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// {@template animated_progress_bar}
@@ -63,5 +64,14 @@ class AnimatedProgressBar extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(ColorProperty('backgroundColor', backgroundColor))
+      ..add(ColorProperty('foregroundColor', foregroundColor))
+      ..add(DoubleProperty('progress', progress));
   }
 }
