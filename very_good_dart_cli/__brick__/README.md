@@ -45,7 +45,7 @@ $ {{executable_name.snakeCase()}} --help
 To run all unit tests use the following command:
 
 ```sh
-$ dart pub global activate coverage 1.2.0
+$ dart pub global activate coverage 1.15.0
 $ dart test --coverage=coverage
 $ dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info
 ```
