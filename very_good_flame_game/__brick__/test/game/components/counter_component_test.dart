@@ -28,7 +28,7 @@ class _{{project_name.pascalCase()}} extends {{project_name.pascalCase()}} {
 }
 
 void main() {
-  group('$CounterComponent', () {
+  group('$CounterComponent', () async {
     late AppLocalizations l10n;
 
     setUp(() {

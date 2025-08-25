@@ -1,6 +1,3 @@
-// Make test files more explicit rather then collapsing calls
-// ignore_for_file: cascade_invocations
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/cache.dart';
 import 'package:flame/extensions.dart';
@@ -35,7 +32,7 @@ class _{{project_name.pascalCase()}} extends {{project_name.pascalCase()}} {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('Unicorn', () {
+  group('Unicorn', () async {
     late AppLocalizations l10n;
     late Images images;
 
