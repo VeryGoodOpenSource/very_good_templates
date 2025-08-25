@@ -3,16 +3,16 @@
 
 #include <gtk/gtk.h>
 
-G_DECLARE_FINAL_TYPE(MyApplication, my_application, MY, APPLICATION,
+G_DECLARE_FINAL_TYPE(Application, application, MY, APPLICATION,
                      GtkApplication)
 
 /**
- * my_application_new:
+ * application_new:
  *
  * Creates a new Flutter-based application.
  *
- * Returns: a new #MyApplication.
+ * Returns: a new #Application.
  */
-MyApplication* my_application_new();
+Application* application_new();
 
 #endif  // FLUTTER_MY_APPLICATION_H_
