@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:{{project_name.snakeCase()}}/counter/counter.dart';
@@ -20,45 +19,36 @@ class CounterPage extends StatelessWidget {
 }
 
 class CounterView extends StatefulWidget {
-  CounterView({super.key, @visibleForTesting Stream<RotaryEvent>? rotaryEvents})
-    : rotaryEvents = rotaryEvents ?? wearable_rotary.rotaryEvents;
+  CounterView({@visibleForTesting Stream<RotaryEvent>? rotaryEvents, super.key})
+    : _rotaryEvents = rotaryEvents ?? wearable_rotary.rotaryEvents;
 
-  final Stream<RotaryEvent> rotaryEvents;
+  final Stream<RotaryEvent> _rotaryEvents;
 
   @override
   State<CounterView> createState() => _CounterViewState();
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-      DiagnosticsProperty<Stream<RotaryEvent>>('rotaryEvents', rotaryEvents),
-    );
-  }
 }
 
 class _CounterViewState extends State<CounterView> {
-  late final StreamSubscription<RotaryEvent> rotarySubscription;
+  late final StreamSubscription<RotaryEvent> _rotarySubscription;
 
   @override
   void initState() {
     super.initState();
-    rotarySubscription = widget.rotaryEvents.listen(handleRotaryEvent);
+    _rotarySubscription = widget._rotaryEvents.listen(handleRotaryEvent);
   }
 
   @override
-  Future<void> dispose() async {
-    await rotarySubscription.cancel();
+  void dispose() {
+    unawaited(_rotarySubscription.cancel());
     super.dispose();
   }
 
   void handleRotaryEvent(RotaryEvent event) {
     final cubit = context.read<CounterCubit>();
-    if (event.direction == RotaryDirection.clockwise) {
-      cubit.increment();
-    } else {
-      cubit.decrement();
-    }
+    return switch (event.direction) {
+      RotaryDirection.clockwise => cubit.increment(),
+      RotaryDirection.counterClockwise => cubit.decrement(),
+    };
   }
 
   @override
@@ -70,7 +60,7 @@ class _CounterViewState extends State<CounterView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () => context.read<CounterCubit>().increment(),
+              onPressed: context.read<CounterCubit>().increment,
               child: const Icon(Icons.add),
             ),
             const SizedBox(height: 10),
@@ -78,22 +68,11 @@ class _CounterViewState extends State<CounterView> {
             const CounterText(),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () => context.read<CounterCubit>().decrement(),
+              onPressed: context.read<CounterCubit>().decrement,
               child: const Icon(Icons.remove),
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-      DiagnosticsProperty<StreamSubscription<RotaryEvent>>(
-        'rotarySubscription',
-        rotarySubscription,
       ),
     );
   }
