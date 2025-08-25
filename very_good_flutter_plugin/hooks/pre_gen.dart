@@ -11,7 +11,7 @@ void run(HookContext context) {
     'windows',
   ];
 
-  final selectedPlatformsVar = context.vars['platforms'] as Object;
+  final selectedPlatformsVar = context.vars['platforms'] as Object?;
 
   final selectedPlatforms = switch (selectedPlatformsVar) {
     final String value => value.split(',')..forEach((e) => e.trim()),
