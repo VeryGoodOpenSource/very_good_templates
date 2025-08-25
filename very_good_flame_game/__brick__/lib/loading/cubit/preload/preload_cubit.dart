@@ -8,7 +8,9 @@ import 'package:{{project_name.snakeCase()}}/gen/assets.gen.dart';
 part 'preload_state.dart';
 
 class PreloadCubit extends Cubit<PreloadState> {
-  PreloadCubit(this.images, this.audio) : super(const PreloadState.initial());
+  PreloadCubit(this.images, this.audio) : super(const PreloadState.initial()) {
+    unawaited(loadSequentially());
+  }
 
   final Images images;
   final AudioCache audio;

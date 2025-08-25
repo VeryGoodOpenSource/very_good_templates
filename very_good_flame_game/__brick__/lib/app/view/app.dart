@@ -14,9 +14,10 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) =>
-              PreloadCubit(Images(prefix: ''), AudioCache(prefix: ''))
-                ..loadSequentially(),
+          create: (_) => PreloadCubit(
+            Images(prefix: ''),
+            AudioCache(prefix: ''),
+          ),
         ),
       ],
       child: const AppView(),

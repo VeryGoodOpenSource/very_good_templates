@@ -48,14 +48,16 @@ void main() {
       );
     }
 
-    testWithGame('has all components', createFlameGame, (game) async {
+    await testWithGame('has all components', createFlameGame, (game) async {
       final component = CounterComponent(position: Vector2.all(1));
       await game.ensureAdd(component);
 
       expect(component.text, isNotNull);
     });
 
-    testWithGame('changes text count correctly', createFlameGame, (game) async {
+    await testWithGame('changes text count correctly', createFlameGame, (
+      game,
+    ) async {
       final component = CounterComponent(position: Vector2.all(1));
       await game.ensureAdd(component);
 

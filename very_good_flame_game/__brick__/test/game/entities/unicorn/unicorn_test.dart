@@ -56,22 +56,22 @@ void main() {
       );
     }
 
-    testWithGame('has all behaviors', createFlameGame, (game) async {
+    await testWithGame('has all behaviors', createFlameGame, (game) async {
       final unicorn = Unicorn(position: Vector2.all(1));
       await game.ensureAdd(unicorn);
 
       expect(unicorn.findBehavior<TappingBehavior>(), isNotNull);
     });
 
-    testWithGame('loads correctly', createFlameGame, (game) async {
+    await testWithGame('loads correctly', createFlameGame, (game) async {
       final unicorn = Unicorn(position: Vector2.all(1));
       await game.ensureAdd(unicorn);
 
       expect(unicorn.isAnimationPlaying(), equals(false));
     });
 
-    group('animation', () {
-      testWithGame('plays animation', createFlameGame, (game) async {
+    group('animation', () async {
+      await testWithGame('plays animation', createFlameGame, (game) async {
         final unicorn = Unicorn.test(position: Vector2.all(1));
         await game.ensureAdd(unicorn);
 
@@ -84,7 +84,7 @@ void main() {
         expect(unicorn.isAnimationPlaying(), equals(true));
       });
 
-      testWithGame(
+      await testWithGame(
         'reset animation back to frame one and stops it',
         createFlameGame,
         (game) async {
