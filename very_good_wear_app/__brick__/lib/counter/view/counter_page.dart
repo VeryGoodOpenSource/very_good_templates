@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:{{project_name.snakeCase()}}/counter/counter.dart';
@@ -26,6 +27,14 @@ class CounterView extends StatefulWidget {
 
   @override
   State<CounterView> createState() => _CounterViewState();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+      DiagnosticsProperty<Stream<RotaryEvent>>('rotaryEvents', rotaryEvents),
+    );
+  }
 }
 
 class _CounterViewState extends State<CounterView> {
@@ -38,8 +47,8 @@ class _CounterViewState extends State<CounterView> {
   }
 
   @override
-  void dispose() {
-    rotarySubscription.cancel();
+  Future<void> dispose() async {
+    await rotarySubscription.cancel();
     super.dispose();
   }
 
@@ -74,6 +83,17 @@ class _CounterViewState extends State<CounterView> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+      DiagnosticsProperty<StreamSubscription<RotaryEvent>>(
+        'rotarySubscription',
+        rotarySubscription,
       ),
     );
   }

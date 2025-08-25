@@ -69,8 +69,8 @@ void main() {
         controller = StreamController<RotaryEvent>();
       });
 
-      tearDown(() {
-        controller.close();
+      tearDown(() async {
+        await controller.close();
       });
 
       testWidgets('calls increment when increment button is tapped', (

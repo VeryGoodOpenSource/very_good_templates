@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:{{project_name.snakeCase()}}/ambient_mode/ambient_mode.dart';
 
@@ -21,6 +22,14 @@ class AmbientModeBuilder extends StatelessWidget {
       valueListenable: _listener,
       builder: builder,
       child: child,
+    );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+      ObjectFlagProperty<ValueWidgetBuilder<bool>>.has('builder', builder),
     );
   }
 }
