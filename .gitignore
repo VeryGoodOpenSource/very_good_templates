@@ -2,4 +2,3 @@
 .mason/
 mason-lock.json
 *_output/
-*.idea/
