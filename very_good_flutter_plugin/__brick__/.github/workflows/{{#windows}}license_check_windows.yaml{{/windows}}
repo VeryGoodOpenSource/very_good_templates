@@ -1,4 +1,4 @@
-name: license_check
+name: license_check_windows
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -7,18 +7,19 @@ concurrency:
 on:
   pull_request:
     paths:
-      - 'pubspec.yaml'
-      - '.github/workflows/license_check.yaml'
+      - '{{project_name.snakeCase()}}_windows/pubspec.yaml'
+      - '.github/workflows/license_check_windows.yaml'
   push:
     branches:
       - main
     paths:
-      - 'pubspec.yaml'
-      - '.github/workflows/license_check.yaml'
+      - '{{project_name.snakeCase()}}_windows/pubspec.yaml'
+      - '.github/workflows/license_check_windows.yaml'
 
 jobs:
   license_check:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/license_check.yml@v1
     with:
       flutter_version: "3.35.x"
+      working_directory: {{project_name.snakeCase()}}_windows
       allowed: 'MIT,BSD-3-Clause,BSD-2-Clause,Apache-2.0,Zlib'
