@@ -31,7 +31,7 @@ void main() {
         final newVars =
             verify(() => context.vars = captureAny()).captured.last
                 as Map<String, dynamic>;
-        
+
         expect(
           newVars,
           equals({
