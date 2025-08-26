@@ -44,6 +44,7 @@ void main() {
             'macos_application_id': 'app.id',
             'windows_application_id': 'app.id',
             'current_year': '2020',
+            'platforms': ['android', 'ios', 'macos', 'windows', 'web'],
             'android': true,
             'ios': true,
             'macos': true,
