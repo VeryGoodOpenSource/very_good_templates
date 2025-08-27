@@ -25,6 +25,16 @@ jobs:
         working-directory: very_good_flame_game/
 
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        platform:
+          - android
+          - ios
+          - linux
+          - macos
+          - web
+          - windows
 
     steps:
       - name: 📚 Git Checkout
@@ -40,7 +50,7 @@ jobs:
           dart pub global activate mason_cli
           dart pub global activate very_good_cli
           mason get
-          mason make very_good_flame_game -c config.json --on-conflict overwrite -o very_good_flame_game_output
+          mason make very_good_flame_game -c config.json --on-conflict overwrite --platforms ${{ matrix.platform }} -o very_good_flame_game_output
 
       - name: 📦 Install Dependencies
         run: very_good packages get very_good_flame_game_output
