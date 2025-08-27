@@ -31,7 +31,6 @@ jobs:
         platform:
           - android
           - ios
-          - linux
           - macos
           - web
           - windows
