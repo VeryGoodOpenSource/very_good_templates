@@ -41,6 +41,7 @@ void main() {
             'android_application_id': 'app.id',
             'ios_application_id': 'app.id',
             'macos_application_id': 'app.id',
+            'linux_application_id': 'app.id',
             'windows_application_id': 'app.id',
             'current_year': '2020',
           }),
