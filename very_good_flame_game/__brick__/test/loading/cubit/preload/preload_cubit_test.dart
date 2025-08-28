@@ -45,35 +45,19 @@ void main() {
               .having((s) => s.currentLabel, 'currentLabel', equals(''))
               .having((s) => s.totalCount, 'totalCount', equals(2)),
           isA<PreloadState>()
-              .having(
-                (s) => s.currentLabel,
-                'currentLabel',
-                equals('audio'),
-              )
+              .having((s) => s.currentLabel, 'currentLabel', equals('audio'))
               .having((s) => s.isComplete, 'isComplete', isFalse)
               .having((s) => s.loadedCount, 'loadedCount', equals(0)),
           isA<PreloadState>()
-              .having(
-                (s) => s.currentLabel,
-                'currentLabel',
-                equals('audio'),
-              )
+              .having((s) => s.currentLabel, 'currentLabel', equals('audio'))
               .having((s) => s.isComplete, 'isComplete', isFalse)
               .having((s) => s.loadedCount, 'loadedCount', equals(1)),
           isA<PreloadState>()
-              .having(
-                (s) => s.currentLabel,
-                'currentLabel',
-                equals('images'),
-              )
+              .having((s) => s.currentLabel, 'currentLabel', equals('images'))
               .having((s) => s.isComplete, 'isComplete', isFalse)
               .having((s) => s.loadedCount, 'loadedCount', equals(1)),
           isA<PreloadState>()
-              .having(
-                (s) => s.currentLabel,
-                'currentLabel',
-                equals('images'),
-              )
+              .having((s) => s.currentLabel, 'currentLabel', equals('images'))
               .having((s) => s.isComplete, 'isComplete', isTrue)
               .having((s) => s.loadedCount, 'loadedCount', equals(2)),
         ],
