@@ -4,7 +4,25 @@ import 'package:very_good_flame_game_hooks/very_good_flame_game_hooks.dart';
 
 void run(HookContext context) {
   final config = VeryGoodFlameGameConfiguration.fromHookVars(context.vars);
+  const availablePlatforms = [
+    'android',
+    'ios',
+    'macos',
+    'web',
+    'windows',
+  ];
 
+  final selectedPlatformsVar = context.vars['platforms'];
+
+  final selectedPlatforms = switch (selectedPlatformsVar) {
+    final String value => value.split(',')..forEach((e) => e.trim()),
+    final List<dynamic> value => value,
+    _ => throw ArgumentError.value(
+      selectedPlatformsVar,
+      'platforms',
+      'Expected a List of platforms',
+    ),
+  };
   context.vars = {
     /// Below are all the variables that are accessible in the templates.
     ///
@@ -42,6 +60,9 @@ void run(HookContext context) {
     'ios_application_id': config.iOsApplicationId,
     'macos_application_id': config.macOsApplicationId,
     'windows_application_id': config.windowsApplicationId,
+    'platforms': selectedPlatformsVar,
     'current_year': clock.now().year.toString(),
+    for (final platform in availablePlatforms)
+      platform: selectedPlatforms.contains(platform),
   };
 }
