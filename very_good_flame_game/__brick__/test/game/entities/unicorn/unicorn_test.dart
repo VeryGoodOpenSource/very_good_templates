@@ -1,6 +1,3 @@
-// Make test files more explicit rather then collapsing calls
-// ignore_for_file: cascade_invocations
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/cache.dart';
 import 'package:flame/extensions.dart';
@@ -35,7 +32,7 @@ class _{{project_name.pascalCase()}} extends {{project_name.pascalCase()}} {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('Unicorn', () {
+  group('Unicorn', () async {
     late AppLocalizations l10n;
     late Images images;
 
@@ -56,22 +53,22 @@ void main() {
       );
     }
 
-    testWithGame('has all behaviors', createFlameGame, (game) async {
+    await testWithGame('has all behaviors', createFlameGame, (game) async {
       final unicorn = Unicorn(position: Vector2.all(1));
       await game.ensureAdd(unicorn);
 
       expect(unicorn.findBehavior<TappingBehavior>(), isNotNull);
     });
 
-    testWithGame('loads correctly', createFlameGame, (game) async {
+    await testWithGame('loads correctly', createFlameGame, (game) async {
       final unicorn = Unicorn(position: Vector2.all(1));
       await game.ensureAdd(unicorn);
 
       expect(unicorn.isAnimationPlaying(), equals(false));
     });
 
-    group('animation', () {
-      testWithGame('plays animation', createFlameGame, (game) async {
+    group('animation', () async {
+      await testWithGame('plays animation', createFlameGame, (game) async {
         final unicorn = Unicorn.test(position: Vector2.all(1));
         await game.ensureAdd(unicorn);
 
@@ -84,7 +81,7 @@ void main() {
         expect(unicorn.isAnimationPlaying(), equals(true));
       });
 
-      testWithGame(
+      await testWithGame(
         'reset animation back to frame one and stops it',
         createFlameGame,
         (game) async {

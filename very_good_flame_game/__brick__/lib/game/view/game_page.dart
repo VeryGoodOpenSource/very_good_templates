@@ -1,6 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flame/components.dart';
 import 'package:flame/game.dart' hide Route;
 import 'package:flame_audio/bgm.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:{{project_name.snakeCase()}}/game/game.dart';
@@ -37,6 +39,12 @@ class GameView extends StatefulWidget {
 
   @override
   State<GameView> createState() => _GameViewState();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<FlameGame<World>?>('game', game));
+  }
 }
 
 class _GameViewState extends State<GameView> {
@@ -45,15 +53,15 @@ class _GameViewState extends State<GameView> {
   late final Bgm bgm;
 
   @override
-  void initState() {
+  Future<void> initState() async {
     super.initState();
     bgm = context.read<AudioCubit>().bgm;
-    bgm.play(Assets.audio.background);
+    await bgm.play(Assets.audio.background);
   }
 
   @override
-  void dispose() {
-    bgm.pause();
+  Future<void> dispose() async {
+    await bgm.pause();
     super.dispose();
   }
 
@@ -65,7 +73,7 @@ class _GameViewState extends State<GameView> {
 
     _game ??=
         widget.game ??
-        {{project_name.pascalCase()}}(
+        VeryGoodFlameGameOutput(
           l10n: context.l10n,
           effectPlayer: context.read<AudioCubit>().effectPlayer,
           textStyle: textStyle,
@@ -89,5 +97,11 @@ class _GameViewState extends State<GameView> {
         ),
       ],
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<Bgm>('bgm', bgm));
   }
 }
