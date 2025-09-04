@@ -10,6 +10,7 @@ void run(HookContext context) {
     'macos',
     'web',
     'windows',
+    'linux',
   ];
 
   final selectedPlatformsVar = context.vars['platforms'];
