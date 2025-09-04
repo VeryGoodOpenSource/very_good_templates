@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/cache.dart';
 import 'package:flame/extensions.dart';
@@ -32,7 +34,7 @@ class _{{project_name.pascalCase()}} extends {{project_name.pascalCase()}} {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('Unicorn', () async {
+  group('Unicorn', () {
     late AppLocalizations l10n;
     late Images images;
 
@@ -44,8 +46,8 @@ void main() {
       when(() => images.fromCache(any())).thenReturn(_FakeImage());
     });
 
-    _{{project_name.pascalCase()}} createFlameGame() {
-      return _{{project_name.pascalCase()}}(
+    _VeryGoodFlameGameOutput createFlameGame() {
+      return _VeryGoodFlameGameOutput(
         l10n: l10n,
         effectPlayer: _MockAudioPlayer(),
         textStyle: const TextStyle(),
@@ -53,54 +55,62 @@ void main() {
       );
     }
 
-    await testWithGame('has all behaviors', createFlameGame, (game) async {
-      final unicorn = Unicorn(position: Vector2.all(1));
-      await game.ensureAdd(unicorn);
-
-      expect(unicorn.findBehavior<TappingBehavior>(), isNotNull);
-    });
-
-    await testWithGame('loads correctly', createFlameGame, (game) async {
-      final unicorn = Unicorn(position: Vector2.all(1));
-      await game.ensureAdd(unicorn);
-
-      expect(unicorn.isAnimationPlaying(), equals(false));
-    });
-
-    group('animation', () async {
-      await testWithGame('plays animation', createFlameGame, (game) async {
-        final unicorn = Unicorn.test(position: Vector2.all(1));
+    unawaited(
+      testWithGame('has all behaviors', createFlameGame, (game) async {
+        final unicorn = Unicorn(position: Vector2.all(1));
         await game.ensureAdd(unicorn);
 
-        unicorn.playAnimation();
-        expect(unicorn.animationTicker.currentIndex, equals(0));
+        expect(unicorn.findBehavior<TappingBehavior>(), isNotNull);
+      }),
+    );
 
-        game.update(0.1);
+    unawaited(
+      testWithGame('loads correctly', createFlameGame, (game) async {
+        final unicorn = Unicorn(position: Vector2.all(1));
+        await game.ensureAdd(unicorn);
 
-        expect(unicorn.animationTicker.currentIndex, equals(1));
-        expect(unicorn.isAnimationPlaying(), equals(true));
-      });
+        expect(unicorn.isAnimationPlaying(), equals(false));
+      }),
+    );
 
-      await testWithGame(
-        'reset animation back to frame one and stops it',
-        createFlameGame,
-        (game) async {
+    group('animation', () {
+      unawaited(
+        testWithGame('plays animation', createFlameGame, (game) async {
           final unicorn = Unicorn.test(position: Vector2.all(1));
           await game.ensureAdd(unicorn);
 
           unicorn.playAnimation();
+          expect(unicorn.animationTicker.currentIndex, equals(0));
+
           game.update(0.1);
+
           expect(unicorn.animationTicker.currentIndex, equals(1));
           expect(unicorn.isAnimationPlaying(), equals(true));
+        }),
+      );
 
-          unicorn.resetAnimation();
-          expect(unicorn.isAnimationPlaying(), equals(false));
-          expect(unicorn.animationTicker.currentIndex, equals(0));
+      unawaited(
+        testWithGame(
+          'reset animation back to frame one and stops it',
+          createFlameGame,
+          (game) async {
+            final unicorn = Unicorn.test(position: Vector2.all(1));
+            await game.ensureAdd(unicorn);
 
-          game.update(0.1);
-          expect(unicorn.animationTicker.currentIndex, equals(0));
-          expect(unicorn.isAnimationPlaying(), equals(false));
-        },
+            unicorn.playAnimation();
+            game.update(0.1);
+            expect(unicorn.animationTicker.currentIndex, equals(1));
+            expect(unicorn.isAnimationPlaying(), equals(true));
+
+            unicorn.resetAnimation();
+            expect(unicorn.isAnimationPlaying(), equals(false));
+            expect(unicorn.animationTicker.currentIndex, equals(0));
+
+            game.update(0.1);
+            expect(unicorn.animationTicker.currentIndex, equals(0));
+            expect(unicorn.isAnimationPlaying(), equals(false));
+          },
+        ),
       );
     });
   });
