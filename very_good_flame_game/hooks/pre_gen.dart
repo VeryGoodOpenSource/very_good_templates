@@ -12,7 +12,7 @@ void run(HookContext context) {
     'windows',
   ];
 
-  final selectedPlatformsVar = context.vars['platforms'];
+  final selectedPlatformsVar = context.vars['platforms'] as Object;
 
   final selectedPlatforms = switch (selectedPlatformsVar) {
     final String value => value.split(',')..forEach((e) => e.trim()),
@@ -23,6 +23,7 @@ void run(HookContext context) {
       'Expected a List of platforms',
     ),
   };
+
   context.vars = {
     /// Below are all the variables that are accessible in the templates.
     ///

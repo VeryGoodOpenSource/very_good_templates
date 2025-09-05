@@ -12,12 +12,9 @@ class LoadingPage extends StatefulWidget {
 }
 
 class _LoadingPageState extends State<LoadingPage> {
-  Future<void> onPreloadComplete(BuildContext context) async {
-    final navigator = Navigator.of(context);
+  Future<void> onPreloadComplete(NavigatorState navigator) async {
     await Future<void>.delayed(AnimatedProgressBar.intrinsicAnimationDuration);
-    if (!mounted) {
-      return;
-    }
+    if (!mounted) return;
     await navigator.pushReplacement<void, void>(TitlePage.route());
   }
 
@@ -26,7 +23,7 @@ class _LoadingPageState extends State<LoadingPage> {
     return BlocListener<PreloadCubit, PreloadState>(
       listenWhen: (prevState, state) =>
           !prevState.isComplete && state.isComplete,
-      listener: (context, state) => onPreloadComplete(context),
+      listener: (context, state) => onPreloadComplete(Navigator.of(context)),
       child: const Scaffold(body: Center(child: _LoadingInternal())),
     );
   }
