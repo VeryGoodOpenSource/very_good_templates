@@ -41,12 +41,6 @@ class GameView extends StatefulWidget {
 
   @override
   State<GameView> createState() => _GameViewState();
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<FlameGame<World>?>('game', game));
-  }
 }
 
 class _GameViewState extends State<GameView> {
@@ -99,11 +93,5 @@ class _GameViewState extends State<GameView> {
         ),
       ],
     );
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<Bgm>('bgm', bgm));
   }
 }

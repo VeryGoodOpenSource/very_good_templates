@@ -65,13 +65,4 @@ class AnimatedProgressBar extends StatelessWidget {
       ),
     );
   }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(ColorProperty('backgroundColor', backgroundColor))
-      ..add(ColorProperty('foregroundColor', foregroundColor))
-      ..add(DoubleProperty('progress', progress));
-  }
 }
