@@ -39,17 +39,16 @@ class _CounterViewState extends State<CounterView> {
 
   @override
   void dispose() {
-    rotarySubscription.cancel();
+    unawaited(rotarySubscription.cancel());
     super.dispose();
   }
 
   void handleRotaryEvent(RotaryEvent event) {
     final cubit = context.read<CounterCubit>();
-    if (event.direction == RotaryDirection.clockwise) {
-      cubit.increment();
-    } else {
-      cubit.decrement();
-    }
+    return switch (event.direction) {
+      RotaryDirection.clockwise => cubit.increment(),
+      RotaryDirection.counterClockwise => cubit.decrement(),
+    };
   }
 
   @override
@@ -61,7 +60,7 @@ class _CounterViewState extends State<CounterView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () => context.read<CounterCubit>().increment(),
+              onPressed: context.read<CounterCubit>().increment,
               child: const Icon(Icons.add),
             ),
             const SizedBox(height: 10),
@@ -69,7 +68,7 @@ class _CounterViewState extends State<CounterView> {
             const CounterText(),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () => context.read<CounterCubit>().decrement(),
+              onPressed: context.read<CounterCubit>().decrement,
               child: const Icon(Icons.remove),
             ),
           ],

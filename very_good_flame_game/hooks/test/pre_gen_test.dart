@@ -80,8 +80,8 @@ void main() {
       });
     });
 
-    test('throws $ArgumentError if platforms is not a list', () {
-      withClock(Clock.fixed(DateTime(2020)), () async {
+    test('throws $ArgumentError if platforms is not a list', () async {
+      await withClock(Clock.fixed(DateTime(2020)), () async {
         final vars = {
           'project_name': 'my_game',
           'org_name': 'com.example',
@@ -89,6 +89,7 @@ void main() {
           'description': 'A new Flame project.',
           'platforms': 2345,
         };
+
         when(() => context.vars).thenReturn(vars);
 
         await expectLater(

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/cache.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +16,14 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) =>
-              PreloadCubit(Images(prefix: ''), AudioCache(prefix: ''))
-                ..loadSequentially(),
+          create: (_) {
+            final cubit = PreloadCubit(
+              Images(prefix: ''),
+              AudioCache(prefix: ''),
+            );
+            unawaited(cubit.loadSequentially());
+            return cubit;
+          },
         ),
       ],
       child: const AppView(),

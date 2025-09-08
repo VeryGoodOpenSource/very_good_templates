@@ -77,8 +77,8 @@ void main() {
         await expectLater(DartCli.instance.format(logger: logger), completes);
       });
 
-      test('calls with given working directory', () {
-        DartCli.instance.format(logger: logger, cwd: 'foo');
+      test('calls with given working directory', () async {
+        await DartCli.instance.format(logger: logger, cwd: 'foo');
 
         verify(
           () => process.run(
@@ -90,8 +90,8 @@ void main() {
         ).called(1);
       });
 
-      test('calls `dart format .`', () {
-        DartCli.instance.format(logger: logger);
+      test('calls `dart format .`', () async {
+        await DartCli.instance.format(logger: logger);
 
         verify(
           () => process.run(
@@ -109,8 +109,8 @@ void main() {
         await expectLater(DartCli.instance.fix(logger: logger), completes);
       });
 
-      test('calls with given working directory', () {
-        DartCli.instance.fix(logger: logger, cwd: 'foo');
+      test('calls with given working directory', () async {
+        await DartCli.instance.fix(logger: logger, cwd: 'foo');
 
         verify(
           () => process.run(
@@ -122,8 +122,8 @@ void main() {
         ).called(1);
       });
 
-      test('calls `dart fix .`', () {
-        DartCli.instance.fix(logger: logger);
+      test('calls `dart fix .`', () async {
+        await DartCli.instance.fix(logger: logger);
 
         verify(
           () => process.run(
@@ -135,8 +135,8 @@ void main() {
         ).called(1);
       });
 
-      test('calls `dart fix --apply .` when apply is true', () {
-        DartCli.instance.fix(logger: logger, apply: true);
+      test('calls `dart fix --apply .` when apply is true', () async {
+        await DartCli.instance.fix(logger: logger, apply: true);
 
         verify(
           () => process.run(
