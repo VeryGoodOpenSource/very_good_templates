@@ -19,27 +19,27 @@ class CounterPage extends StatelessWidget {
 }
 
 class CounterView extends StatefulWidget {
-  CounterView({@visibleForTesting Stream<RotaryEvent>? rotaryEvents, super.key})
-    : _rotaryEvents = rotaryEvents ?? wearable_rotary.rotaryEvents;
+  CounterView({super.key, @visibleForTesting Stream<RotaryEvent>? rotaryEvents})
+    : rotaryEvents = rotaryEvents ?? wearable_rotary.rotaryEvents;
 
-  final Stream<RotaryEvent> _rotaryEvents;
+  final Stream<RotaryEvent> rotaryEvents;
 
   @override
   State<CounterView> createState() => _CounterViewState();
 }
 
 class _CounterViewState extends State<CounterView> {
-  late final StreamSubscription<RotaryEvent> _rotarySubscription;
+  late final StreamSubscription<RotaryEvent> rotarySubscription;
 
   @override
   void initState() {
     super.initState();
-    _rotarySubscription = widget._rotaryEvents.listen(handleRotaryEvent);
+    rotarySubscription = widget.rotaryEvents.listen(handleRotaryEvent);
   }
 
   @override
   void dispose() {
-    unawaited(_rotarySubscription.cancel());
+    unawaited(rotarySubscription.cancel());
     super.dispose();
   }
 

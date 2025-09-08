@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:{{project_name.snakeCase()}}/ambient_mode/ambient_mode.dart';
 
