@@ -38,9 +38,11 @@ vars:
       - macos
       - web
       - windows
+      - linux
     values:
       - android
       - ios
       - macos
       - web
       - windows
+      - linux
