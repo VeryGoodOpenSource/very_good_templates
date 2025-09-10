@@ -11,7 +11,7 @@ class Mock{{project_name.pascalCase()}}Platform extends Mock
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('{{project_name.pascalCase()}}', () {
+  group({{project_name.pascalCase()}}Platform, () {
     late {{project_name.pascalCase()}}Platform {{project_name.camelCase()}}Platform;
 
     setUp(() {
