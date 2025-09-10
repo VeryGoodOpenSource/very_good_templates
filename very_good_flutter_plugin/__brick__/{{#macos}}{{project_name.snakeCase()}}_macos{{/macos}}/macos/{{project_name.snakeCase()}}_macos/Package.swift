@@ -4,17 +4,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "{{project_name.snakeCase()}}_ios",
+    name: "{{project_name.snakeCase()}}_macos",
     platforms: [
-        .iOS("13.0"),
+        .macOS("10.15")
     ],
     products: [
-        .library(name: "{{project_name.paramCase()}}-ios", targets: ["{{project_name.snakeCase()}}_ios"])
+        .library(name: "{{project_name.paramCase()}}-macos", targets: ["{{project_name.snakeCase()}}_macos"])
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "{{project_name.snakeCase()}}_ios",
+            name: "{{project_name.snakeCase()}}_macos",
             dependencies: [],
             resources: [
                 // TODO: If your plugin requires a privacy manifest
