@@ -14,7 +14,7 @@ class _MockSemanticsNode extends Mock implements SemanticsNode {
 }
 
 void main() {
-  group('CheckPlatformName', () {
+  group(CheckPlatformName, () {
     late Tester tester;
     late SemanticsNode node;
 
@@ -26,7 +26,7 @@ void main() {
     });
 
     test('executes returns true if node was found', () async {
-      final action = CheckPlatformName();
+      const action = CheckPlatformName();
 
       expect(await action.execute(tester), isTrue);
     });
@@ -34,7 +34,7 @@ void main() {
     test('executes returns false if node was not found', () async {
       when(() => tester.find(any())).thenAnswer((_) async => null);
 
-      final action = CheckPlatformName();
+      const action = CheckPlatformName();
 
       expect(await action.execute(tester), isFalse);
     });
