@@ -10,13 +10,11 @@ Pod::Spec.new do |s|
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :type => 'BSD', :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { '{{org_name.titleCase()}}' => 'email@example.com' }
   s.source           = { :path => '.' }  
-  s.source_files = 'Classes/**/*'
+  s.source_files = '{{project_name.snakeCase()}}_ios/Sources/**/*.swift'
   s.dependency 'Flutter'
-  s.platform = :ios, '9.0'
-
-  # Flutter.framework does not contain a i386 slice.
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
-  s.swift_version = '5.0'
+  s.platform = :ios, '13.0'
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
+  s.swift_version = '6.1'
 end
