@@ -1,3 +1,22 @@
+## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.0.0...very_good_flutter_plugin-v1.1.0) (2025-09-22)
+
+
+### Features
+
+* upgrade to flutter 3.35.0 ([#342](https://github.com/VeryGoodOpenSource/very_good_templates/issues/342)) ([6818041](https://github.com/VeryGoodOpenSource/very_good_templates/commit/681804198c03a6ab255802cedc15242832928e54))
+* upgrade to very_good_analysis 10.0.0 ([#346](https://github.com/VeryGoodOpenSource/very_good_templates/issues/346)) ([5a7d0dc](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5a7d0dc7323a77583158acfbbe933a60302ed532))
+* upgraded plugin version and removed jdk7 dependency on build.kts ([#339](https://github.com/VeryGoodOpenSource/very_good_templates/issues/339)) ([8e60971](https://github.com/VeryGoodOpenSource/very_good_templates/commit/8e6097152174368e8923024ef1b2bf35f4a675ac))
+
+
+### Refactors
+
+* **very_good_flutter_plugin:** migrate to swift package manager ([#354](https://github.com/VeryGoodOpenSource/very_good_templates/issues/354)) ([2f02778](https://github.com/VeryGoodOpenSource/very_good_templates/commit/2f027788df3ebb38cf7ffedb4f5718e61e41b355))
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
+* **very_good_flutter_plugin:** migrates Groovy scripts to Kotlin DSL ([#316](https://github.com/VeryGoodOpenSource/very_good_templates/issues/316)) ([3e5628d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3e5628d65d2c33ab01c443df8b33e6e0ff35a07a))
 
 ## 1.0.0
 
