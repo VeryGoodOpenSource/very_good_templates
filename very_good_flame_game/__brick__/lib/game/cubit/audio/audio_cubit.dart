@@ -39,9 +39,9 @@ class AudioCubit extends Cubit<AudioState> {
   }
 
   @override
-  Future<void> close() {
-    effectPlayer.dispose();
-    bgm.dispose();
+  Future<void> close() async {
+    await effectPlayer.dispose();
+    await bgm.dispose();
     return super.close();
   }
 }

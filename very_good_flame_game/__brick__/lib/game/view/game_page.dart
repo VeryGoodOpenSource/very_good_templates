@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/game.dart' hide Route;
 import 'package:flame_audio/bgm.dart';
@@ -48,12 +50,12 @@ class _GameViewState extends State<GameView> {
   void initState() {
     super.initState();
     bgm = context.read<AudioCubit>().bgm;
-    bgm.play(Assets.audio.background);
+    unawaited(bgm.play(Assets.audio.background));
   }
 
   @override
   void dispose() {
-    bgm.pause();
+    unawaited(bgm.pause());
     super.dispose();
   }
 

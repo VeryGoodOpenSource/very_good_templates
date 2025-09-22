@@ -13,13 +13,13 @@ class TappingBehavior extends Behavior<Unicorn>
   }
 
   @override
-  void onTapDown(TapDownEvent event) {
+  Future<void> onTapDown(TapDownEvent event) async {
     if (parent.isAnimationPlaying()) {
       return;
     }
     game.counter++;
     parent.playAnimation();
 
-    game.effectPlayer.play(AssetSource(Assets.audio.effect));
+    await game.effectPlayer.play(AssetSource(Assets.audio.effect));
   }
 }

@@ -80,8 +80,8 @@ void main() {
         );
       });
 
-      test('calls `very_good packages get .`', () {
-        VeryGoodCli.instance.packagesGet(logger: logger);
+      test('calls `very_good packages get .`', () async {
+        await VeryGoodCli.instance.packagesGet(logger: logger);
 
         verify(
           () => process.run(
@@ -93,8 +93,8 @@ void main() {
         ).called(1);
       });
 
-      test('calls with given working directory', () {
-        VeryGoodCli.instance.packagesGet(logger: logger, cwd: 'foo');
+      test('calls with given working directory', () async {
+        await VeryGoodCli.instance.packagesGet(logger: logger, cwd: 'foo');
 
         verify(
           () => process.run(
@@ -107,9 +107,12 @@ void main() {
       });
 
       test(
-        '''calls `very_good packages get --recursive .` when recursive is true''',
-        () {
-          VeryGoodCli.instance.packagesGet(logger: logger, recursive: true);
+        'calls `very_good packages get --recursive .` when recursive is true',
+        () async {
+          await VeryGoodCli.instance.packagesGet(
+            logger: logger,
+            recursive: true,
+          );
 
           verify(
             () => process.run(
