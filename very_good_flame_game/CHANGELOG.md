@@ -1,3 +1,31 @@
+## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.0.0...very_good_flame_game-v1.1.0) (2025-09-22)
+
+
+### Features
+
+* upgrade to flutter 3.35.0 ([#342](https://github.com/VeryGoodOpenSource/very_good_templates/issues/342)) ([6818041](https://github.com/VeryGoodOpenSource/very_good_templates/commit/681804198c03a6ab255802cedc15242832928e54))
+* upgrade to very_good_analysis 10.0.0 ([#346](https://github.com/VeryGoodOpenSource/very_good_templates/issues/346)) ([5a7d0dc](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5a7d0dc7323a77583158acfbbe933a60302ed532))
+* upgraded plugin version and removed jdk7 dependency on build.kts ([#339](https://github.com/VeryGoodOpenSource/very_good_templates/issues/339)) ([8e60971](https://github.com/VeryGoodOpenSource/very_good_templates/commit/8e6097152174368e8923024ef1b2bf35f4a675ac))
+* **very_good_flame_game:** add platform options ([#340](https://github.com/VeryGoodOpenSource/very_good_templates/issues/340)) ([f3a6792](https://github.com/VeryGoodOpenSource/very_good_templates/commit/f3a6792af70c6006bfbf4b30d92e0d91b6246205))
+* **very_good_flame:** update assets.gen.dart ([#349](https://github.com/VeryGoodOpenSource/very_good_templates/issues/349)) ([2f9da8c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/2f9da8c3bbb423876ff125a067755932a74a2b38))
+
+
+### Bug Fixes
+
+* **very_good_flame_game:** Change so "tap count" message is responsive to window size ([#338](https://github.com/VeryGoodOpenSource/very_good_templates/issues/338)) ([3b8c11e](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3b8c11e5c77124645c742b1475ebf9a9209680eb))
+* **very_good_flame_game:** deprecated android gradle plugin version ([#315](https://github.com/VeryGoodOpenSource/very_good_templates/issues/315)) ([fb4385d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/fb4385dd5acb3c7eaae3b1a1bdc0a4fac5e91449))
+* **very_good_flame_game:** Improve text readability by changing color… ([#335](https://github.com/VeryGoodOpenSource/very_good_templates/issues/335)) ([0a42ee2](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0a42ee292238bda7c86b9220a640b31154070dcd))
+* **very_good_flame_game:** trim audio to not repeat sound effect ([#336](https://github.com/VeryGoodOpenSource/very_good_templates/issues/336)) ([9b423ac](https://github.com/VeryGoodOpenSource/very_good_templates/commit/9b423ac7ab707a83fac4a456ea798d525513fac2))
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
+* tighten template dependencies ([#318](https://github.com/VeryGoodOpenSource/very_good_templates/issues/318)) ([70a1f0c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/70a1f0ced2ec663bcace86166ca31de616b8de59))
+* tighten template dependencies ([#348](https://github.com/VeryGoodOpenSource/very_good_templates/issues/348)) ([4167a25](https://github.com/VeryGoodOpenSource/very_good_templates/commit/4167a255c3b126418fefbadbeb6968c7bd861ed8))
+* tighten template dependencies ([#351](https://github.com/VeryGoodOpenSource/very_good_templates/issues/351)) ([68b6651](https://github.com/VeryGoodOpenSource/very_good_templates/commit/68b665139a7893a5ec760f2074928f990ee45045))
+* tighten template dependencies ([#353](https://github.com/VeryGoodOpenSource/very_good_templates/issues/353)) ([a7f24a7](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a7f24a7b952ab2f59b6fb69023f319cd7a4f0a3f))
+* **very_good_flame_game:** migrates Groovy scripts to Kotlin DSL ([#314](https://github.com/VeryGoodOpenSource/very_good_templates/issues/314)) ([e384bed](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e384bedad9c4f32cb97ed1395ceb02ad85200de9))
 
 ## 1.0.0
 
