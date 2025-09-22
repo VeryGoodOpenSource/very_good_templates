@@ -1,3 +1,19 @@
+## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.0.0...very_good_dart_cli-v1.1.0) (2025-09-22)
+
+
+### Features
+
+* upgrade to flutter 3.35.0 ([#342](https://github.com/VeryGoodOpenSource/very_good_templates/issues/342)) ([6818041](https://github.com/VeryGoodOpenSource/very_good_templates/commit/681804198c03a6ab255802cedc15242832928e54))
+* upgrade to very_good_analysis 10.0.0 ([#346](https://github.com/VeryGoodOpenSource/very_good_templates/issues/346)) ([5a7d0dc](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5a7d0dc7323a77583158acfbbe933a60302ed532))
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
+* tighten template dependencies ([#312](https://github.com/VeryGoodOpenSource/very_good_templates/issues/312)) ([2875cd9](https://github.com/VeryGoodOpenSource/very_good_templates/commit/2875cd9aecc249fc0d2a4cd64efb3be20603f1da))
+* tighten template dependencies ([#320](https://github.com/VeryGoodOpenSource/very_good_templates/issues/320)) ([8f441c3](https://github.com/VeryGoodOpenSource/very_good_templates/commit/8f441c3f54681707ded3dda8aefd578763979d73))
+* tighten template dependencies ([#333](https://github.com/VeryGoodOpenSource/very_good_templates/issues/333)) ([460f7de](https://github.com/VeryGoodOpenSource/very_good_templates/commit/460f7de093d976e40679be0710c2d0270fa71918))
+* tighten template dependencies ([#353](https://github.com/VeryGoodOpenSource/very_good_templates/issues/353)) ([a7f24a7](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a7f24a7b952ab2f59b6fb69023f319cd7a4f0a3f))
 
 ## 1.0.0
 
