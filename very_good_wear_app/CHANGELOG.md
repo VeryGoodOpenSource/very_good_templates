@@ -17,6 +17,21 @@ mason make very_good_wear_app
 mason make very_good_wear_app -o ./output_folder
 ```
 
+## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_wear_app-v1.0.0...very_good_wear_app-v1.1.0) (2025-09-22)
+
+
+### Features
+
+* upgrade to flutter 3.35.0 ([#342](https://github.com/VeryGoodOpenSource/very_good_templates/issues/342)) ([6818041](https://github.com/VeryGoodOpenSource/very_good_templates/commit/681804198c03a6ab255802cedc15242832928e54))
+* upgrade to very_good_analysis 10.0.0 ([#346](https://github.com/VeryGoodOpenSource/very_good_templates/issues/346)) ([5a7d0dc](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5a7d0dc7323a77583158acfbbe933a60302ed532))
+* upgraded plugin version and removed jdk7 dependency on build.kts ([#339](https://github.com/VeryGoodOpenSource/very_good_templates/issues/339)) ([8e60971](https://github.com/VeryGoodOpenSource/very_good_templates/commit/8e6097152174368e8923024ef1b2bf35f4a675ac))
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
+* **very_good_wear_app:** migrates Groovy scripts to Kotlin DSL ([#317](https://github.com/VeryGoodOpenSource/very_good_templates/issues/317)) ([aa8f4df](https://github.com/VeryGoodOpenSource/very_good_templates/commit/aa8f4df464f7e620a16799c39af638cceb4a6b97))
+
 ## 0.9.0
 
 - chore(deps): bump very_good_analysis from 6.0.0 to 7.0.0 in /very_good_wear_app/hooks [#234](https://github.com/VeryGoodOpenSource/very_good_templates/pull/234)
