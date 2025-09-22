@@ -45,8 +45,8 @@ void main() {
     });
 
     group('logs', () {
-      test('when started running', () {
-        CommandLine.run('foo', ['bar'], logger: logger);
+      test('when started running', () async {
+        await CommandLine.run('foo', ['bar'], logger: logger);
         verify(() => logger.detail('Running: foo with [bar]')).called(1);
       });
 
