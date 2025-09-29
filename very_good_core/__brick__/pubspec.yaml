@@ -8,7 +8,7 @@ environment:
   flutter: ^3.35.0
 
 dependencies:
-  bloc: ^9.0.0
+  bloc: ^9.0.1
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
