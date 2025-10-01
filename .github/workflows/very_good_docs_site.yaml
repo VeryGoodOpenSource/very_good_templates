@@ -40,7 +40,7 @@ jobs:
       - name: ⚙️ Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 18.x
+          node-version: 22.x
 
       - name: 📦 Install Dependencies
         run: |
