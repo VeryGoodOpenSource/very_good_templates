@@ -1,3 +1,19 @@
+# Changelog
+
+## [1.1.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.1...very_good_flame_game-v1.1.2) (2025-09-30)
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#363](https://github.com/VeryGoodOpenSource/very_good_templates/issues/363)) ([01307a7](https://github.com/VeryGoodOpenSource/very_good_templates/commit/01307a7bd955fa9d673cb534746cb265685530c1))
+
+## [1.1.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.0...very_good_flame_game-v1.1.1) (2025-09-25)
+
+
+### Bug Fixes
+
+* **very_good_flame_game:** selected platforms can be nullable ([#360](https://github.com/VeryGoodOpenSource/very_good_templates/issues/360)) ([5cd5e82](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5cd5e82c16f8431348e43549809e54f836792fdc))
+
 ## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.0.0...very_good_flame_game-v1.1.0) (2025-09-22)
 
 
@@ -26,20 +42,6 @@
 * tighten template dependencies ([#351](https://github.com/VeryGoodOpenSource/very_good_templates/issues/351)) ([68b6651](https://github.com/VeryGoodOpenSource/very_good_templates/commit/68b665139a7893a5ec760f2074928f990ee45045))
 * tighten template dependencies ([#353](https://github.com/VeryGoodOpenSource/very_good_templates/issues/353)) ([a7f24a7](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a7f24a7b952ab2f59b6fb69023f319cd7a4f0a3f))
 * **very_good_flame_game:** migrates Groovy scripts to Kotlin DSL ([#314](https://github.com/VeryGoodOpenSource/very_good_templates/issues/314)) ([e384bed](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e384bedad9c4f32cb97ed1395ceb02ad85200de9))
-
-## [1.1.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.1...very_good_flame_game-v1.1.2) (2025-09-30)
-
-
-### Miscellaneous Chores
-
-* tighten template dependencies ([#363](https://github.com/VeryGoodOpenSource/very_good_templates/issues/363)) ([01307a7](https://github.com/VeryGoodOpenSource/very_good_templates/commit/01307a7bd955fa9d673cb534746cb265685530c1))
-
-## [1.1.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.0...very_good_flame_game-v1.1.1) (2025-09-25)
-
-
-### Bug Fixes
-
-* **very_good_flame_game:** selected platforms can be nullable ([#360](https://github.com/VeryGoodOpenSource/very_good_templates/issues/360)) ([5cd5e82](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5cd5e82c16f8431348e43549809e54f836792fdc))
 
 ## 1.0.0
 
