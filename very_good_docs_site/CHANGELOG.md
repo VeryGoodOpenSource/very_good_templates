@@ -1,9 +1,4 @@
-## [1.0.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.0...very_good_docs_site-v1.0.1) (2025-09-22)
-
-
-### Miscellaneous Chores
-
-* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
+# Changelog
 
 ## [1.0.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.1...very_good_docs_site-v1.0.2) (2025-10-01)
 
@@ -11,6 +6,13 @@
 ### Bug Fixes
 
 * **very_good_docs_site:** update docusaurus config ([#367](https://github.com/VeryGoodOpenSource/very_good_templates/issues/367)) ([e65510c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e65510c2e853e5b6b8fa378482c49927aeb3ba41))
+
+## [1.0.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.0...very_good_docs_site-v1.0.1) (2025-09-22)
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
 
 ## 1.0.0
 

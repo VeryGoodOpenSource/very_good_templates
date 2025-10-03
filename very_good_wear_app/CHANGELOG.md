@@ -1,21 +1,4 @@
-## 1.0.0
-
-refactor(very_good_wear_app)!: remove root-level project_name folder from brick structure.
-
-### Migration details
-
-The `very_good_wear_app` brick no longer includes a top-level project name folder.
-This allows generating the project directly into the current or a custom directory.
-
-If you prefer to keep the output inside its own folder (as before), use the -o flag:
-
-```dart
-// Before:
-mason make very_good_wear_app
-
-// After:
-mason make very_good_wear_app -o ./output_folder
-```
+# Changelog
 
 ## [1.1.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_wear_app-v1.1.0...very_good_wear_app-v1.1.1) (2025-09-30)
 
@@ -38,6 +21,25 @@ mason make very_good_wear_app -o ./output_folder
 
 * automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
 * **very_good_wear_app:** migrates Groovy scripts to Kotlin DSL ([#317](https://github.com/VeryGoodOpenSource/very_good_templates/issues/317)) ([aa8f4df](https://github.com/VeryGoodOpenSource/very_good_templates/commit/aa8f4df464f7e620a16799c39af638cceb4a6b97))
+
+## 1.0.0
+
+refactor(very_good_wear_app)!: remove root-level project_name folder from brick structure.
+
+### Migration details
+
+The `very_good_wear_app` brick no longer includes a top-level project name folder.
+This allows generating the project directly into the current or a custom directory.
+
+If you prefer to keep the output inside its own folder (as before), use the -o flag:
+
+```dart
+// Before:
+mason make very_good_wear_app
+
+// After:
+mason make very_good_wear_app -o ./output_folder
+```
 
 ## 0.9.0
 
