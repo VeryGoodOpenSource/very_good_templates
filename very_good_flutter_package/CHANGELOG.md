@@ -1,3 +1,5 @@
+# Changelog
+
 ## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_package-v1.0.0...very_good_flutter_package-v1.1.0) (2025-09-22)
 
 

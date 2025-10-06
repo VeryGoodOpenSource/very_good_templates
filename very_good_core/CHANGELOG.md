@@ -1,14 +1,4 @@
-## [1.0.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.0.0...very_good_core-v1.0.1) (2025-08-18)
-
-
-### Bug Fixes
-
-* Guarantee 100% coverage on core app ([#334](https://github.com/VeryGoodOpenSource/very_good_templates/issues/334)) ([6970fa5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6970fa55feaf2912c01b64fea560933784fdc396))
-
-
-### Miscellaneous Chores
-
-* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
+# Changelog
 
 ## [1.1.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.1.1...very_good_core-v1.1.2) (2025-10-01)
 
@@ -37,6 +27,18 @@
 ### Refactors
 
 * **very_good_core:** use single size icon on iOS and watchOS ([#344](https://github.com/VeryGoodOpenSource/very_good_templates/issues/344)) ([16a84dc](https://github.com/VeryGoodOpenSource/very_good_templates/commit/16a84dc505cce40e1388ca3aa79ad86dd05508a3))
+
+## [1.0.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.0.0...very_good_core-v1.0.1) (2025-08-18)
+
+
+### Bug Fixes
+
+* Guarantee 100% coverage on core app ([#334](https://github.com/VeryGoodOpenSource/very_good_templates/issues/334)) ([6970fa5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6970fa55feaf2912c01b64fea560933784fdc396))
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
 
 ## 1.0.0
 
