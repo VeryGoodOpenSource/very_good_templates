@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.1.0...very_good_dart_package-v1.1.1) (2025-10-06)
+
+
+### Bug Fixes
+
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
 ## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.0.0...very_good_dart_package-v1.1.0) (2025-09-22)
 
 
