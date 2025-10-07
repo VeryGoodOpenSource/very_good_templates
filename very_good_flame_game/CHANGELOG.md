@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.2...very_good_flame_game-v1.1.3) (2025-10-06)
+
+
+### Bug Fixes
+
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
 ## [1.1.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.1...very_good_flame_game-v1.1.2) (2025-09-30)
 
 
