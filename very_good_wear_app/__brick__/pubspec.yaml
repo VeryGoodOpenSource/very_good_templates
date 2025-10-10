@@ -1,5 +1,5 @@
-name: {{project_name.snakeCase()}}
-description: {{{description}}}
+name: { { project_name.snakeCase() } }
+description: { { { description } } }
 version: 1.0.0+1
 publish_to: none
 
@@ -7,7 +7,7 @@ environment:
   sdk: ^3.9.0
 
 dependencies:
-  bloc: ^9.0.1  
+  bloc: ^9.0.1
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
@@ -17,6 +17,8 @@ dependencies:
   wearable_rotary: ^2.0.2
 
 dev_dependencies:
+  bloc_lint: ^0.3.2
+  bloc_tools: ^0.1.0-dev.19
   bloc_test: ^10.0.0
   flutter_test:
     sdk: flutter

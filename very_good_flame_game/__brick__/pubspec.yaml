@@ -1,5 +1,5 @@
-name: {{project_name.snakeCase()}}
-description: {{{description}}}
+name: { { project_name.snakeCase() } }
+description: { { { description } } }
 version: 1.0.0+1
 publish_to: none
 
@@ -23,6 +23,8 @@ dependencies:
   intl: ^0.20.2
 
 dev_dependencies:
+  bloc_lint: ^0.3.2
+  bloc_tools: ^0.1.0-dev.19
   bloc_test: ^10.0.0
   flame_test: ^2.0.3
   flutter_test:
