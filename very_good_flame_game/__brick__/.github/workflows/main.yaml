@@ -1,4 +1,4 @@
-name: {{project_name.snakeCase()}}
+name: { { project_name.snakeCase() } }
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -20,6 +20,7 @@ jobs:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
     with:
       flutter_version: "3.35.x"
+      setup: dart run bloc_tools:bloc lint .
 
   spell-check:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
