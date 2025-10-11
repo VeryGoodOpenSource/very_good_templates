@@ -93,6 +93,9 @@ void main() {
               windowsApplicationId: WindowsApplicationId(
                 'com.verygood.very_good_app',
               ),
+              linuxApplicationId: LinuxApplicationId(
+                'com.verygood.very_good_app',
+              ),
               iOsApplicationId: AppleApplicationId(
                 'com.verygood.very_good_app',
               ),
@@ -125,6 +128,9 @@ void main() {
               organizationName: 'com.verygood',
               description: 'A Very Good App',
               windowsApplicationId: WindowsApplicationId(
+                'com.verygood.very-good-app',
+              ),
+              linuxApplicationId: LinuxApplicationId(
                 'com.verygood.very-good-app',
               ),
               iOsApplicationId: AppleApplicationId(
