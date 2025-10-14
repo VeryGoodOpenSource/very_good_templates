@@ -38,7 +38,7 @@ jobs:
           mason make very_good_docs_site -c very_good_docs_site/config.json --on-conflict overwrite -o very_good_docs_site_output
 
       - name: ⚙️ Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 22.x
 
