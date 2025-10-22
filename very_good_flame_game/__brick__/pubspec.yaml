@@ -24,8 +24,8 @@ dependencies:
 
 dev_dependencies:
   bloc_lint: ^0.3.2
-  bloc_tools: ^0.1.0-dev.19
   bloc_test: ^10.0.0
+  bloc_tools: ^0.1.0-dev.19
   flame_test: ^2.0.3
   flutter_test:
     sdk: flutter
