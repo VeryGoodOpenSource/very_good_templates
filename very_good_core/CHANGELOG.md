@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.1.2...very_good_core-v1.2.0) (2025-10-27)
+
+
+### Features
+
+* add bloc lint to templates with bloc ([#382](https://github.com/VeryGoodOpenSource/very_good_templates/issues/382)) ([512edf2](https://github.com/VeryGoodOpenSource/very_good_templates/commit/512edf2117e9e1a8635a02bc74ac319b01deed54))
+
+
+### Bug Fixes
+
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#384](https://github.com/VeryGoodOpenSource/very_good_templates/issues/384)) ([922bf00](https://github.com/VeryGoodOpenSource/very_good_templates/commit/922bf00157ef07e6e9971a1eb938a0d187e1bd8d))
+* tighten template dependencies ([#385](https://github.com/VeryGoodOpenSource/very_good_templates/issues/385)) ([10ed573](https://github.com/VeryGoodOpenSource/very_good_templates/commit/10ed57357e67dc8a9eb0d132e9e7272c743f6781))
+
 ## [1.1.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.1.1...very_good_core-v1.1.2) (2025-10-01)
 
 
