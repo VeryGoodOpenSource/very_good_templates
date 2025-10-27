@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.1.0...very_good_dart_cli-v1.1.1) (2025-10-27)
+
+
+### Bug Fixes
+
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#372](https://github.com/VeryGoodOpenSource/very_good_templates/issues/372)) ([e8c9a7d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e8c9a7dd5c71a62b8e856c05e42249901a5d2bc7))
+* tighten template dependencies ([#385](https://github.com/VeryGoodOpenSource/very_good_templates/issues/385)) ([10ed573](https://github.com/VeryGoodOpenSource/very_good_templates/commit/10ed57357e67dc8a9eb0d132e9e7272c743f6781))
+
 ## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.0.0...very_good_dart_cli-v1.1.0) (2025-09-22)
 
 
