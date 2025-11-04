@@ -32,7 +32,7 @@ Future<void> run(
     );
   }
 
-  final progress = logger.progress('Getting dependencies... 📦');
+  final progress = logger.progress('Getting dependencies 📦');
 
   await veryGoodCli.packagesGet(
     logger: logger,
@@ -41,26 +41,29 @@ Future<void> run(
   );
 
   final projectName = context.vars[projectNameVariableKey] as String;
-  final platforms = $availablePlatforms
+  final directories = $availablePlatforms
       .where((platform) => context.vars[platform] as bool)
       .map((platform) => '${Directory.current.path}/${projectName}_$platform');
 
-  for (final cwd in platforms) {
-    progress.update('Generating Pigeon bindings for $cwd 🦾');
-    await dartCli.run(
-      logger: logger,
-      command: 'pigeon',
-      args: ['--input', 'pigeons/messages.dart'],
-      cwd: cwd,
-    );
-  }
+  progress.update('Generating Pigeon bindings 🦾');
+
+  await Future.wait(
+    directories.map(
+      (directory) => dartCli.run(
+        cwd: directory,
+        logger: logger,
+        command: 'pigeon',
+        args: ['--input', 'pigeons/messages.dart'],
+      ),
+    ),
+  );
 
   final dartFixOutput =
       context.vars.containsKey(dartFixOutputVariableKey) &&
       context.vars[dartFixOutputVariableKey] as bool;
 
   if (dartFixOutput) {
-    progress.update('Fixing Dart imports ordering... 🔨');
+    progress.update('Fixing Dart imports ordering 🔨');
     await _dartFixOutput(
       logger: logger,
       dartCli: dartCli,
@@ -94,13 +97,12 @@ Future<void> _dartFixOutput({
   required String workingDirectory,
 }) async {
   try {
-    await dartCli.fix(logger: logger, apply: true, cwd: workingDirectory);
+    await dartCli.fix(logger: logger, cwd: workingDirectory, apply: true);
     await dartCli.format(logger: logger, cwd: workingDirectory);
   } on ProcessException catch (e) {
-    logger.err('''
-Running process ${e.executable} with ${e.arguments} failed:
-${e.message}
-''');
+    logger.err(
+      '''Running process ${e.executable} with ${e.arguments} failed: ${e.message}''',
+    );
   } on Exception catch (e) {
     logger.err('Unknown error occurred when fixing output: $e');
   }
