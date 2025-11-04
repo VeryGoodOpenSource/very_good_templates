@@ -2,15 +2,6 @@ import 'package:mason/mason.dart';
 import 'package:very_good_flutter_plugin_hooks/version.dart';
 
 void run(HookContext context) {
-  const availablePlatforms = [
-    'android',
-    'ios',
-    'macos',
-    'linux',
-    'web',
-    'windows',
-  ];
-
   final selectedPlatformsVar = context.vars['platforms'] as Object?;
 
   final selectedPlatforms = switch (selectedPlatformsVar) {
@@ -26,7 +17,8 @@ void run(HookContext context) {
   context.vars.addAll({
     'flutterVersion': $flutterVersion,
     'dartSdkVersionBounds': '^${$minDartVersion}',
-    for (final platform in availablePlatforms)
+    'currentYear': DateTime.now().year.toString(),
+    for (final platform in $availablePlatforms)
       platform: selectedPlatforms.contains(platform),
   });
 }

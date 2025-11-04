@@ -1,0 +1,3 @@
+Copyright (c) {{currentYear}}, Very Good Ventures
+https://verygood.ventures
+

@@ -32,8 +32,8 @@ class DartCli {
     await CommandLine.run(
       _executableName,
       ['format'],
-      workingDirectory: cwd,
       logger: logger,
+      workingDirectory: cwd,
     );
   }
 
@@ -48,8 +48,23 @@ class DartCli {
     await CommandLine.run(
       _executableName,
       ['fix', if (apply) '--apply'],
-      workingDirectory: cwd,
       logger: logger,
+      workingDirectory: cwd,
+    );
+  }
+
+  /// Run a command.
+  Future<void> run({
+    required Logger logger,
+    required String command,
+    List<String> args = const [],
+    String cwd = '.',
+  }) async {
+    await CommandLine.run(
+      _executableName,
+      ['run', command, ...args],
+      logger: logger,
+      workingDirectory: cwd,
     );
   }
 }

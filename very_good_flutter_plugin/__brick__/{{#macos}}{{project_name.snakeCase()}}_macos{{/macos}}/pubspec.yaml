@@ -23,4 +23,5 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  pigeon: ^26.0.2
   very_good_analysis: ^10.0.0
