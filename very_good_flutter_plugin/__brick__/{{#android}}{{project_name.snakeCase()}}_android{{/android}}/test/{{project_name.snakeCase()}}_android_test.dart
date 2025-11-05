@@ -1,4 +1,3 @@
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:{{project_name.snakeCase()}}_android/src/messages.g.dart';
@@ -30,14 +29,14 @@ void main() {
     });
 
     test('getPlatformName returns correct name', () async {
-      when(() => api.getPlatformName()).thenAnswer((_) async => kPlatformName);
+      when(api.getPlatformName).thenAnswer((_) async => kPlatformName);
 
       await expectLater(
         {{project_name.camelCase()}}.getPlatformName(),
         completion(equals(kPlatformName)),
       );
 
-      verify(() => api.getPlatformName()).called(1);
+      verify(api.getPlatformName).called(1);
     });
   });
 }
