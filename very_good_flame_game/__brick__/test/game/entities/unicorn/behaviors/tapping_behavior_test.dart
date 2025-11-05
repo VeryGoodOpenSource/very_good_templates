@@ -55,7 +55,7 @@ void main() {
       registerFallbackValue(_FakeAssetSource());
     });
 
-    setUp(() async {
+    setUp(() {
       l10n = _MockAppLocalizations();
       when(() => l10n.counterText(any())).thenReturn('counterText');
 

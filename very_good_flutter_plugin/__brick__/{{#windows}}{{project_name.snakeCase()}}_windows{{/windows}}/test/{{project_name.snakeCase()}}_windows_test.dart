@@ -11,7 +11,7 @@ void main() {
     late {{project_name.pascalCase()}}Windows {{project_name.camelCase()}};
     late List<MethodCall> log;
 
-    setUp(() async {
+    setUp(() {
       {{project_name.camelCase()}} = {{project_name.pascalCase()}}Windows();
 
       log = <MethodCall>[];

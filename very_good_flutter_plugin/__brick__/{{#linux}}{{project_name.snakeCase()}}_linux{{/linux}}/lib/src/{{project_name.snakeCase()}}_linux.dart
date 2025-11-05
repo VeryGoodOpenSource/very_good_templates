@@ -6,7 +6,7 @@ import 'package:{{project_name.snakeCase()}}_platform_interface/{{project_name.s
 /// The Linux implementation of [{{project_name.pascalCase()}}Platform].
 /// {@endtemplate}
 class {{project_name.pascalCase()}}Linux extends {{project_name.pascalCase()}}Platform {
-   /// {@macro {{project_name.snakeCase()}}_linux}
+  /// {@macro {{project_name.snakeCase()}}_linux}
   {{project_name.pascalCase()}}Linux({
     @visibleForTesting {{project_name.pascalCase()}}Api? api,
   }) : api = api ?? {{project_name.pascalCase()}}Api();

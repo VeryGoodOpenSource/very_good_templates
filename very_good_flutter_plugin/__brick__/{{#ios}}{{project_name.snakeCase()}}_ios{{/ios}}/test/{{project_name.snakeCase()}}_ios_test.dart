@@ -15,7 +15,7 @@ void main() {
     late {{project_name.pascalCase()}}IOS {{project_name.camelCase()}};
     late {{project_name.pascalCase()}}Api api;
 
-    setUp(() async {
+    setUp(() {
       api = _Mock{{project_name.pascalCase()}}Api();
       {{project_name.camelCase()}} = {{project_name.pascalCase()}}IOS(api: api);
     });
