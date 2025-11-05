@@ -8,7 +8,7 @@ class {{project_name.pascalCase()}}Windows extends {{project_name.pascalCase()}}
   @visibleForTesting
   final methodChannel = const MethodChannel('{{project_name.snakeCase()}}_windows');
 
-  /// Registers this class as the default instance of [{{project_name.pascalCase()}}Platform]
+  /// Registers this class as the default instance of [{{project_name.pascalCase()}}Platform].
   static void registerWith() {
     {{project_name.pascalCase()}}Platform.instance = {{project_name.pascalCase()}}Windows();
   }

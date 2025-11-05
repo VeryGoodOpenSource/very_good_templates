@@ -14,7 +14,7 @@ class {{project_name.pascalCase()}}IOS extends {{project_name.pascalCase()}}Plat
   /// The API used to interact with the native platform.
   final {{project_name.pascalCase()}}Api api;
 
-  /// Registers this class as the default instance of [{{project_name.pascalCase()}}Platform]
+  /// Registers this class as the default instance of [{{project_name.pascalCase()}}Platform].
   static void registerWith() {
     {{project_name.pascalCase()}}Platform.instance = {{project_name.pascalCase()}}IOS();
   }
