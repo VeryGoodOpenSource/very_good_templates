@@ -13,68 +13,6 @@ const projectNameVariableKey = 'project_name';
 @visibleForTesting
 const dartFixOutputVariableKey = 'dart_fix_output';
 
-Future<void> run(
-  HookContext context, {
-  @visibleForTesting DartCli dartCli = DartCli.instance,
-  @visibleForTesting VeryGoodCli veryGoodCli = VeryGoodCli.instance,
-}) async {
-  final logger = context.logger;
-
-  if (!await dartCli.isInstalled(logger: logger)) {
-    return logger.warn(
-      '''Could not fix output because Dart CLI is not installed.''',
-    );
-  }
-
-  if (!await veryGoodCli.isInstalled(logger: logger)) {
-    return logger.warn(
-      '''Could not fix output because Very Good CLI is not installed.''',
-    );
-  }
-
-  final progress = logger.progress('Getting dependencies 📦');
-
-  await veryGoodCli.packagesGet(
-    logger: logger,
-    recursive: true,
-    cwd: Directory.current.path,
-  );
-
-  final projectName = context.vars[projectNameVariableKey] as String;
-  final directories = $availablePlatforms
-      .where((platform) => context.vars[platform] as bool)
-      .map((platform) => '${Directory.current.path}/${projectName}_$platform');
-
-  progress.update('Generating Pigeon bindings 🦾');
-
-  await Future.wait(
-    directories.map(
-      (directory) => dartCli.run(
-        cwd: directory,
-        logger: logger,
-        command: 'pigeon',
-        args: ['--input', 'pigeons/messages.dart'],
-      ),
-    ),
-  );
-
-  final dartFixOutput =
-      context.vars.containsKey(dartFixOutputVariableKey) &&
-      context.vars[dartFixOutputVariableKey] as bool;
-
-  if (dartFixOutput) {
-    progress.update('Fixing Dart imports ordering 🔨');
-    await _dartFixOutput(
-      logger: logger,
-      dartCli: dartCli,
-      veryGoodCli: veryGoodCli,
-      workingDirectory: Directory.current.path,
-    );
-  }
-
-  progress.complete('Completed post generation ✅');
-}
-
 /// Attempts to `dart` fix and format the output.
 ///
 /// Since the template includes Dart files with templated variables, generating
@@ -90,20 +28,88 @@ Future<void> run(
 ///
 /// If the [DartCli] or [VeryGoodCli] is not installed, this function will log
 /// a warning and return immediately.
-Future<void> _dartFixOutput({
+Future<void> run(
+  HookContext context, {
+  @visibleForTesting DartCli dartCli = DartCli.instance,
+  @visibleForTesting VeryGoodCli veryGoodCli = VeryGoodCli.instance,
+}) async {
+  final logger = context.logger;
+  final workingDirectory = Directory.current.path;
+
+  if (!await dartCli.isInstalled(logger: logger)) {
+    return logger.warn(
+      '''Could not fix output because Dart CLI is not installed.''',
+    );
+  }
+
+  if (!await veryGoodCli.isInstalled(logger: logger)) {
+    return logger.warn(
+      '''Could not fix output because Very Good CLI is not installed.''',
+    );
+  }
+
+  final progress = logger.progress('Getting dependencies 📦');
+
+  await _wrapWithProcessError(
+    () => veryGoodCli.packagesGet(
+      logger: logger,
+      recursive: true,
+      cwd: workingDirectory,
+    ),
+    logger: logger,
+  );
+
+  final projectName = context.vars[projectNameVariableKey] as String;
+  final directories = $availablePlatforms
+      .where((platform) => context.vars[platform] as bool)
+      .map((platform) => '$workingDirectory/${projectName}_$platform');
+
+  progress.update('Generating Pigeon bindings 🦾');
+
+  await Future.wait(
+    directories.map(
+      (directory) => _wrapWithProcessError(
+        () => dartCli.run(
+          cwd: directory,
+          logger: logger,
+          command: 'pigeon',
+          args: ['--input', 'pigeons/messages.dart'],
+        ),
+        logger: logger,
+      ),
+    ),
+  );
+
+  final dartFixOutput =
+      context.vars.containsKey(dartFixOutputVariableKey) &&
+      context.vars[dartFixOutputVariableKey] as bool;
+
+  if (dartFixOutput) {
+    progress.update('Fixing Dart imports ordering 🔨');
+    await _wrapWithProcessError(
+      () async {
+        await dartCli.fix(logger: logger, cwd: workingDirectory, apply: true);
+        await dartCli.format(logger: logger, cwd: workingDirectory);
+      },
+      logger: logger,
+    );
+  }
+
+  progress.complete('Completed post generation ✅');
+}
+
+/// Wraps a process in a try-catch block and logs any errors.
+Future<void> _wrapWithProcessError(
+  Future<void> Function() process, {
   required Logger logger,
-  required DartCli dartCli,
-  required VeryGoodCli veryGoodCli,
-  required String workingDirectory,
 }) async {
   try {
-    await dartCli.fix(logger: logger, cwd: workingDirectory, apply: true);
-    await dartCli.format(logger: logger, cwd: workingDirectory);
+    await process();
   } on ProcessException catch (e) {
     logger.err(
       '''Running process ${e.executable} with ${e.arguments} failed: ${e.message}''',
     );
   } on Exception catch (e) {
-    logger.err('Unknown error occurred when fixing output: $e');
+    logger.err('Unknown error occurred: $e');
   }
 }
