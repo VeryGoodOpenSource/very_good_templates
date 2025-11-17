@@ -14,7 +14,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.2
-  wearable_rotary: ^2.0.2
+  wearable_rotary: ^2.0.3
 
 dev_dependencies:
   bloc_lint: ^0.3.3
