@@ -14,7 +14,7 @@ jobs:
 
       - uses: dart-lang/setup-dart@v1
         with:
-          sdk: "3.9.0"
+          sdk: "3.10.0"
 
       - name: 📦 Install dependencies
         run: dart pub get --directory tool/dependency_tightener
