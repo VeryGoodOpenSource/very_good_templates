@@ -10,7 +10,7 @@ jobs:
   build:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
     with:
-      dart_sdk: "3.9.0"
+      dart_sdk: "3.10.0"
       working_directory: "tool/dependency_tightener"
     secrets:
       ssh_key: ${{secrets.EXAMPLE_KEY}}

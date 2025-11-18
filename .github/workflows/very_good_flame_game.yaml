@@ -25,7 +25,7 @@ jobs:
         working-directory: very_good_flame_game/
 
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         platform:
@@ -42,7 +42,7 @@ jobs:
       - name: 🐦 Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.35.x"
+          flutter-version: "3.38.x"
 
       - name: 🧱 Mason Make
         run: |
