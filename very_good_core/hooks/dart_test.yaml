@@ -1,0 +1,6 @@
+coverage:
+  - lib/**
+  - pre_gen.dart
+  - post_gen.dart
+reporters:
+  - lcov
