@@ -1,7 +1,7 @@
 name: very_good_flame_game_hooks
 
 environment:
-  sdk: ^3.9.0
+  sdk: ^3.10.0
 
 dependencies:
   clock: ^1.1.1
@@ -11,7 +11,7 @@ dependencies:
   very_good_core_hooks:
     git:
       path: very_good_core/hooks
-      ref: 021b2828dc78684474aa25a6e614b757683dad68
+      ref: 8fb82b97096589ea2d97d4f995684508d9ad4759
       url: https://github.com/VeryGoodOpenSource/very_good_templates
 
 dev_dependencies:
