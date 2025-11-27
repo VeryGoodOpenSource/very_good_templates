@@ -11,8 +11,8 @@ dependencies:
   very_good_core_hooks:
     git:
       path: very_good_core/hooks
-      ref: 8fb82b97096589ea2d97d4f995684508d9ad4759
-      url: https://github.com/VeryGoodOpenSource/very_good_templates
+      ref: b215ade447c7c90ed7a4fbc07a4c26ff82610195
+      url: https://github.com/ricardodalarme/very_good_templates
 
 dev_dependencies:
   mocktail: ^1.0.3
