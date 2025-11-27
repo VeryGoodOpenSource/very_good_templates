@@ -3,28 +3,15 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
 import 'package:very_good_flutter_plugin_hooks/src/cli/cli.dart';
+import 'package:very_good_flutter_plugin_hooks/version.dart';
+
+/// The key for the `projectName` context variable.
+@visibleForTesting
+const projectNameVariableKey = 'project_name';
 
 /// The key for the `dartFixOutput` context variable.
 @visibleForTesting
 const dartFixOutputVariableKey = 'dart_fix_output';
-
-Future<void> run(
-  HookContext context, {
-  @visibleForTesting VeryGoodCli veryGoodCli = VeryGoodCli.instance,
-  @visibleForTesting DartCli dartCli = DartCli.instance,
-}) async {
-  final dartFixOutput =
-      context.vars.containsKey(dartFixOutputVariableKey) &&
-      context.vars[dartFixOutputVariableKey] as bool;
-  if (dartFixOutput) {
-    await _dartFixOutput(
-      logger: context.logger,
-      workingDirectory: Directory.current.path,
-      veryGoodCli: veryGoodCli,
-      dartCli: dartCli,
-    );
-  }
-}
 
 /// Attempts to `dart` fix and format the output.
 ///
@@ -41,37 +28,88 @@ Future<void> run(
 ///
 /// If the [DartCli] or [VeryGoodCli] is not installed, this function will log
 /// a warning and return immediately.
-Future<void> _dartFixOutput({
-  required Logger logger,
-  required String workingDirectory,
-  required VeryGoodCli veryGoodCli,
-  required DartCli dartCli,
+Future<void> run(
+  HookContext context, {
+  @visibleForTesting DartCli dartCli = DartCli.instance,
+  @visibleForTesting VeryGoodCli veryGoodCli = VeryGoodCli.instance,
 }) async {
+  final logger = context.logger;
+  final workingDirectory = Directory.current.path;
+
   if (!await dartCli.isInstalled(logger: logger)) {
-    logger.warn('''Could not fix output because Dart CLI is not installed.''');
-    return;
-  }
-  if (!await veryGoodCli.isInstalled(logger: logger)) {
-    logger.warn(
-      '''Could not fix output because Very Good CLI is not installed.''',
+    return logger.warn(
+      '''Could not fix output because Dart CLI is not installed.''',
     );
-    return;
   }
 
-  try {
-    await veryGoodCli.packagesGet(
+  if (!await veryGoodCli.isInstalled(logger: logger)) {
+    return logger.warn(
+      '''Could not fix output because Very Good CLI is not installed.''',
+    );
+  }
+
+  final progress = logger.progress('Getting dependencies 📦');
+
+  await _wrapWithProcessError(
+    () => veryGoodCli.packagesGet(
       logger: logger,
       recursive: true,
       cwd: workingDirectory,
+    ),
+    logger: logger,
+  );
+
+  final projectName = context.vars[projectNameVariableKey] as String;
+  final directories = $availablePlatforms
+      .where((platform) => context.vars[platform] as bool)
+      .map((platform) => '$workingDirectory/${projectName}_$platform');
+
+  progress.update('Generating Pigeon bindings 🦾');
+
+  await Future.wait(
+    directories.map(
+      (directory) => _wrapWithProcessError(
+        () => dartCli.run(
+          cwd: directory,
+          logger: logger,
+          command: 'pigeon',
+          args: ['--input', 'pigeons/messages.dart'],
+        ),
+        logger: logger,
+      ),
+    ),
+  );
+
+  final dartFixOutput =
+      context.vars.containsKey(dartFixOutputVariableKey) &&
+      context.vars[dartFixOutputVariableKey] as bool;
+
+  if (dartFixOutput) {
+    progress.update('Fixing Dart imports ordering 🔨');
+    await _wrapWithProcessError(
+      () async {
+        await dartCli.fix(logger: logger, cwd: workingDirectory, apply: true);
+        await dartCli.format(logger: logger, cwd: workingDirectory);
+      },
+      logger: logger,
     );
-    await dartCli.fix(logger: logger, apply: true, cwd: workingDirectory);
-    await dartCli.format(logger: logger, cwd: workingDirectory);
+  }
+
+  progress.complete('Completed post generation ✅');
+}
+
+/// Wraps a process in a try-catch block and logs any errors.
+Future<void> _wrapWithProcessError(
+  Future<void> Function() process, {
+  required Logger logger,
+}) async {
+  try {
+    await process();
   } on ProcessException catch (e) {
-    logger.err('''
-Running process ${e.executable} with ${e.arguments} failed:
-${e.message}
-''');
+    logger.err(
+      '''Running process ${e.executable} with ${e.arguments} failed: ${e.message}''',
+    );
   } on Exception catch (e) {
-    logger.err('Unknown error occurred when fixing output: $e');
+    logger.err('Unknown error occurred: $e');
   }
 }
