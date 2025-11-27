@@ -11,7 +11,7 @@ dependencies:
   very_good_core_hooks:
     git:
       path: very_good_core/hooks
-      ref: 8fb82b97096589ea2d97d4f995684508d9ad4759
+      ref: 5d7f3848b432296f02aa3728883adf2e75615b3a
       url: https://github.com/VeryGoodOpenSource/very_good_templates
 
 dev_dependencies:
