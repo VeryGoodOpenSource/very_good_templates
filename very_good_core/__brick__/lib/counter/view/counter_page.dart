@@ -45,7 +45,7 @@ class CounterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final count = context.select((CounterCubit cubit) => cubit.state);
+    final count = context.select<CounterCubit, int>((cubit) => cubit.state);
     return Text('$count', style: theme.textTheme.displayLarge);
   }
 }
