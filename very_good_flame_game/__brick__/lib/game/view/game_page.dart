@@ -64,9 +64,7 @@ class _GameViewState extends State<GameView> {
 
     _game ??=
         widget.game ??
-        {
-          {project_name.pascalCase()},
-        }(
+        {{project_name.pascalCase()}}(
           l10n: context.l10n,
           effectPlayer: context.read<AudioCubit>().effectPlayer,
           textStyle: textStyle,
