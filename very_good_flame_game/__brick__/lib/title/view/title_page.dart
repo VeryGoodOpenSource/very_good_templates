@@ -5,9 +5,8 @@ import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 class TitlePage extends StatelessWidget {
   const TitlePage({super.key});
 
-  static Route<void> route() {
-    return MaterialPageRoute<void>(builder: (_) => const TitlePage());
-  }
+  static Route<void> route() =>
+      MaterialPageRoute<void>(builder: (_) => const TitlePage());
 
   @override
   Widget build(BuildContext context) {

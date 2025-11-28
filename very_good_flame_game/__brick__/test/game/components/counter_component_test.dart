@@ -41,14 +41,12 @@ void main() {
       );
     });
 
-    {{project_name.pascalCase()}} createFlameGame() {
-      return _{{project_name.pascalCase()}}(
-        l10n: l10n,
-        effectPlayer: _MockAudioPlayer(),
-        textStyle: const TextStyle(),
-        images: Images(),
-      );
-    }
+    {{project_name.pascalCase()}} createFlameGame() => _{{project_name.pascalCase()}}(
+      l10n: l10n,
+      effectPlayer: _MockAudioPlayer(),
+      textStyle: const TextStyle(),
+      images: Images(),
+    );
 
     unawaited(
       testWithGame('has all components', createFlameGame, (game) async {

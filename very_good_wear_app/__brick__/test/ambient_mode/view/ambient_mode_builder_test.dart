@@ -29,9 +29,8 @@ void main() {
         MaterialApp(
           home: AmbientModeBuilder(
             listener: listener,
-            builder: (context, isAmbientMode, _) {
-              return Text(isAmbientMode.toString());
-            },
+            builder: (context, isAmbientMode, _) =>
+                Text(isAmbientMode.toString()),
           ),
         ),
       );

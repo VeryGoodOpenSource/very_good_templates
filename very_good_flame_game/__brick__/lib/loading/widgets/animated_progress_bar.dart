@@ -32,36 +32,32 @@ class AnimatedProgressBar extends StatelessWidget {
   );
 
   @override
-  Widget build(BuildContext context) {
-    // Outer bar
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(2),
-      child: SizedBox(
-        height: 16,
-        width: 200,
-        child: ColoredBox(
-          color: backgroundColor,
-          child: Padding(
-            padding: const EdgeInsets.all(2),
-            // Animate the progress bar
-            child: TweenAnimationBuilder(
-              tween: Tween<double>(begin: 0, end: progress),
-              duration: intrinsicAnimationDuration,
-              builder: (BuildContext context, double progress, _) {
-                // Inner bar
-                return FractionallySizedBox(
-                  alignment: Alignment.centerLeft,
-                  widthFactor: progress,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(1),
-                    child: ColoredBox(color: foregroundColor),
-                  ),
-                );
-              },
+  // Outer bar
+  Widget build(BuildContext context) => ClipRRect(
+    borderRadius: BorderRadius.circular(2),
+    child: SizedBox(
+      height: 16,
+      width: 200,
+      child: ColoredBox(
+        color: backgroundColor,
+        child: Padding(
+          padding: const EdgeInsets.all(2),
+          // Animate the progress bar
+          child: TweenAnimationBuilder(
+            tween: Tween<double>(begin: 0, end: progress),
+            duration: intrinsicAnimationDuration,
+            // Inner bar
+            builder: (context, progress, _) => FractionallySizedBox(
+              alignment: Alignment.centerLeft,
+              widthFactor: progress,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(1),
+                child: ColoredBox(color: foregroundColor),
+              ),
             ),
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
 }

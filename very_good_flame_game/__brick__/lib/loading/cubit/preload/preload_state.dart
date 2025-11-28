@@ -30,11 +30,9 @@ class PreloadState extends Equatable {
     int? loadedCount,
     String? currentLabel,
     int? totalCount,
-  }) {
-    return PreloadState._(
-      loadedCount ?? this.loadedCount,
-      currentLabel ?? this.currentLabel,
-      totalCount ?? this.totalCount,
-    );
-  }
+  }) => PreloadState._(
+    loadedCount ?? this.loadedCount,
+    currentLabel ?? this.currentLabel,
+    totalCount ?? this.totalCount,
+  );
 }

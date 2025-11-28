@@ -46,14 +46,12 @@ void main() {
       when(() => images.fromCache(any())).thenReturn(_FakeImage());
     });
 
-    _{{project_name.pascalCase()}} createFlameGame() {
-      return _{{project_name.pascalCase()}}(
-        l10n: l10n,
-        effectPlayer: _MockAudioPlayer(),
-        textStyle: const TextStyle(),
-        images: images,
-      );
-    }
+    _{{project_name.pascalCase()}} createFlameGame() => _{{project_name.pascalCase()}}(
+      l10n: l10n,
+      effectPlayer: _MockAudioPlayer(),
+      textStyle: const TextStyle(),
+      images: images,
+    );
 
     unawaited(
       testWithGame('has all behaviors', createFlameGame, (game) async {

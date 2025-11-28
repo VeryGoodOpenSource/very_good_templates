@@ -16,11 +16,9 @@ class AmbientModeBuilder extends StatelessWidget {
   final Widget? child;
 
   @override
-  Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: _listener,
-      builder: builder,
-      child: child,
-    );
-  }
+  Widget build(BuildContext context) => ValueListenableBuilder(
+    valueListenable: _listener,
+    builder: builder,
+    child: child,
+  );
 }

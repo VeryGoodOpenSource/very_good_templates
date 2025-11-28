@@ -13,9 +13,8 @@ class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(create: (_) => CounterCubit(), child: CounterView());
-  }
+  Widget build(BuildContext context) =>
+      BlocProvider(create: (_) => CounterCubit(), child: CounterView());
 }
 
 class CounterView extends StatefulWidget {
@@ -84,7 +83,7 @@ class CounterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final count = context.select((CounterCubit cubit) => cubit.state);
+    final count = context.select((cubit) => cubit.state);
     return Text('$count', style: theme.textTheme.displayMedium);
   }
 }

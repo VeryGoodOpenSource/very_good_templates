@@ -69,9 +69,8 @@ void main() {
         when(() => effectPlayer.setVolume(any())).thenAnswer((_) async {});
         when(() => bgmPlayer.setVolume(any())).thenAnswer((_) async {});
       },
-      build: () {
-        return AudioCubit.test(effectPlayer: effectPlayer, bgm: bgm, volume: 0);
-      },
+      build: () =>
+          AudioCubit.test(effectPlayer: effectPlayer, bgm: bgm, volume: 0),
       act: (cubit) => cubit.toggleVolume(),
       expect: () => [const AudioState()],
       verify: (_) {

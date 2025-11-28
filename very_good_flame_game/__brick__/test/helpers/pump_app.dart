@@ -14,20 +14,18 @@ extension PumpApp on WidgetTester {
     MockNavigator? navigator,
     PreloadCubit? preloadCubit,
     AudioCubit? audioCubit,
-  }) {
-    return pumpWidget(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider.value(value: preloadCubit ?? MockPreloadCubit()),
-        ],
-        child: MaterialApp(
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          home: navigator != null
-              ? MockNavigatorProvider(navigator: navigator, child: widget)
-              : widget,
-        ),
+  }) => pumpWidget(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider.value(value: preloadCubit ?? MockPreloadCubit()),
+      ],
+      child: MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: navigator != null
+            ? MockNavigatorProvider(navigator: navigator, child: widget)
+            : widget,
       ),
-    );
-  }
+    ),
+  );
 }
