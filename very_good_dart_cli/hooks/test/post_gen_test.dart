@@ -112,8 +112,9 @@ void main() {
   });
 }
 
-Matcher isDartDirectiveOrderingFix({required String path}) =>
-    _IsDartDirectiveOrderingFix(path: path);
+Matcher isDartDirectiveOrderingFix({required String path}) {
+  return _IsDartDirectiveOrderingFix(path: path);
+}
 
 class _IsDartDirectiveOrderingFix extends Matcher {
   const _IsDartDirectiveOrderingFix({required String path}) : _path = path;
@@ -142,8 +143,9 @@ class _IsDartDirectiveOrderingFix extends Matcher {
   }
 
   @override
-  Description describe(Description description) =>
-      description.add('is a `dart fix` for directives_ordering');
+  Description describe(Description description) {
+    return description.add('is a `dart fix` for directives_ordering');
+  }
 
   @override
   Description describeMismatch(
@@ -151,13 +153,16 @@ class _IsDartDirectiveOrderingFix extends Matcher {
     Description mismatchDescription,
     Map<dynamic, dynamic> matchState,
     bool verbose,
-  ) => mismatchDescription.add(
-    'is not a `dart fix` for directives_ordering',
-  );
+  ) {
+    return mismatchDescription.add(
+      'is not a `dart fix` for directives_ordering',
+    );
+  }
 }
 
-Matcher isDartPubGet({required String directory}) =>
-    _IsDartPubGet(directory: directory);
+Matcher isDartPubGet({required String directory}) {
+  return _IsDartPubGet(directory: directory);
+}
 
 class _IsDartPubGet extends Matcher {
   const _IsDartPubGet({required String directory}) : _directory = directory;
@@ -185,8 +190,9 @@ class _IsDartPubGet extends Matcher {
   }
 
   @override
-  Description describe(Description description) =>
-      description.add('is a `dart pub get --directory=$_directory`');
+  Description describe(Description description) {
+    return description.add('is a `dart pub get --directory=$_directory`');
+  }
 
   @override
   Description describeMismatch(
@@ -194,7 +200,9 @@ class _IsDartPubGet extends Matcher {
     Description mismatchDescription,
     Map<dynamic, dynamic> matchState,
     bool verbose,
-  ) => mismatchDescription.add(
-    'is not a `dart pub get --directory=$_directory`',
-  );
+  ) {
+    return mismatchDescription.add(
+      'is not a `dart pub get --directory=$_directory`',
+    );
+  }
 }

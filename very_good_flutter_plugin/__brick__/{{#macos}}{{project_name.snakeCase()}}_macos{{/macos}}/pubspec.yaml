@@ -23,4 +23,4 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^10.1.0-rc.1
+  very_good_analysis: ^10.1.0-rc.2

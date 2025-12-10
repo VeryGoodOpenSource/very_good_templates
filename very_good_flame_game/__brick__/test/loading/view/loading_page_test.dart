@@ -52,8 +52,9 @@ void main() {
     });
 
     testWidgets('loading text', (tester) async {
-      Text textWidgetFinder() =>
-          find.textContaining('Loading').evaluate().first.widget as Text;
+      Text textWidgetFinder() {
+        return find.textContaining('Loading').evaluate().first.widget as Text;
+      }
 
       await tester.pumpApp(LoadingPage(), preloadCubit: preloadCubit);
 

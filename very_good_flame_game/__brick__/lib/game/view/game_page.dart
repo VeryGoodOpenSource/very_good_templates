@@ -13,20 +13,23 @@ import 'package:{{project_name.snakeCase()}}/loading/cubit/cubit.dart';
 class GamePage extends StatelessWidget {
   const GamePage({super.key});
 
-  static Route<void> route() =>
-      MaterialPageRoute<void>(builder: (_) => const GamePage());
+  static Route<void> route() {
+    return MaterialPageRoute<void>(builder: (_) => const GamePage());
+  }
 
   @override
-  Widget build(BuildContext context) => BlocProvider(
-    create: (context) {
-      final audioCache = context.read<PreloadCubit>().audio;
-      return AudioCubit(
-        audioPlayer: AudioPlayer()..audioCache = audioCache,
-        backgroundMusic: Bgm(audioCache: audioCache),
-      );
-    },
-    child: const Scaffold(body: SafeArea(child: GameView())),
-  );
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) {
+        final audioCache = context.read<PreloadCubit>().audio;
+        return AudioCubit(
+          audioPlayer: AudioPlayer()..audioCache = audioCache,
+          backgroundMusic: Bgm(audioCache: audioCache),
+        );
+      },
+      child: const Scaffold(body: SafeArea(child: GameView())),
+    );
+  }
 }
 
 class GameView extends StatefulWidget {
@@ -76,12 +79,14 @@ class _GameViewState extends State<GameView> {
         Align(
           alignment: Alignment.topRight,
           child: BlocBuilder<AudioCubit, AudioState>(
-            builder: (context, state) => IconButton(
-              icon: Icon(
-                state.volume == 0 ? Icons.volume_off : Icons.volume_up,
-              ),
-              onPressed: () => context.read<AudioCubit>().toggleVolume(),
-            ),
+            builder: (context, state) {
+              return IconButton(
+                icon: Icon(
+                  state.volume == 0 ? Icons.volume_off : Icons.volume_up,
+                ),
+                onPressed: () => context.read<AudioCubit>().toggleVolume(),
+              );
+            },
           ),
         ),
       ],

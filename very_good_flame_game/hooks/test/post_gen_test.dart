@@ -118,8 +118,9 @@ void main() {
   });
 }
 
-Matcher isDartDirectiveOrderingFix({required String path}) =>
-    _IsDartDirectiveOrderingFix(path: path);
+Matcher isDartDirectiveOrderingFix({required String path}) {
+  return _IsDartDirectiveOrderingFix(path: path);
+}
 
 class _IsDartDirectiveOrderingFix extends Matcher {
   const _IsDartDirectiveOrderingFix({required String path}) : _path = path;
@@ -148,8 +149,9 @@ class _IsDartDirectiveOrderingFix extends Matcher {
   }
 
   @override
-  Description describe(Description description) =>
-      description.add('is a `dart fix` for directives_ordering');
+  Description describe(Description description) {
+    return description.add('is a `dart fix` for directives_ordering');
+  }
 
   @override
   Description describeMismatch(
@@ -157,13 +159,16 @@ class _IsDartDirectiveOrderingFix extends Matcher {
     Description mismatchDescription,
     Map<dynamic, dynamic> matchState,
     bool verbose,
-  ) => mismatchDescription.add(
-    'is not a `dart fix` for directives_ordering',
-  );
+  ) {
+    return mismatchDescription.add(
+      'is not a `dart fix` for directives_ordering',
+    );
+  }
 }
 
-Matcher isVeryGoodPackagesGet({required String directory}) =>
-    _IsVeryGoodPackagesGet(directory: directory);
+Matcher isVeryGoodPackagesGet({required String directory}) {
+  return _IsVeryGoodPackagesGet(directory: directory);
+}
 
 class _IsVeryGoodPackagesGet extends Matcher {
   const _IsVeryGoodPackagesGet({required String directory})
@@ -190,8 +195,9 @@ class _IsVeryGoodPackagesGet extends Matcher {
   }
 
   @override
-  Description describe(Description description) =>
-      description.add('is a `very_good packages get $_directory`');
+  Description describe(Description description) {
+    return description.add('is a `very_good packages get $_directory`');
+  }
 
   @override
   Description describeMismatch(
@@ -199,12 +205,16 @@ class _IsVeryGoodPackagesGet extends Matcher {
     Description mismatchDescription,
     Map<dynamic, dynamic> matchState,
     bool verbose,
-  ) => mismatchDescription.add(
-    'is not a `very_good packages get $_directory`',
-  );
+  ) {
+    return mismatchDescription.add(
+      'is not a `very_good packages get $_directory`',
+    );
+  }
 }
 
-Matcher isDartFormat({required String path}) => _IsDartFormat(path: path);
+Matcher isDartFormat({required String path}) {
+  return _IsDartFormat(path: path);
+}
 
 class _IsDartFormat extends Matcher {
   const _IsDartFormat({required String path}) : _path = path;
@@ -230,8 +240,9 @@ class _IsDartFormat extends Matcher {
   }
 
   @override
-  Description describe(Description description) =>
-      description.add('is a `dart format --set-exit-if-changed $_path`');
+  Description describe(Description description) {
+    return description.add('is a `dart format --set-exit-if-changed $_path`');
+  }
 
   @override
   Description describeMismatch(
@@ -239,7 +250,9 @@ class _IsDartFormat extends Matcher {
     Description mismatchDescription,
     Map<dynamic, dynamic> matchState,
     bool verbose,
-  ) => mismatchDescription.add(
-    'is not a `dart format --set-exit-if-changed $_path`',
-  );
+  ) {
+    return mismatchDescription.add(
+      'is not a `dart format --set-exit-if-changed $_path`',
+    );
+  }
 }

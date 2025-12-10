@@ -42,12 +42,14 @@ void main() {
     late AudioPlayer audioPlayer;
     late Images images;
 
-    {{project_name.pascalCase()}} createFlameGame() => _{{project_name.pascalCase()}}(
-      l10n: l10n,
-      effectPlayer: audioPlayer,
-      textStyle: const TextStyle(),
-      images: images,
-    );
+    {{project_name.pascalCase()}} createFlameGame() {
+      return _{{project_name.pascalCase()}}(
+        l10n: l10n,
+        effectPlayer: audioPlayer,
+        textStyle: const TextStyle(),
+        images: images,
+      );
+    }
 
     setUpAll(() async {
       registerFallbackValue(_FakeAssetSource());

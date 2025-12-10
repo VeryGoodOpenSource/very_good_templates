@@ -21,8 +21,10 @@ void main() {
       testWidgets('on ambient mode updates', (tester) async {
         await tester.pumpWidget(const App());
 
-        MaterialApp getMaterialApp() =>
-            find.byType(MaterialApp).evaluate().first.widget as MaterialApp;
+        MaterialApp getMaterialApp() {
+          return find.byType(MaterialApp).evaluate().first.widget
+              as MaterialApp;
+        }
 
         expect(
           getMaterialApp().theme?.colorScheme,
