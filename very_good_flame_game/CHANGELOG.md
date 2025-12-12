@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.2...very_good_flame_game-v1.2.0) (2025-12-12)
+
+
+### Features
+
+* add bloc lint to templates with bloc ([#382](https://github.com/VeryGoodOpenSource/very_good_templates/issues/382)) ([512edf2](https://github.com/VeryGoodOpenSource/very_good_templates/commit/512edf2117e9e1a8635a02bc74ac319b01deed54))
+* upgrade to flutter 3.38.1 ([#394](https://github.com/VeryGoodOpenSource/very_good_templates/issues/394)) ([e436d76](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e436d7606b0998fc5231d3bd1fd0c4650d0c8ae8))
+
+
+### Bug Fixes
+
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
+
+### Miscellaneous Chores
+
+* **ios:** migrate deprecated UIApplicationMain to [@main](https://github.com/main) ([#406](https://github.com/VeryGoodOpenSource/very_good_templates/issues/406)) ([0c1b5a0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c1b5a08b1c0725b828a1608ca53d0afd1d6c567))
+* tighten template dependencies ([#384](https://github.com/VeryGoodOpenSource/very_good_templates/issues/384)) ([922bf00](https://github.com/VeryGoodOpenSource/very_good_templates/commit/922bf00157ef07e6e9971a1eb938a0d187e1bd8d))
+* tighten template dependencies ([#385](https://github.com/VeryGoodOpenSource/very_good_templates/issues/385)) ([10ed573](https://github.com/VeryGoodOpenSource/very_good_templates/commit/10ed57357e67dc8a9eb0d132e9e7272c743f6781))
+* upgrade iOS target version to 13.0 ([#407](https://github.com/VeryGoodOpenSource/very_good_templates/issues/407)) ([0c33e73](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c33e73350507590e6c67eca095f7828ad42f140))
+
 ## [1.1.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.1...very_good_flame_game-v1.1.2) (2025-09-30)
 
 
