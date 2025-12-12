@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.1.0...very_good_dart_package-v1.2.0) (2025-12-12)
+
+
+### Features
+
+* upgrade to flutter 3.38.1 ([#394](https://github.com/VeryGoodOpenSource/very_good_templates/issues/394)) ([e436d76](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e436d7606b0998fc5231d3bd1fd0c4650d0c8ae8))
+
+
+### Bug Fixes
+
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
 ## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.0.0...very_good_dart_package-v1.1.0) (2025-09-22)
 
 
