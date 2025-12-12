@@ -95,7 +95,7 @@ dev_dependencies:
 {{#my_variable}}  mocktail: ^1.0.4{{/my_variable}}
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^6.0.0
+  very_good_analysis: ^10.1.0
 ''';
 
     verify(() => pubspec.writeAsStringSync(expectedPubspec)).called(1);
@@ -127,7 +127,7 @@ dev_dependencies:
       containsAll([
         'Updated plugin_platform_interface to ^2.2.0 in pubspec.yaml',
         'Updated mocktail to ^1.0.4 in pubspec.yaml',
-        'Updated very_good_analysis to ^6.0.0 in pubspec.yaml',
+        'Updated very_good_analysis to ^10.1.0 in pubspec.yaml',
       ]),
     );
   });
