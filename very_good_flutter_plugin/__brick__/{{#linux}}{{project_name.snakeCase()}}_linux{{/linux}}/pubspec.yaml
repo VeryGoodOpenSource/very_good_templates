@@ -18,9 +18,12 @@ dependencies:
   flutter:
     sdk: flutter
   {{project_name.snakeCase()}}_platform_interface:
-    path: ../{{project_name.snakeCase()}}_platform_interface
+    path: ../{{project_name.snakeCase()}}_platform_interface{{#use_build_hooks}}
+  hooks: ^0.1.0
+  code_assets: ^0.1.0{{/use_build_hooks}}
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^10.0.0
+  very_good_analysis: ^10.0.0{{#use_build_hooks}}
+  native_toolchain_c: ^0.5.0{{/use_build_hooks}}
