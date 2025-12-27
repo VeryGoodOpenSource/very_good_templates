@@ -1,0 +1,36 @@
+name: Swift Format
+
+on:
+  workflow_call:
+    inputs:
+      working_directory:
+        required: true
+        type: string
+        description: "The working directory containing Swift files to format"
+      swiftformat_version:
+        required: false
+        type: string
+        default: "0.55.3"
+        description: "The version of SwiftFormat to use"
+
+jobs:
+  swift-format:
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        working-directory: ${{ inputs.working_directory }}
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v6
+
+      - name: 📥 Install SwiftFormat
+        run: brew install swiftformat
+
+      - name: ✨ Check Swift Formatting
+        run: |
+          swiftformat --config "${GITHUB_WORKSPACE}/.swiftformat" --lint . || {
+            echo "::error::Swift formatting issues found. Run 'swiftformat .' locally to fix."
+            exit 1
+          }
