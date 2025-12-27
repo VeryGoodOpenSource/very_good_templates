@@ -1,0 +1,23 @@
+# SwiftFormat configuration
+# https://github.com/nicklockwood/SwiftFormat
+
+# Format options
+--indent 4
+--indentcase false
+--trimwhitespace always
+--voidtype void
+--nospaceoperators ..<, ...
+--ifdef no-indent
+--stripunusedargs closure-only
+--maxwidth 100
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+
+# Rules
+--enable isEmpty
+--disable redundantSelf
+--disable trailingCommas
+
+# File options
+--exclude Pods,Generated,DerivedData,.build
