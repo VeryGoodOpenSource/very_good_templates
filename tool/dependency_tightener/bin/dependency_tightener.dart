@@ -24,6 +24,12 @@ Future<void> main(List<String> args) async {
       'skip-packages',
       help:
           'A comma-separated list of package names to skip version tightening.',
+    )
+    ..addFlag(
+      'auto-detect-sdk-pinned',
+      help: 'Automatically detect and skip SDK-pinned packages '
+          '(e.g., intl pinned by flutter_localizations).',
+      defaultsTo: true,
     );
   final arguments = argumentParser.parse(args);
 
@@ -31,6 +37,7 @@ Future<void> main(List<String> args) async {
   final skipPackages = (arguments['skip-packages'] as String?)
       ?.split(',')
       .toSet();
+  final autoDetectSdkPinned = arguments['auto-detect-sdk-pinned'] as bool;
 
   final pubspecFiles = targetDirectory
       .listSync(recursive: true)
@@ -43,6 +50,7 @@ Future<void> main(List<String> args) async {
     await tightenDependencies(
       pubspec,
       skipPackages: skipPackages,
+      autoDetectSdkPinned: autoDetectSdkPinned,
       pubUpdater: pubUpdater,
     );
   }
