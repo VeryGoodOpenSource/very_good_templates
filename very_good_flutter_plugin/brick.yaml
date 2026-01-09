@@ -51,3 +51,10 @@ vars:
       formatted.
     default: false
     prompt: Should the generated output fix and format Dart files?
+  use_build_hooks:
+    type: boolean
+    description: >-
+      Whether to include build hooks support for compiling native code.
+      Build hooks enable bundling native assets (C/C++/Rust) with your plugin.
+    default: false
+    prompt: Include build hooks support for native assets?

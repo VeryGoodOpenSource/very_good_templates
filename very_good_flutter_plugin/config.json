@@ -4,5 +4,6 @@
   "application_id": "verygood.ventures.test",
   "description": "A generated Very Good Flutter Plugin",
   "publishable": false,
-  "dart_fix_output": true
+  "dart_fix_output": true,
+  "use_build_hooks": false
 }
