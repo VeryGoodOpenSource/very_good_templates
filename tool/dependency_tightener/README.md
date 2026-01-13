@@ -24,7 +24,8 @@ dart bin/dependency_tightener.dart --directory path/to/directory
 **Arguments:**
 
 - `directory`: The directory containing the `pubspec.yaml` files to be updated. When unspecified, it defaults to the current working directory.
-- `skip-packages`: A comma-separated list of package names to skip version tightening. When unspecified, no packages are skipped.
+- `skip-packages`: A comma-separated list of additional package names to skip version tightening. Note that pinned packages are always skipped by default (see below).
+- `include-pinned`: Include pinned packages in version tightening. This is not recommended as it may cause version conflicts with the Flutter SDK.
 
 ### Output
 
@@ -47,3 +48,32 @@ dependencies:
 ```
 
 💡 **Note**: The script will replace the previous versions with a version constraint range that is tightened to the latest version. It will always use the [caret syntax](https://dart.dev/tools/pub/dependencies#caret-syntax), even if the previous version was pinned.
+
+## Pinned Packages
+
+Some packages are tied to specific Flutter SDK versions and should not be auto-updated. These packages are defined in `lib/src/pinned_packages.dart` and are automatically skipped during dependency tightening.
+
+Currently pinned packages:
+
+- `intl` - Tied to Flutter SDK's `flutter_localizations` version
+
+### Adding New Pinned Packages
+
+To pin a new package, add it to the `pinnedPackages` set in `lib/src/pinned_packages.dart`:
+
+```dart
+const pinnedPackages = <PinnedPackage>{
+  PinnedPackage(
+    name: 'package_name',
+    reason: 'Explanation of why this package is pinned.',
+  ),
+};
+```
+
+### Overriding Pinned Packages
+
+If you need to update a pinned package (not recommended), use the `--include-pinned` flag:
+
+```sh
+dart bin/dependency_tightener.dart --directory path/to/directory --include-pinned
+```
