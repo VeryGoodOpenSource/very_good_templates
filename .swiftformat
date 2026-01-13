@@ -20,4 +20,4 @@
 --disable trailingCommas
 
 # File options
---exclude Pods,Generated,DerivedData,.build
+--exclude Pods,Generated,DerivedData,.build,Flutter,GeneratedPluginRegistrant.swift
