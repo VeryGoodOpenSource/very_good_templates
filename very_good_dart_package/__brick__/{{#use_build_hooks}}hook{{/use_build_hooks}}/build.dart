@@ -19,15 +19,10 @@ void main(List<String> args) async {
     final cbuilder = CBuilder.library(
       name: packageName,
       assetName: '$packageName.dart',
-      sources: [
-        'src/native_example.c',
-      ],
+      sources: ['src/native_example.c'],
     );
 
     // Execute the build
-    await cbuilder.run(
-      input: input,
-      output: output,
-    );
+    await cbuilder.run(input: input, output: output);
   });
 }

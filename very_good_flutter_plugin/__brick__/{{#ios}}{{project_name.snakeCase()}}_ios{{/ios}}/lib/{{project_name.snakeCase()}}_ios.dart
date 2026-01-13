@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:{{project_name.snakeCase()}}_platform_interface/{{project_name.snakeCase()}}_platform_interface.dart';
+import 'package:{{project_name.snakeCase()}}_platform_interface/{{project_name.snakeCase()}}_platform_interface.dart';{{#use_build_hooks}}
+
+export 'src/native_bindings.dart';{{/use_build_hooks}}
 
 /// The iOS implementation of [{{project_name.pascalCase()}}Platform].
 class {{project_name.pascalCase()}}IOS extends {{project_name.pascalCase()}}Platform {

@@ -28,20 +28,20 @@ The build hooks are automatically invoked during `dart run`, `dart build`, or `f
 
 #### Example Native Function
 
-Each platform implementation includes an example native `add` function. Here's how to use it:
+Each platform implementation includes an example native `add` function that's already bound via FFI. Here's how to use it:
 
 ```dart
-import 'dart:ffi';
 import 'package:{{project_name.snakeCase()}}_linux/{{project_name.snakeCase()}}_linux.dart';
 
-@Native<Int32 Function(Int32, Int32)>()
-external int add(int a, int b);
-
 void main() {
-  final result = add(2, 3); // Returns 5
-  print(result);
+  // The add function is already exposed via @Native annotation
+  // in lib/src/native_bindings.dart
+  final result = add(24, 18); // Returns 42
+  print('24 + 18 = $result');
 }
 ```
+
+The native bindings are located in each platform's `lib/src/native_bindings.dart` file, which uses the `@Native` annotation to automatically link to the compiled native code.
 
 #### Adding More Native Code
 
