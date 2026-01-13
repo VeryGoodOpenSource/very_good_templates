@@ -9,7 +9,10 @@ let package = Package(
         .iOS("13.0"),
     ],
     products: [
-        .library(name: "{{project_name.paramCase()}}-ios", targets: ["{{project_name.snakeCase()}}_ios"])
+        .library(
+            name: "{{project_name.paramCase()}}-ios",
+            targets: ["{{project_name.snakeCase()}}_ios"]
+        )
     ],
     dependencies: [],
     targets: [

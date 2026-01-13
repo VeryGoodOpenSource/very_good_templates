@@ -26,14 +26,17 @@ static void method_call_cb(FlMethodChannel* channel, FlMethodCall* method_call,
   const gchar* method = fl_method_call_get_name(method_call);
 
   g_autoptr(FlMethodResponse) response = nullptr;
-  if (strcmp(method, kGetPlatformName) == 0)
-    response = FL_METHOD_RESPONSE(fl_method_success_response_new(fl_value_new_string("Linux")));
-  else
+  if (strcmp(method, kGetPlatformName) == 0) {
+    response = FL_METHOD_RESPONSE(
+        fl_method_success_response_new(fl_value_new_string("Linux")));
+  } else {
     response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
+  }
 
   g_autoptr(GError) error = nullptr;
-  if (!fl_method_call_respond(method_call, response, &error))
+  if (!fl_method_call_respond(method_call, response, &error)) {
     g_warning("Failed to send method call response: %s", error->message);
+  }
 }
 
 static void fl_{{project_name.snakeCase()}}_plugin_dispose(GObject* object) {

@@ -9,7 +9,10 @@ let package = Package(
         .macOS("10.15")
     ],
     products: [
-        .library(name: "{{project_name.paramCase()}}-macos", targets: ["{{project_name.snakeCase()}}_macos"])
+        .library(
+            name: "{{project_name.paramCase()}}-macos",
+            targets: ["{{project_name.snakeCase()}}_macos"]
+        )
     ],
     dependencies: [],
     targets: [
