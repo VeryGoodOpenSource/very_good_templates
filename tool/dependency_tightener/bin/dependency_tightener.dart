@@ -22,22 +22,29 @@ Future<void> main(List<String> args) async {
     )
     ..addOption(
       'skip-packages',
-      help:
-          'A comma-separated list of package names to skip version tightening.',
+      help: 'A comma-separated list of additional package names to skip '
+          'version tightening. Note: Pinned packages '
+          '(${pinnedPackageNames.join(', ')}) are always skipped by default.',
     )
     ..addFlag(
-      'auto-detect-sdk-pinned',
-      help: 'Automatically detect and skip SDK-pinned packages '
-          '(e.g., intl pinned by flutter_localizations).',
-      defaultsTo: true,
+      'include-pinned',
+      help: 'Include pinned packages in version tightening (not recommended).',
+      negatable: false,
     );
   final arguments = argumentParser.parse(args);
 
   final targetDirectory = Directory(arguments['directory'] as String);
-  final skipPackages = (arguments['skip-packages'] as String?)
-      ?.split(',')
-      .toSet();
-  final autoDetectSdkPinned = arguments['auto-detect-sdk-pinned'] as bool;
+  final includePinned = arguments['include-pinned'] as bool;
+
+  final skipPackages = <String>{};
+  if (!includePinned) {
+    skipPackages.addAll(pinnedPackageNames);
+  }
+
+  final additionalSkipPackages = arguments['skip-packages'] as String?;
+  if (additionalSkipPackages != null) {
+    skipPackages.addAll(additionalSkipPackages.split(','));
+  }
 
   final pubspecFiles = targetDirectory
       .listSync(recursive: true)
@@ -49,8 +56,7 @@ Future<void> main(List<String> args) async {
   for (final pubspec in pubspecFiles) {
     await tightenDependencies(
       pubspec,
-      skipPackages: skipPackages,
-      autoDetectSdkPinned: autoDetectSdkPinned,
+      skipPackages: skipPackages.isEmpty ? null : skipPackages,
       pubUpdater: pubUpdater,
     );
   }
