@@ -6,16 +6,24 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-class {{project_name.pascalCase()}}Plugin : FlutterPlugin, MethodCallHandler {
+class {{project_name.pascalCase()}}Plugin :
+    FlutterPlugin,
+    MethodCallHandler {
     private lateinit var channel: MethodChannel
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         channel =
-            MethodChannel(flutterPluginBinding.binaryMessenger, "{{project_name.snakeCase()}}_android")
+            MethodChannel(
+                flutterPluginBinding.binaryMessenger,
+                "{{project_name.snakeCase()}}_android",
+            )
         channel.setMethodCallHandler(this)
     }
 
-    override fun onMethodCall(call: MethodCall, result: Result) {
+    override fun onMethodCall(
+        call: MethodCall,
+        result: Result,
+    ) {
         if (call.method == "getPlatformName") {
             result.success("Android ${android.os.Build.VERSION.RELEASE}")
         } else {
