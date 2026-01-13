@@ -9,10 +9,11 @@ class MainActivity : FlutterActivity() {
     /**
      * A method to hook rotary input events into the "WearableRotaryPlugin" class.
      */
-    override fun onGenericMotionEvent(event: MotionEvent?): Boolean = when {
-        WearableRotaryPlugin.onGenericMotionEvent(event) -> true
-        else -> super.onGenericMotionEvent(event)
-    }
+    override fun onGenericMotionEvent(event: MotionEvent?): Boolean =
+        when {
+            WearableRotaryPlugin.onGenericMotionEvent(event) -> true
+            else -> super.onGenericMotionEvent(event)
+        }
 
     /**
      * Makes the app assume the rounded canvas appearance on rounded screens.
