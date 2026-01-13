@@ -5,6 +5,4 @@
 import FlutterMacOS
 import Foundation
 
-
-func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-}
+func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {}
