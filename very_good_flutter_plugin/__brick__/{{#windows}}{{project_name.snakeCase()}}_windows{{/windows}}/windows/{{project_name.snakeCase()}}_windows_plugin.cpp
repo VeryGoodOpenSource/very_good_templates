@@ -16,7 +16,7 @@ using flutter::EncodableValue;
 
 class {{project_name.pascalCase()}}Windows : public flutter::Plugin {
  public:
-  static void RegisterWithRegistrar(flutter::PluginRegistrarWindows *registrar);
+  static void RegisterWithRegistrar(flutter::PluginRegistrarWindows* registrar);
 
   {{project_name.pascalCase()}}Windows();
 
@@ -24,25 +24,22 @@ class {{project_name.pascalCase()}}Windows : public flutter::Plugin {
 
  private:
   // Called when a method is called on this plugin's channel from Dart.
-  void HandleMethodCall(
-      const flutter::MethodCall<flutter::EncodableValue> &method_call,
-      std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result);
+  void HandleMethodCall(const flutter::MethodCall<flutter::EncodableValue>& method_call,
+                        std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result);
 };
 
 // static
 void {{project_name.pascalCase()}}Windows::RegisterWithRegistrar(
-    flutter::PluginRegistrarWindows *registrar) {
-  auto channel =
-      std::make_unique<flutter::MethodChannel<flutter::EncodableValue>>(
-          registrar->messenger(), "{{project_name.snakeCase()}}_windows",
-          &flutter::StandardMethodCodec::GetInstance());
+    flutter::PluginRegistrarWindows* registrar) {
+  auto channel = std::make_unique<flutter::MethodChannel<flutter::EncodableValue>>(
+      registrar->messenger(), "{{project_name.snakeCase()}}_windows",
+      &flutter::StandardMethodCodec::GetInstance());
 
   auto plugin = std::make_unique<{{project_name.pascalCase()}}Windows>();
 
-  channel->SetMethodCallHandler(
-      [plugin_pointer = plugin.get()](const auto &call, auto result) {
-        plugin_pointer->HandleMethodCall(call, std::move(result));
-      });
+  channel->SetMethodCallHandler([plugin_pointer = plugin.get()](const auto& call, auto result) {
+    plugin_pointer->HandleMethodCall(call, std::move(result));
+  });
 
   registrar->AddPlugin(std::move(plugin));
 }
@@ -52,12 +49,11 @@ void {{project_name.pascalCase()}}Windows::RegisterWithRegistrar(
 {{project_name.pascalCase()}}Windows::~{{project_name.pascalCase()}}Windows() {}
 
 void {{project_name.pascalCase()}}Windows::HandleMethodCall(
-    const flutter::MethodCall<flutter::EncodableValue> &method_call,
+    const flutter::MethodCall<flutter::EncodableValue>& method_call,
     std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
   if (method_call.method_name().compare("getPlatformName") == 0) {
     result->Success(EncodableValue("Windows"));
-  }
-  else {
+  } else {
     result->NotImplemented();
   }
 }
@@ -67,6 +63,6 @@ void {{project_name.pascalCase()}}Windows::HandleMethodCall(
 void {{project_name.pascalCase()}}WindowsRegisterWithRegistrar(
     FlutterDesktopPluginRegistrarRef registrar) {
   {{project_name.pascalCase()}}Windows::RegisterWithRegistrar(
-      flutter::PluginRegistrarManager::GetInstance()
-          ->GetRegistrar<flutter::PluginRegistrarWindows>(registrar));
+      flutter::PluginRegistrarManager::GetInstance()->GetRegistrar<flutter::PluginRegistrarWindows>(
+          registrar));
 }

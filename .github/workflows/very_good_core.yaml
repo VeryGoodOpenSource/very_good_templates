@@ -9,12 +9,18 @@ on:
     paths:
       - .github/workflows/very_good_core.yaml
       - "very_good_core/**"
+      - .editorconfig
+      - .swiftformat
+      - .clang-format
     branches:
       - main
   pull_request:
     paths:
       - .github/workflows/very_good_core.yaml
       - "very_good_core/**"
+      - .editorconfig
+      - .swiftformat
+      - .clang-format
     branches:
       - main
 
@@ -46,8 +52,17 @@ jobs:
           dart pub global activate very_good_cli
           very_good packages get --recursive very_good_core_output
 
-      - name: ✨ Check Formatting
+      - name: ✨ Check Dart Formatting
         run: dart format --set-exit-if-changed very_good_core_output
+
+      - name: ✨ Check Kotlin Formatting
+        run: |
+          curl -sSLO https://github.com/pinterest/ktlint/releases/download/1.5.0/ktlint
+          chmod a+x ktlint
+          ./ktlint --editorconfig="${GITHUB_WORKSPACE}/.editorconfig" "very_good_core_output/**/src/main/kotlin/**/*.kt" || {
+            echo "::error::Kotlin formatting issues found. Run 'ktlint --format' locally to fix."
+            exit 1
+          }
 
       - name: 🕵️ Analyze
         run: dart analyze --fatal-infos --fatal-warnings very_good_core_output
@@ -61,3 +76,84 @@ jobs:
         uses: VeryGoodOpenSource/very_good_coverage@v3
         with:
           path: very_good_core/very_good_core_output/coverage/lcov.info
+
+  swift-format:
+    defaults:
+      run:
+        working-directory: very_good_core/
+
+    runs-on: macos-latest
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v6
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.38.x"
+
+      - name: 🧱 Mason Make
+        run: |
+          dart pub global activate mason_cli
+          mason get
+          mason make very_good_core -c config.json --on-conflict overwrite -o very_good_core_output
+
+      - name: 📥 Install SwiftFormat
+        run: brew install swiftformat
+
+      - name: ✨ Check Swift Formatting
+        run: |
+          swiftformat --config "${GITHUB_WORKSPACE}/.swiftformat" --lint very_good_core_output/ios very_good_core_output/macos || {
+            echo "::error::Swift formatting issues found. Run 'swiftformat .' locally to fix."
+            exit 1
+          }
+
+  cpp-format:
+    defaults:
+      run:
+        working-directory: very_good_core/
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v6
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.38.x"
+
+      - name: 🧱 Mason Make
+        run: |
+          dart pub global activate mason_cli
+          mason get
+          mason make very_good_core -c config.json --on-conflict overwrite -o very_good_core_output
+
+      - name: 📥 Install clang-format
+        run: sudo apt-get install -y clang-format
+
+      - name: ✨ Check C++ Formatting
+        run: |
+          CPP_FILES=$(find very_good_core_output -type f \( -name "*.h" -o -name "*.cpp" -o -name "*.cc" -o -name "*.c" \) | grep -v -E "(Pods|DerivedData|build|.dart_tool)" || true)
+
+          if [ -z "$CPP_FILES" ]; then
+            echo "No C++ files found to check"
+            exit 0
+          fi
+
+          ERRORS=0
+          for file in $CPP_FILES; do
+            if ! clang-format --style=file:"${GITHUB_WORKSPACE}/.clang-format" --dry-run --Werror "$file" 2>/dev/null; then
+              echo "::error file=$file::Formatting issues found in $file"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+
+          if [ $ERRORS -gt 0 ]; then
+            echo "::error::C++ formatting issues found in $ERRORS file(s). Run 'clang-format -i <file>' locally to fix."
+            exit 1
+          fi
+
+          echo "All C++ files are properly formatted!"
