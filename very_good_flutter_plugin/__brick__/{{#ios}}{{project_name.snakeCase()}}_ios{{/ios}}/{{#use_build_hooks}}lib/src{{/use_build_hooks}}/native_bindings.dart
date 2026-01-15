@@ -21,7 +21,7 @@ import 'dart:ffi';
 ///
 /// Example usage:
 /// ```dart
-/// import 'package:{{project_name.snakeCase()}}_ios/{{project_name.snakeCase()}}_ios.dart';
+/// import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 ///
 /// void main() {
 ///   final result = add(24, 18);

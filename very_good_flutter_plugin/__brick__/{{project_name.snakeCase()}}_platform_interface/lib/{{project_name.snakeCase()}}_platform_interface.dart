@@ -33,4 +33,12 @@ abstract class {{project_name.pascalCase()}}Platform extends PlatformInterface {
 
   /// Return the current platform name.
   Future<String?> getPlatformName();
+{{#use_build_hooks}}
+
+  /// Adds two integers using native code.
+  ///
+  /// This method delegates to the platform-specific implementation,
+  /// which uses FFI to call native C code compiled by the build hook.
+  int add(int a, int b);
+{{/use_build_hooks}}
 }
