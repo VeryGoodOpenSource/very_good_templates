@@ -5,6 +5,13 @@ version: 0.1.0+1
 
 environment:
   sdk: ^3.10.0
+{{#use_build_hooks}}
+
+dependencies:
+  hooks: ^1.0.0
+  code_assets: ^1.0.0
+  native_toolchain_c: ^0.17.0
+{{/use_build_hooks}}
 
 dev_dependencies:
   mocktail: ^1.0.4

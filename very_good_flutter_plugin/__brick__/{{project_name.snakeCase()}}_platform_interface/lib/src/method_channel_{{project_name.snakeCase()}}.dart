@@ -12,4 +12,13 @@ class MethodChannel{{project_name.pascalCase()}} extends {{project_name.pascalCa
   Future<String?> getPlatformName() {
     return methodChannel.invokeMethod<String>('getPlatformName');
   }
+{{#use_build_hooks}}
+
+  @override
+  int add(int a, int b) {
+    throw UnsupportedError(
+      'add() requires a platform implementation with native build hooks support.',
+    );
+  }
+{{/use_build_hooks}}
 }

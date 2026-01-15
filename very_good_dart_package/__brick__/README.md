@@ -15,6 +15,31 @@ Install via `dart pub add`:
 ```sh
 dart pub add {{project_name.snakeCase()}}
 ```
+{{#use_build_hooks}}
+
+## Native FFI Support 🔧
+
+This package includes native C code that is automatically compiled using Dart build hooks. The native functions are exposed to Dart via FFI (Foreign Function Interface) using the `@Native` annotation.
+
+### Example Usage
+
+```dart
+import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
+
+void main() {
+  // Use the native add function
+  final result = add(24, 18);
+  print('24 + 18 = $result'); // Prints: 24 + 18 = 42
+
+  // Or use it through the class wrapper
+  const calculator = {{project_name.pascalCase()}}();
+  final sum = calculator.calculateSum(10, 20);
+  print('10 + 20 = $sum'); // Prints: 10 + 20 = 30
+}
+```
+
+The native code is located in `src/native_example.c` and is automatically compiled during the build process. For more information about Dart build hooks, see the [official documentation](https://dart.dev/tools/hooks).
+{{/use_build_hooks}}
 
 ---
 

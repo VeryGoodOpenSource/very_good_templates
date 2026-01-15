@@ -8,3 +8,19 @@ Future<String> getPlatformName() async {
   if (platformName == null) throw Exception('Unable to get platform name.');
   return platformName;
 }
+{{#use_build_hooks}}
+
+/// Adds two integers using native code.
+///
+/// This function delegates to the platform-specific implementation,
+/// which uses FFI to call native C code compiled by the build hook.
+///
+/// Throws [UnsupportedError] on platforms that don't support native code (web).
+///
+/// Example:
+/// ```dart
+/// final result = add(24, 18);
+/// print('24 + 18 = $result'); // Prints: 24 + 18 = 42
+/// ```
+int add(int a, int b) => _platform.add(a, b);
+{{/use_build_hooks}}
