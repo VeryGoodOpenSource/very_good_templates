@@ -371,6 +371,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "{{project_name.titleCase()}}";
+				FLUTTER_TARGET = lib/main_production.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -464,6 +465,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "{{project_name.titleCase()}}";
+				FLUTTER_TARGET = lib/main_production.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -552,6 +554,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "{{project_name.titleCase()}}";
+				FLUTTER_TARGET = lib/main_production.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -645,6 +648,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] {{project_name.titleCase()}}";
+				FLUTTER_TARGET = lib/main_development.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -736,6 +740,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] {{project_name.titleCase()}}";
+				FLUTTER_TARGET = lib/main_development.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -826,6 +831,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] {{project_name.titleCase()}}";
+				FLUTTER_TARGET = lib/main_development.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -919,6 +925,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] {{project_name.titleCase()}}";
+				FLUTTER_TARGET = lib/main_staging.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1012,6 +1019,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] {{project_name.titleCase()}}";
+				FLUTTER_TARGET = lib/main_staging.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1100,6 +1108,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] {{project_name.titleCase()}}";
+				FLUTTER_TARGET = lib/main_staging.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

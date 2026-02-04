@@ -20,6 +20,8 @@ jobs:
         run: dart pub get --directory tool/dependency_tightener
 
       - name: 🪢 Tighten dependencies
+        # SDK-pinned packages (like intl via flutter_localizations) are
+        # automatically detected and skipped by the dependency tightener.
         run: |
           dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_core/__brick__
           dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_dart_cli/__brick__
@@ -35,7 +37,7 @@ jobs:
           git config user.email vgvbot@users.noreply.github.com
 
       - name: 🤖 Create Pull Request
-        uses: peter-evans/create-pull-request@v8.0.0
+        uses: peter-evans/create-pull-request@v8.1.0
         with:
           base: main
           branch: vgvbot/dependency_tightener
