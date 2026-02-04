@@ -29,5 +29,4 @@ import 'dart:ffi';
 /// }
 /// ```
 @Native<Int32 Function(Int32, Int32)>()
-external int add(int a, int b);
-{{/use_build_hooks}}
+external int add(int a, int b);{{/use_build_hooks}}

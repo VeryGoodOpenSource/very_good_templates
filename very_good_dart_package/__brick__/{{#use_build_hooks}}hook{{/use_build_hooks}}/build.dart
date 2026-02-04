@@ -18,7 +18,7 @@ void main(List<String> args) async {
     // Configure the C library builder
     final cbuilder = CBuilder.library(
       name: packageName,
-      assetName: '$packageName.dart',
+      assetName: 'package:$packageName/src/native_bindings.dart',
       sources: ['src/native_example.c'],
     );
 
