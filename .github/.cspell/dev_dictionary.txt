@@ -1,4 +1,6 @@
 # Other phrases that are not words but are getting flagged. Typically contained in localization files or URLs:
+cbuilder # CBuilder class from native_toolchain_c package
+toolchain # Native toolchain for building C code
 aplicación # "Application" in Spanish.
 botón # "Button" in Spanish.
 buen # "Good" in Spanish.

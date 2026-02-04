@@ -9,4 +9,13 @@ class {{project_name.pascalCase()}}Web extends {{project_name.pascalCase()}}Plat
 
   @override
   Future<String?> getPlatformName() async => 'Web';
+{{#use_build_hooks}}
+
+  @override
+  int add(int a, int b) {
+    throw UnsupportedError(
+      'Native code is not supported on web.',
+    );
+  }
+{{/use_build_hooks}}
 }
