@@ -20,6 +20,8 @@ jobs:
         run: dart pub get --directory tool/dependency_tightener
 
       - name: 🪢 Tighten dependencies
+        # SDK-pinned packages (like intl via flutter_localizations) are
+        # automatically detected and skipped by the dependency tightener.
         run: |
           dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_core/__brick__
           dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_dart_cli/__brick__
