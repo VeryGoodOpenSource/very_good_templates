@@ -1,5 +1,5 @@
-name: {{project_name.snakeCase()}}
-description: {{{description}}}
+name: { { project_name.snakeCase() } }
+description: { { { description } } }
 version: 1.0.0+1
 publish_to: none
 
@@ -31,7 +31,7 @@ dev_dependencies:
     sdk: flutter
   mockingjay: ^2.1.0
   mocktail: ^1.0.4
-  very_good_analysis: ^10.1.0-rc.2
+  very_good_analysis: ^10.1.0
 
 flutter:
   generate: true
