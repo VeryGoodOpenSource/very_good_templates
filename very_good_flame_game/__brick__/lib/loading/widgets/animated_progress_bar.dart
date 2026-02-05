@@ -47,7 +47,7 @@ class AnimatedProgressBar extends StatelessWidget {
             child: TweenAnimationBuilder(
               tween: Tween<double>(begin: 0, end: progress),
               duration: intrinsicAnimationDuration,
-              builder: (BuildContext context, double progress, _) {
+              builder: (context, progress, _) {
                 // Inner bar
                 return FractionallySizedBox(
                   alignment: Alignment.centerLeft,
