@@ -1,0 +1,50 @@
+name: C++ Format
+
+on:
+  workflow_call:
+    inputs:
+      working_directory:
+        required: true
+        type: string
+        description: "The working directory containing C++ files to format"
+
+jobs:
+  cpp-format:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ inputs.working_directory }}
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v6
+
+      - name: 📥 Install clang-format
+        run: sudo apt-get install -y clang-format
+
+      - name: ✨ Check C++ Formatting
+        run: |
+          # Find all C++ header and source files
+          CPP_FILES=$(find . -type f \( -name "*.h" -o -name "*.cpp" -o -name "*.cc" -o -name "*.c" \) | grep -v -E "(Pods|DerivedData|build|.dart_tool)" || true)
+
+          if [ -z "$CPP_FILES" ]; then
+            echo "No C++ files found to check"
+            exit 0
+          fi
+
+          # Check formatting
+          ERRORS=0
+          for file in $CPP_FILES; do
+            if ! clang-format --style=file:"${GITHUB_WORKSPACE}/.clang-format" --dry-run --Werror "$file" 2>/dev/null; then
+              echo "::error file=$file::Formatting issues found in $file"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+
+          if [ $ERRORS -gt 0 ]; then
+            echo "::error::C++ formatting issues found in $ERRORS file(s). Run 'clang-format -i <file>' locally to fix."
+            exit 1
+          fi
+
+          echo "All C++ files are properly formatted!"

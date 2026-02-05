@@ -9,12 +9,18 @@ on:
     paths:
       - .github/workflows/very_good_flame_game.yaml
       - "very_good_flame_game/**"
+      - .editorconfig
+      - .swiftformat
+      - .clang-format
     branches:
       - main
   pull_request:
     paths:
       - .github/workflows/very_good_flame_game.yaml
       - "very_good_flame_game/**"
+      - .editorconfig
+      - .swiftformat
+      - .clang-format
     branches:
       - main
 
@@ -54,8 +60,37 @@ jobs:
       - name: 📦 Install Dependencies
         run: very_good packages get very_good_flame_game_output
 
-      - name: ✨ Check Formatting
+      - name: ✨ Check Dart Formatting
         run: dart format --set-exit-if-changed very_good_flame_game_output
+
+      - name: ✨ Check Kotlin Formatting
+        if: matrix.platform == 'android'
+        run: |
+          curl -sSLO https://github.com/pinterest/ktlint/releases/download/1.5.0/ktlint
+          chmod a+x ktlint
+          ./ktlint --editorconfig="${GITHUB_WORKSPACE}/.editorconfig" "very_good_flame_game_output/**/src/main/kotlin/**/*.kt" || {
+            echo "::error::Kotlin formatting issues found. Run 'ktlint --format' locally to fix."
+            exit 1
+          }
+
+      - name: ✨ Check C++ Formatting
+        if: matrix.platform == 'windows'
+        run: |
+          sudo apt-get install -y clang-format
+          CPP_FILES=$(find very_good_flame_game_output -type f \( -name "*.h" -o -name "*.cpp" -o -name "*.cc" \) | grep -v -E "(Pods|DerivedData|build|.dart_tool)" || true)
+          if [ -n "$CPP_FILES" ]; then
+            ERRORS=0
+            for file in $CPP_FILES; do
+              if ! clang-format --style=file:"${GITHUB_WORKSPACE}/.clang-format" --dry-run --Werror "$file" 2>/dev/null; then
+                echo "::error file=$file::Formatting issues found in $file"
+                ERRORS=$((ERRORS + 1))
+              fi
+            done
+            if [ $ERRORS -gt 0 ]; then
+              echo "::error::C++ formatting issues found. Run 'clang-format -i <file>' locally to fix."
+              exit 1
+            fi
+          fi
 
       - name: 🕵️ Analyze
         run: dart analyze --fatal-infos --fatal-warnings very_good_flame_game_output
@@ -70,3 +105,42 @@ jobs:
         with:
           exclude: "**/*.gen.dart"
           path: very_good_flame_game/very_good_flame_game_output/coverage/lcov.info
+
+  swift-format:
+    defaults:
+      run:
+        working-directory: very_good_flame_game/
+
+    runs-on: macos-latest
+
+    strategy:
+      matrix:
+        platform:
+          - ios
+          - macos
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v6
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.38.x"
+
+      - name: 🧱 Mason Make
+        run: |
+          dart pub global activate mason_cli
+          dart pub global activate very_good_cli
+          mason get
+          mason make very_good_flame_game -c config.json --on-conflict overwrite --platforms ${{ matrix.platform }} -o very_good_flame_game_output
+
+      - name: 📥 Install SwiftFormat
+        run: brew install swiftformat
+
+      - name: ✨ Check Swift Formatting
+        run: |
+          swiftformat --config "${GITHUB_WORKSPACE}/.swiftformat" --lint very_good_flame_game_output/${{ matrix.platform }} || {
+            echo "::error::Swift formatting issues found. Run 'swiftformat .' locally to fix."
+            exit 1
+          }

@@ -9,7 +9,10 @@ let package = Package(
         .iOS("13.0"),
     ],
     products: [
-        .library(name: "{{project_name.paramCase()}}-ios", targets: ["{{project_name.snakeCase()}}_ios"])
+        .library(
+            name: "{{project_name.paramCase()}}-ios",
+            targets: ["{{project_name.snakeCase()}}_ios"]
+        )
     ],
     dependencies: [],
     targets: [
@@ -24,9 +27,10 @@ let package = Package(
                 // https://developer.apple.com/documentation/bundleresources/privacy_manifest_files
                 // .process("PrivacyInfo.xcprivacy"),
 
-                // TODO: If you have other resources that need to be bundled with your plugin, refer to
-                // the following instructions to add them:
-                // https://developer.apple.com/documentation/xcode/bundling-resources-with-a-swift-package
+                // TODO: If you have other resources that need to be bundled with
+                // your plugin, refer to the following instructions to add them:
+                // https://developer.apple.com/documentation/xcode/
+                // bundling-resources-with-a-swift-package
             ]
         )
     ]

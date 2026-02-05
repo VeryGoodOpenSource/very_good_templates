@@ -1,5 +1,6 @@
-import 'package:check_platform_name/check_platform_name.dart';
 import 'package:fluttium/fluttium.dart';
+
+import 'src/check_platform_name.dart';
 
 export 'src/check_platform_name.dart';
 
