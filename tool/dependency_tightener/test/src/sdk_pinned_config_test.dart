@@ -1,4 +1,4 @@
-import 'package:dependency_tightener/dependency_tightener.dart';
+import 'package:dependency_tightener/src/sdk_pinned_config.dart';
 import 'package:test/test.dart';
 
 void main() {
