@@ -51,3 +51,56 @@ For CI servers and headless environments, generate a new token with firebase log
 [debug] [2026-02-04T11:39:17.847Z] > authorizing via signed-in user (me@marcossevilla.dev)
 [debug] [2026-02-04T11:39:17.848Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
 [debug] [2026-02-04T11:39:17.848Z] > authorizing via signed-in user (me@marcossevilla.dev)
+[debug] [2026-02-05T12:22:30.723Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-05T12:22:30.725Z] > authorizing via signed-in user (me@marcossevilla.dev)
+[debug] [2026-02-05T12:22:30.725Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-05T12:22:30.725Z] > authorizing via signed-in user (me@marcossevilla.dev)
+[debug] [2026-02-05T12:22:30.738Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-05T12:22:30.738Z] > authorizing via signed-in user (me@marcossevilla.dev)
+[debug] [2026-02-05T12:22:30.896Z] Checked if tokens are valid: false, expires at: 1760720491737
+[debug] [2026-02-05T12:22:30.896Z] Checked if tokens are valid: false, expires at: 1760720491737
+[debug] [2026-02-05T12:22:30.896Z] > refreshing access token with scopes: []
+[debug] [2026-02-05T12:22:30.897Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-05T12:22:30.897Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-05T12:22:30.917Z] Checked if tokens are valid: false, expires at: 1760720491737
+[debug] [2026-02-05T12:22:30.917Z] Checked if tokens are valid: false, expires at: 1760720491737
+[debug] [2026-02-05T12:22:30.917Z] > refreshing access token with scopes: []
+[debug] [2026-02-05T12:22:30.917Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-05T12:22:30.917Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-05T12:22:30.937Z] Checked if tokens are valid: false, expires at: 1760720491737
+[debug] [2026-02-05T12:22:30.937Z] Checked if tokens are valid: false, expires at: 1760720491737
+[debug] [2026-02-05T12:22:30.937Z] > refreshing access token with scopes: []
+[debug] [2026-02-05T12:22:30.937Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-05T12:22:30.937Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-05T12:22:31.081Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2026-02-05T12:22:31.081Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2026-02-05T12:22:31.081Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2026-02-05T12:22:31.081Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2026-02-05T12:22:31.186Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-05T12:22:31.186Z] > authorizing via signed-in user (me@marcossevilla.dev)
+[debug] [2026-02-05T12:22:31.189Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-05T12:22:31.189Z] > authorizing via signed-in user (me@marcossevilla.dev)
+[debug] [2026-02-05T12:22:31.191Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2026-02-05T12:22:31.191Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2026-02-05T12:22:31.238Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-05T12:22:31.239Z] > authorizing via signed-in user (me@marcossevilla.dev)
+[debug] [2026-02-05T12:22:31.241Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-05T12:22:31.241Z] > authorizing via signed-in user (me@marcossevilla.dev)

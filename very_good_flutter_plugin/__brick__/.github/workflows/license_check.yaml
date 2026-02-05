@@ -1,0 +1,34 @@
+name: license_check
+
+concurrency:
+  group: ${{#mustacheCase}}github.workflow{{/mustacheCase}}-${{#mustacheCase}}github.ref{{/mustacheCase}}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "{{project_name.snakeCase()}}/pubspec.yaml"
+      - "{{project_name.snakeCase()}}_platform_interface/pubspec.yaml"
+      - ".github/workflows/license_check.yaml"
+  push:
+    branches:
+      - main
+    paths:
+      - "{{project_name.snakeCase()}}/pubspec.yaml"
+      - "{{project_name.snakeCase()}}_platform_interface/pubspec.yaml"
+      - ".github/workflows/license_check.yaml"
+
+jobs:
+  license_check:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/license_check.yml@v1
+    with:
+      allowed: "MIT,BSD-3-Clause,BSD-2-Clause,Apache-2.0"
+      working_directory: {{project_name.snakeCase()}}
+
+  license_check_platform_interface:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/license_check.yml@v1
+    with:
+      allowed: "MIT,BSD-3-Clause,BSD-2-Clause,Apache-2.0"
+      working_directory: {{project_name.snakeCase()}}_platform_interface
