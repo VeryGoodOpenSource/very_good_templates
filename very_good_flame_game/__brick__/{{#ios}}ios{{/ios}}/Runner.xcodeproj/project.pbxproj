@@ -16,6 +16,9 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		B55CDB692EEC9F48009268AC /* AppIcon-stg.icon in Resources */ = {isa = PBXBuildFile; fileRef = B55CDB672EEC9F48009268AC /* AppIcon-stg.icon */; };
+		B55CDB6A2EEC9F48009268AC /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = B55CDB652EEC9F48009268AC /* AppIcon.icon */; };
+		B55CDB6B2EEC9F48009268AC /* AppIcon-dev.icon in Resources */ = {isa = PBXBuildFile; fileRef = B55CDB662EEC9F48009268AC /* AppIcon-dev.icon */; };
 		F5A99BBBF9C9FB095DC6AF3E /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413679AB83F99E3931AA133 /* Pods_RunnerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,9 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B55CDB652EEC9F48009268AC /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		B55CDB662EEC9F48009268AC /* AppIcon-dev.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "AppIcon-dev.icon"; sourceTree = "<group>"; };
+		B55CDB672EEC9F48009268AC /* AppIcon-stg.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "AppIcon-stg.icon"; sourceTree = "<group>"; };
 		BCD810B3A62A604E5428BBBB /* Pods-RunnerTests.debug-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug-development.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug-development.xcconfig"; sourceTree = "<group>"; };
 		BEC13B91887A37D84E8627F0 /* Pods-RunnerTests.debug-production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug-production.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug-production.xcconfig"; sourceTree = "<group>"; };
 		BF1DB162271CCFF9F825F312 /* Pods-RunnerTests.release-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.release-development.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.release-development.xcconfig"; sourceTree = "<group>"; };
@@ -123,7 +129,6 @@
 				41EC46A7111C2C4B0272AA7F /* Pods-RunnerTests.profile-staging.xcconfig */,
 				43FD19E824D78C0DBA105FE7 /* Pods-RunnerTests.profile-development.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -170,6 +175,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				B55CDB682EEC9F48009268AC /* AppIcons */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -190,6 +196,16 @@
 				0413679AB83F99E3931AA133 /* Pods_RunnerTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B55CDB682EEC9F48009268AC /* AppIcons */ = {
+			isa = PBXGroup;
+			children = (
+				B55CDB652EEC9F48009268AC /* AppIcon.icon */,
+				B55CDB662EEC9F48009268AC /* AppIcon-dev.icon */,
+				B55CDB672EEC9F48009268AC /* AppIcon-stg.icon */,
+			);
+			path = AppIcons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +307,9 @@
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				B55CDB692EEC9F48009268AC /* AppIcon-stg.icon in Resources */,
+				B55CDB6A2EEC9F48009268AC /* AppIcon.icon in Resources */,
+				B55CDB6B2EEC9F48009268AC /* AppIcon-dev.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
