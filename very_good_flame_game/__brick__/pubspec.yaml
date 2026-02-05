@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   audioplayers: ^6.5.1
-  bloc: ^9.1.0
+  bloc: ^9.2.0
   equatable: ^2.0.7
   flame: ^1.33.0
   flame_audio: ^2.11.11
@@ -23,7 +23,7 @@ dependencies:
   intl: ^0.20.2
 
 dev_dependencies:
-  bloc_lint: ^0.3.3
+  bloc_lint: ">=0.3.3 <0.3.6"
   bloc_test: ^10.0.0
   bloc_tools: ^0.1.0-dev.20
   flame_test: ^2.1.0
