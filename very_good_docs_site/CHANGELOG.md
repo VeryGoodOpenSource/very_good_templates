@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.2...very_good_docs_site-v1.0.3) (2026-02-06)
+
+
+### Bug Fixes
+
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
 ## [1.0.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.1...very_good_docs_site-v1.0.2) (2025-10-01)
 
 
