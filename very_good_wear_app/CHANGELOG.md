@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_wear_app-v1.1.1...very_good_wear_app-v1.2.0) (2026-02-06)
+
+
+### Features
+
+* add bloc lint to templates with bloc ([#382](https://github.com/VeryGoodOpenSource/very_good_templates/issues/382)) ([512edf2](https://github.com/VeryGoodOpenSource/very_good_templates/commit/512edf2117e9e1a8635a02bc74ac319b01deed54))
+* add license check workflow to templates ([#422](https://github.com/VeryGoodOpenSource/very_good_templates/issues/422)) ([bd280c0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd280c00f90126856a5fe70d6417e1c83d20f74b))
+* upgrade to flutter 3.38.1 ([#394](https://github.com/VeryGoodOpenSource/very_good_templates/issues/394)) ([e436d76](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e436d7606b0998fc5231d3bd1fd0c4650d0c8ae8))
+
+
+### Bug Fixes
+
+* tighten bloc_lint version ([#424](https://github.com/VeryGoodOpenSource/very_good_templates/issues/424)) ([67f35de](https://github.com/VeryGoodOpenSource/very_good_templates/commit/67f35de7cdfbe1f7cf34e4654cb3cb91918ed934))
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
+
+### Miscellaneous Chores
+
+* bump very_good_analysis to 10.1.0 ([#400](https://github.com/VeryGoodOpenSource/very_good_templates/issues/400)) ([0c454c4](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c454c4166cf4e01c659ab723c5f94fc1a2edaa6))
+* tighten template dependencies ([#384](https://github.com/VeryGoodOpenSource/very_good_templates/issues/384)) ([922bf00](https://github.com/VeryGoodOpenSource/very_good_templates/commit/922bf00157ef07e6e9971a1eb938a0d187e1bd8d))
+* tighten template dependencies ([#385](https://github.com/VeryGoodOpenSource/very_good_templates/issues/385)) ([10ed573](https://github.com/VeryGoodOpenSource/very_good_templates/commit/10ed57357e67dc8a9eb0d132e9e7272c743f6781))
+* tighten template dependencies ([#401](https://github.com/VeryGoodOpenSource/very_good_templates/issues/401)) ([31b852c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/31b852c18e2b00e5182fe996fe9534e55cce6832))
+
 ## [1.1.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_wear_app-v1.1.0...very_good_wear_app-v1.1.1) (2025-09-30)
 
 
