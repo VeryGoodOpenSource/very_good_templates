@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.2.0...very_good_flame_game-v1.3.0) (2026-02-13)
+
+
+### Features
+
+* upgrade to dart 3.11 and flutter 3.41 ([#429](https://github.com/VeryGoodOpenSource/very_good_templates/issues/429)) ([46ae490](https://github.com/VeryGoodOpenSource/very_good_templates/commit/46ae490823ef6f5f3addef6159a24870f66e931e))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#425](https://github.com/VeryGoodOpenSource/very_good_templates/issues/425)) ([c4feeb6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/c4feeb6031b6bf211546bce9f4797d2554363488))
+
 ## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.2...very_good_flame_game-v1.2.0) (2026-02-06)
 
 
