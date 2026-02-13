@@ -22,7 +22,8 @@ Future<void> main(List<String> args) async {
     )
     ..addOption(
       'skip-packages',
-      help: 'A comma-separated list of additional package names to skip '
+      help:
+          'A comma-separated list of additional package names to skip '
           'version tightening. Note: Pinned packages '
           '(${pinnedPackageNames.join(', ')}) are always skipped by default.',
     )
