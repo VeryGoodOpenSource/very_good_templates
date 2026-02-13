@@ -64,9 +64,10 @@ void main() {
       ),
     ).thenAnswer((_) async => false);
     when(
-      () =>
-          pubUpdater.getLatestVersion(any(that: equals('very_good_analysis'))),
-    ).thenAnswer((_) async => '6.0.0');
+      () => pubUpdater.getLatestVersion(
+        any(that: equals('very_good_analysis')),
+      ),
+    ).thenAnswer((_) async => '10.1.0');
   });
 
   test('updates the file according to the latest versions', () async {

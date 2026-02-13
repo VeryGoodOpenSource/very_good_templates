@@ -8,7 +8,7 @@ library;
 const $templateVersion = '1.0.0';
 
 /// The Flutter version associated with the template version.
-const $flutterVersion = '3.38.1';
+const $flutterVersion = '3.41.0';
 
 /// The minimum Dart version required by the template.
 ///
@@ -18,4 +18,4 @@ const $flutterVersion = '3.38.1';
 /// See also:
 ///
 /// * [Flutter SDK archive](https://docs.flutter.dev/release/archive)
-const $minDartVersion = '3.10.0';
+const $minDartVersion = '3.11.0';

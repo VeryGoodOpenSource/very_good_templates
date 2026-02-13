@@ -1,7 +1,7 @@
 name: very_good_core_hooks
 
 environment:
-  sdk: ^3.10.0
+  sdk: ^3.11.0
 
 dependencies:
   clock: ^1.1.1
