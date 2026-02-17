@@ -17,13 +17,13 @@ dependencies:
   wearable_rotary: ^2.0.4
 
 dev_dependencies:
-  bloc_lint: ">=0.3.3 <0.3.6"
+  bloc_lint: ^0.3.7
   bloc_test: ^10.0.0
   bloc_tools: ^0.1.0-dev.22
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.4
-  very_good_analysis: ^10.1.0
+  very_good_analysis: ^10.2.0
 
 flutter:
   generate: true
