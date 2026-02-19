@@ -41,6 +41,7 @@ void run(HookContext context) {
     'android_application_id': configuration.androidApplicationId,
     'ios_application_id': configuration.iOsApplicationId,
     'macos_application_id': configuration.macOsApplicationId,
+    'linux_application_id': configuration.linuxApplicationId,
     'windows_application_id': configuration.windowsApplicationId,
     'current_year': clock.now().year.toString(),
   };
