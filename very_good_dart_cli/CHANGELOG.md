@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.2.0...very_good_dart_cli-v1.3.0) (2026-02-19)
+
+
+### Features
+
+* upgrade to dart 3.11 and flutter 3.41 ([#429](https://github.com/VeryGoodOpenSource/very_good_templates/issues/429)) ([46ae490](https://github.com/VeryGoodOpenSource/very_good_templates/commit/46ae490823ef6f5f3addef6159a24870f66e931e))
+* upgrade to very_good_analysis 10.2.0 ([#437](https://github.com/VeryGoodOpenSource/very_good_templates/issues/437)) ([be16183](https://github.com/VeryGoodOpenSource/very_good_templates/commit/be161834e90f0381d3535c9bd3b5f44ba6ea19ba))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#425](https://github.com/VeryGoodOpenSource/very_good_templates/issues/425)) ([c4feeb6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/c4feeb6031b6bf211546bce9f4797d2554363488))
+* tighten template dependencies ([#435](https://github.com/VeryGoodOpenSource/very_good_templates/issues/435)) ([5937c46](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5937c469ae2c28ad4230d2ce00fdf8d78639c0d8))
+
 ## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.1.0...very_good_dart_cli-v1.2.0) (2026-02-06)
 
 
