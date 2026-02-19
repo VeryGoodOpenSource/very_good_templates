@@ -22,7 +22,14 @@ void main() {
           'org_name': 'com.example',
           'application_id': 'app.id',
           'description': 'A new Flame project.',
-          'platforms': ['android', 'ios', 'macos', 'windows', 'web'],
+          'platforms': [
+            'android',
+            'ios',
+            'macos',
+            'windows',
+            'web',
+            'linux',
+          ],
         };
         when(() => context.vars).thenReturn(vars);
 
@@ -44,12 +51,20 @@ void main() {
             'macos_application_id': 'app.id',
             'windows_application_id': 'app.id',
             'current_year': '2020',
-            'platforms': ['android', 'ios', 'macos', 'windows', 'web'],
+            'platforms': [
+              'android',
+              'ios',
+              'macos',
+              'windows',
+              'web',
+              'linux',
+            ],
             'android': true,
             'ios': true,
             'macos': true,
             'web': true,
             'windows': true,
+            'linux': true,
           }),
         );
       });
@@ -77,6 +92,7 @@ void main() {
         expect(newVars['ios'], isFalse);
         expect(newVars['macos'], isFalse);
         expect(newVars['windows'], isFalse);
+        expect(newVars['linux'], isFalse);
       });
     });
 
