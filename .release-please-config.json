@@ -67,14 +67,6 @@
       "extra-files": [
         "brick.yaml"
       ]
-    },
-    "very_good_wear_app": {
-      "release-type": "simple",
-      "version-file": "version.txt",
-      "component": "very_good_wear_app",
-      "extra-files": [
-        "brick.yaml"
-      ]
     }
   }
 }

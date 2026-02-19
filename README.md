@@ -18,7 +18,12 @@ Collection of open-source templates created and maintained by the [Very Good Ven
 | [very_good_flame_game][very_good_flame_game_code_link]           | A Very Good Flame game.         | [Documentation][very_good_flame_game_docs_link]      | [![build][very_good_flame_game_workflow_badge]][very_good_flame_game_workflow_link]           |
 | [very_good_flutter_package][very_good_flutter_package_code_link] | A Very Good Flutter package.    | [Documentation][very_good_flutter_package_docs_link] | [![build][very_good_flutter_package_workflow_badge]][very_good_flutter_package_workflow_link] |
 | [very_good_flutter_plugin][very_good_flutter_plugin_code_link]   | A Very Good Flutter plugin.     | [Documentation][very_good_flutter_plugin_docs_link]  | [![build][very_good_flutter_package_workflow_badge]][very_good_flutter_plugin_workflow_link]  |
-| [very_good_wear_app][very_good_wear_app_code_link]               | A Very Good WearOS Flutter app. | [Documentation][very_good_wear_app_docs_link]        | [![build][very_good_wear_app_workflow_badge]][very_good_wear_app_workflow_link]               |
+
+### Deprecated Templates
+
+| Template                                     | Description                                                        |
+| -------------------------------------------- | ------------------------------------------------------------------ |
+| [very_good_wear_app](very_good_wear_app/)    | A Very Good WearOS Flutter app. **Deprecated** -- no longer maintained. |
 
 <!-- Very Good Ventures -->
 
@@ -82,9 +87,4 @@ Collection of open-source templates created and maintained by the [Very Good Ven
 [very_good_flutter_plugin_code_link]: https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_flutter_plugin
 [very_good_flutter_plugin_docs_link]: https://cli.vgv.dev/docs/templates/federated_plugin
 
-<!-- Very Good Wear App -->
 
-[very_good_wear_app_workflow_badge]: https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_wear_app.yaml/badge.svg?branch=main
-[very_good_wear_app_workflow_link]: https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_wear_app.yaml?query=branch%3Amain
-[very_good_wear_app_code_link]: https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_wear_app
-[very_good_wear_app_docs_link]: https://cli.vgv.dev/docs/templates/wear

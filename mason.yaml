@@ -1,8 +1,6 @@
 bricks:
   very_good_core:
     path: very_good_core
-  very_good_wear_app:
-    path: very_good_wear_app
   very_good_dart_cli:
     path: very_good_dart_cli
   very_good_dart_package:
