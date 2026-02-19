@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0+1
+
+- **DEPRECATED**: This template is deprecated and will no longer receive updates. It was an experimental WearOS starter project that has been retired due to low adoption and maintenance costs. The code remains available as a historical reference.
+
 ## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_wear_app-v1.1.1...very_good_wear_app-v1.2.0) (2026-02-06)
 
 
