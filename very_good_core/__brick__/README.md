@@ -73,7 +73,7 @@ To learn more, visit https://bloclibrary.dev/lint/
 
 ## Working with Translations 🌐
 
-This project relies on [flutter_localizations][flutter_localizations_link] and follows the [official internationalization guide for Flutter][internationalization_link].
+This project follows the [official internationalization guide for Flutter][internationalization_link] using [ARB files][arb_documentation_link] for translations.
 
 ### Adding Strings
 
@@ -183,8 +183,8 @@ flutter gen-l10n --arb-dir="lib/l10n/arb"
 Alternatively, run `flutter run` and code generation will take place automatically.
 
 [coverage_badge]: coverage_badge.svg
-[flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
 [internationalization_link]: https://docs.flutter.dev/ui/internationalization
+[arb_documentation_link]: https://github.com/google/app-resource-bundle
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
