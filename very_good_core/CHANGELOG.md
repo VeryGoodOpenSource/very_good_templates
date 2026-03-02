@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.3.0...very_good_core-v1.3.1) (2026-03-02)
+
+
+### Bug Fixes
+
+* add missing LICENSE file to very_good_core brick ([#441](https://github.com/VeryGoodOpenSource/very_good_templates/issues/441)) ([5fe3662](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5fe366294a28fee989c6e61371b2750ee100a97d))
+
+
+### Docs
+
+* **very_good_core:** fix and simplify translation docs ([#442](https://github.com/VeryGoodOpenSource/very_good_templates/issues/442)) ([4be55f2](https://github.com/VeryGoodOpenSource/very_good_templates/commit/4be55f2530b0827c4bca24f4cf59f257996ef5c2))
+
 ## [1.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.2.0...very_good_core-v1.3.0) (2026-02-19)
 
 
