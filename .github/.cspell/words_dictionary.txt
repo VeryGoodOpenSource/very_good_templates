@@ -30,3 +30,6 @@ verygood # Very Good, but without a space.
 xcode # Apple's integrated development environment.
 xcworkspace # Abbreviation for Xcode workspace.
 xcassets # Abbreviation for Xcode assets.
+hola # part of translations example
+mundo # part of translations example
+saludo # part of translations example
