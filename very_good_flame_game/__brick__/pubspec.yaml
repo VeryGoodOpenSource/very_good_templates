@@ -8,7 +8,7 @@ environment:
   flutter: ^3.41.0
 
 dependencies:
-  audioplayers: ^6.5.1
+  audioplayers: ^6.6.0
   bloc: ^9.2.0
   equatable: ^2.0.8
   flame: ^1.35.1
@@ -19,11 +19,11 @@ dependencies:
   flutter_bloc: ^9.1.1
   flutter_localizations:
     sdk: flutter
-  google_fonts: ^8.0.1
+  google_fonts: ^8.0.2
   intl: ^0.20.2
 
 dev_dependencies:
-  bloc_lint: ^0.3.7
+  bloc_lint: ^0.4.0
   bloc_test: ^10.0.0
   bloc_tools: ^0.1.0-dev.22
   flame_test: ^2.2.2
