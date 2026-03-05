@@ -16,6 +16,10 @@
   ],
   "useGitignore": true,
   "words": [
-    "{{project_name.snakeCase()}}"
+    "{{project_name.snakeCase()}}",
+    "lerp",
+    "xxlg",
+    "widgetbook",
+    "Widgetbook"
   ]
 }
