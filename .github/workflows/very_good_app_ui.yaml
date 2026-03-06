@@ -1,0 +1,59 @@
+name: very_good_app_ui
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    paths:
+      - .github/workflows/very_good_app_ui.yaml
+      - "very_good_app_ui/**"
+    branches:
+      - main
+  pull_request:
+    paths:
+      - .github/workflows/very_good_app_ui.yaml
+      - "very_good_app_ui/**"
+    branches:
+      - main
+
+jobs:
+  brick:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v6
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.41.x"
+
+      - name: 🧱 Mason Make
+        run: |
+          dart pub global activate mason_cli
+          mason get
+          mason make very_good_app_ui -c very_good_app_ui/config.json --on-conflict overwrite -o very_good_app_ui_output
+
+      - name: 📦 Install Dependencies
+        run: |
+          dart pub global activate very_good_cli
+          very_good packages get --recursive very_good_app_ui_output
+
+      - name: ✨ Check Formatting
+        run: dart format --set-exit-if-changed very_good_app_ui_output
+
+      - name: 🕵️ Analyze
+        run: dart analyze --fatal-infos --fatal-warnings very_good_app_ui_output
+
+      - name: 🧪 Run Tests
+        run: |
+          cd very_good_app_ui_output
+          very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
+
+      - name: 📊 Check Code Coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v3
+        with:
+          path: very_good_app_ui_output/coverage/lcov.info
