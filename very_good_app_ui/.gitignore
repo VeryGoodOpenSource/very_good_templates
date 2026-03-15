@@ -13,5 +13,5 @@ pubspec.lock
 mason-lock.json
 output/
 
-# Files and directories created by MacOS
-.DS_Store
+# Conventional directory for build outputs
+build/
