@@ -46,6 +46,7 @@ A Very Good documentation site template powered by [Docusaurus][docusaurus_link]
 ├── .gitignore
 ├── .prettierignore
 ├── .prettierrc
+├── LICENSE
 ├── README.md
 ├── babel.config.js
 ├── docs
