@@ -16,13 +16,10 @@
   ],
   "useGitignore": true,
   "words": [
-    "Contador",
-    "localizable",
-    "mostrado",
-    "página",
-    "Texto",
-    "Hola",
-    "Mundo",
-    "Saludo"
+    "{{project_name.snakeCase()}}",
+    "lerp",
+    "xxlg",
+    "widgetbook",
+    "Widgetbook"
   ]
 }
