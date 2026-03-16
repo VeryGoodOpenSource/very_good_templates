@@ -63,10 +63,11 @@ A Very Good federated Flutter plugin created by Very Good Ventures 🦄.
 ├── my_plugin_web
 │   ├── lib
 │   └── test
-└── my_plugin_windows
-    ├── lib
-    ├── test
-    └── windows        
+├── my_plugin_windows
+│   ├── lib
+│   └── test
+│   └── windows
+└── LICENSE  
 ```
 
 By default `mason make` will generate the output in the current working directory but a custom output directory can be specified via the [-o option][mason_output_dir]:
