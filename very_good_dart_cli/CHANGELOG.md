@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.3.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.3.0...very_good_dart_cli-v1.3.1) (2026-03-17)
+
+
+### Bug Fixes
+
+* add missing LICENSE files to templates ([#448](https://github.com/VeryGoodOpenSource/very_good_templates/issues/448)) ([bc3c0a9](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bc3c0a97d16ffa3b15b326454e25fb37070cd8cc))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump test from 1.26.3 to 1.30.0 in /very_good_dart_cli/hooks ([#444](https://github.com/VeryGoodOpenSource/very_good_templates/issues/444)) ([4305e52](https://github.com/VeryGoodOpenSource/very_good_templates/commit/4305e520c41aba7764fbf922177a10d8622700c4))
+* tighten template dependencies ([#440](https://github.com/VeryGoodOpenSource/very_good_templates/issues/440)) ([ef8b742](https://github.com/VeryGoodOpenSource/very_good_templates/commit/ef8b742f2e0274699c7373497c70558254ef9e27))
+
 ## [1.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.2.0...very_good_dart_cli-v1.3.0) (2026-02-17)
 
 
