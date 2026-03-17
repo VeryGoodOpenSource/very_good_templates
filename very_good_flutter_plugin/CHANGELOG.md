@@ -1,5 +1,17 @@
 # Changelog 
 
+## [1.3.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.3.0...very_good_flutter_plugin-v1.3.1) (2026-03-17)
+
+
+### Bug Fixes
+
+* add missing LICENSE files to templates ([#448](https://github.com/VeryGoodOpenSource/very_good_templates/issues/448)) ([bc3c0a9](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bc3c0a97d16ffa3b15b326454e25fb37070cd8cc))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump test from 1.26.3 to 1.30.0 in /very_good_flutter_plugin/hooks ([#445](https://github.com/VeryGoodOpenSource/very_good_templates/issues/445)) ([4f946fe](https://github.com/VeryGoodOpenSource/very_good_templates/commit/4f946fe8878d7119d7dc066ae41afc80700f0e83))
+
 ## [1.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.2.0...very_good_flutter_plugin-v1.3.0) (2026-02-19)
 
 
