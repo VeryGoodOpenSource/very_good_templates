@@ -8,9 +8,9 @@ void main() {
     late String templateContent;
 
     setUpAll(() {
-      final brickDir = Uri.directory(Directory.current.path)
-          .resolve('../__brick__/')
-          .toFilePath();
+      final brickDir = Uri.directory(
+        Directory.current.path,
+      ).resolve('../__brick__/').toFilePath();
       final templateFile = File(
         '$brickDir.github/workflows/{{project_name.snakeCase()}}.yaml',
       );
