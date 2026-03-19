@@ -27,7 +27,8 @@ class PinnedPackage {
 const pinnedPackages = <PinnedPackage>{
   PinnedPackage(
     name: 'intl',
-    reason: 'The intl package version is constrained by the Flutter SDK. '
+    reason:
+        'The intl package version is constrained by the Flutter SDK. '
         'Flutter SDK includes flutter_localizations which depends on a '
         'specific intl version. Updating intl independently causes conflicts.',
   ),
@@ -35,5 +36,6 @@ const pinnedPackages = <PinnedPackage>{
 
 /// Returns the set of package names that should be skipped during
 /// dependency tightening.
-Set<String> get pinnedPackageNames =>
-    pinnedPackages.map((p) => p.name).toSet();
+Set<String> get pinnedPackageNames {
+  return pinnedPackages.map((p) => p.name).toSet();
+}

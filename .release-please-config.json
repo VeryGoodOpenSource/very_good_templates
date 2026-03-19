@@ -68,10 +68,10 @@
         "brick.yaml"
       ]
     },
-    "very_good_wear_app": {
+    "very_good_app_ui": {
       "release-type": "simple",
       "version-file": "version.txt",
-      "component": "very_good_wear_app",
+      "component": "very_good_app_ui",
       "extra-files": [
         "brick.yaml"
       ]

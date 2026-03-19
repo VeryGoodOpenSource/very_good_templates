@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dependency_tightener/src/graceful_pubspec_parse.dart';
+import 'package:dependency_tightener/src/sdk_pinned_config.dart';
 import 'package:pub_semver/pub_semver.dart';
 import 'package:pub_updater/pub_updater.dart';
 
@@ -19,20 +20,36 @@ import 'package:pub_updater/pub_updater.dart';
 /// If you wish to skip tightening the version of certain packages, you can
 /// provide the name of those packages in [skipPackages].
 ///
+/// If [autoDetectSdkPinned] is `true` (the default), packages that are pinned
+/// by SDK dependencies (like `intl` being pinned by `flutter_localizations`)
+/// will be automatically detected and skipped.
+///
 /// See also:
 ///
 /// * [parseDirectHostedDependencies], which parses the direct hosted
 /// dependencies from a provided YAML string, that might have mustache
 /// variables.
+/// * [getAutoSkipPackages], which detects SDK-pinned packages.
 /// * [Caret syntax documentation](https://dart.dev/tools/pub/dependencies#caret-syntax)
 Future<void> tightenDependencies(
   File pubspec, {
   required PubUpdater pubUpdater,
   Set<String>? skipPackages,
+  bool autoDetectSdkPinned = true,
   void Function(Object? object) log = print,
 }) async {
   final pubspecContent = pubspec.readAsStringSync();
   var newPubspecContent = pubspecContent;
+
+  // Combine manually specified skip packages with auto-detected SDK-pinned
+  final effectiveSkipPackages = <String>{
+    ...?skipPackages,
+    if (autoDetectSdkPinned) ...getAutoSkipPackages(pubspecContent),
+  };
+
+  if (effectiveSkipPackages.isNotEmpty) {
+    log('Skipping packages: $effectiveSkipPackages');
+  }
 
   final dependencies = parseDirectHostedDependencies(newPubspecContent);
 
@@ -40,7 +57,7 @@ Future<void> tightenDependencies(
     final name = dependency.hosted!.name;
     final versionConstraint = dependency.version;
 
-    if (skipPackages != null && skipPackages.contains(name)) {
+    if (effectiveSkipPackages.contains(name)) {
       continue;
     }
 

@@ -1,5 +1,44 @@
 # Changelog
 
+## [1.3.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.3.0...very_good_dart_package-v1.3.1) (2026-03-16)
+
+
+### Bug Fixes
+
+* add missing LICENSE files to templates ([#448](https://github.com/VeryGoodOpenSource/very_good_templates/issues/448)) ([bc3c0a9](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bc3c0a97d16ffa3b15b326454e25fb37070cd8cc))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#440](https://github.com/VeryGoodOpenSource/very_good_templates/issues/440)) ([ef8b742](https://github.com/VeryGoodOpenSource/very_good_templates/commit/ef8b742f2e0274699c7373497c70558254ef9e27))
+
+## [1.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.2.0...very_good_dart_package-v1.3.0) (2026-02-19)
+
+
+### Features
+
+* upgrade to dart 3.11 and flutter 3.41 ([#429](https://github.com/VeryGoodOpenSource/very_good_templates/issues/429)) ([46ae490](https://github.com/VeryGoodOpenSource/very_good_templates/commit/46ae490823ef6f5f3addef6159a24870f66e931e))
+* upgrade to very_good_analysis 10.2.0 ([#437](https://github.com/VeryGoodOpenSource/very_good_templates/issues/437)) ([be16183](https://github.com/VeryGoodOpenSource/very_good_templates/commit/be161834e90f0381d3535c9bd3b5f44ba6ea19ba))
+
+## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.1.0...very_good_dart_package-v1.2.0) (2026-02-06)
+
+
+### Features
+
+* add license check workflow to templates ([#422](https://github.com/VeryGoodOpenSource/very_good_templates/issues/422)) ([bd280c0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd280c00f90126856a5fe70d6417e1c83d20f74b))
+* upgrade to flutter 3.38.1 ([#394](https://github.com/VeryGoodOpenSource/very_good_templates/issues/394)) ([e436d76](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e436d7606b0998fc5231d3bd1fd0c4650d0c8ae8))
+
+
+### Bug Fixes
+
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
+
+### Miscellaneous Chores
+
+* bump very_good_analysis to 10.1.0 ([#400](https://github.com/VeryGoodOpenSource/very_good_templates/issues/400)) ([0c454c4](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c454c4166cf4e01c659ab723c5f94fc1a2edaa6))
+* tighten template dependencies ([#401](https://github.com/VeryGoodOpenSource/very_good_templates/issues/401)) ([31b852c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/31b852c18e2b00e5182fe996fe9534e55cce6832))
+
 ## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.0.0...very_good_dart_package-v1.1.0) (2025-09-22)
 
 
