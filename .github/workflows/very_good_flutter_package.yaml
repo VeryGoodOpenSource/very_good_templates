@@ -26,34 +26,19 @@ jobs:
       - name: 📚 Git Checkout
         uses: actions/checkout@v6
 
-      - name: 🐦 Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.41.x"
-
       - name: 🧱 Mason Make
         run: |
           dart pub global activate mason_cli
+          dart pub global activate very_good_cli
           mason get
           mason make very_good_flutter_package -c very_good_flutter_package/config.json --on-conflict overwrite -o very_good_flutter_package_output
 
       - name: 📦 Install Dependencies
-        run: |
-          dart pub global activate very_good_cli
-          very_good packages get --recursive very_good_flutter_package_output
-
-      - name: ✨ Check Formatting
-        run: dart format --set-exit-if-changed very_good_flutter_package_output
-
-      - name: 🕵️ Analyze
-        run: dart analyze --fatal-infos --fatal-warnings very_good_flutter_package_output
+        run: very_good packages get --recursive very_good_flutter_package_output
 
       - name: 🧪 Run Tests
-        run: |
-          cd very_good_flutter_package_output
-          very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
-
-      - name: 📊 Check Code Coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v3
+        uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1.19.1
         with:
-          path: very_good_flutter_package_output/coverage/lcov.info
+          min_coverage: 100
+          flutter_version: "3.41.x"
+          working_directory: "very_good_flutter_package_output"
