@@ -28,7 +28,5 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "*"
-        paths:
-          - "very_good_wear_app"
+    exclude-paths:
+      - "very_good_wear_app"
