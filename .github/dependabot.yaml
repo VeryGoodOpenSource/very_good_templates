@@ -5,6 +5,12 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    exclude-paths:
+      - "very_good_wear_app/**"
+  - package-ecosystem: "pub"
     directory: "/very_good_core/hooks"
     schedule:
       interval: "daily"
@@ -24,9 +30,3 @@ updates:
     directory: "/tool/dependency_tightener"
     schedule:
       interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    exclude-paths:
-      - "very_good_wear_app"
