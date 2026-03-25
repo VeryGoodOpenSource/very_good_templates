@@ -21,7 +21,6 @@ on:
 jobs:
   brick:
     runs-on: ubuntu-latest
-
     steps:
       - name: 📚 Git Checkout
         uses: actions/checkout@v6
@@ -37,7 +36,7 @@ jobs:
         run: very_good packages get --recursive very_good_core_output
 
       - name: 🧪 Run Tests
-        uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1.19.1
+        uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@feat/report-on-multiple-paths
         with:
           min_coverage: 100
           flutter_version: "3.41.x"

@@ -37,7 +37,7 @@ jobs:
         run: dart pub get --directory very_good_dart_cli_output
 
       - name: 🧪 Run Tests
-        uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1.19.1
+        uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@feat/report-on-multiple-paths
         with:
           dart_sdk: "3.11.0"
           min_coverage: 100
