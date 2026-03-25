@@ -24,3 +24,11 @@ updates:
     directory: "/tool/dependency_tightener"
     schedule:
       interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        paths:
+          - "very_good_wear_app"
