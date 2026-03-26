@@ -18,5 +18,6 @@ jobs:
     with:
       dart_sdk: "3.11.0"
       report_on: "pre_gen.dart"
+      run_bloc_lint: false
       working_directory: "very_good_core/hooks"
       analyze_directories: "lib test"
