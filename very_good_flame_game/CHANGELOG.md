@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.3.1...very_good_flame_game-v1.4.0) (2026-03-27)
+
+
+### Features
+
+* **very_good_flame_game:** add asset preloader ([#469](https://github.com/VeryGoodOpenSource/very_good_templates/issues/469)) ([856c348](https://github.com/VeryGoodOpenSource/very_good_templates/commit/856c3486cedf7b87212a759cc981b82aab687fe0))
+
 ## [1.3.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.3.0...very_good_flame_game-v1.3.1) (2026-03-17)
 
 
