@@ -10,22 +10,23 @@ on:
     branches:
       - main
     paths:
-      - 'very_good_core/**'
-      - 'very_good_dart_cli/**'
-      - 'very_good_dart_package/**'
-      - 'very_good_flutter_plugin/**'
-      - 'very_good_flutter_package/**'
-      - 'very_good_docs_site/**'
-      - 'very_good_flame_game/**'
+      - "very_good_app_ui/**"
+      - "very_good_core/**"
+      - "very_good_dart_cli/**"
+      - "very_good_dart_package/**"
+      - "very_good_docs_site/**"
+      - "very_good_flame_game/**"
+      - "very_good_flutter_package/**"
+      - "very_good_flutter_plugin/**"
 
 jobs:
   create_release_pr:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v4.4.0
         id: release-please
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
-          manifest-file: ".release-please-manifest.json"
           config-file: ".release-please-config.json"
+          manifest-file: ".release-please-manifest.json"

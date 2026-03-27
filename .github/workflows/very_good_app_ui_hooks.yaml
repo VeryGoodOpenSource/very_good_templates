@@ -14,9 +14,10 @@ on:
 
 jobs:
   build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@feat/report-on-multiple-paths
     with:
       dart_sdk: "3.11.0"
       report_on: "pre_gen.dart"
+      run_bloc_lint: false
       working_directory: "very_good_app_ui/hooks"
       analyze_directories: "test"
