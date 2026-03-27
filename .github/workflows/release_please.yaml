@@ -17,7 +17,6 @@ on:
       - 'very_good_flutter_package/**'
       - 'very_good_docs_site/**'
       - 'very_good_flame_game/**'
-      - 'very_good_wear_app/**'
 
 jobs:
   create_release_pr:

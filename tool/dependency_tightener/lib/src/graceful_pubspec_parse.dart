@@ -31,7 +31,7 @@ import 'package:yaml/yaml.dart';
 /// dev_dependencies:
 ///   flutter_test:
 ///     sdk: flutter
-///   very_good_analysis: ^5.1.0
+///   very_good_analysis: ^10.1.0
 /// ```
 ///
 /// Would report the `plugin_platform_interface` and `very_good_analysis` as

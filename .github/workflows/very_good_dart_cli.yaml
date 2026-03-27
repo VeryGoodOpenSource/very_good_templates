@@ -28,12 +28,12 @@ jobs:
 
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 🎯 Setup Dart
         uses: dart-lang/setup-dart@v1
         with:
-          sdk: "3.9.0"
+          sdk: "3.11.0"
 
       - name: 🧱 Mason Make
         run: |
