@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.4...very_good_docs_site-v1.0.5) (2026-03-27)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump typescript from 5.9.3 to 6.0.2 in /very_good_docs_site/__brick__ ([#480](https://github.com/VeryGoodOpenSource/very_good_templates/issues/480)) ([c91fcc9](https://github.com/VeryGoodOpenSource/very_good_templates/commit/c91fcc96375e3bac70a1b2afd855b72c531aad7d))
+
 ## [1.0.4](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.3...very_good_docs_site-v1.0.4) (2026-03-17)
 
 
