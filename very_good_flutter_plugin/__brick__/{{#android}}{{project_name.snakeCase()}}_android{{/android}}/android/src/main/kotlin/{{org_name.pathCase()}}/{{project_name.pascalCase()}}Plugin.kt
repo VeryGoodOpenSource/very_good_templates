@@ -1,30 +1,22 @@
 package {{org_name.dotCase()}}
 
-import androidx.annotation.NonNull
-
+import {{project_name.pascalCase()}}Api
 import io.flutter.embedding.engine.plugins.FlutterPlugin
-import io.flutter.plugin.common.MethodCall
-import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 
-class {{project_name.pascalCase()}}Plugin : FlutterPlugin, MethodCallHandler {
-    private lateinit var channel: MethodChannel
-
-    override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "{{project_name.snakeCase()}}_android")
-        channel.setMethodCallHandler(this)
+class {{project_name.pascalCase()}}Plugin : FlutterPlugin, {{project_name.pascalCase()}}Api {
+    companion object {
+        private const val TAG = "{{project_name.pascalCase()}}Plugin"
     }
 
-    override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-        if (call.method == "getPlatformName") {
-            result.success("Android ${android.os.Build.VERSION.RELEASE}")            
-        } else {
-            result.notImplemented()
-        }
+    override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        {{project_name.pascalCase()}}Api.setUp(binding.binaryMessenger, this)
     }
 
-    override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-        channel.setMethodCallHandler(null)
+    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        {{project_name.pascalCase()}}Api.setUp(binding.binaryMessenger, null)
+    }
+
+    override fun getPlatformName(callback: (Result<String?>) -> Unit) {
+        callback(Result.success("Android ${android.os.Build.VERSION.RELEASE}"))
     }
 }

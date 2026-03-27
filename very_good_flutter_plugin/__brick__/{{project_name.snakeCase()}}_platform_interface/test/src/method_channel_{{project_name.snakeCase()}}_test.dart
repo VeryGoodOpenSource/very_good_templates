@@ -10,7 +10,7 @@ void main() {
     late MethodChannel{{project_name.pascalCase()}} methodChannel{{project_name.pascalCase()}};
     final log = <MethodCall>[];
 
-    setUp(() async {
+    setUp(() {
       methodChannel{{project_name.pascalCase()}} = MethodChannel{{project_name.pascalCase()}}();
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
