@@ -5,6 +5,12 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    exclude-paths:
+      - "very_good_wear_app"
+  - package-ecosystem: "pub"
     directory: "/very_good_core/hooks"
     schedule:
       interval: "daily"
@@ -13,7 +19,7 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "npm"
-    directory: "/very_good_docs_site/__brick__/{{project_name.snakeCase()}}"
+    directory: "/very_good_docs_site/__brick__"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
