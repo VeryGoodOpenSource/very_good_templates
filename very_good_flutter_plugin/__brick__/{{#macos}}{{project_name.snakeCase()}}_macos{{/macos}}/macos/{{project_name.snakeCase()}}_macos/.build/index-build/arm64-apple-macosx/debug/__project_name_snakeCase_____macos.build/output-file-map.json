@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/primary.swiftdeps"
+  },
+  "/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/Sources/{{project_name.snakeCase()}}_macos/{{project_name.pascalCase()}}Plugin.swift": {
+    "dependencies": "/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/{{project_name.pascalCase()}}Plugin.d",
+    "object": "/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/{{project_name.pascalCase()}}Plugin.swift.o",
+    "swiftmodule": "/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/{{project_name.pascalCase()}}Plugin~partial.swiftmodule",
+    "swift-dependencies": "/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/{{project_name.pascalCase()}}Plugin.swiftdeps",
+    "diagnostics": "/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/{{project_name.pascalCase()}}Plugin.dia"
+  }
+}

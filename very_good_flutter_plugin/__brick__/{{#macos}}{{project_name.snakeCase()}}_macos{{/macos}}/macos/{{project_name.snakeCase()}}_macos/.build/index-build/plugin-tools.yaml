@@ -1,0 +1,47 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<{{project_name.snakeCase()}}_macos-arm64-apple-macosx-debug.module>"]
+  "test": ["<{{project_name.snakeCase()}}_macos-arm64-apple-macosx-debug.module>"]
+  "{{project_name.snakeCase()}}_macos-arm64-apple-macosx-debug.module": ["<{{project_name.snakeCase()}}_macos-arm64-apple-macosx-debug.module>"]
+default: "main"
+nodes:
+  "/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/Sources/{{project_name.snakeCase()}}_macos/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/Sources/{{project_name.snakeCase()}}_macos/{{project_name.pascalCase()}}Plugin.swift"]
+    outputs: ["/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/sources"]
+    description: "Write auxiliary file /Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/sources"
+
+  "/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<{{project_name.snakeCase()}}_macos-arm64-apple-macosx-debug.module>":
+    tool: phony
+    inputs: ["/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/Modules/__project_name_snakeCase_____macos.swiftmodule"]
+    outputs: ["<{{project_name.snakeCase()}}_macos-arm64-apple-macosx-debug.module>"]
+
+  "C.{{project_name.snakeCase()}}_macos-arm64-apple-macosx-debug.module":
+    tool: shell
+    inputs: ["/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/Sources/{{project_name.snakeCase()}}_macos/{{project_name.pascalCase()}}Plugin.swift","/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/sources"]
+    outputs: ["/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/Modules/__project_name_snakeCase_____macos.swiftmodule"]
+    description: "Compiling Swift Module '__project_name_snakeCase_____macos' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","__project_name_snakeCase_____macos","-emit-dependencies","-emit-module","-emit-module-path","/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/Modules/__project_name_snakeCase_____macos.swiftmodule","-output-file-map","/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/output-file-map.json","-parse-as-library","-incremental","@/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/sources","-I","/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx10.15","-incremental","-enable-batch-mode","-serialize-diagnostics","-Onone","-enable-testing","-j12","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/.build/index-build/arm64-apple-macosx/debug/__project_name_snakeCase_____macos.build/include/{{project_name.snakeCase()}}_macos-Swift.h","-swift-version","6","-Xfrontend","-experimental-lazy-typecheck","-Xfrontend","-experimental-skip-all-function-bodies","-Xfrontend","-experimental-allow-module-with-compiler-errors","-Xfrontend","-empty-abi-descriptor","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","__project_name_snakecase_____macos"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/Sources/{{project_name.snakeCase()}}_macos/","/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/Package.swift","/Users/marcossevilla/development/very_good_oss/very_good_templates/very_good_flutter_plugin/__brick__/{{#macos}}{{project_name.snakeCase()}}_macos{{/macos}}/macos/{{project_name.snakeCase()}}_macos/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
