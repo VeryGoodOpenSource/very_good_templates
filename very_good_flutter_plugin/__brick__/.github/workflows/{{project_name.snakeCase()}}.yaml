@@ -35,7 +35,7 @@ jobs:
   pana:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/pana.yml@v1
 {{/publishable}}
-
+{{#android}}
   android:
     runs-on: macos-latest
 
@@ -80,7 +80,8 @@ jobs:
           api-level: 29
           script: fluttium test flows/test_platform_name.yaml -d android
           working-directory: {{project_name.snakeCase()}}/example
-
+{{/android}}
+{{#ios}}
   ios:
     runs-on: macos-latest
 
@@ -105,7 +106,8 @@ jobs:
 
       - name: E2E Tests
         run: fluttium test flows/test_platform_name.yaml -d iPhone
-
+{{/ios}}
+{{#linux}}
   linux:
     runs-on: ubuntu-latest
     if: false # todo(renancaraujo): https://github.com/wolfenrain/fluttium/issues/345
@@ -128,7 +130,8 @@ jobs:
 
       - name: E2E Tests
         run: xvfb-run fluttium test flows/test_platform_name.yaml -d linux
-
+{{/linux}}
+{{#macos}}
   macos:
     runs-on: macos-13
 
@@ -146,7 +149,8 @@ jobs:
 
       - name: E2E Tests
         run: fluttium test flows/test_platform_name.yaml -d macos
-
+{{/macos}}
+{{#web}}
   web:
     runs-on: ubuntu-latest
 
@@ -164,7 +168,8 @@ jobs:
 
       - name: E2E Tests
         run: xvfb-run fluttium test flows/test_platform_name.yaml -d chrome
-
+{{/web}}
+{{#windows}}
   windows:
     runs-on: windows-2019
 
@@ -182,3 +187,4 @@ jobs:
 
       - name: E2E Tests
         run: fluttium test flows/test_platform_name.yaml -d windows
+{{/windows}}
