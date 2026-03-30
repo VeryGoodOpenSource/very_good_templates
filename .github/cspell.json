@@ -45,7 +45,8 @@
   ],
   "useGitignore": true,
   "ignorePaths": [
-    "very_good_docs_site/__brick__/docs/overview.md",
+    "**/*.gen.dart",
+    "**/*.g.dart",
     "very_good_docs_site/__brick__/src/pages/index.tsx"
   ]
 }
