@@ -38,7 +38,7 @@ jobs:
           mason make very_good_dart_package -c very_good_dart_package/config.json --on-conflict overwrite -o very_good_dart_package_output
 
       - name: 🎯 Run Dart Package
-        uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@feat/report-on-multiple-paths
+        uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1.19.2
         with:
           dart_sdk: "3.11.0"
           min_coverage: 100
