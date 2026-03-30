@@ -6,7 +6,7 @@ import 'package:{{project_name.snakeCase()}}_platform_interface/{{project_name.s
 /// The iOS implementation of [{{project_name.pascalCase()}}Platform].
 /// {@endtemplate}
 class {{project_name.pascalCase()}}IOS extends {{project_name.pascalCase()}}Platform {
-  /// {@macro {{project_name.snakeCase()}}_android}
+  /// {@macro {{project_name.snakeCase()}}_ios}
   {{project_name.pascalCase()}}IOS({
     @visibleForTesting {{project_name.pascalCase()}}Api? api,
   }) : api = api ?? {{project_name.pascalCase()}}Api();
