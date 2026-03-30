@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.3.1...very_good_dart_package-v1.3.2) (2026-03-30)
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#473](https://github.com/VeryGoodOpenSource/very_good_templates/issues/473)) ([00f1271](https://github.com/VeryGoodOpenSource/very_good_templates/commit/00f1271e6e48e09429b6a8e7180b778eb4b38a0f))
+
 ## [1.3.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.3.0...very_good_dart_package-v1.3.1) (2026-03-16)
 
 
