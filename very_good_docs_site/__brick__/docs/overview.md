@@ -4,16 +4,16 @@ sidebar_position: 1
 
 # Overview 📚
 
-Est pellentesque elit ullamcorper dignissim. Viverra nam libero justo laoreet sit amet cursus sit. Interdum velit laoreet id donec ultrices. Nunc lobortis mattis aliquam faucibus purus. Massa vitae tortor condimentum lacinia quis.
+Welcome to the documentation site. This guide will help you get started and make the most of the available features.
 
 ## Quick Start 🚀
 
-### Elementum pulvinar
+### Installation
 
-Orci a scelerisque purus semper eget. Sit amet porttitor eget dolor morbi non arcu.
+Add the package to your project and follow the setup instructions below.
 
 :::tip
-Id ornare arcu odio ut sem nulla pharetra.
+Check the requirements section before getting started to ensure your environment is ready.
 :::
 
 ```dart

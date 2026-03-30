@@ -32,3 +32,8 @@
   color: "553DEC"
   description: Changes that affect the Very Good Flutter Plugin template.
   aliases: [very_good_flutter_plugin]
+
+- name: "product: very_good_app_ui"
+  color: "FF6B35"
+  description: Changes that affect the Very Good App UI template.
+  aliases: [very_good_app_ui]

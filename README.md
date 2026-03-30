@@ -5,7 +5,7 @@
 
 Developed with 💙 by [Very Good Ventures][very_good_ventures_link] 🦄
 
-Collection of open-source templates created and maintained by the [Very Good Ventures Team][very_good_ventures_link].
+Collection of open source templates created and maintained by the [Very Good Ventures Team][very_good_ventures_link].
 
 ---
 
@@ -21,9 +21,9 @@ Collection of open-source templates created and maintained by the [Very Good Ven
 
 ### Deprecated Templates
 
-| Template                                     | Description                                                        |
-| -------------------------------------------- | ------------------------------------------------------------------ |
-| [very_good_wear_app](very_good_wear_app/)    | A Very Good WearOS Flutter app. **Deprecated** -- no longer maintained. |
+| Template                                  | Description                                                             |
+| ----------------------------------------- | ----------------------------------------------------------------------- |
+| [very_good_wear_app](very_good_wear_app/) | A Very Good WearOS Flutter app. **Deprecated** -- no longer maintained. |
 
 <!-- Very Good Ventures -->
 
@@ -86,5 +86,3 @@ Collection of open-source templates created and maintained by the [Very Good Ven
 [very_good_flutter_plugin_workflow_link]: https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_flutter_plugin.yaml?query=branch%3Amain
 [very_good_flutter_plugin_code_link]: https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_flutter_plugin
 [very_good_flutter_plugin_docs_link]: https://cli.vgv.dev/docs/templates/federated_plugin
-
-
