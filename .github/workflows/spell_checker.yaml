@@ -7,12 +7,8 @@ concurrency:
 on: [push, pull_request]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: zwaldowski/cspell-action@v1
-        with:
-          paths: "**/*.{md,dart}"
-          config: .github/cspell.json
-          exclude: ".gitignore **.gen.dart **.g.dart"
+  spell_check:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
+    with:
+      includes: "**/*.{md,dart}"
+      modified_files_only: false
