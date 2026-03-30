@@ -94,7 +94,7 @@ very_good test -x pull-request-only --coverage
 # 🕸️ Generate a readable HTML website (from very_good_core_output)
 genhtml -o coverage/html coverage/lcov.info
 
-# 👀 Open the coverage report HTML website (from very_good_core_output)   
+# 👀 Open the coverage report HTML website (from very_good_core_output)
 open coverage/html/index.html
 ```
 

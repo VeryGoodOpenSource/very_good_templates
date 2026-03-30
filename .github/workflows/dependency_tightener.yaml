@@ -8,9 +8,10 @@ on:
 
 jobs:
   build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1.19.2
     with:
       dart_sdk: "3.11.0"
+      run_bloc_lint: false
       working_directory: "tool/dependency_tightener"
     secrets:
       ssh_key: ${{secrets.EXAMPLE_KEY}}
