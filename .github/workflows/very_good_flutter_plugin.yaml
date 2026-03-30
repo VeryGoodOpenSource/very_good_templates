@@ -45,7 +45,8 @@ jobs:
       - name: 🐦 Run Flutter Package
         uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1.19.2
         with:
-          min_coverage: 100
+          test_recursion: true
           flutter_version: "3.41.x"
-          coverage_excludes: "**/*.gen.dart"
           working_directory: "very_good_flutter_plugin_output"
+          coverage_excludes: "**/*.gen.dart"
+          collect_coverage_from: "all"
