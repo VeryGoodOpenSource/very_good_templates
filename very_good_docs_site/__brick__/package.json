@@ -27,11 +27,12 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.24.5",
+    "@eslint/js": "^10.0.0",
+    "globals": "^16.0.0",
     "@docusaurus/eslint-plugin": "^3.9.1",
     "@docusaurus/module-type-aliases": "^3.9.1",
     "@docusaurus/tsconfig": "^3.9.1",
-    "eslint": "^9.2.0",
+    "eslint": "^10.1.0",
     "prettier": "^3.2.5",
     "typescript": "^6.0.2",
     "jest": "^30.0.0",
