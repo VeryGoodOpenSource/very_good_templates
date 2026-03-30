@@ -1,11 +1,11 @@
 /// Version information about the template.
 ///
-/// This file is not automatically generated. It is manually maintained and
-/// should be updated when the template requires to be updated.
+/// This file is automatically updated by release-please when a new version
+/// of the template is released.
 library;
 
 /// The version of the template.
-const $templateVersion = '1.0.0';
+const $templateVersion = '1.3.1';
 
 /// The Flutter version associated with the template version.
 const $flutterVersion = '3.41.1';
