@@ -47,6 +47,6 @@ jobs:
         with:
           test_recursion: true
           flutter_version: "3.41.x"
-          working_directory: "very_good_flutter_plugin_output"
           coverage_excludes: "**/*.gen.dart"
+          working_directory: "very_good_flutter_plugin_output"
           collect_coverage_from: "all"
