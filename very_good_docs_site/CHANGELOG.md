@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.6](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.5...very_good_docs_site-v1.0.6) (2026-03-31)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump globals from 16.5.0 to 17.4.0 in /very_good_docs_site/__brick__ ([#486](https://github.com/VeryGoodOpenSource/very_good_templates/issues/486)) ([3be9002](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3be90021af4128a4fe2a6daea4dcdccb99fced5e))
+* remove release-ready scripts ([#488](https://github.com/VeryGoodOpenSource/very_good_templates/issues/488)) ([1f13261](https://github.com/VeryGoodOpenSource/very_good_templates/commit/1f132616172ecb1e49bca64712c13fd767378c0e))
+
 ## [1.0.5](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.4...very_good_docs_site-v1.0.5) (2026-03-30)
 
 
