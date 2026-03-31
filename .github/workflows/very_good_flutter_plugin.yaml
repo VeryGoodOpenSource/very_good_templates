@@ -48,3 +48,4 @@ jobs:
           flutter_version: "3.41.x"
           coverage_excludes: "**/*.g.dart"
           working_directory: "very_good_flutter_plugin_output"
+          collect_coverage_from: "all"
