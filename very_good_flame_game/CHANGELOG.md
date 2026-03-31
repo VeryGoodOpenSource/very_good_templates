@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.4.0...very_good_flame_game-v1.4.1) (2026-03-31)
+
+
+### Miscellaneous Chores
+
+* remove release-ready scripts ([#488](https://github.com/VeryGoodOpenSource/very_good_templates/issues/488)) ([1f13261](https://github.com/VeryGoodOpenSource/very_good_templates/commit/1f132616172ecb1e49bca64712c13fd767378c0e))
+
 ## [1.4.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.3.1...very_good_flame_game-v1.4.0) (2026-03-30)
 
 
