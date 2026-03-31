@@ -9,7 +9,7 @@ void main() {
     const kPlatformName = 'Web';
     late {{project_name.pascalCase()}}Web {{project_name.camelCase()}};
 
-    setUp(() async {
+    setUp(() {
       {{project_name.camelCase()}} = {{project_name.pascalCase()}}Web();
     });
 
