@@ -58,6 +58,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     String? organizationName,
     String? description,
     WindowsApplicationId? windowsApplicationId,
+    LinuxApplicationId? linuxApplicationId,
     AppleApplicationId? iOsApplicationId,
     AppleApplicationId? macOsApplicationId,
     AndroidApplicationId? androidApplicationId,
@@ -68,6 +69,12 @@ class VeryGoodCoreConfiguration extends Equatable {
     this.windowsApplicationId =
         windowsApplicationId ??
         WindowsApplicationId.fallback(
+          organizationName: this.organizationName,
+          projectName: this.projectName,
+        );
+    this.linuxApplicationId =
+        linuxApplicationId ??
+        LinuxApplicationId.fallback(
           organizationName: this.organizationName,
           projectName: this.projectName,
         );
@@ -153,6 +160,9 @@ class VeryGoodCoreConfiguration extends Equatable {
       windowsApplicationId: applicationId == null || applicationId.isEmpty
           ? null
           : WindowsApplicationId(applicationId),
+      linuxApplicationId: applicationId == null || applicationId.isEmpty
+          ? null
+          : LinuxApplicationId(applicationId),
       androidApplicationId: applicationId == null || applicationId.isEmpty
           ? null
           : AndroidApplicationId(applicationId),
@@ -178,6 +188,9 @@ class VeryGoodCoreConfiguration extends Equatable {
   /// {@macro apple_application_id}
   late final AppleApplicationId macOsApplicationId;
 
+  /// {@macro linux_application_id}
+  late final LinuxApplicationId linuxApplicationId;
+
   /// {@macro android_namespace}
   late final AndroidNamespace androidNamespace;
 
@@ -192,6 +205,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     windowsApplicationId,
     iOsApplicationId,
     macOsApplicationId,
+    linuxApplicationId,
     androidNamespace,
     androidApplicationId,
   ];
