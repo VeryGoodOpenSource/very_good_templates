@@ -65,7 +65,11 @@
       "version-file": "version.txt",
       "component": "very_good_flutter_plugin",
       "extra-files": [
-        "brick.yaml"
+        "brick.yaml",
+        {
+          "type": "generic",
+          "path": "hooks/lib/version.dart"
+        }
       ]
     },
     "very_good_app_ui": {
