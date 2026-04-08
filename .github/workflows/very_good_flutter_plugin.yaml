@@ -54,4 +54,4 @@ jobs:
       - name: 🧪 Run Tests
         run: |
           cd very_good_flutter_plugin_output
-          very_good test -j 4 --recursive --optimization --min-coverage 100 --exclude-coverage '**/*.g.dart **/*.gen.dart' --collect-coverage-from all --test-randomize-ordering-seed random
+          very_good test -j 4 --recursive --optimization --min-coverage 100 --exclude-coverage '**/*.g.dart **/*.gen.dart' --collect-coverage-from imports --test-randomize-ordering-seed random
