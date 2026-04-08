@@ -30,10 +30,10 @@ jobs:
       - name: 📚 Git Checkout
         uses: actions/checkout@v6
 
-      - name: 🎯 Setup Dart
-        uses: dart-lang/setup-dart@v1.7.2
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
-          sdk: "3.11.0"
+          flutter-version: "3.41.x"
 
       - name: 🧱 Mason Make
         run: |
@@ -42,6 +42,7 @@ jobs:
           mason get
           mason make very_good_flutter_plugin -c config.json --on-conflict overwrite --platforms android,ios,linux,macos,web,windows -o very_good_flutter_plugin_output
 
+<<<<<<< Updated upstream
       - name: 🐦 Run Flutter Package
         uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1.19.2
         with:
@@ -50,3 +51,18 @@ jobs:
           coverage_excludes: "**/*.gen.dart"
           working_directory: "very_good_flutter_plugin_output"
           collect_coverage_from: "all"
+=======
+      - name: 📦 Install Dependencies
+        run: very_good packages get --recursive very_good_flutter_plugin_output
+
+      - name: ✨ Check Formatting
+        run: dart format --set-exit-if-changed very_good_flutter_plugin_output
+
+      - name: 🕵️ Analyze
+        run: dart analyze --fatal-infos --fatal-warnings very_good_flutter_plugin_output
+
+      - name: 🧪 Run Tests
+        run: |
+          cd very_good_flutter_plugin_output
+          very_good test -j 4 --recursive --optimization --min-coverage 100 --exclude-coverage '**/*.g.dart **/*.gen.dart' --collect-coverage-from all --test-randomize-ordering-seed random
+>>>>>>> Stashed changes
