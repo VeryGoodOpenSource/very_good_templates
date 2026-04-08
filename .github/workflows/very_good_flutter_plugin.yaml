@@ -42,16 +42,6 @@ jobs:
           mason get
           mason make very_good_flutter_plugin -c config.json --on-conflict overwrite --platforms android,ios,linux,macos,web,windows -o very_good_flutter_plugin_output
 
-<<<<<<< Updated upstream
-      - name: 🐦 Run Flutter Package
-        uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1.19.2
-        with:
-          test_recursion: true
-          flutter_version: "3.41.x"
-          coverage_excludes: "**/*.gen.dart"
-          working_directory: "very_good_flutter_plugin_output"
-          collect_coverage_from: "all"
-=======
       - name: 📦 Install Dependencies
         run: very_good packages get --recursive very_good_flutter_plugin_output
 
@@ -65,4 +55,3 @@ jobs:
         run: |
           cd very_good_flutter_plugin_output
           very_good test -j 4 --recursive --optimization --min-coverage 100 --exclude-coverage '**/*.g.dart **/*.gen.dart' --collect-coverage-from all --test-randomize-ordering-seed random
->>>>>>> Stashed changes
