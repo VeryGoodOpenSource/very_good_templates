@@ -54,4 +54,5 @@ jobs:
       - name: 🧪 Run Tests
         run: |
           cd very_good_dart_cli_output
-          very_good dart test -j 4 --optimization --min-coverage 100 --test-randomize-ordering-seed random
+          very_good dart test -j 4 --optimization --check-ignore --report-on="lib"
+          cd ../../

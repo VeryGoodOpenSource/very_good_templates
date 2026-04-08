@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 import 'package:{{project_name.snakeCase()}}_platform_interface/{{project_name.snakeCase()}}_platform_interface.dart';
-import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 class Mock{{project_name.pascalCase()}}Platform extends Mock
     with MockPlatformInterfaceMixin
@@ -12,11 +12,14 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group({{project_name.pascalCase()}}Platform, () {
-    late {{project_name.pascalCase()}}Platform {{project_name.camelCase()}}Platform;
+    late {{project_name.pascalCase()}}Platform
+    {{project_name.camelCase()}}Platform;
 
     setUp(() {
-      {{project_name.camelCase()}}Platform = Mock{{project_name.pascalCase()}}Platform();
-      {{project_name.pascalCase()}}Platform.instance = {{project_name.camelCase()}}Platform;
+      {{project_name.camelCase()}}Platform =
+          Mock{{project_name.pascalCase()}}Platform();
+      {{project_name.pascalCase()}}Platform.instance =
+          {{project_name.camelCase()}}Platform;
     });
 
     group('getPlatformName', () {

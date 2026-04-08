@@ -1,5 +1,5 @@
-import 'package:{{project_name.snakeCase()}}_platform_interface/src/method_channel_{{project_name.snakeCase()}}.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import 'package:{{project_name.snakeCase()}}_platform_interface/src/method_channel_{{project_name.snakeCase()}}.dart';
 
 /// {@template {{project_name.snakeCase()}}_platform}
 /// The interface that implementations of {{project_name.snakeCase()}} must implement.
@@ -17,7 +17,8 @@ abstract class {{project_name.pascalCase()}}Platform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static {{project_name.pascalCase()}}Platform _instance = MethodChannel{{project_name.pascalCase()}}();
+  static {{project_name.pascalCase()}}Platform _instance =
+      MethodChannel{{project_name.pascalCase()}}();
 
   /// The default instance of [{{project_name.pascalCase()}}Platform] to use.
   ///
