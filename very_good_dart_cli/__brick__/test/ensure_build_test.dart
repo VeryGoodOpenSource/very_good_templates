@@ -1,4 +1,4 @@
-@Tags(['version-verify', 'skip_very_good_optimization'])
+@Tags(['version-verify'])
 library;
 
 import 'package:build_verify/build_verify.dart';
