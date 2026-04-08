@@ -30,10 +30,10 @@ jobs:
       - name: 📚 Git Checkout
         uses: actions/checkout@v6
 
-      - name: 🎯 Setup Dart
-        uses: dart-lang/setup-dart@v1.7.2
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2.23.0
         with:
-          sdk: "3.11.0"
+          flutter-version: "3.41.x"
 
       - name: 🧱 Mason Make
         run: |
@@ -43,7 +43,7 @@ jobs:
           mason make very_good_dart_cli -c config.json --on-conflict overwrite -o very_good_dart_cli_output
 
       - name: 📦 Install Dependencies
-        run: very_good packages get very_good_dart_cli_output
+        run: dart pub get --directory very_good_dart_cli_output
 
       - name: ✨ Check Formatting
         run: dart format --set-exit-if-changed very_good_dart_cli_output

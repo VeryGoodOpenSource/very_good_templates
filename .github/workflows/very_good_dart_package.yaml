@@ -43,7 +43,7 @@ jobs:
           mason make very_good_dart_package -c config.json --on-conflict overwrite -o very_good_dart_package_output
 
       - name: 📦 Install Dependencies
-        run: very_good packages get very_good_dart_package_output
+        run: dart pub get --directory very_good_dart_package_output
 
       - name: ✨ Check Formatting
         run: dart format --set-exit-if-changed very_good_dart_package_output

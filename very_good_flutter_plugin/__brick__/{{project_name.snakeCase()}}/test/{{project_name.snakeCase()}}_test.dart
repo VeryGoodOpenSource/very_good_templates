@@ -20,25 +20,29 @@ void main() {
     });
 
     group('getPlatformName', () {
-      test('returns correct name when platform implementation exists',
-          () async {
-        const platformName = '__test_platform__';
-        when(
-          () => {{project_name.camelCase()}}Platform.getPlatformName(),
-        ).thenAnswer((_) async => platformName);
+      test(
+        'returns correct name when platform implementation exists',
+        () async {
+          const platformName = '__test_platform__';
+          when(
+            () => {{project_name.camelCase()}}Platform.getPlatformName(),
+          ).thenAnswer((_) async => platformName);
 
-        final actualPlatformName = await getPlatformName();
-        expect(actualPlatformName, equals(platformName));
-      });
+          final actualPlatformName = await getPlatformName();
+          expect(actualPlatformName, equals(platformName));
+        },
+      );
 
-      test('throws exception when platform implementation is missing',
-          () async {
-        when(
-          () => {{project_name.camelCase()}}Platform.getPlatformName(),
-        ).thenAnswer((_) async => null);
+      test(
+        'throws exception when platform implementation is missing',
+        () async {
+          when(
+            () => {{project_name.camelCase()}}Platform.getPlatformName(),
+          ).thenAnswer((_) async => null);
 
-        expect(getPlatformName, throwsException);
-      });
+          expect(getPlatformName, throwsException);
+        },
+      );
     });
   });
 }
