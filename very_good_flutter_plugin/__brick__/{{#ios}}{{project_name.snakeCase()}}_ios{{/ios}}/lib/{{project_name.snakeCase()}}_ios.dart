@@ -11,7 +11,8 @@ class {{project_name.pascalCase()}}IOS
     '{{project_name.snakeCase()}}_ios',
   );
 
-  /// Registers this class as the default instance of [{{project_name.pascalCase()}}Platform]
+  /// Registers this class as the default instance of
+  /// [{{project_name.pascalCase()}}Platform].
   static void registerWith() {
     {{project_name.pascalCase()}}Platform.instance =
         {{project_name.pascalCase()}}IOS();
