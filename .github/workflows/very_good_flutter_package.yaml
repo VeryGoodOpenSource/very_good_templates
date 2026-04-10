@@ -30,20 +30,29 @@ jobs:
       - name: 📚 Git Checkout
         uses: actions/checkout@v6
 
-      - name: 🎯 Setup Dart
-        uses: dart-lang/setup-dart@v1.7.2
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2.23.0
         with:
-          sdk: "3.11.0"
+          cache: true
+          flutter-version: "3.41.x"
 
       - name: 🧱 Mason Make
         run: |
           dart pub global activate mason_cli 0.1.3
+          dart pub global activate very_good_cli 1.1.1
           mason get
-          mason make very_good_flutter_package -c very_good_flutter_package/config.json --on-conflict overwrite -o very_good_flutter_package_output
+          mason make very_good_flutter_package -c config.json --on-conflict overwrite -o very_good_flutter_package_output
 
-      - name: 🐦 Run Flutter Package
-        uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1.19.2
-        with:
-          min_coverage: 100
-          flutter_version: "3.41.x"
-          working_directory: "very_good_flutter_package_output"
+      - name: 📦 Install Dependencies
+        run: very_good packages get --recursive very_good_flutter_package_output
+
+      - name: ✨ Check Formatting
+        run: dart format --set-exit-if-changed very_good_flutter_package_output
+
+      - name: 🕵️ Analyze
+        run: dart analyze --fatal-infos --fatal-warnings very_good_flutter_package_output
+
+      - name: 🧪 Run Tests
+        run: |
+          cd very_good_flutter_package_output
+          very_good test -r --coverage --test-randomize-ordering-seed random
