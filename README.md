@@ -5,12 +5,13 @@
 
 Developed with 💙 by [Very Good Ventures][very_good_ventures_link] 🦄
 
-Collection of open-source templates created and maintained by the [Very Good Ventures Team][very_good_ventures_link].
+Collection of open source templates created and maintained by the [Very Good Ventures Team][very_good_ventures_link].
 
 ---
 
 | Template                                                         | Description                     | Documentation                                        | Build                                                                                         |
 | ---------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| [very_good_app_ui][very_good_app_ui_code_link]                   | A Very Good Flutter app UI package. | [Documentation][very_good_app_ui_docs_link]       | [![build][very_good_app_ui_workflow_badge]][very_good_app_ui_workflow_link]                   |
 | [very_good_core][very_good_core_code_link]                       | A Very Good Flutter app.        | [Documentation][very_good_core_docs_link]            | [![build][very_good_core_workflow_badge]][very_good_core_workflow_link]                       |
 | [very_good_dart_cli][very_good_dart_cli_code_link]               | A Very Good Dart CLI.           | [Documentation][very_good_dart_cli_docs_link]        | [![build][very_good_dart_cli_workflow_badge]][very_good_dart_cli_workflow_link]               |
 | [very_good_dart_package][very_good_dart_package_code_link]       | A Very Good Dart package.       | [Documentation][very_good_dart_package_docs_link]    | [![build][very_good_dart_package_workflow_badge]][very_good_dart_package_workflow_link]       |
@@ -18,7 +19,12 @@ Collection of open-source templates created and maintained by the [Very Good Ven
 | [very_good_flame_game][very_good_flame_game_code_link]           | A Very Good Flame game.         | [Documentation][very_good_flame_game_docs_link]      | [![build][very_good_flame_game_workflow_badge]][very_good_flame_game_workflow_link]           |
 | [very_good_flutter_package][very_good_flutter_package_code_link] | A Very Good Flutter package.    | [Documentation][very_good_flutter_package_docs_link] | [![build][very_good_flutter_package_workflow_badge]][very_good_flutter_package_workflow_link] |
 | [very_good_flutter_plugin][very_good_flutter_plugin_code_link]   | A Very Good Flutter plugin.     | [Documentation][very_good_flutter_plugin_docs_link]  | [![build][very_good_flutter_package_workflow_badge]][very_good_flutter_plugin_workflow_link]  |
-| [very_good_wear_app][very_good_wear_app_code_link]               | A Very Good WearOS Flutter app. | [Documentation][very_good_wear_app_docs_link]        | [![build][very_good_wear_app_workflow_badge]][very_good_wear_app_workflow_link]               |
+
+### Deprecated Templates
+
+| Template                                     | Description                                                        |
+| -------------------------------------------- | ------------------------------------------------------------------ |
+| [very_good_wear_app](very_good_wear_app/)    | A Very Good WearOS Flutter app. **Deprecated** -- no longer maintained. |
 
 <!-- Very Good Ventures -->
 
@@ -32,6 +38,13 @@ Collection of open-source templates created and maintained by the [Very Good Ven
 
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
+
+<!-- Very Good App UI -->
+
+[very_good_app_ui_workflow_badge]: https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_app_ui.yaml/badge.svg?branch=main
+[very_good_app_ui_workflow_link]: https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_app_ui.yaml?query=branch%3Amain
+[very_good_app_ui_code_link]: https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_app_ui
+[very_good_app_ui_docs_link]: https://cli.vgv.dev/docs/templates/app_ui
 
 <!-- Very Good Core -->
 
@@ -82,9 +95,4 @@ Collection of open-source templates created and maintained by the [Very Good Ven
 [very_good_flutter_plugin_code_link]: https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_flutter_plugin
 [very_good_flutter_plugin_docs_link]: https://cli.vgv.dev/docs/templates/federated_plugin
 
-<!-- Very Good Wear App -->
 
-[very_good_wear_app_workflow_badge]: https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_wear_app.yaml/badge.svg?branch=main
-[very_good_wear_app_workflow_link]: https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_wear_app.yaml?query=branch%3Amain
-[very_good_wear_app_code_link]: https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_wear_app
-[very_good_wear_app_docs_link]: https://cli.vgv.dev/docs/templates/wear

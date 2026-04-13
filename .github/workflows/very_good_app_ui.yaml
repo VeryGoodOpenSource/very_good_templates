@@ -1,0 +1,58 @@
+name: very_good_app_ui
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    paths:
+      - .github/workflows/very_good_app_ui.yaml
+      - "very_good_app_ui/**"
+    branches:
+      - main
+  pull_request:
+    paths:
+      - .github/workflows/very_good_app_ui.yaml
+      - "very_good_app_ui/**"
+    branches:
+      - main
+
+jobs:
+  brick:
+    defaults:
+      run:
+        working-directory: very_good_app_ui/
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v6
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2.23.0
+        with:
+          cache: true
+          flutter-version: "3.41.x"
+
+      - name: 🧱 Mason Make
+        run: |
+          dart pub global activate mason_cli 0.1.3
+          dart pub global activate very_good_cli 1.1.1
+          mason get
+          mason make very_good_app_ui -c config.json --on-conflict overwrite -o very_good_app_ui_output
+
+      - name: 📦 Install Dependencies
+        run: very_good packages get --recursive very_good_app_ui_output
+
+      - name: ✨ Check Formatting
+        run: dart format --set-exit-if-changed very_good_app_ui_output
+
+      - name: 🕵️ Analyze
+        run: dart analyze --fatal-infos --fatal-warnings very_good_app_ui_output
+
+      - name: 🧪 Run Tests
+        run: |
+          cd very_good_app_ui_output
+          very_good test -r --coverage --test-randomize-ordering-seed random

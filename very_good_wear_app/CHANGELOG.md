@@ -1,3 +1,54 @@
+# Changelog
+
+## 1.2.0+1
+
+- **DEPRECATED**: This template is deprecated and will no longer receive updates. It was an experimental WearOS starter project that has been retired due to low adoption and maintenance costs. The code remains available as a historical reference.
+
+## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_wear_app-v1.1.1...very_good_wear_app-v1.2.0) (2026-02-06)
+
+
+### Features
+
+* add bloc lint to templates with bloc ([#382](https://github.com/VeryGoodOpenSource/very_good_templates/issues/382)) ([512edf2](https://github.com/VeryGoodOpenSource/very_good_templates/commit/512edf2117e9e1a8635a02bc74ac319b01deed54))
+* add license check workflow to templates ([#422](https://github.com/VeryGoodOpenSource/very_good_templates/issues/422)) ([bd280c0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd280c00f90126856a5fe70d6417e1c83d20f74b))
+* upgrade to flutter 3.38.1 ([#394](https://github.com/VeryGoodOpenSource/very_good_templates/issues/394)) ([e436d76](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e436d7606b0998fc5231d3bd1fd0c4650d0c8ae8))
+
+
+### Bug Fixes
+
+* tighten bloc_lint version ([#424](https://github.com/VeryGoodOpenSource/very_good_templates/issues/424)) ([67f35de](https://github.com/VeryGoodOpenSource/very_good_templates/commit/67f35de7cdfbe1f7cf34e4654cb3cb91918ed934))
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
+
+### Miscellaneous Chores
+
+* bump very_good_analysis to 10.1.0 ([#400](https://github.com/VeryGoodOpenSource/very_good_templates/issues/400)) ([0c454c4](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c454c4166cf4e01c659ab723c5f94fc1a2edaa6))
+* tighten template dependencies ([#384](https://github.com/VeryGoodOpenSource/very_good_templates/issues/384)) ([922bf00](https://github.com/VeryGoodOpenSource/very_good_templates/commit/922bf00157ef07e6e9971a1eb938a0d187e1bd8d))
+* tighten template dependencies ([#385](https://github.com/VeryGoodOpenSource/very_good_templates/issues/385)) ([10ed573](https://github.com/VeryGoodOpenSource/very_good_templates/commit/10ed57357e67dc8a9eb0d132e9e7272c743f6781))
+* tighten template dependencies ([#401](https://github.com/VeryGoodOpenSource/very_good_templates/issues/401)) ([31b852c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/31b852c18e2b00e5182fe996fe9534e55cce6832))
+
+## [1.1.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_wear_app-v1.1.0...very_good_wear_app-v1.1.1) (2025-09-30)
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#363](https://github.com/VeryGoodOpenSource/very_good_templates/issues/363)) ([01307a7](https://github.com/VeryGoodOpenSource/very_good_templates/commit/01307a7bd955fa9d673cb534746cb265685530c1))
+
+## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_wear_app-v1.0.0...very_good_wear_app-v1.1.0) (2025-09-22)
+
+
+### Features
+
+* upgrade to flutter 3.35.0 ([#342](https://github.com/VeryGoodOpenSource/very_good_templates/issues/342)) ([6818041](https://github.com/VeryGoodOpenSource/very_good_templates/commit/681804198c03a6ab255802cedc15242832928e54))
+* upgrade to very_good_analysis 10.0.0 ([#346](https://github.com/VeryGoodOpenSource/very_good_templates/issues/346)) ([5a7d0dc](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5a7d0dc7323a77583158acfbbe933a60302ed532))
+* upgraded plugin version and removed jdk7 dependency on build.kts ([#339](https://github.com/VeryGoodOpenSource/very_good_templates/issues/339)) ([8e60971](https://github.com/VeryGoodOpenSource/very_good_templates/commit/8e6097152174368e8923024ef1b2bf35f4a675ac))
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
+* **very_good_wear_app:** migrates Groovy scripts to Kotlin DSL ([#317](https://github.com/VeryGoodOpenSource/very_good_templates/issues/317)) ([aa8f4df](https://github.com/VeryGoodOpenSource/very_good_templates/commit/aa8f4df464f7e620a16799c39af638cceb4a6b97))
+
 ## 1.0.0
 
 refactor(very_good_wear_app)!: remove root-level project_name folder from brick structure.

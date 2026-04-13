@@ -16,20 +16,25 @@ void main() {
 
       log = <MethodCall>[];
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler({{project_name.camelCase()}}.methodChannel, (methodCall) async {
-        log.add(methodCall);
-        switch (methodCall.method) {
-          case 'getPlatformName':
-            return kPlatformName;
-          default:
-            return null;
-        }
-      });
+          .setMockMethodCallHandler({{project_name.camelCase()}}.methodChannel, (
+            methodCall,
+          ) async {
+            log.add(methodCall);
+            switch (methodCall.method) {
+              case 'getPlatformName':
+                return kPlatformName;
+              default:
+                return null;
+            }
+          });
     });
 
     test('can be registered', () {
       {{project_name.pascalCase()}}Windows.registerWith();
-      expect({{project_name.pascalCase()}}Platform.instance, isA<{{project_name.pascalCase()}}Windows>());
+      expect(
+        {{project_name.pascalCase()}}Platform.instance,
+        isA<{{project_name.pascalCase()}}Windows>(),
+      );
     });
 
     test('getPlatformName returns correct name', () async {

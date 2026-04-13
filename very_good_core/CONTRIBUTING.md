@@ -94,7 +94,7 @@ very_good test -x pull-request-only --coverage
 # 🕸️ Generate a readable HTML website (from very_good_core_output)
 genhtml -o coverage/html coverage/lcov.info
 
-# 👀 Open the coverage report HTML website (from very_good_core_output)   
+# 👀 Open the coverage report HTML website (from very_good_core_output)
 open coverage/html/index.html
 ```
 
@@ -122,35 +122,3 @@ dart analyze --fatal-infos --fatal-warnings .
 
 💡 **Note**: While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional work, tests, or other changes before your pull request can be accepted.
 
-## Releasing a new version
-
-1. Install the release script dependencies:
-
-```sh
-brew install pcre
-```
-
-2. Ensure your local `main` branch is up to date with the remote `main` branch:
-
-```sh
-git checkout main
-git pull origin main
-git status
-```
-
-2. Ensure the current pipeline is passing on the `main` branch, [here](https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_core.yaml?query=branch:main).
-
-3. From the repository, run the script to release a new version:
-
-```sh
-./tool/release_ready.sh <new-version>
-
-git commit -m "chore: v<new-version>"
-```
-
-This script will:
-
-- Create a new branch named `chore/v<new-version>`
-- Update the version info on `brick.yaml`
-- Update the version info on `CHANGELOG.md`
-- Then commit those changes with the message `chore: v<new-version>`

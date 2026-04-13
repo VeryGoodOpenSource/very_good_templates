@@ -24,23 +24,23 @@ jobs:
 
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 🎯 Setup Dart
-        uses: dart-lang/setup-dart@v1
+        uses: dart-lang/setup-dart@v1.7.2
         with:
-          sdk: "3.9.0"
+          sdk: "3.11.0"
 
       - name: 🧱 Mason Make
         run: |
-          dart pub global activate mason_cli
+          dart pub global activate mason_cli 0.1.3
           mason get
           mason make very_good_docs_site -c very_good_docs_site/config.json --on-conflict overwrite -o very_good_docs_site_output
 
       - name: ⚙️ Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
-          node-version: 18.x
+          node-version: 22.x
 
       - name: 📦 Install Dependencies
         run: |

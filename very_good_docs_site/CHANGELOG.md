@@ -1,3 +1,41 @@
+# Changelog
+
+## [1.0.5](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.4...very_good_docs_site-v1.0.5) (2026-03-30)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump eslint from 9.39.4 to 10.1.0 in /very_good_docs_site/__brick__ ([#481](https://github.com/VeryGoodOpenSource/very_good_templates/issues/481)) ([c52723f](https://github.com/VeryGoodOpenSource/very_good_templates/commit/c52723f186a74baaed34bcf9d93b1f6ecf5001d5))
+* **deps-dev:** bump typescript from 5.9.3 to 6.0.2 in /very_good_docs_site/__brick__ ([#480](https://github.com/VeryGoodOpenSource/very_good_templates/issues/480)) ([c91fcc9](https://github.com/VeryGoodOpenSource/very_good_templates/commit/c91fcc96375e3bac70a1b2afd855b72c531aad7d))
+* **deps:** bump react from 18.3.1 to 19.2.4 in /very_good_docs_site/__brick__ ([#482](https://github.com/VeryGoodOpenSource/very_good_templates/issues/482)) ([85b854b](https://github.com/VeryGoodOpenSource/very_good_templates/commit/85b854b0a8e9b304f3fbb39d70de853655fabca4))
+
+## [1.0.4](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.3...very_good_docs_site-v1.0.4) (2026-03-17)
+
+
+### Bug Fixes
+
+* add missing LICENSE files to templates ([#448](https://github.com/VeryGoodOpenSource/very_good_templates/issues/448)) ([bc3c0a9](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bc3c0a97d16ffa3b15b326454e25fb37070cd8cc))
+
+## [1.0.3](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.2...very_good_docs_site-v1.0.3) (2026-02-06)
+
+
+### Bug Fixes
+
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
+## [1.0.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.1...very_good_docs_site-v1.0.2) (2025-10-01)
+
+
+### Bug Fixes
+
+* **very_good_docs_site:** update docusaurus config ([#367](https://github.com/VeryGoodOpenSource/very_good_templates/issues/367)) ([e65510c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e65510c2e853e5b6b8fa378482c49927aeb3ba41))
+
+## [1.0.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.0...very_good_docs_site-v1.0.1) (2025-09-22)
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
 
 ## 1.0.0
 

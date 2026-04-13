@@ -1,5 +1,15 @@
 # very_good_wear_app
 
+> [!CAUTION]
+> ## Deprecated
+>
+> This template has been **deprecated** and is no longer actively maintained.
+>
+> `very_good_wear_app` was originally published as an experimental WearOS starter
+> project. Due to low community adoption and the maintenance effort it requires,
+> this template has been retired. The source code will remain in the repository
+> as a reference, but it will not receive updates, bug fixes, or new releases.
+
 [![Very Good Ventures][logo_white]][very_good_ventures_link_dark]
 
 Developed with 💙 by [Very Good Ventures][very_good_ventures_link] 🦄

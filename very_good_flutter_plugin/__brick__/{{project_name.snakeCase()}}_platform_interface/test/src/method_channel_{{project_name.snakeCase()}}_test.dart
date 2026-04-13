@@ -7,30 +7,33 @@ void main() {
   const kPlatformName = 'platformName';
 
   group('$MethodChannel{{project_name.pascalCase()}}', () {
-    late MethodChannel{{project_name.pascalCase()}} methodChannel{{project_name.pascalCase()}};
+    late MethodChannel{{project_name.pascalCase()}}
+    methodChannel{{project_name.pascalCase()}};
     final log = <MethodCall>[];
 
     setUp(() async {
-      methodChannel{{project_name.pascalCase()}} = MethodChannel{{project_name.pascalCase()}}();
+      methodChannel{{project_name.pascalCase()}} =
+          MethodChannel{{project_name.pascalCase()}}();
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
-        methodChannel{{project_name.pascalCase()}}.methodChannel,
-        (methodCall) async {
-          log.add(methodCall);
-          switch (methodCall.method) {
-            case 'getPlatformName':
-              return kPlatformName;
-            default:
-              return null;
-          }
-        },
-      );
+            methodChannel{{project_name.pascalCase()}}.methodChannel,
+            (methodCall) async {
+              log.add(methodCall);
+              switch (methodCall.method) {
+                case 'getPlatformName':
+                  return kPlatformName;
+                default:
+                  return null;
+              }
+            },
+          );
     });
 
     tearDown(log.clear);
 
     test('getPlatformName', () async {
-      final platformName = await methodChannel{{project_name.pascalCase()}}.getPlatformName();
+      final platformName = await methodChannel{{project_name.pascalCase()}}
+          .getPlatformName();
       expect(
         log,
         <Matcher>[isMethodCall('getPlatformName', arguments: null)],

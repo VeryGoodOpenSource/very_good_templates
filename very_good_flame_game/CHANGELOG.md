@@ -1,3 +1,121 @@
+# Changelog
+
+## [1.4.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.4.0...very_good_flame_game-v1.4.1) (2026-04-13)
+
+
+### Bug Fixes
+
+* add missing variables for LICENSE files ([#503](https://github.com/VeryGoodOpenSource/very_good_templates/issues/503)) ([203b8b0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/203b8b033b29e6820213541b111a112a041f4a65))
+
+
+### Miscellaneous Chores
+
+* remove release-ready scripts ([#488](https://github.com/VeryGoodOpenSource/very_good_templates/issues/488)) ([1f13261](https://github.com/VeryGoodOpenSource/very_good_templates/commit/1f132616172ecb1e49bca64712c13fd767378c0e))
+* tighten template dependencies ([#504](https://github.com/VeryGoodOpenSource/very_good_templates/issues/504)) ([36845d0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/36845d0e300d9565dd7da8b10ed62a34b5ecd8f8))
+
+## [1.4.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.3.1...very_good_flame_game-v1.4.0) (2026-03-30)
+
+
+### Features
+
+* **very_good_flame_game:** add asset preloader ([#469](https://github.com/VeryGoodOpenSource/very_good_templates/issues/469)) ([856c348](https://github.com/VeryGoodOpenSource/very_good_templates/commit/856c3486cedf7b87212a759cc981b82aab687fe0))
+
+## [1.3.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.3.0...very_good_flame_game-v1.3.1) (2026-03-17)
+
+
+### Bug Fixes
+
+* add missing LICENSE files to templates ([#448](https://github.com/VeryGoodOpenSource/very_good_templates/issues/448)) ([bc3c0a9](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bc3c0a97d16ffa3b15b326454e25fb37070cd8cc))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#440](https://github.com/VeryGoodOpenSource/very_good_templates/issues/440)) ([ef8b742](https://github.com/VeryGoodOpenSource/very_good_templates/commit/ef8b742f2e0274699c7373497c70558254ef9e27))
+
+## [1.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.2.0...very_good_flame_game-v1.3.0) (2026-02-17)
+
+
+### Features
+
+* upgrade to dart 3.11 and flutter 3.41 ([#429](https://github.com/VeryGoodOpenSource/very_good_templates/issues/429)) ([46ae490](https://github.com/VeryGoodOpenSource/very_good_templates/commit/46ae490823ef6f5f3addef6159a24870f66e931e))
+* upgrade to very_good_analysis 10.2.0 ([#437](https://github.com/VeryGoodOpenSource/very_good_templates/issues/437)) ([be16183](https://github.com/VeryGoodOpenSource/very_good_templates/commit/be161834e90f0381d3535c9bd3b5f44ba6ea19ba))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#425](https://github.com/VeryGoodOpenSource/very_good_templates/issues/425)) ([c4feeb6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/c4feeb6031b6bf211546bce9f4797d2554363488))
+* tighten template dependencies ([#435](https://github.com/VeryGoodOpenSource/very_good_templates/issues/435)) ([5937c46](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5937c469ae2c28ad4230d2ce00fdf8d78639c0d8))
+
+## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.2...very_good_flame_game-v1.2.0) (2026-02-06)
+
+
+### Features
+
+* add bloc lint to templates with bloc ([#382](https://github.com/VeryGoodOpenSource/very_good_templates/issues/382)) ([512edf2](https://github.com/VeryGoodOpenSource/very_good_templates/commit/512edf2117e9e1a8635a02bc74ac319b01deed54))
+* add icon composer support for iOS ([#408](https://github.com/VeryGoodOpenSource/very_good_templates/issues/408)) ([d3fa327](https://github.com/VeryGoodOpenSource/very_good_templates/commit/d3fa3279169b1d6b3cf37c613d65a5ed1943e559))
+* add icon composer support for MacOS ([#409](https://github.com/VeryGoodOpenSource/very_good_templates/issues/409)) ([bd09007](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd09007053e4e141091b3b98a424479dff4f1d39))
+* add license check workflow to templates ([#422](https://github.com/VeryGoodOpenSource/very_good_templates/issues/422)) ([bd280c0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd280c00f90126856a5fe70d6417e1c83d20f74b))
+* update iOS templates to use UIScene lifecycle ([#416](https://github.com/VeryGoodOpenSource/very_good_templates/issues/416)) ([233f02e](https://github.com/VeryGoodOpenSource/very_good_templates/commit/233f02e2212fc04f9ddfe54c8dff019a9ae1560f))
+* upgrade to flutter 3.38.1 ([#394](https://github.com/VeryGoodOpenSource/very_good_templates/issues/394)) ([e436d76](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e436d7606b0998fc5231d3bd1fd0c4650d0c8ae8))
+
+
+### Bug Fixes
+
+* tighten bloc_lint version ([#424](https://github.com/VeryGoodOpenSource/very_good_templates/issues/424)) ([67f35de](https://github.com/VeryGoodOpenSource/very_good_templates/commit/67f35de7cdfbe1f7cf34e4654cb3cb91918ed934))
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
+
+### Miscellaneous Chores
+
+* bump very_good_analysis to 10.1.0 ([#400](https://github.com/VeryGoodOpenSource/very_good_templates/issues/400)) ([0c454c4](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c454c4166cf4e01c659ab723c5f94fc1a2edaa6))
+* **ios:** migrate deprecated UIApplicationMain to [@main](https://github.com/main) ([#406](https://github.com/VeryGoodOpenSource/very_good_templates/issues/406)) ([0c1b5a0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c1b5a08b1c0725b828a1608ca53d0afd1d6c567))
+* tighten template dependencies ([#384](https://github.com/VeryGoodOpenSource/very_good_templates/issues/384)) ([922bf00](https://github.com/VeryGoodOpenSource/very_good_templates/commit/922bf00157ef07e6e9971a1eb938a0d187e1bd8d))
+* tighten template dependencies ([#385](https://github.com/VeryGoodOpenSource/very_good_templates/issues/385)) ([10ed573](https://github.com/VeryGoodOpenSource/very_good_templates/commit/10ed57357e67dc8a9eb0d132e9e7272c743f6781))
+* tighten template dependencies ([#401](https://github.com/VeryGoodOpenSource/very_good_templates/issues/401)) ([31b852c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/31b852c18e2b00e5182fe996fe9534e55cce6832))
+* upgrade iOS target version to 13.0 ([#407](https://github.com/VeryGoodOpenSource/very_good_templates/issues/407)) ([0c33e73](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c33e73350507590e6c67eca095f7828ad42f140))
+
+## [1.1.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.1...very_good_flame_game-v1.1.2) (2025-09-30)
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#363](https://github.com/VeryGoodOpenSource/very_good_templates/issues/363)) ([01307a7](https://github.com/VeryGoodOpenSource/very_good_templates/commit/01307a7bd955fa9d673cb534746cb265685530c1))
+
+## [1.1.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.1.0...very_good_flame_game-v1.1.1) (2025-09-25)
+
+
+### Bug Fixes
+
+* **very_good_flame_game:** selected platforms can be nullable ([#360](https://github.com/VeryGoodOpenSource/very_good_templates/issues/360)) ([5cd5e82](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5cd5e82c16f8431348e43549809e54f836792fdc))
+
+## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.0.0...very_good_flame_game-v1.1.0) (2025-09-22)
+
+
+### Features
+
+* upgrade to flutter 3.35.0 ([#342](https://github.com/VeryGoodOpenSource/very_good_templates/issues/342)) ([6818041](https://github.com/VeryGoodOpenSource/very_good_templates/commit/681804198c03a6ab255802cedc15242832928e54))
+* upgrade to very_good_analysis 10.0.0 ([#346](https://github.com/VeryGoodOpenSource/very_good_templates/issues/346)) ([5a7d0dc](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5a7d0dc7323a77583158acfbbe933a60302ed532))
+* upgraded plugin version and removed jdk7 dependency on build.kts ([#339](https://github.com/VeryGoodOpenSource/very_good_templates/issues/339)) ([8e60971](https://github.com/VeryGoodOpenSource/very_good_templates/commit/8e6097152174368e8923024ef1b2bf35f4a675ac))
+* **very_good_flame_game:** add platform options ([#340](https://github.com/VeryGoodOpenSource/very_good_templates/issues/340)) ([f3a6792](https://github.com/VeryGoodOpenSource/very_good_templates/commit/f3a6792af70c6006bfbf4b30d92e0d91b6246205))
+* **very_good_flame:** update assets.gen.dart ([#349](https://github.com/VeryGoodOpenSource/very_good_templates/issues/349)) ([2f9da8c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/2f9da8c3bbb423876ff125a067755932a74a2b38))
+
+
+### Bug Fixes
+
+* **very_good_flame_game:** Change so "tap count" message is responsive to window size ([#338](https://github.com/VeryGoodOpenSource/very_good_templates/issues/338)) ([3b8c11e](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3b8c11e5c77124645c742b1475ebf9a9209680eb))
+* **very_good_flame_game:** deprecated android gradle plugin version ([#315](https://github.com/VeryGoodOpenSource/very_good_templates/issues/315)) ([fb4385d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/fb4385dd5acb3c7eaae3b1a1bdc0a4fac5e91449))
+* **very_good_flame_game:** Improve text readability by changing color… ([#335](https://github.com/VeryGoodOpenSource/very_good_templates/issues/335)) ([0a42ee2](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0a42ee292238bda7c86b9220a640b31154070dcd))
+* **very_good_flame_game:** trim audio to not repeat sound effect ([#336](https://github.com/VeryGoodOpenSource/very_good_templates/issues/336)) ([9b423ac](https://github.com/VeryGoodOpenSource/very_good_templates/commit/9b423ac7ab707a83fac4a456ea798d525513fac2))
+
+
+### Miscellaneous Chores
+
+* automate releases ([#319](https://github.com/VeryGoodOpenSource/very_good_templates/issues/319)) ([17fb3a5](https://github.com/VeryGoodOpenSource/very_good_templates/commit/17fb3a5c742a42e7fff70b269deea961e4a15b4f))
+* tighten template dependencies ([#318](https://github.com/VeryGoodOpenSource/very_good_templates/issues/318)) ([70a1f0c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/70a1f0ced2ec663bcace86166ca31de616b8de59))
+* tighten template dependencies ([#348](https://github.com/VeryGoodOpenSource/very_good_templates/issues/348)) ([4167a25](https://github.com/VeryGoodOpenSource/very_good_templates/commit/4167a255c3b126418fefbadbeb6968c7bd861ed8))
+* tighten template dependencies ([#351](https://github.com/VeryGoodOpenSource/very_good_templates/issues/351)) ([68b6651](https://github.com/VeryGoodOpenSource/very_good_templates/commit/68b665139a7893a5ec760f2074928f990ee45045))
+* tighten template dependencies ([#353](https://github.com/VeryGoodOpenSource/very_good_templates/issues/353)) ([a7f24a7](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a7f24a7b952ab2f59b6fb69023f319cd7a4f0a3f))
+* **very_good_flame_game:** migrates Groovy scripts to Kotlin DSL ([#314](https://github.com/VeryGoodOpenSource/very_good_templates/issues/314)) ([e384bed](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e384bedad9c4f32cb97ed1395ceb02ad85200de9))
 
 ## 1.0.0
 

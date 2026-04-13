@@ -64,9 +64,10 @@ void main() {
       ),
     ).thenAnswer((_) async => false);
     when(
-      () =>
-          pubUpdater.getLatestVersion(any(that: equals('very_good_analysis'))),
-    ).thenAnswer((_) async => '6.0.0');
+      () => pubUpdater.getLatestVersion(
+        any(that: equals('very_good_analysis')),
+      ),
+    ).thenAnswer((_) async => '10.1.0');
   });
 
   test('updates the file according to the latest versions', () async {
@@ -95,7 +96,7 @@ dev_dependencies:
 {{#my_variable}}  mocktail: ^1.0.4{{/my_variable}}
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^6.0.0
+  very_good_analysis: ^10.1.0
 ''';
 
     verify(() => pubspec.writeAsStringSync(expectedPubspec)).called(1);
@@ -127,7 +128,7 @@ dev_dependencies:
       containsAll([
         'Updated plugin_platform_interface to ^2.2.0 in pubspec.yaml',
         'Updated mocktail to ^1.0.4 in pubspec.yaml',
-        'Updated very_good_analysis to ^6.0.0 in pubspec.yaml',
+        'Updated very_good_analysis to ^10.1.0 in pubspec.yaml',
       ]),
     );
   });

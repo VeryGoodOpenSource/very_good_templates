@@ -1,4 +1,4 @@
-// Make test files more explicit rather then collapsing calls
+// Make test files more explicit rather than collapsing calls
 // ignore_for_file: cascade_invocations
 
 import 'package:audioplayers/audioplayers.dart';
@@ -28,7 +28,7 @@ class _{{project_name.pascalCase()}} extends {{project_name.pascalCase()}} {
 }
 
 void main() {
-  group('$CounterComponent', () {
+  group(CounterComponent, () {
     late AppLocalizations l10n;
 
     setUp(() {
@@ -55,7 +55,9 @@ void main() {
       expect(component.text, isNotNull);
     });
 
-    testWithGame('changes text count correctly', createFlameGame, (game) async {
+    testWithGame('changes text count correctly', createFlameGame, (
+      game,
+    ) async {
       final component = CounterComponent(position: Vector2.all(1));
       await game.ensureAdd(component);
 

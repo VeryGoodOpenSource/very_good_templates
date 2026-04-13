@@ -18,22 +18,23 @@
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint ."
   },
   "dependencies": {
-    "@docusaurus/core": "^3.6.0",
-    "@docusaurus/preset-classic": "^3.6.0",
+    "@docusaurus/core": "~3.9.1",
+    "@docusaurus/preset-classic": "~3.9.1",
     "@mdx-js/react": "^3.0.1",
     "clsx": "^2.1.1",
     "prism-react-renderer": "^2.3.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.3.1"
+    "react": "^19.2.4",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.24.5",
-    "@docusaurus/eslint-plugin": "^3.6.0",
-    "@docusaurus/module-type-aliases": "^3.6.0",
-    "@docusaurus/tsconfig": "^3.6.0",
-    "eslint": "^9.2.0",
+    "@eslint/js": "^10.0.0",
+    "globals": "^17.4.0",
+    "@docusaurus/eslint-plugin": "~3.10.0",
+    "@docusaurus/module-type-aliases": "~3.10.0",
+    "@docusaurus/tsconfig": "~3.10.0",
+    "eslint": "^10.1.0",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.5",
+    "typescript": "^6.0.2",
     "jest": "^30.0.0",
     "eslint-plugin-jest": "^29.0.1"
   },
@@ -50,6 +51,9 @@
     ]
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.20.0"
+  },
+  "overrides": {
+    "webpack": "~5.98.0"
   }
 }

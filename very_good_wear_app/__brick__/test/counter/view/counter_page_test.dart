@@ -41,24 +41,24 @@ void main() {
         tester,
       ) async {
         when(() => counterCubit.state).thenReturn(0);
-        when(() => counterCubit.increment()).thenReturn(null);
+        when(counterCubit.increment).thenReturn(null);
         await tester.pumpApp(
           BlocProvider.value(value: counterCubit, child: CounterView()),
         );
         await tester.tap(find.byIcon(Icons.add));
-        verify(() => counterCubit.increment()).called(1);
+        verify(counterCubit.increment).called(1);
       });
 
       testWidgets('calls decrement when decrement button is tapped', (
         tester,
       ) async {
         when(() => counterCubit.state).thenReturn(0);
-        when(() => counterCubit.decrement()).thenReturn(null);
+        when(counterCubit.decrement).thenReturn(null);
         await tester.pumpApp(
           BlocProvider.value(value: counterCubit, child: CounterView()),
         );
         await tester.tap(find.byIcon(Icons.remove));
-        verify(() => counterCubit.decrement()).called(1);
+        verify(counterCubit.decrement).called(1);
       });
     });
 
@@ -69,15 +69,15 @@ void main() {
         controller = StreamController<RotaryEvent>();
       });
 
-      tearDown(() {
-        controller.close();
+      tearDown(() async {
+        await controller.close();
       });
 
       testWidgets('calls increment when increment button is tapped', (
         tester,
       ) async {
         when(() => counterCubit.state).thenReturn(0);
-        when(() => counterCubit.increment()).thenReturn(null);
+        when(counterCubit.increment).thenReturn(null);
         await tester.pumpApp(
           BlocProvider.value(
             value: counterCubit,
@@ -86,14 +86,14 @@ void main() {
         );
         controller.add(const RotaryEvent(direction: RotaryDirection.clockwise));
         await tester.pump();
-        verify(() => counterCubit.increment()).called(1);
+        verify(counterCubit.increment).called(1);
       });
 
       testWidgets('calls decrement when decrement button is tapped', (
         tester,
       ) async {
         when(() => counterCubit.state).thenReturn(0);
-        when(() => counterCubit.decrement()).thenReturn(null);
+        when(counterCubit.decrement).thenReturn(null);
         await tester.pumpApp(
           BlocProvider.value(
             value: counterCubit,
@@ -104,7 +104,7 @@ void main() {
           const RotaryEvent(direction: RotaryDirection.counterClockwise),
         );
         await tester.pump();
-        verify(() => counterCubit.decrement()).called(1);
+        verify(counterCubit.decrement).called(1);
       });
     });
   });

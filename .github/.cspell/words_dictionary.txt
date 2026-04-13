@@ -4,6 +4,7 @@ CLI # Abbreviation for Command Line Interface.
 CLIs # Plural of the abbreviation for Command Line Interface.
 CLI's # Belonging to a CLI.
 CHANGELOGS # Plural of CHANGELOG
+changelog's # Plural of changelog
 dependabot # Automated dependency updates built into GitHub.
 deserializes # The process of reconstructing a data structure or object from a series of bytes or a string in order to instantiate the object for consumption.
 docusaurs # An optimized site generator in React.
@@ -20,11 +21,16 @@ prettierrc # Configuration file name for Prettier.
 recase # Casing once again.
 roadmap # A plan or strategy intended to achieve a particular goal.
 routable # Capable of being routed.
+SDK's # Belonging to an SDK.
 theming # Give a particular theme or setting.
 unicorn # A mythical animal.
 nicorn # "unicorn", but without the "u".
 unmutes # To allow to produce sound again.
 verygood # Very Good, but without a space.
 xcode # Apple's integrated development environment.
+xxlg # Abbreviation for extra extra large, used in spacing scales.
 xcworkspace # Abbreviation for Xcode workspace.
 xcassets # Abbreviation for Xcode assets.
+hola # part of translations example
+mundo # part of translations example
+saludo # part of translations example

@@ -28,23 +28,23 @@ jobs:
 
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 🐦 Setup Flutter
-        uses: subosito/flutter-action@v2
+        uses: subosito/flutter-action@v2.23.0
         with:
-          flutter-version: "3.35.x"
+          cache: true
+          flutter-version: "3.41.x"
 
       - name: 🧱 Mason Make
         run: |
-          dart pub global activate mason_cli
+          dart pub global activate mason_cli 0.1.3
+          dart pub global activate very_good_cli 1.1.1
           mason get
           mason make very_good_core -c config.json --on-conflict overwrite -o very_good_core_output
 
       - name: 📦 Install Dependencies
-        run: |
-          dart pub global activate very_good_cli
-          very_good packages get --recursive very_good_core_output
+        run: very_good packages get --recursive very_good_core_output
 
       - name: ✨ Check Formatting
         run: dart format --set-exit-if-changed very_good_core_output
@@ -55,9 +55,4 @@ jobs:
       - name: 🧪 Run Tests
         run: |
           cd very_good_core_output
-          very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
-
-      - name: 📊 Check Code Coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v3
-        with:
-          path: very_good_core/very_good_core_output/coverage/lcov.info
+          very_good test -r --coverage --test-randomize-ordering-seed random

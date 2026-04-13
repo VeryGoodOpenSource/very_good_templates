@@ -1,3 +1,93 @@
+# Changelog
+
+## [1.3.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.3.0...very_good_core-v1.3.1) (2026-03-16)
+
+
+### Bug Fixes
+
+* add missing LICENSE file to very_good_core brick ([#441](https://github.com/VeryGoodOpenSource/very_good_templates/issues/441)) ([5fe3662](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5fe366294a28fee989c6e61371b2750ee100a97d))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump test from 1.26.3 to 1.30.0 in /very_good_core/hooks ([#446](https://github.com/VeryGoodOpenSource/very_good_templates/issues/446)) ([fc43fcc](https://github.com/VeryGoodOpenSource/very_good_templates/commit/fc43fcc08f700ae4f34917fc31fcb463f7b2ee6b))
+* tighten template dependencies ([#440](https://github.com/VeryGoodOpenSource/very_good_templates/issues/440)) ([ef8b742](https://github.com/VeryGoodOpenSource/very_good_templates/commit/ef8b742f2e0274699c7373497c70558254ef9e27))
+
+
+### Docs
+
+* **very_good_core:** fix and simplify translation docs ([#442](https://github.com/VeryGoodOpenSource/very_good_templates/issues/442)) ([4be55f2](https://github.com/VeryGoodOpenSource/very_good_templates/commit/4be55f2530b0827c4bca24f4cf59f257996ef5c2))
+
+## [1.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.2.0...very_good_core-v1.3.0) (2026-02-19)
+
+
+### Features
+
+* upgrade to dart 3.11 and flutter 3.41 ([#429](https://github.com/VeryGoodOpenSource/very_good_templates/issues/429)) ([46ae490](https://github.com/VeryGoodOpenSource/very_good_templates/commit/46ae490823ef6f5f3addef6159a24870f66e931e))
+* upgrade to very_good_analysis 10.2.0 ([#437](https://github.com/VeryGoodOpenSource/very_good_templates/issues/437)) ([be16183](https://github.com/VeryGoodOpenSource/very_good_templates/commit/be161834e90f0381d3535c9bd3b5f44ba6ea19ba))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#435](https://github.com/VeryGoodOpenSource/very_good_templates/issues/435)) ([5937c46](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5937c469ae2c28ad4230d2ce00fdf8d78639c0d8))
+
+## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.1.2...very_good_core-v1.2.0) (2026-02-06)
+
+
+### Features
+
+* add bloc lint to templates with bloc ([#382](https://github.com/VeryGoodOpenSource/very_good_templates/issues/382)) ([512edf2](https://github.com/VeryGoodOpenSource/very_good_templates/commit/512edf2117e9e1a8635a02bc74ac319b01deed54))
+* add icon composer support for iOS ([#408](https://github.com/VeryGoodOpenSource/very_good_templates/issues/408)) ([d3fa327](https://github.com/VeryGoodOpenSource/very_good_templates/commit/d3fa3279169b1d6b3cf37c613d65a5ed1943e559))
+* add icon composer support for MacOS ([#409](https://github.com/VeryGoodOpenSource/very_good_templates/issues/409)) ([bd09007](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd09007053e4e141091b3b98a424479dff4f1d39))
+* add license check workflow to templates ([#422](https://github.com/VeryGoodOpenSource/very_good_templates/issues/422)) ([bd280c0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd280c00f90126856a5fe70d6417e1c83d20f74b))
+* **ios:** add FLUTTER_TARGET to build configurations ([#412](https://github.com/VeryGoodOpenSource/very_good_templates/issues/412)) ([476d256](https://github.com/VeryGoodOpenSource/very_good_templates/commit/476d25665bb40517ff5d2582eedf84591caa953c))
+* update iOS templates to use UIScene lifecycle ([#416](https://github.com/VeryGoodOpenSource/very_good_templates/issues/416)) ([233f02e](https://github.com/VeryGoodOpenSource/very_good_templates/commit/233f02e2212fc04f9ddfe54c8dff019a9ae1560f))
+* upgrade to flutter 3.38.1 ([#394](https://github.com/VeryGoodOpenSource/very_good_templates/issues/394)) ([e436d76](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e436d7606b0998fc5231d3bd1fd0c4650d0c8ae8))
+
+
+### Bug Fixes
+
+* tighten bloc_lint version ([#424](https://github.com/VeryGoodOpenSource/very_good_templates/issues/424)) ([67f35de](https://github.com/VeryGoodOpenSource/very_good_templates/commit/67f35de7cdfbe1f7cf34e4654cb3cb91918ed934))
+* update changelog's format ([#371](https://github.com/VeryGoodOpenSource/very_good_templates/issues/371)) ([6c5d53d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6c5d53d50d37dbd4fc88e3154f05ab283120e59f))
+
+
+### Miscellaneous Chores
+
+* bump very_good_analysis to 10.1.0 ([#400](https://github.com/VeryGoodOpenSource/very_good_templates/issues/400)) ([0c454c4](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c454c4166cf4e01c659ab723c5f94fc1a2edaa6))
+* **ios:** migrate deprecated UIApplicationMain to [@main](https://github.com/main) ([#406](https://github.com/VeryGoodOpenSource/very_good_templates/issues/406)) ([0c1b5a0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c1b5a08b1c0725b828a1608ca53d0afd1d6c567))
+* tighten template dependencies ([#384](https://github.com/VeryGoodOpenSource/very_good_templates/issues/384)) ([922bf00](https://github.com/VeryGoodOpenSource/very_good_templates/commit/922bf00157ef07e6e9971a1eb938a0d187e1bd8d))
+* tighten template dependencies ([#385](https://github.com/VeryGoodOpenSource/very_good_templates/issues/385)) ([10ed573](https://github.com/VeryGoodOpenSource/very_good_templates/commit/10ed57357e67dc8a9eb0d132e9e7272c743f6781))
+* tighten template dependencies ([#401](https://github.com/VeryGoodOpenSource/very_good_templates/issues/401)) ([31b852c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/31b852c18e2b00e5182fe996fe9534e55cce6832))
+* upgrade iOS target version to 13.0 ([#407](https://github.com/VeryGoodOpenSource/very_good_templates/issues/407)) ([0c33e73](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0c33e73350507590e6c67eca095f7828ad42f140))
+
+## [1.1.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.1.1...very_good_core-v1.1.2) (2025-10-01)
+
+
+### Bug Fixes
+
+* **very_good_core:** testing coverage ([#369](https://github.com/VeryGoodOpenSource/very_good_templates/issues/369)) ([e9d5f68](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e9d5f68955226a2c5842071ce8a519f69371bb35))
+
+## [1.1.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.1.0...very_good_core-v1.1.1) (2025-09-30)
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#363](https://github.com/VeryGoodOpenSource/very_good_templates/issues/363)) ([01307a7](https://github.com/VeryGoodOpenSource/very_good_templates/commit/01307a7bd955fa9d673cb534746cb265685530c1))
+
+## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.0.1...very_good_core-v1.1.0) (2025-09-22)
+
+
+### Features
+
+* upgrade to flutter 3.35.0 ([#342](https://github.com/VeryGoodOpenSource/very_good_templates/issues/342)) ([6818041](https://github.com/VeryGoodOpenSource/very_good_templates/commit/681804198c03a6ab255802cedc15242832928e54))
+* upgrade to very_good_analysis 10.0.0 ([#346](https://github.com/VeryGoodOpenSource/very_good_templates/issues/346)) ([5a7d0dc](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5a7d0dc7323a77583158acfbbe933a60302ed532))
+* upgraded plugin version and removed jdk7 dependency on build.kts ([#339](https://github.com/VeryGoodOpenSource/very_good_templates/issues/339)) ([8e60971](https://github.com/VeryGoodOpenSource/very_good_templates/commit/8e6097152174368e8923024ef1b2bf35f4a675ac))
+
+
+### Refactors
+
+* **very_good_core:** use single size icon on iOS and watchOS ([#344](https://github.com/VeryGoodOpenSource/very_good_templates/issues/344)) ([16a84dc](https://github.com/VeryGoodOpenSource/very_good_templates/commit/16a84dc505cce40e1388ca3aa79ad86dd05508a3))
+
 ## [1.0.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.0.0...very_good_core-v1.0.1) (2025-08-18)
 
 

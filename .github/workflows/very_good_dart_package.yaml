@@ -20,22 +20,27 @@ on:
 
 jobs:
   brick:
+    defaults:
+      run:
+        working-directory: very_good_dart_package/
+
     runs-on: ubuntu-latest
 
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 🎯 Setup Dart
-        uses: dart-lang/setup-dart@v1
+        uses: dart-lang/setup-dart@v1.7.2
         with:
-          sdk: "3.9.0"
+          sdk: "3.11.0"
 
       - name: 🧱 Mason Make
         run: |
-          dart pub global activate mason_cli
+          dart pub global activate mason_cli 0.1.3
+          dart pub global activate very_good_cli 1.1.1
           mason get
-          mason make very_good_dart_package -c very_good_dart_package/config.json --on-conflict overwrite -o very_good_dart_package_output
+          mason make very_good_dart_package -c config.json --on-conflict overwrite -o very_good_dart_package_output
 
       - name: 📦 Install Dependencies
         run: dart pub get --directory very_good_dart_package_output
@@ -48,13 +53,5 @@ jobs:
 
       - name: 🧪 Run Tests
         run: |
-          dart pub global activate coverage 1.15.0
           cd very_good_dart_package_output
-          dart test -j 4 --coverage=coverage
-          dart pub global run coverage:format_coverage --lcov --check-ignore --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on="lib"
-          cd ../../
-
-      - name: 📊 Check Code Coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v3
-        with:
-          path: very_good_dart_package_output/coverage/lcov.info
+          very_good dart test -j 4 --optimization --min-coverage 100 --test-randomize-ordering-seed random
