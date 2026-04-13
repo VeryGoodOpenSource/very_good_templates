@@ -30,7 +30,7 @@
     "@eslint/js": "^10.0.0",
     "globals": "^17.4.0",
     "@docusaurus/eslint-plugin": "~3.10.0",
-    "@docusaurus/module-type-aliases": "~3.9.1",
+    "@docusaurus/module-type-aliases": "~3.10.0",
     "@docusaurus/tsconfig": "~3.9.1",
     "eslint": "^10.1.0",
     "prettier": "^3.2.5",
