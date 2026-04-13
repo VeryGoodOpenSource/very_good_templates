@@ -1,8 +1,6 @@
 // Make test files more explicit rather than collapsing calls
 // ignore_for_file: cascade_invocations
 
-import 'dart:async';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/cache.dart';
 import 'package:flame/extensions.dart';
@@ -50,31 +48,27 @@ void main() {
       );
     }
 
-    unawaited(
-      testWithGame('has all components', createFlameGame, (game) async {
-        final component = CounterComponent(position: Vector2.all(1));
-        await game.ensureAdd(component);
+    testWithGame('has all components', createFlameGame, (game) async {
+      final component = CounterComponent(position: Vector2.all(1));
+      await game.ensureAdd(component);
 
-        expect(component.text, isNotNull);
-      }),
-    );
+      expect(component.text, isNotNull);
+    });
 
-    unawaited(
-      testWithGame('changes text count correctly', createFlameGame, (
-        game,
-      ) async {
-        final component = CounterComponent(position: Vector2.all(1));
-        await game.ensureAdd(component);
+    testWithGame('changes text count correctly', createFlameGame, (
+      game,
+    ) async {
+      final component = CounterComponent(position: Vector2.all(1));
+      await game.ensureAdd(component);
 
-        expect(component.text.text, equals(''));
-        game.counter = 1;
-        game.update(0.1);
-        expect(component.text.text, equals('counterText: 1'));
+      expect(component.text.text, equals(''));
+      game.counter = 1;
+      game.update(0.1);
+      expect(component.text.text, equals('counterText: 1'));
 
-        game.counter = 2;
-        game.update(0.1);
-        expect(component.text.text, equals('counterText: 2'));
-      }),
-    );
+      game.counter = 2;
+      game.update(0.1);
+      expect(component.text.text, equals('counterText: 2'));
+    });
   });
 }

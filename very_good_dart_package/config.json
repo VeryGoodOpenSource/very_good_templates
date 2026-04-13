@@ -1,5 +1,6 @@
 {
   "project_name": "very_good_dart_package_output",
   "description": "A generated Very Good Dart package.",
-  "publishable": false
+  "publishable": false,
+  "org_name": "Very Good Ventures"
 }

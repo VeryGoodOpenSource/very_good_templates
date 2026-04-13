@@ -1,3 +1,4 @@
+import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
 import 'package:very_good_flutter_plugin_hooks/version.dart';
 
@@ -24,6 +25,7 @@ void run(HookContext context) {
   };
 
   context.vars.addAll({
+    'current_year': clock.now().year.toString(),
     'flutterVersion': $flutterVersion,
     'dartSdkVersionBounds': '^${$minDartVersion}',
     for (final platform in availablePlatforms)
