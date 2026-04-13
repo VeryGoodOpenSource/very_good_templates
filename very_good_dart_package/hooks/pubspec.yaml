@@ -1,4 +1,4 @@
-name: very_good_dart_cli_hooks
+name: very_good_dart_package_hooks
 
 environment:
   sdk: ^3.11.0
@@ -6,7 +6,6 @@ environment:
 dependencies:
   clock: ^1.1.2
   mason: ^0.1.0
-  meta: ^1.12.0
 
 dev_dependencies:
   mocktail: ^1.0.3
