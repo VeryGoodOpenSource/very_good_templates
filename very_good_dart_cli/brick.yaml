@@ -26,3 +26,8 @@ vars:
     description: Whether the generated package is intended to be published.
     default: false
     prompt: Will the package be published?
+  org_name:
+    type: string
+    description: The organization name
+    default: Very Good Ventures
+    prompt: What is the organization name?

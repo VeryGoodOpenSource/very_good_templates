@@ -1,3 +1,4 @@
+import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
@@ -35,6 +36,19 @@ void main() {
       pre_gen.run(context);
 
       expect(vars['dartSdkVersionBounds'], '^${$minDartVersion}');
+    });
+
+    test('sets current_year', () {
+      withClock(Clock.fixed(DateTime(2026)), () {
+        final vars = <String, dynamic>{
+          'platforms': ['android', 'ios', 'macos', 'linux', 'web', 'windows'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars['current_year'], '2026');
+      });
     });
 
     test('throws ArgumentError when no platforms are passed', () {
