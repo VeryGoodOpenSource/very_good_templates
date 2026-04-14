@@ -31,9 +31,8 @@ class DartCli {
   Future<void> format({required Logger logger, String cwd = '.'}) async {
     await CommandLine.run(
       _executableName,
-      ['format', '.'],
+      ['format', cwd],
       logger: logger,
-      workingDirectory: cwd,
     );
   }
 
