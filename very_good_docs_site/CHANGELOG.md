@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.6](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.5...very_good_docs_site-v1.0.6) (2026-04-14)
+
+
+### Bug Fixes
+
+* add missing variables for LICENSE files ([#503](https://github.com/VeryGoodOpenSource/very_good_templates/issues/503)) ([203b8b0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/203b8b033b29e6820213541b111a112a041f4a65))
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @docusaurus/eslint-plugin from 3.9.2 to 3.10.0 in /very_good_docs_site/__brick__ ([#508](https://github.com/VeryGoodOpenSource/very_good_templates/issues/508)) ([dc9c331](https://github.com/VeryGoodOpenSource/very_good_templates/commit/dc9c331d0c0e6f40a4599305e7bd1f0a6743f00c))
+* **deps-dev:** bump @docusaurus/module-type-aliases from 3.9.2 to 3.10.0 in /very_good_docs_site/__brick__ ([#511](https://github.com/VeryGoodOpenSource/very_good_templates/issues/511)) ([19e43bb](https://github.com/VeryGoodOpenSource/very_good_templates/commit/19e43bb5ff9321ee062d8e5584a9858153076336))
+* **deps-dev:** bump @docusaurus/tsconfig from 3.9.2 to 3.10.0 in /very_good_docs_site/__brick__ ([#507](https://github.com/VeryGoodOpenSource/very_good_templates/issues/507)) ([a9947da](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a9947dab3c143cf0ae48378f4bf20d490da486d3))
+* **deps-dev:** bump globals from 16.5.0 to 17.4.0 in /very_good_docs_site/__brick__ ([#486](https://github.com/VeryGoodOpenSource/very_good_templates/issues/486)) ([3be9002](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3be90021af4128a4fe2a6daea4dcdccb99fced5e))
+* **deps:** bump @docusaurus/preset-classic from 3.9.2 to 3.10.0 in /very_good_docs_site/__brick__ ([#509](https://github.com/VeryGoodOpenSource/very_good_templates/issues/509)) ([26b654a](https://github.com/VeryGoodOpenSource/very_good_templates/commit/26b654adeec67d93eac885b9f124555cbe4b2196))
+* remove release-ready scripts ([#488](https://github.com/VeryGoodOpenSource/very_good_templates/issues/488)) ([1f13261](https://github.com/VeryGoodOpenSource/very_good_templates/commit/1f132616172ecb1e49bca64712c13fd767378c0e))
+
 ## [1.0.5](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.4...very_good_docs_site-v1.0.5) (2026-03-30)
 
 
