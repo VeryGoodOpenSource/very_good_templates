@@ -83,7 +83,7 @@ void main() {
         verify(
           () => process.run(
             'dart',
-            ['format'],
+            ['format', '.'],
             runInShell: true,
             workingDirectory: 'foo',
           ),
@@ -96,7 +96,7 @@ void main() {
         verify(
           () => process.run(
             'dart',
-            ['format'],
+            ['format', '.'],
             runInShell: true,
             workingDirectory: '.',
           ),
