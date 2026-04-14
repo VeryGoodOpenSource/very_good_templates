@@ -16,7 +16,8 @@ class {{project_name.pascalCase()}}MacOS extends {{project_name.pascalCase()}}Pl
 
   /// Registers this class as the default instance of [{{project_name.pascalCase()}}Platform].
   static void registerWith() {
-    {{project_name.pascalCase()}}Platform.instance = {{project_name.pascalCase()}}MacOS();
+    {{project_name.pascalCase()}}Platform.instance =
+        {{project_name.pascalCase()}}MacOS();
   }
 
   @override

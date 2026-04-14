@@ -15,7 +15,10 @@ void main() {
 
     test('can be registered', () {
       {{project_name.pascalCase()}}Web.registerWith();
-      expect({{project_name.pascalCase()}}Platform.instance, isA<{{project_name.pascalCase()}}Web>());
+      expect(
+        {{project_name.pascalCase()}}Platform.instance,
+        isA<{{project_name.pascalCase()}}Web>(),
+      );
     });
 
     test('getPlatformName returns correct name', () async {

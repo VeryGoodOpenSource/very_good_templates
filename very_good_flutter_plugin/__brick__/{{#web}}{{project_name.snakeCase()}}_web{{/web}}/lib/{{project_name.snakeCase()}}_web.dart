@@ -4,7 +4,8 @@ import 'package:{{project_name.snakeCase()}}_platform_interface/{{project_name.s
 class {{project_name.pascalCase()}}Web extends {{project_name.pascalCase()}}Platform {
   /// Registers this class as the default instance of [{{project_name.pascalCase()}}Platform].
   static void registerWith([Object? registrar]) {
-    {{project_name.pascalCase()}}Platform.instance = {{project_name.pascalCase()}}Web();
+    {{project_name.pascalCase()}}Platform.instance =
+        {{project_name.pascalCase()}}Web();
   }
 
   @override

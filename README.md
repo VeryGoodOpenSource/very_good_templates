@@ -11,6 +11,7 @@ Collection of open source templates created and maintained by the [Very Good Ven
 
 | Template                                                         | Description                     | Documentation                                        | Build                                                                                         |
 | ---------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| [very_good_app_ui][very_good_app_ui_code_link]                   | A Very Good Flutter app UI package. | [Documentation][very_good_app_ui_docs_link]       | [![build][very_good_app_ui_workflow_badge]][very_good_app_ui_workflow_link]                   |
 | [very_good_core][very_good_core_code_link]                       | A Very Good Flutter app.        | [Documentation][very_good_core_docs_link]            | [![build][very_good_core_workflow_badge]][very_good_core_workflow_link]                       |
 | [very_good_dart_cli][very_good_dart_cli_code_link]               | A Very Good Dart CLI.           | [Documentation][very_good_dart_cli_docs_link]        | [![build][very_good_dart_cli_workflow_badge]][very_good_dart_cli_workflow_link]               |
 | [very_good_dart_package][very_good_dart_package_code_link]       | A Very Good Dart package.       | [Documentation][very_good_dart_package_docs_link]    | [![build][very_good_dart_package_workflow_badge]][very_good_dart_package_workflow_link]       |
@@ -37,6 +38,13 @@ Collection of open source templates created and maintained by the [Very Good Ven
 
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
+
+<!-- Very Good App UI -->
+
+[very_good_app_ui_workflow_badge]: https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_app_ui.yaml/badge.svg?branch=main
+[very_good_app_ui_workflow_link]: https://github.com/VeryGoodOpenSource/very_good_templates/actions/workflows/very_good_app_ui.yaml?query=branch%3Amain
+[very_good_app_ui_code_link]: https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_app_ui
+[very_good_app_ui_docs_link]: https://cli.vgv.dev/docs/templates/app_ui
 
 <!-- Very Good Core -->
 

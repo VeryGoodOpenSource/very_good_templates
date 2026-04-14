@@ -16,7 +16,8 @@ class {{project_name.pascalCase()}}Windows extends {{project_name.pascalCase()}}
 
   /// Registers this class as the default instance of [{{project_name.pascalCase()}}Platform].
   static void registerWith() {
-    {{project_name.pascalCase()}}Platform.instance = {{project_name.pascalCase()}}Windows();
+    {{project_name.pascalCase()}}Platform.instance =
+        {{project_name.pascalCase()}}Windows();
   }
 
   @override
