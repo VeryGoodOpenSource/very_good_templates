@@ -123,7 +123,7 @@ void main() {
           args: any(named: 'args'),
           command: any(named: 'command'),
         ),
-      ).called($availablePlatforms.length);
+      ).called($pigeonPlatforms.length);
     });
 
     group('warns', () {
@@ -181,7 +181,7 @@ void main() {
 
           verify(
             () => logger.err(
-              '''Running process ${exception.executable} with ${exception.arguments} failed: ${exception.message}''',
+              '''\n\nRunning process ${exception.executable} with ${exception.arguments} failed: ${exception.message}''',
             ),
           ).called(1);
         },
@@ -278,7 +278,7 @@ void main() {
 
         verify(
           () => logger.err(
-            '''Running process ${exception.executable} with ${exception.arguments} failed: ${exception.message}''',
+            '''\n\nRunning process ${exception.executable} with ${exception.arguments} failed: ${exception.message}''',
           ),
         ).called(1);
       });
@@ -321,7 +321,7 @@ void main() {
 
         verify(
           () => logger.err(
-            '''Running process ${exception.executable} with ${exception.arguments} failed: ${exception.message}''',
+            '''\n\nRunning process ${exception.executable} with ${exception.arguments} failed: ${exception.message}''',
           ),
         ).called(1);
       });

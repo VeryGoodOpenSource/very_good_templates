@@ -1,3 +1,6 @@
+// {{project_name.pascalCase()}}Api must be abstract.
+// ignore_for_file: one_member_abstracts
+
 import 'package:pigeon/pigeon.dart';
 
 @ConfigurePigeon(

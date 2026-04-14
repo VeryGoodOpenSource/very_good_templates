@@ -1,2 +1,1 @@
-Copyright (c) {{currentYear}}, Very Good Ventures
-https://verygood.ventures
+Copyright (c) {{currentYear}}, {{org_name.sentenceCase()}}

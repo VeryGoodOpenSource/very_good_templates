@@ -30,3 +30,15 @@ const $availablePlatforms = [
   'web',
   'windows',
 ];
+
+/// The platforms that use Pigeon for native bindings.
+///
+/// Web is excluded because it does not use native code and therefore does not
+/// require Pigeon code generation.
+const $pigeonPlatforms = [
+  'android',
+  'ios',
+  'macos',
+  'linux',
+  'windows',
+];

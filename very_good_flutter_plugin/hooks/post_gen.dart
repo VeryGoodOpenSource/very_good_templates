@@ -34,7 +34,7 @@ Future<void> run(
   @visibleForTesting VeryGoodCli veryGoodCli = VeryGoodCli.instance,
 }) async {
   final logger = context.logger;
-  final workingDirectory = Directory.current.path;
+  final cwd = Directory.current.path;
 
   if (!await dartCli.isInstalled(logger: logger)) {
     return logger.warn(
@@ -52,17 +52,17 @@ Future<void> run(
 
   await _wrapWithProcessError(
     () => veryGoodCli.packagesGet(
+      cwd: cwd,
       logger: logger,
       recursive: true,
-      cwd: workingDirectory,
     ),
     logger: logger,
   );
 
   final projectName = context.vars[projectNameVariableKey] as String;
-  final directories = $availablePlatforms
+  final directories = $pigeonPlatforms
       .where((platform) => context.vars[platform] as bool)
-      .map((platform) => '$workingDirectory/${projectName}_$platform');
+      .map((platform) => '$cwd/${projectName}_$platform');
 
   progress.update('Generating Pigeon bindings 🦾');
 
@@ -88,8 +88,8 @@ Future<void> run(
     progress.update('Fixing Dart imports ordering 🔨');
     await _wrapWithProcessError(
       () async {
-        await dartCli.fix(logger: logger, cwd: workingDirectory, apply: true);
-        await dartCli.format(logger: logger, cwd: workingDirectory);
+        await dartCli.fix(logger: logger, cwd: cwd, apply: true);
+        await dartCli.format(logger: logger, cwd: cwd);
       },
       logger: logger,
     );
@@ -107,7 +107,7 @@ Future<void> _wrapWithProcessError(
     await process();
   } on ProcessException catch (e) {
     logger.err(
-      '''Running process ${e.executable} with ${e.arguments} failed: ${e.message}''',
+      '''\n\nRunning process ${e.executable} with ${e.arguments} failed: ${e.message}''',
     );
   } on Exception catch (e) {
     logger.err('Unknown error occurred: $e');
