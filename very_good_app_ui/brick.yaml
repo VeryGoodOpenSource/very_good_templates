@@ -2,7 +2,7 @@ name: very_good_app_ui
 description: A Very Good Flutter app UI package created by Very Good Ventures.
 repository: >-
   https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_app_ui
-version: 0.2.0
+version: 0.2.1
 environment:
   mason: ^0.1.0
 vars:
