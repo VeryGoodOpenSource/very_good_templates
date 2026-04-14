@@ -21,7 +21,7 @@ class _MockProcess extends Mock implements _TestProcess {}
 class _MockLogger extends Mock implements Logger {}
 
 void main() {
-  group('$DartCli', () {
+  group(DartCli, () {
     final processResult = ProcessResult(42, ExitCode.success.code, '', '');
     late _TestProcess process;
     late Logger logger;
@@ -85,7 +85,6 @@ void main() {
             'dart',
             ['format', 'foo'],
             runInShell: true,
-            workingDirectory: null,
           ),
         ).called(1);
       });
@@ -98,7 +97,6 @@ void main() {
             'dart',
             ['format', '.'],
             runInShell: true,
-            workingDirectory: null,
           ),
         ).called(1);
       });
