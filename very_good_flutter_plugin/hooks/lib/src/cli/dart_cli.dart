@@ -28,11 +28,16 @@ class DartCli {
   }
 
   /// Idiomatically format Dart source code.
-  Future<void> format({required Logger logger, String cwd = '.'}) async {
+  Future<void> format({
+    required Logger logger,
+    String cwd = '.',
+    String path = '.',
+  }) async {
     await CommandLine.run(
       _executableName,
-      ['format', cwd],
+      ['format', path],
       logger: logger,
+      workingDirectory: cwd,
     );
   }
 

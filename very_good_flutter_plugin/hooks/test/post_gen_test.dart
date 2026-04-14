@@ -80,6 +80,7 @@ void main() {
         () => dartCli.format(
           logger: logger,
           cwd: any(named: 'cwd'),
+          path: any(named: 'path'),
         ),
       ).thenAnswer((_) async {});
 
@@ -233,6 +234,7 @@ void main() {
           () => dartCli.format(
             logger: logger,
             cwd: any(named: 'cwd'),
+            path: any(named: 'path'),
           ),
         );
       });
@@ -256,6 +258,7 @@ void main() {
           () => dartCli.format(
             logger: logger,
             cwd: any(named: 'cwd'),
+            path: any(named: 'path'),
           ),
         );
       });
@@ -310,6 +313,7 @@ void main() {
           () => dartCli.format(
             logger: logger,
             cwd: any(named: 'cwd'),
+            path: any(named: 'path'),
           ),
         ).thenAnswer((_) => Future.error(exception));
 
@@ -332,6 +336,7 @@ void main() {
           () => dartCli.format(
             logger: logger,
             cwd: any(named: 'cwd'),
+            path: any(named: 'path'),
           ),
         ).thenAnswer((_) => Future.error(exception));
 
