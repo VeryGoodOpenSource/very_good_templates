@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.4](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.3.3...very_good_dart_package-v1.3.4) (2026-04-15)
+
+
+### Refactors
+
+* **flutter_plugin:** add pigeon for platform communication ([#386](https://github.com/VeryGoodOpenSource/very_good_templates/issues/386)) ([2baf743](https://github.com/VeryGoodOpenSource/very_good_templates/commit/2baf7438c69000c341dd31f28b57450c22dd283d))
+
 ## [1.3.3](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.3.2...very_good_dart_package-v1.3.3) (2026-04-13)
 
 
