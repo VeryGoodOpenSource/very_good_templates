@@ -78,13 +78,14 @@ void main() {
       });
 
       test('calls with given working directory', () async {
-        await DartCli.instance.format(logger: logger, cwd: 'foo');
+        await DartCli.instance.format(logger: logger, path: 'foo');
 
         verify(
           () => process.run(
             'dart',
             ['format', 'foo'],
             runInShell: true,
+            workingDirectory: '.',
           ),
         ).called(1);
       });
@@ -97,6 +98,7 @@ void main() {
             'dart',
             ['format', '.'],
             runInShell: true,
+            workingDirectory: '.',
           ),
         ).called(1);
       });
