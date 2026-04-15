@@ -21,7 +21,7 @@ class _MockProcess extends Mock implements _TestProcess {}
 class _MockLogger extends Mock implements Logger {}
 
 void main() {
-  group('$DartCli', () {
+  group(DartCli, () {
     final processResult = ProcessResult(42, ExitCode.success.code, '', '');
     late _TestProcess process;
     late Logger logger;
@@ -78,14 +78,14 @@ void main() {
       });
 
       test('calls with given working directory', () async {
-        await DartCli.instance.format(logger: logger, cwd: 'foo');
+        await DartCli.instance.format(logger: logger, path: 'foo');
 
         verify(
           () => process.run(
             'dart',
-            ['format'],
+            ['format', 'foo'],
             runInShell: true,
-            workingDirectory: 'foo',
+            workingDirectory: '.',
           ),
         ).called(1);
       });
@@ -96,7 +96,7 @@ void main() {
         verify(
           () => process.run(
             'dart',
-            ['format'],
+            ['format', '.'],
             runInShell: true,
             workingDirectory: '.',
           ),
