@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.4.1...very_good_flame_game-v1.5.0) (2026-04-16)
+
+
+### Features
+
+* **very_good_flame_game:** add linux platform option ([#350](https://github.com/VeryGoodOpenSource/very_good_templates/issues/350)) ([b87b0d8](https://github.com/VeryGoodOpenSource/very_good_templates/commit/b87b0d8ca0077f0fd01cafc4c86c2e98fba3e918))
+
 ## [1.4.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.4.0...very_good_flame_game-v1.4.1) (2026-04-13)
 
 
