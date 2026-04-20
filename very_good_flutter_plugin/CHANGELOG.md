@@ -1,5 +1,12 @@
 # Changelog 
 
+## [1.3.3](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.3.2...very_good_flutter_plugin-v1.3.3) (2026-04-20)
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#516](https://github.com/VeryGoodOpenSource/very_good_templates/issues/516)) ([bf6b282](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bf6b28228461a8e4147bbf0d566e050c566e4fd6))
+
 ## [1.3.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.3.1...very_good_flutter_plugin-v1.3.2) (2026-04-16)
 
 
