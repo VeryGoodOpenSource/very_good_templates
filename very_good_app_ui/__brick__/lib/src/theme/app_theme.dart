@@ -18,7 +18,7 @@ class AppTheme {
 
     return ThemeData(
       colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4F46E5)),
-      extensions: const [appColors, AppSpacing()],
+      extensions: const [appColors, AppSpacing(), AppTextStyles()],
     );
   }
 
@@ -38,7 +38,7 @@ class AppTheme {
         seedColor: const Color(0xFF4F46E5),
         brightness: Brightness.dark,
       ),
-      extensions: const [appColors, AppSpacing()],
+      extensions: const [appColors, AppSpacing(), AppTextStyles()],
     );
   }
 }
