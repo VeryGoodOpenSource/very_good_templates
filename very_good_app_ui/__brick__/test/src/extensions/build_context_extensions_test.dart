@@ -32,5 +32,19 @@ void main() {
 
       expect(spacing, isA<AppSpacing>());
     });
+
+    testWidgets('appTextStyles returns AppTextStyles from theme', (tester) async {
+      late AppTextStyles textStyles;
+      await tester.pumpApp(
+        Builder(
+          builder: (context) {
+            textStyles = context.appTextStyles;
+            return const SizedBox();
+          },
+        ),
+      );
+
+      expect(textStyles, isA<AppTextStyles>());
+    });
   });
 }
