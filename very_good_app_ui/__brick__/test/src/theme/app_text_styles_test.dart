@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 
