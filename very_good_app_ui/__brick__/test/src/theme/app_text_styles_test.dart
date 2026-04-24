@@ -3,7 +3,7 @@ import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 
 void main() {
   group('AppTextStyles', () {
-      group('desktop text styles', () {
+    group('desktop text styles', () {
       test('displayLargeDesktop has correct values', () {
         const style = AppTextStyles.displayLargeDesktop;
         expect(style.fontSize, 48);
