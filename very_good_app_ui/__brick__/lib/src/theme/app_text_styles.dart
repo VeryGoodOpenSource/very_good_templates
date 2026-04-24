@@ -8,6 +8,9 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   /// {@macro app_text_styles}
   const AppTextStyles();
 
+  // When a custom font is registered in pubspec.yaml, add
+  // `fontFamily: 'YourFontFamily'` to each TextStyle below.
+
   /// ============ DESKTOP TEXT STYLES ============
 
   /// Display Large - Desktop: 48px, Bold, lineHeight: 56, letterSpacing: -2
