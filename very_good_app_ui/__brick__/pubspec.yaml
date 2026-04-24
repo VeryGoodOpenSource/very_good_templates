@@ -16,3 +16,20 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^1.0.5
   very_good_analysis: ^10.2.0
+
+# Uncomment and update the font family name and assets once font files are
+# added under assets/fonts/. Also update AppTextStyles.fontFamily accordingly.
+# flutter:
+#   fonts:
+#     - family: CustomFont
+#       fonts:
+#         - asset: assets/fonts/CustomFont-Light.ttf
+#           weight: 300
+#         - asset: assets/fonts/CustomFont-Regular.ttf
+#           weight: 400
+#         - asset: assets/fonts/CustomFont-Medium.ttf
+#           weight: 500
+#         - asset: assets/fonts/CustomFont-SemiBold.ttf
+#           weight: 600
+#         - asset: assets/fonts/CustomFont-Bold.ttf
+#           weight: 700
