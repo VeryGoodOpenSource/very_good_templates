@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:{{project_name.snakeCase()}}_platform_interface/{{project_name.snakeCase()}}_platform_interface.dart';
+import 'package:{{project_name.snakeCase()}}_platform_interface/src/method_channel_{{project_name.snakeCase()}}.dart';
 
 class {{project_name.pascalCase()}}Mock
     extends {{project_name.pascalCase()}}Platform {
@@ -11,6 +12,14 @@ class {{project_name.pascalCase()}}Mock
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  test('default instance is MethodChannel{{project_name.pascalCase()}}', () {
+    expect(
+      {{project_name.pascalCase()}}Platform.instance,
+      isA<MethodChannel{{project_name.pascalCase()}}>(),
+    );
+  });
+
   group('{{project_name.pascalCase()}}PlatformInterface', () {
     late {{project_name.pascalCase()}}Platform
     {{project_name.camelCase()}}Platform;
