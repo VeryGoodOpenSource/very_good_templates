@@ -13,11 +13,14 @@ class {{project_name.pascalCase()}}Mock
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  late {{project_name.pascalCase()}}Platform defaultInstance;
+
+  setUpAll(() {
+    defaultInstance = {{project_name.pascalCase()}}Platform.instance;
+  });
+
   test('default instance is MethodChannel{{project_name.pascalCase()}}', () {
-    expect(
-      {{project_name.pascalCase()}}Platform.instance,
-      isA<MethodChannel{{project_name.pascalCase()}}>(),
-    );
+    expect(defaultInstance, isA<MethodChannel{{project_name.pascalCase()}}>());
   });
 
   group('{{project_name.pascalCase()}}PlatformInterface', () {
