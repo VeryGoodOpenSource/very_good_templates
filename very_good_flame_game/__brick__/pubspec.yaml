@@ -19,13 +19,13 @@ dependencies:
   flutter_bloc: ^9.1.1
   flutter_localizations:
     sdk: flutter
-  google_fonts: ^8.0.2
+  google_fonts: ^8.1.0
   intl: ^0.20.2
 
 dev_dependencies:
   bloc_lint: ^0.4.1
   bloc_test: ^10.0.0
-  bloc_tools: ^0.1.0-dev.23
+  bloc_tools: ^0.1.0-dev.24
   flame_test: ^2.2.4
   flutter_test:
     sdk: flutter

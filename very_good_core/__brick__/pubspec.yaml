@@ -19,7 +19,7 @@ dependencies:
 dev_dependencies:
   bloc_lint: ^0.4.1
   bloc_test: ^10.0.0
-  bloc_tools: ^0.1.0-dev.23
+  bloc_tools: ^0.1.0-dev.24
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.5
