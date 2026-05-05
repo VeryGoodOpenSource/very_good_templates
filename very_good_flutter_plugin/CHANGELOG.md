@@ -1,5 +1,12 @@
 # Changelog 
 
+## [1.3.4](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.3.3...very_good_flutter_plugin-v1.3.4) (2026-05-05)
+
+
+### Bug Fixes
+
+* **flutter_plugin:** format and coverage ([#518](https://github.com/VeryGoodOpenSource/very_good_templates/issues/518)) ([f6ca2a6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/f6ca2a65a481ce4d7527ccc6b3c741e80a6ceffb))
+
 ## [1.3.3](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.3.2...very_good_flutter_plugin-v1.3.3) (2026-04-20)
 
 
