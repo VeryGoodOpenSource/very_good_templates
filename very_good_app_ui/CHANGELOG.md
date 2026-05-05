@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.2.1...very_good_app_ui-v0.2.2) (2026-05-05)
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#522](https://github.com/VeryGoodOpenSource/very_good_templates/issues/522)) ([9f00730](https://github.com/VeryGoodOpenSource/very_good_templates/commit/9f00730ac52dcbe3a32ec45aea8c5b8f9ef9e437))
+
 ## [0.2.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.2.0...very_good_app_ui-v0.2.1) (2026-04-14)
 
 
