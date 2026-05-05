@@ -19,8 +19,7 @@ abstract class {{project_name.pascalCase()}}Platform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static {{project_name.pascalCase()}}Platform _instance =
-      MethodChannel{{project_name.pascalCase()}}();
+  static {{project_name.pascalCase()}}Platform _instance = MethodChannel{{project_name.pascalCase()}}();
 
   /// The default instance of [{{project_name.pascalCase()}}Platform] to use.
   ///
