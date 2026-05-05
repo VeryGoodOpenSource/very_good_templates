@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.5](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.3.4...very_good_dart_package-v1.3.5) (2026-05-05)
+
+
+### Bug Fixes
+
+* add coverage to .gitignore ([#528](https://github.com/VeryGoodOpenSource/very_good_templates/issues/528)) ([6ec0f6b](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6ec0f6bda1496e3e53ae576f41aca796aa500808))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#522](https://github.com/VeryGoodOpenSource/very_good_templates/issues/522)) ([9f00730](https://github.com/VeryGoodOpenSource/very_good_templates/commit/9f00730ac52dcbe3a32ec45aea8c5b8f9ef9e437))
+
 ## [1.3.4](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.3.3...very_good_dart_package-v1.3.4) (2026-04-15)
 
 
