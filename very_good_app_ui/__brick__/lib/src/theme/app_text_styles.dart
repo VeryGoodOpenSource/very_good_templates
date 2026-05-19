@@ -17,7 +17,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle displayLargeDesktop = TextStyle(
     fontSize: 48,
     fontWeight: FontWeight.w700,
-    height: 56 / 48,
+    height: 1.17,
     letterSpacing: -2,
   );
 
@@ -25,7 +25,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle displayMediumDesktop = TextStyle(
     fontSize: 40,
     fontWeight: FontWeight.w700,
-    height: 48 / 40,
+    height: 1.2,
     letterSpacing: -1.5,
   );
 
@@ -33,7 +33,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle displaySmallDesktop = TextStyle(
     fontSize: 36,
     fontWeight: FontWeight.w700,
-    height: 44 / 36,
+    height: 1.22,
     letterSpacing: -1.5,
   );
 
@@ -41,7 +41,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle headlineLargeDesktop = TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.w600,
-    height: 40 / 32,
+    height: 1.25,
     letterSpacing: -1.5,
   );
 
@@ -49,7 +49,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle headlineMediumDesktop = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w600,
-    height: 32 / 24,
+    height: 1.33,
     letterSpacing: -1,
   );
 
@@ -57,7 +57,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle headlineSmallDesktop = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
-    height: 28 / 20,
+    height: 1.4,
     letterSpacing: -0.75,
   );
 
@@ -65,7 +65,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle titleLargeDesktop = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w500,
-    height: 32 / 24,
+    height: 1.33,
     letterSpacing: -0.5,
   );
 
@@ -73,7 +73,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle titleMediumDesktop = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,
-    height: 28 / 20,
+    height: 1.4,
     letterSpacing: -0.5,
   );
 
@@ -81,7 +81,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle titleSmallDesktop = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    height: 24 / 16,
+    height: 1.5,
     letterSpacing: -0.25,
   );
 
@@ -89,7 +89,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle labelLargeDesktop = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    height: 20 / 16,
+    height: 1.25,
     letterSpacing: -0.15,
   );
 
@@ -97,7 +97,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle labelMediumDesktop = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
-    height: 16 / 12,
+    height: 1.33,
     letterSpacing: -0.15,
   );
 
@@ -105,7 +105,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle labelSmallDesktop = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.w500,
-    height: 16 / 11,
+    height: 1.45,
     letterSpacing: -0.15,
   );
 
@@ -113,7 +113,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle bodyLargeDesktop = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    height: 24 / 16,
+    height: 1.5,
     letterSpacing: -0.15,
   );
 
@@ -121,7 +121,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle bodyMediumDesktop = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
-    height: 20 / 14,
+    height: 1.43,
     letterSpacing: -0.15,
   );
 
@@ -129,7 +129,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle bodySmallDesktop = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
-    height: 16 / 12,
+    height: 1.33,
     letterSpacing: -0.15,
   );
 
@@ -139,7 +139,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle displayLargeMobile = TextStyle(
     fontSize: 36,
     fontWeight: FontWeight.w700,
-    height: 44 / 36,
+    height: 1.22,
     letterSpacing: -1.5,
   );
 
@@ -147,7 +147,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle displayMediumMobile = TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.w700,
-    height: 40 / 32,
+    height: 1.25,
     letterSpacing: -1,
   );
 
@@ -155,7 +155,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle displaySmallMobile = TextStyle(
     fontSize: 28,
     fontWeight: FontWeight.w700,
-    height: 36 / 28,
+    height: 1.29,
     letterSpacing: -1,
   );
 
@@ -163,7 +163,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle headlineLargeMobile = TextStyle(
     fontSize: 28,
     fontWeight: FontWeight.w600,
-    height: 36 / 28,
+    height: 1.29,
     letterSpacing: -1,
   );
 
@@ -171,7 +171,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle headlineMediumMobile = TextStyle(
     fontSize: 22,
     fontWeight: FontWeight.w600,
-    height: 28 / 22,
+    height: 1.27,
     letterSpacing: -0.75,
   );
 
@@ -179,7 +179,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle headlineSmallMobile = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
-    height: 24 / 18,
+    height: 1.33,
     letterSpacing: -0.5,
   );
 
@@ -187,7 +187,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle titleLargeMobile = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,
-    height: 28 / 20,
+    height: 1.4,
     letterSpacing: -0.25,
   );
 
@@ -195,7 +195,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle titleMediumMobile = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
-    height: 24 / 18,
+    height: 1.33,
     letterSpacing: -0.25,
   );
 
@@ -203,7 +203,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle titleSmallMobile = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
-    height: 20 / 14,
+    height: 1.43,
     letterSpacing: -0.15,
   );
 
@@ -211,7 +211,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle labelLargeMobile = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    height: 20 / 16,
+    height: 1.25,
     letterSpacing: -0.15,
   );
 
@@ -219,7 +219,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle labelMediumMobile = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
-    height: 16 / 12,
+    height: 1.33,
     letterSpacing: -0.15,
   );
 
@@ -227,7 +227,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle labelSmallMobile = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.w500,
-    height: 16 / 11,
+    height: 1.45,
     letterSpacing: -0.15,
   );
 
@@ -235,7 +235,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle bodyLargeMobile = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    height: 20 / 16,
+    height: 1.25,
     letterSpacing: -0.15,
   );
 
@@ -243,7 +243,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle bodyMediumMobile = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
-    height: 20 / 14,
+    height: 1.43,
     letterSpacing: -0.15,
   );
 
@@ -251,7 +251,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const TextStyle bodySmallMobile = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
-    height: 16 / 12,
+    height: 1.33,
     letterSpacing: -0.15,
   );
 
@@ -297,9 +297,8 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
 
   /// Returns the appropriate TextTheme based on screen width.
   /// Uses 600px as the breakpoint (same as ResponsiveScaffold).
-  static TextTheme getResponsiveTextTheme(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    return width >= 600 ? desktopTextTheme : mobileTextTheme;
+  static TextTheme getResponsiveTextTheme(double size) {
+    return size >= 600 ? desktopTextTheme : mobileTextTheme;
   }
 
   /// ============ THEME EXTENSION ============
