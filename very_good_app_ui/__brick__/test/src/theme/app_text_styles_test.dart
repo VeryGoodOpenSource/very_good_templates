@@ -6,244 +6,244 @@ void main() {
     group('desktop text styles', () {
       test('displayLargeDesktop has correct values', () {
         const style = AppTextStyles.displayLargeDesktop;
-        expect(style.fontSize, 48);
-        expect(style.fontWeight, FontWeight.w700);
-        expect(style.height, equals(1.17));
-        expect(style.letterSpacing, equals(-2));
+        expect(style.fontSize, equals(48));
+        expect(style.fontWeight, equals(FontWeight.w700));
+        expect(style.height, 1.17);
+        expect(style.letterSpacing, -2);
       });
 
       test('displayMediumDesktop has correct values', () {
         const style = AppTextStyles.displayMediumDesktop;
-        expect(style.fontSize, 40);
-        expect(style.fontWeight, FontWeight.w700);
-        expect(style.height, equals(1.2));
-        expect(style.letterSpacing, equals(-1.5));
+        expect(style.fontSize, equals(40));
+        expect(style.fontWeight, equals(FontWeight.w700));
+        expect(style.height, 1.2);
+        expect(style.letterSpacing, -1.5);
       });
 
       test('displaySmallDesktop has correct values', () {
         const style = AppTextStyles.displaySmallDesktop;
-        expect(style.fontSize, 36);
-        expect(style.fontWeight, FontWeight.w700);
-        expect(style.height, equals(1.22));
-        expect(style.letterSpacing, equals(-1.5));
+        expect(style.fontSize, equals(36));
+        expect(style.fontWeight, equals(FontWeight.w700));
+        expect(style.height, 1.22);
+        expect(style.letterSpacing, -1.5);
       });
 
       test('headlineLargeDesktop has correct values', () {
         const style = AppTextStyles.headlineLargeDesktop;
-        expect(style.fontSize, 32);
-        expect(style.fontWeight, FontWeight.w600);
-        expect(style.height, equals(1.25));
-        expect(style.letterSpacing, equals(-1.5));
+        expect(style.fontSize, equals(32));
+        expect(style.fontWeight, equals(FontWeight.w600));
+        expect(style.height, 1.25);
+        expect(style.letterSpacing, -1.5);
       });
 
       test('headlineMediumDesktop has correct values', () {
         const style = AppTextStyles.headlineMediumDesktop;
-        expect(style.fontSize, 24);
-        expect(style.fontWeight, FontWeight.w600);
-        expect(style.height, equals(1.33));
-        expect(style.letterSpacing, equals(-1));
+        expect(style.fontSize, equals(24));
+        expect(style.fontWeight, equals(FontWeight.w600));
+        expect(style.height, 1.33);
+        expect(style.letterSpacing, -1);
       });
 
       test('headlineSmallDesktop has correct values', () {
         const style = AppTextStyles.headlineSmallDesktop;
-        expect(style.fontSize, 20);
-        expect(style.fontWeight, FontWeight.w600);
-        expect(style.height, equals(1.4));
-        expect(style.letterSpacing, equals(-0.75));
+        expect(style.fontSize, equals(20));
+        expect(style.fontWeight, equals(FontWeight.w600));
+        expect(style.height, 1.4);
+        expect(style.letterSpacing, -0.75);
       });
 
       test('titleLargeDesktop has correct values', () {
         const style = AppTextStyles.titleLargeDesktop;
-        expect(style.fontSize, 24);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.33));
-        expect(style.letterSpacing, equals(-0.5));
+        expect(style.fontSize, equals(24));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.33);
+        expect(style.letterSpacing, -0.5);
       });
 
       test('titleMediumDesktop has correct values', () {
         const style = AppTextStyles.titleMediumDesktop;
-        expect(style.fontSize, 20);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.4));
-        expect(style.letterSpacing, equals(-0.5));
+        expect(style.fontSize, equals(20));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.4);
+        expect(style.letterSpacing, -0.5);
       });
 
       test('titleSmallDesktop has correct values', () {
         const style = AppTextStyles.titleSmallDesktop;
-        expect(style.fontSize, 16);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.5));
-        expect(style.letterSpacing, equals(-0.25));
+        expect(style.fontSize, equals(16));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.5);
+        expect(style.letterSpacing, -0.25);
       });
 
       test('labelLargeDesktop has correct values', () {
         const style = AppTextStyles.labelLargeDesktop;
-        expect(style.fontSize, 16);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.25));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(16));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.25);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('labelMediumDesktop has correct values', () {
         const style = AppTextStyles.labelMediumDesktop;
-        expect(style.fontSize, 12);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.33));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(12));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.33);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('labelSmallDesktop has correct values', () {
         const style = AppTextStyles.labelSmallDesktop;
-        expect(style.fontSize, 11);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.45));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(11));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.45);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('bodyLargeDesktop has correct values', () {
         const style = AppTextStyles.bodyLargeDesktop;
-        expect(style.fontSize, 16);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.5));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(16));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.5);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('bodyMediumDesktop has correct values', () {
         const style = AppTextStyles.bodyMediumDesktop;
-        expect(style.fontSize, 14);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.43));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(14));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.43);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('bodySmallDesktop has correct values', () {
         const style = AppTextStyles.bodySmallDesktop;
-        expect(style.fontSize, 12);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.33));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(12));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.33);
+        expect(style.letterSpacing, -0.15);
       });
     });
 
     group('mobile text styles', () {
       test('displayLargeMobile has correct values', () {
         const style = AppTextStyles.displayLargeMobile;
-        expect(style.fontSize, 36);
-        expect(style.fontWeight, FontWeight.w700);
-        expect(style.height, equals(1.22));
-        expect(style.letterSpacing, equals(-1.5));
+        expect(style.fontSize, equals(36));
+        expect(style.fontWeight, equals(FontWeight.w700));
+        expect(style.height, 1.22);
+        expect(style.letterSpacing, -1.5);
       });
 
       test('displayMediumMobile has correct values', () {
         const style = AppTextStyles.displayMediumMobile;
-        expect(style.fontSize, 32);
-        expect(style.fontWeight, FontWeight.w700);
-        expect(style.height, equals(1.25));
-        expect(style.letterSpacing, equals(-1));
+        expect(style.fontSize, equals(32));
+        expect(style.fontWeight, equals(FontWeight.w700));
+        expect(style.height, 1.25);
+        expect(style.letterSpacing, -1);
       });
 
       test('displaySmallMobile has correct values', () {
         const style = AppTextStyles.displaySmallMobile;
-        expect(style.fontSize, 28);
-        expect(style.fontWeight, FontWeight.w700);
-        expect(style.height, equals(1.29));
-        expect(style.letterSpacing, equals(-1));
+        expect(style.fontSize, equals(28));
+        expect(style.fontWeight, equals(FontWeight.w700));
+        expect(style.height, 1.29);
+        expect(style.letterSpacing, -1);
       });
 
       test('headlineLargeMobile has correct values', () {
         const style = AppTextStyles.headlineLargeMobile;
-        expect(style.fontSize, 28);
-        expect(style.fontWeight, FontWeight.w600);
-        expect(style.height, equals(1.29));
-        expect(style.letterSpacing, equals(-1));
+        expect(style.fontSize, equals(28));
+        expect(style.fontWeight, equals(FontWeight.w600));
+        expect(style.height, 1.29);
+        expect(style.letterSpacing, -1);
       });
 
       test('headlineMediumMobile has correct values', () {
         const style = AppTextStyles.headlineMediumMobile;
-        expect(style.fontSize, 22);
-        expect(style.fontWeight, FontWeight.w600);
-        expect(style.height, equals(1.27));
-        expect(style.letterSpacing, equals(-0.75));
+        expect(style.fontSize, equals(22));
+        expect(style.fontWeight, equals(FontWeight.w600));
+        expect(style.height, 1.27);
+        expect(style.letterSpacing, -0.75);
       });
 
       test('headlineSmallMobile has correct values', () {
         const style = AppTextStyles.headlineSmallMobile;
-        expect(style.fontSize, 18);
-        expect(style.fontWeight, FontWeight.w600);
-        expect(style.height, equals(1.33));
-        expect(style.letterSpacing, equals(-0.5));
+        expect(style.fontSize, equals(18));
+        expect(style.fontWeight, equals(FontWeight.w600));
+        expect(style.height, 1.33);
+        expect(style.letterSpacing, -0.5);
       });
 
       test('titleLargeMobile has correct values', () {
         const style = AppTextStyles.titleLargeMobile;
-        expect(style.fontSize, 20);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.4));
-        expect(style.letterSpacing, equals(-0.25));
+        expect(style.fontSize, equals(20));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.4);
+        expect(style.letterSpacing, -0.25);
       });
 
       test('titleMediumMobile has correct values', () {
         const style = AppTextStyles.titleMediumMobile;
-        expect(style.fontSize, 18);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.33));
-        expect(style.letterSpacing, equals(-0.25));
+        expect(style.fontSize, equals(18));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.33);
+        expect(style.letterSpacing, -0.25);
       });
 
       test('titleSmallMobile has correct values', () {
         const style = AppTextStyles.titleSmallMobile;
-        expect(style.fontSize, 14);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.43));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(14));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.43);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('labelLargeMobile has correct values', () {
         const style = AppTextStyles.labelLargeMobile;
-        expect(style.fontSize, 16);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.25));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(16));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.25);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('labelMediumMobile has correct values', () {
         const style = AppTextStyles.labelMediumMobile;
-        expect(style.fontSize, 12);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.33));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(12));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.33);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('labelSmallMobile has correct values', () {
         const style = AppTextStyles.labelSmallMobile;
-        expect(style.fontSize, 11);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.45));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(11));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.45);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('bodyLargeMobile has correct values', () {
         const style = AppTextStyles.bodyLargeMobile;
-        expect(style.fontSize, 16);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.25));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(16));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.25);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('bodyMediumMobile has correct values', () {
         const style = AppTextStyles.bodyMediumMobile;
-        expect(style.fontSize, 14);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.43));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(14));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.43);
+        expect(style.letterSpacing, -0.15);
       });
 
       test('bodySmallMobile has correct values', () {
         const style = AppTextStyles.bodySmallMobile;
-        expect(style.fontSize, 12);
-        expect(style.fontWeight, FontWeight.w500);
-        expect(style.height, equals(1.33));
-        expect(style.letterSpacing, equals(-0.15));
+        expect(style.fontSize, equals(12));
+        expect(style.fontWeight, equals(FontWeight.w500));
+        expect(style.height, 1.33);
+        expect(style.letterSpacing, -0.15);
       });
     });
 
