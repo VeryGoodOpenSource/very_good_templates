@@ -7,4 +7,7 @@ extension AppThemeBuildContext on BuildContext {
 
   /// Returns the [AppSpacing] from the current theme.
   AppSpacing get appSpacing => Theme.of(this).extension<AppSpacing>()!;
+
+  /// Returns the [AppTextStyles] from the current theme.
+  AppTextStyles get appTextStyles => Theme.of(this).extension<AppTextStyles>()!;
 }

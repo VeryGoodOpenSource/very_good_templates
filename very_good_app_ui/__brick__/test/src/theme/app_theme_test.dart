@@ -16,6 +16,10 @@ void main() {
         expect(AppTheme.light.extension<AppSpacing>(), isNotNull);
       });
 
+      test('has AppTextStyles extension', () {
+        expect(AppTheme.light.extension<AppTextStyles>(), isNotNull);
+      });
+
       test('has light brightness', () {
         expect(AppTheme.light.brightness, Brightness.light);
       });
@@ -32,6 +36,10 @@ void main() {
 
       test('has AppSpacing extension', () {
         expect(AppTheme.dark.extension<AppSpacing>(), isNotNull);
+      });
+
+      test('has AppTextStyles extension', () {
+        expect(AppTheme.dark.extension<AppTextStyles>(), isNotNull);
       });
 
       test('has dark brightness', () {
