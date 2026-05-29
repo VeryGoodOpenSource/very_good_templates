@@ -11,6 +11,7 @@ import 'package:{{project_name.snakeCase()}}/src/version.dart';
 /// {@endtemplate}
 class UpdateCommand extends Command<int> {
   /// {@macro update_command}
+  // ignore: prefer_initializing_formals
   UpdateCommand({required Logger logger, PubUpdater? pubUpdater})
     : _logger = logger,
       _pubUpdater = pubUpdater ?? PubUpdater();

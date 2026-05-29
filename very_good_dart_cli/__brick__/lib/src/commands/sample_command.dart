@@ -8,6 +8,7 @@ import 'package:mason_logger/mason_logger.dart';
 /// {@endtemplate}
 class SampleCommand extends Command<int> {
   /// {@macro sample_command}
+  // ignore: prefer_initializing_formals
   SampleCommand({required Logger logger}) : _logger = logger {
     argParser.addFlag(
       'cyan',
