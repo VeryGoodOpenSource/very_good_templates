@@ -11,8 +11,10 @@ import 'package:{{project_name.snakeCase()}}/src/version.dart';
 /// {@endtemplate}
 class UpdateCommand extends Command<int> {
   /// {@macro update_command}
-  // ignore: prefer_initializing_formals
   UpdateCommand({required Logger logger, PubUpdater? pubUpdater})
+    // The parameter name differs from the field name, so an initializing
+    // formal cannot be used here.
+    // ignore: prefer_initializing_formals
     : _logger = logger,
       _pubUpdater = pubUpdater ?? PubUpdater();
 
