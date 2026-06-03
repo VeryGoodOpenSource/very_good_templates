@@ -113,11 +113,11 @@ void main() {
 }
 
 Matcher isDartDirectiveOrderingFix({required String path}) {
-  return _IsDartDirectiveOrderingFix(path);
+  return _IsDartDirectiveOrderingFix(path: path);
 }
 
 class _IsDartDirectiveOrderingFix extends Matcher {
-  const _IsDartDirectiveOrderingFix(this._path);
+  const _IsDartDirectiveOrderingFix({required this._path});
 
   /// The value of the path to apply the `dart fix` to.
   final String _path;
@@ -161,11 +161,11 @@ class _IsDartDirectiveOrderingFix extends Matcher {
 }
 
 Matcher isDartPubGet({required String directory}) {
-  return _IsDartPubGet(directory);
+  return _IsDartPubGet(directory: directory);
 }
 
 class _IsDartPubGet extends Matcher {
-  const _IsDartPubGet(this._directory);
+  const _IsDartPubGet({required this._directory});
 
   /// The value of the `--directory` argument passed to `dart pub get`.
   final String _directory;
