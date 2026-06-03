@@ -16,7 +16,7 @@ jobs:
   build:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1.19.2
     with:
-      dart_sdk: "3.11.0"
+      dart_sdk: "3.12.0"
       report_on: "pre_gen.dart post_gen.dart"
       run_bloc_lint: false
       working_directory: "very_good_flutter_plugin/hooks"

@@ -123,7 +123,7 @@ Matcher isDartDirectiveOrderingFix({required String path}) {
 }
 
 class _IsDartDirectiveOrderingFix extends Matcher {
-  const _IsDartDirectiveOrderingFix({required String path}) : _path = path;
+  const _IsDartDirectiveOrderingFix({required this._path});
 
   /// The value of the path to apply the `dart fix` to.
   final String _path;
@@ -171,8 +171,7 @@ Matcher isVeryGoodPackagesGet({required String directory}) {
 }
 
 class _IsVeryGoodPackagesGet extends Matcher {
-  const _IsVeryGoodPackagesGet({required String directory})
-    : _directory = directory;
+  const _IsVeryGoodPackagesGet({required this._directory});
 
   /// The value of the directory argument passed to `very_good packages get`.
   final String _directory;
@@ -217,7 +216,7 @@ Matcher isDartFormat({required String path}) {
 }
 
 class _IsDartFormat extends Matcher {
-  const _IsDartFormat({required String path}) : _path = path;
+  const _IsDartFormat({required this._path});
 
   /// The value of the path to apply the `dart format` to.
   final String _path;

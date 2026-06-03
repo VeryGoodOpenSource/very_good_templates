@@ -37,8 +37,7 @@ enum _VeryGoodCoreConfigurationVariables {
   ///
   /// Defaults to `A Very Good App`.
   /// {@endtemplate}
-  description._('description')
-  ;
+  description._('description');
 
   const _VeryGoodCoreConfigurationVariables._(this.key);
 
