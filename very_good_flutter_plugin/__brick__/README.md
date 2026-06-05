@@ -26,6 +26,11 @@ To run the integration tests, run the following command from the root of the pro
 cd {{project_name.snakeCase()}}/example
 fluttium test flows/test_platform_name.yaml
 ```
+{{#publishable}}
+## Publishing 📦
+
+`{{project_name.snakeCase()}}` is a federated plugin and is composed of multiple packages that depend on each other through [path dependencies][path_dependencies_link]. Path dependencies are not allowed by `pub.dev`, so they must be replaced with version dependencies before publishing — see [`PUBLISHING.md`](PUBLISHING.md) for the recommended process and order in which each package must be published.
+{{/publishable}}
 
 [coverage_badge]: {{project_name.snakeCase()}}/coverage_badge.svg
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
@@ -40,3 +45,4 @@ fluttium test flows/test_platform_name.yaml
 [very_good_ventures_link_light]: https://verygood.ventures/?utm_source=github&utm_medium=banner&utm_campaign=core#gh-light-mode-only
 [fluttium_link]: https://fluttium.dev/
 [fluttium_install]: https://fluttium.dev/docs/getting-started/installing-cli
+[path_dependencies_link]: https://dart.dev/tools/pub/dependencies#path-packages
