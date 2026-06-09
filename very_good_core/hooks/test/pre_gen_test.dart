@@ -22,6 +22,7 @@ void main() {
           'org_name': 'com.example',
           'application_id': 'app.id',
           'description': 'A new Flutter project.',
+          'platforms': ['android', 'ios', 'macos', 'web', 'windows'],
         };
         when(() => context.vars).thenReturn(vars);
 
@@ -42,9 +43,81 @@ void main() {
             'ios_application_id': 'app.id',
             'macos_application_id': 'app.id',
             'windows_application_id': 'app.id',
+            'platforms': ['android', 'ios', 'macos', 'web', 'windows'],
             'current_year': '2020',
+            'android': true,
+            'ios': true,
+            'macos': true,
+            'web': true,
+            'windows': true,
           }),
         );
+      });
+    });
+
+    test('platform options', () {
+      withClock(Clock.fixed(DateTime(2020)), () {
+        final vars = {
+          'project_name': 'my_app',
+          'org_name': 'com.example',
+          'application_id': 'app.id',
+          'description': 'A new Flutter project.',
+          'platforms': ['android', 'web'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        final newVars =
+            verify(() => context.vars = captureAny()).captured.last
+                as Map<String, dynamic>;
+
+        expect(newVars['android'], isTrue);
+        expect(newVars['web'], isTrue);
+        expect(newVars['ios'], isFalse);
+        expect(newVars['macos'], isFalse);
+        expect(newVars['windows'], isFalse);
+      });
+    });
+
+    test('parses a comma separated platforms string', () {
+      withClock(Clock.fixed(DateTime(2020)), () {
+        final vars = {
+          'project_name': 'my_app',
+          'org_name': 'com.example',
+          'application_id': 'app.id',
+          'description': 'A new Flutter project.',
+          'platforms': 'android, ios',
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        final newVars =
+            verify(() => context.vars = captureAny()).captured.last
+                as Map<String, dynamic>;
+
+        expect(newVars['android'], isTrue);
+        expect(newVars['ios'], isTrue);
+        expect(newVars['macos'], isFalse);
+        expect(newVars['web'], isFalse);
+        expect(newVars['windows'], isFalse);
+      });
+    });
+
+    test('throws $ArgumentError if platforms is not a list', () {
+      withClock(Clock.fixed(DateTime(2020)), () {
+        final vars = {
+          'project_name': 'my_app',
+          'org_name': 'com.example',
+          'application_id': 'app.id',
+          'description': 'A new Flutter project.',
+          'platforms': 2345,
+        };
+
+        when(() => context.vars).thenReturn(vars);
+
+        expect(() => pre_gen.run(context), throwsA(isA<ArgumentError>()));
       });
     });
   });
