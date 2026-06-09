@@ -46,3 +46,8 @@ vars:
       - web
       - windows
       - linux
+  publishable:
+    type: boolean
+    description: Whether the generated project is intended to be published.
+    default: false
+    prompt: Will the project be published?

@@ -21,6 +21,7 @@ void main() {
           'project_name': 'my_docs_site',
           'org_name': 'my_org',
           'description': 'A very good docs site',
+          'publishable': false,
         };
         when(() => context.vars).thenReturn(vars);
 
@@ -36,6 +37,7 @@ void main() {
             'project_name': 'my_docs_site',
             'org_name': 'my_org',
             'description': 'A very good docs site',
+            'publishable': false,
             'current_year': '2020',
           }),
         );
