@@ -22,14 +22,8 @@ void main() {
           'org_name': 'com.example',
           'application_id': 'app.id',
           'description': 'A new Flame project.',
-          'platforms': [
-            'android',
-            'ios',
-            'macos',
-            'windows',
-            'web',
-            'linux',
-          ],
+          'publishable': false,
+          'platforms': ['android', 'ios', 'macos', 'windows', 'web', 'linux'],
         };
         when(() => context.vars).thenReturn(vars);
 
@@ -50,15 +44,9 @@ void main() {
             'ios_application_id': 'app.id',
             'macos_application_id': 'app.id',
             'windows_application_id': 'app.id',
+            'publishable': false,
             'current_year': '2020',
-            'platforms': [
-              'android',
-              'ios',
-              'macos',
-              'windows',
-              'web',
-              'linux',
-            ],
+            'platforms': ['android', 'ios', 'macos', 'windows', 'web', 'linux'],
             'android': true,
             'ios': true,
             'macos': true,

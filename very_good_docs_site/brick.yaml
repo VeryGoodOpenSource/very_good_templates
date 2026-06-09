@@ -16,6 +16,11 @@ vars:
     description: The site description
     default: A very good docs site
     prompt: What is the site description?
+  publishable:
+    type: boolean
+    description: Whether the generated site is intended to be published.
+    default: false
+    prompt: Will the site be published?
   org_name:
     type: string
     description: The organization name
