@@ -1,4 +1,4 @@
-# AGENTS.md
+# Very Good Templates
 
 Guidance for AI agents working in this repository. Every item here is something
 an agent would likely get wrong without it.
