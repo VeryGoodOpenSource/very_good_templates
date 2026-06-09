@@ -27,8 +27,3 @@ vars:
     description: A short project description
     default: A Very Good Wear OS App
     prompt: What is the project description?
-  publishable:
-    type: boolean
-    description: Whether the generated project is intended to be published.
-    default: false
-    prompt: Will the project be published?
