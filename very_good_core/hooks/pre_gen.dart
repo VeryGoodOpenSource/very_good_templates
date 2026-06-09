@@ -57,6 +57,7 @@ void run(HookContext context) {
     'macos_application_id': configuration.macOsApplicationId,
     'windows_application_id': configuration.windowsApplicationId,
     'platforms': selectedPlatformsVar,
+    'publishable': configuration.publishable,
     'current_year': clock.now().year.toString(),
     for (final platform in availablePlatforms)
       platform: selectedPlatforms.contains(platform),
