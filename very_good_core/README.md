@@ -13,7 +13,7 @@ A Very Good Flutter app created by Very Good Ventures 🦄.
 
 Out of the box, Very Good Core includes:
 
-- ✅ [Cross Platform Support][flutter_cross_platform_link] - Built-in support for iOS, Android, Web, and Windows (MacOS/Linux coming soon!)
+- ✅ [Cross Platform Support][flutter_cross_platform_link] - Built-in support for iOS, Android, Web, macOS, and Windows. Choose which platforms to generate via the `platforms` variable (defaults to all of them).
 - ✅ [Build Flavors][flutter_flavors_link] - Multiple flavor support for development, staging, and production
 - ✅ [Internationalization Support][internationalization_link] - Internationalization support using code generation to streamline the development process
 - ✅ [Sound Null-Safety][null_safety_link] - No more null-dereference exceptions at runtime. Develop with a sound, static type system.
