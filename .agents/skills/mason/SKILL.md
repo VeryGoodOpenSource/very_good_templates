@@ -203,19 +203,19 @@ __brick__/
 
 Apply case transformations directly in templates or file names:
 
-| Lambda          | Example output  | Shorthand syntax                  |
-| --------------- | --------------- | --------------------------------- |
-| `camelCase`     | `helloWorld`    | `{{name.camelCase()}}`            |
-| `pascalCase`    | `HelloWorld`    | `{{name.pascalCase()}}`           |
-| `snakeCase`     | `hello_world`   | `{{name.snakeCase()}}`            |
-| `paramCase`     | `hello-world`   | `{{name.paramCase()}}`            |
-| `constantCase`  | `HELLO_WORLD`   | `{{name.constantCase()}}`         |
-| `dotCase`       | `hello.world`   | `{{name.dotCase()}}`              |
-| `pathCase`      | `hello/world`   | `{{name.pathCase()}}`             |
-| `sentenceCase`  | `Hello world`   | `{{name.sentenceCase()}}`         |
-| `titleCase`     | `Hello World`   | `{{name.titleCase()}}`            |
-| `lowerCase`     | `hello world`   | `{{name.lowerCase()}}`            |
-| `upperCase`     | `HELLO WORLD`   | `{{name.upperCase()}}`            |
+| Lambda         | Example output | Shorthand syntax          |
+| -------------- | -------------- | ------------------------- |
+| `camelCase`    | `helloWorld`   | `{{name.camelCase()}}`    |
+| `pascalCase`   | `HelloWorld`   | `{{name.pascalCase()}}`   |
+| `snakeCase`    | `hello_world`  | `{{name.snakeCase()}}`    |
+| `paramCase`    | `hello-world`  | `{{name.paramCase()}}`    |
+| `constantCase` | `HELLO_WORLD`  | `{{name.constantCase()}}` |
+| `dotCase`      | `hello.world`  | `{{name.dotCase()}}`      |
+| `pathCase`     | `hello/world`  | `{{name.pathCase()}}`     |
+| `sentenceCase` | `Hello world`  | `{{name.sentenceCase()}}` |
+| `titleCase`    | `Hello World`  | `{{name.titleCase()}}`    |
+| `lowerCase`    | `hello world`  | `{{name.lowerCase()}}`    |
+| `upperCase`    | `HELLO WORLD`  | `{{name.upperCase()}}`    |
 
 Lambdas apply to file names too:
 
@@ -342,13 +342,13 @@ mason publish
 
 ## Anti-Patterns
 
-| Anti-Pattern | Problem | Correct Approach |
-| --- | --- | --- |
-| Putting conditional logic in `__brick__/` files | Mustache is logic-less; complex conditions become unreadable | Move all logic to `pre_gen.dart` and inject derived variables |
-| Adding a variable to `brick.yaml` but not `config.json` | CI generation fails with a missing key error | Always keep both files in sync |
-| Editing `version.txt` or `CHANGELOG.md` by hand | Breaks the automated release-please workflow | Let release-please manage versioning |
-| Using `{{variable}}` for raw HTML or code with `<`, `>`, `&` | Output gets HTML-escaped | Use `{{{variable}}}` for unescaped output |
-| Skipping hook tests | CI enforces 100% coverage on hook code | Write tests for every hook code path |
+| Anti-Pattern                                                 | Problem                                                      | Correct Approach                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------- |
+| Putting conditional logic in `__brick__/` files              | Mustache is logic-less; complex conditions become unreadable | Move all logic to `pre_gen.dart` and inject derived variables |
+| Adding a variable to `brick.yaml` but not `config.json`      | CI generation fails with a missing key error                 | Always keep both files in sync                                |
+| Editing `version.txt` or `CHANGELOG.md` by hand              | Breaks the automated release-please workflow                 | Let release-please manage versioning                          |
+| Using `{{variable}}` for raw HTML or code with `<`, `>`, `&` | Output gets HTML-escaped                                     | Use `{{{variable}}}` for unescaped output                     |
+| Skipping hook tests                                          | CI enforces 100% coverage on hook code                       | Write tests for every hook code path                          |
 
 ---
 
