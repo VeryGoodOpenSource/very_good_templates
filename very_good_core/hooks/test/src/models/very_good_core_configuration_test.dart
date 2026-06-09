@@ -38,6 +38,11 @@ void main() {
         final configuration = VeryGoodCoreConfiguration();
         expect(configuration.androidApplicationId.value, 'com.example.my_app');
       });
+
+      test('publishable to false', () {
+        final configuration = VeryGoodCoreConfiguration();
+        expect(configuration.publishable, isFalse);
+      });
     });
 
     group('throws', () {
