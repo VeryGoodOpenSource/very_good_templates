@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.6...very_good_docs_site-v1.1.0) (2026-06-09)
+
+
+### Features
+
+* add publishable flag to all templates ([#550](https://github.com/VeryGoodOpenSource/very_good_templates/issues/550)) ([e2fe1ce](https://github.com/VeryGoodOpenSource/very_good_templates/commit/e2fe1cef45935b33ffdb619bcc4e07f636413842))
+* upgrade to Flutter 3.44 and Dart 3.12 ([#536](https://github.com/VeryGoodOpenSource/very_good_templates/issues/536)) ([9026daf](https://github.com/VeryGoodOpenSource/very_good_templates/commit/9026dafa774e176e551154dc25e6be8d8358f40f))
+
+
+### Miscellaneous Chores
+
+* add SECURITY.md policy ([#546](https://github.com/VeryGoodOpenSource/very_good_templates/issues/546)) ([7cbba80](https://github.com/VeryGoodOpenSource/very_good_templates/commit/7cbba80aab0ebbf891f17a207ee1b6f445932f43))
+
 ## [1.0.6](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.5...very_good_docs_site-v1.0.6) (2026-04-14)
 
 
