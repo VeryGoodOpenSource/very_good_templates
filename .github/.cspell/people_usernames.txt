@@ -1,2 +1,3 @@
 # Specific people's names and/or usernames:
+felangel # Creator and maintainer of Mason and the Bloc library.
 luan # Maintainer of the Flutter `audioplayers` plugin.
