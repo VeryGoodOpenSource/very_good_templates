@@ -37,7 +37,14 @@ enum _VeryGoodCoreConfigurationVariables {
   ///
   /// Defaults to `A Very Good App`.
   /// {@endtemplate}
-  description._('description');
+  description._('description'),
+
+  /// {@template very_good_core_configuration_variables.publishable}
+  /// Whether the generated project is intended to be published.
+  ///
+  /// Defaults to `false`.
+  /// {@endtemplate}
+  publishable._('publishable');
 
   const _VeryGoodCoreConfigurationVariables._(this.key);
 
@@ -56,6 +63,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     String? projectName,
     String? organizationName,
     String? description,
+    bool? publishable,
     WindowsApplicationId? windowsApplicationId,
     AppleApplicationId? iOsApplicationId,
     AppleApplicationId? macOsApplicationId,
@@ -63,7 +71,8 @@ class VeryGoodCoreConfiguration extends Equatable {
     AndroidNamespace? androidNamespace,
   }) : projectName = projectName ?? 'my_app',
        organizationName = organizationName ?? 'com.example',
-       description = description ?? 'A Very Good App' {
+       description = description ?? 'A Very Good App',
+       publishable = publishable ?? false {
     this.windowsApplicationId =
         windowsApplicationId ??
         WindowsApplicationId.fallback(
@@ -140,9 +149,20 @@ class VeryGoodCoreConfiguration extends Equatable {
       );
     }
 
+    final publishable =
+        vars[_VeryGoodCoreConfigurationVariables.publishable.key];
+    if (publishable is! bool?) {
+      throw ArgumentError.value(
+        vars,
+        'vars',
+        '''Expected a value for key "${_VeryGoodCoreConfigurationVariables.publishable.key}" to be of type bool?, got $publishable.''',
+      );
+    }
+
     return VeryGoodCoreConfiguration(
       projectName: projectName,
       organizationName: organizationName,
+      publishable: publishable,
       iOsApplicationId: applicationId == null || applicationId.isEmpty
           ? null
           : AppleApplicationId(applicationId),
@@ -168,6 +188,9 @@ class VeryGoodCoreConfiguration extends Equatable {
   /// {@macro very_good_core_configuration_variables.description}
   final String description;
 
+  /// {@macro very_good_core_configuration_variables.publishable}
+  final bool publishable;
+
   /// {@macro windows_application_id}
   late final WindowsApplicationId windowsApplicationId;
 
@@ -188,6 +211,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     projectName,
     organizationName,
     description,
+    publishable,
     windowsApplicationId,
     iOsApplicationId,
     macOsApplicationId,

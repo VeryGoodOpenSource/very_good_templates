@@ -5,6 +5,20 @@ import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 void run(HookContext context) {
   final configuration = VeryGoodCoreConfiguration.fromHookVars(context.vars);
 
+  const availablePlatforms = ['android', 'ios', 'macos', 'web', 'windows'];
+
+  final selectedPlatformsVar = context.vars['platforms'] as Object?;
+
+  final selectedPlatforms = switch (selectedPlatformsVar) {
+    final String value => value.split(',').map((e) => e.trim()).toList(),
+    final List<dynamic> value => value,
+    _ => throw ArgumentError.value(
+      selectedPlatformsVar,
+      'platforms',
+      'Expected a List of platforms',
+    ),
+  };
+
   context.vars = {
     /// Below are all the variables that are accessible in the templates.
     ///
@@ -42,6 +56,10 @@ void run(HookContext context) {
     'ios_application_id': configuration.iOsApplicationId,
     'macos_application_id': configuration.macOsApplicationId,
     'windows_application_id': configuration.windowsApplicationId,
+    'platforms': selectedPlatformsVar,
+    'publishable': configuration.publishable,
     'current_year': clock.now().year.toString(),
+    for (final platform in availablePlatforms)
+      platform: selectedPlatforms.contains(platform),
   };
 }
