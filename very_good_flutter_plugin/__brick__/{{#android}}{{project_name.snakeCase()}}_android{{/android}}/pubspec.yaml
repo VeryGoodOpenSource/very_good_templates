@@ -27,4 +27,4 @@ dev_dependencies:
   mocktail: ^1.0.5
   pigeon: ^26.3.4
   plugin_platform_interface: ^2.1.8
-  very_good_analysis: ^10.2.0
+  very_good_analysis: ^10.3.0
