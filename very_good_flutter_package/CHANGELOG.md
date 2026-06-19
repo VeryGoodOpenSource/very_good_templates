@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_package-v1.3.2...very_good_flutter_package-v1.4.0) (2026-06-19)
+
+
+### Features
+
+* upgrade to Flutter 3.44 and Dart 3.12 ([#536](https://github.com/VeryGoodOpenSource/very_good_templates/issues/536)) ([9026daf](https://github.com/VeryGoodOpenSource/very_good_templates/commit/9026dafa774e176e551154dc25e6be8d8358f40f))
+
+
+### Miscellaneous Chores
+
+* add SECURITY.md policy ([#546](https://github.com/VeryGoodOpenSource/very_good_templates/issues/546)) ([7cbba80](https://github.com/VeryGoodOpenSource/very_good_templates/commit/7cbba80aab0ebbf891f17a207ee1b6f445932f43))
+* upgrade very_good_analysis to 10.3.0 ([#545](https://github.com/VeryGoodOpenSource/very_good_templates/issues/545)) ([a8285db](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a8285db497f3c4a8f18dc858893e14dceb97b905))
+
 ## [1.3.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_package-v1.3.1...very_good_flutter_package-v1.3.2) (2026-04-13)
 
 
