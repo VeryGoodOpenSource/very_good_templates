@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.2.2...very_good_app_ui-v0.3.0) (2026-06-19)
+
+
+### Features
+
+* upgrade to Flutter 3.44 and Dart 3.12 ([#536](https://github.com/VeryGoodOpenSource/very_good_templates/issues/536)) ([9026daf](https://github.com/VeryGoodOpenSource/very_good_templates/commit/9026dafa774e176e551154dc25e6be8d8358f40f))
+* **very_good_app_ui:** add responsive typography system ([#520](https://github.com/VeryGoodOpenSource/very_good_templates/issues/520)) ([cb8a897](https://github.com/VeryGoodOpenSource/very_good_templates/commit/cb8a897215ba518040f446f240e2341e096218f7))
+
+
+### Miscellaneous Chores
+
+* add SECURITY.md policy ([#546](https://github.com/VeryGoodOpenSource/very_good_templates/issues/546)) ([7cbba80](https://github.com/VeryGoodOpenSource/very_good_templates/commit/7cbba80aab0ebbf891f17a207ee1b6f445932f43))
+* tighten template dependencies ([#530](https://github.com/VeryGoodOpenSource/very_good_templates/issues/530)) ([5a299ea](https://github.com/VeryGoodOpenSource/very_good_templates/commit/5a299ea4e3cf8d83d937416b904b64b260a67edb))
+* tighten template dependencies ([#556](https://github.com/VeryGoodOpenSource/very_good_templates/issues/556)) ([a544ba0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a544ba0dfa923e4af23fb19171e4dc48ab8e8f25))
+* upgrade very_good_analysis to 10.3.0 ([#545](https://github.com/VeryGoodOpenSource/very_good_templates/issues/545)) ([a8285db](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a8285db497f3c4a8f18dc858893e14dceb97b905))
+
 ## [0.2.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.2.1...very_good_app_ui-v0.2.2) (2026-05-05)
 
 
