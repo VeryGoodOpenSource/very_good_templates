@@ -1,5 +1,24 @@
 # Changelog 
 
+## [1.4.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.3.4...very_good_flutter_plugin-v1.4.0) (2026-06-19)
+
+
+### Features
+
+* upgrade to Flutter 3.44 and Dart 3.12 ([#536](https://github.com/VeryGoodOpenSource/very_good_templates/issues/536)) ([9026daf](https://github.com/VeryGoodOpenSource/very_good_templates/commit/9026dafa774e176e551154dc25e6be8d8358f40f))
+
+
+### Miscellaneous Chores
+
+* add SECURITY.md policy ([#546](https://github.com/VeryGoodOpenSource/very_good_templates/issues/546)) ([7cbba80](https://github.com/VeryGoodOpenSource/very_good_templates/commit/7cbba80aab0ebbf891f17a207ee1b6f445932f43))
+* tighten template dependencies ([#556](https://github.com/VeryGoodOpenSource/very_good_templates/issues/556)) ([a544ba0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a544ba0dfa923e4af23fb19171e4dc48ab8e8f25))
+* upgrade very_good_analysis to 10.3.0 ([#545](https://github.com/VeryGoodOpenSource/very_good_templates/issues/545)) ([a8285db](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a8285db497f3c4a8f18dc858893e14dceb97b905))
+
+
+### Docs
+
+* add publishing instructions for federated plugin path dependencies ([#544](https://github.com/VeryGoodOpenSource/very_good_templates/issues/544)) ([db82aca](https://github.com/VeryGoodOpenSource/very_good_templates/commit/db82acae607d932fb3de87b030c2f362927afe03))
+
 ## [1.3.4](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.3.3...very_good_flutter_plugin-v1.3.4) (2026-05-05)
 
 
