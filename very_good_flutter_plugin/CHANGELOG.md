@@ -1,5 +1,12 @@
 # Changelog 
 
+## [1.4.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.4.0...very_good_flutter_plugin-v1.4.1) (2026-06-22)
+
+
+### Bug Fixes
+
+* **very_good_flutter_plugin:** apply missing lints ([#559](https://github.com/VeryGoodOpenSource/very_good_templates/issues/559)) ([13cd7f6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/13cd7f6cce4fee033a205d330ffd5d90a37ffb28))
+
 ## [1.4.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.3.4...very_good_flutter_plugin-v1.4.0) (2026-06-19)
 
 
