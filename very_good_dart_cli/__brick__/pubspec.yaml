@@ -1,11 +1,11 @@
 name: {{project_name.snakeCase()}}
 description: {{description}}
 version: 0.0.1
-{{^publishable}}publish_to: none{{/publishable}}
+{{^publishable}}publish_to: none{{/publishable}}{{#workspace}}
+resolution: workspace{{/workspace}}
 
 environment:
-  sdk: ^3.12.0{{#workspace}}
-resolution: workspace{{/workspace}}
+  sdk: ^3.12.0
 
 dependencies:
   args: ^2.7.0
