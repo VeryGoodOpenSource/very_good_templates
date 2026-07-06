@@ -57,17 +57,17 @@ android {
 
     flavorDimensions += "default"
     productFlavors {
-        create("production") {
+        create("{{flavor_prod}}") {
             dimension = "default"
             applicationIdSuffix = ""
             manifestPlaceholders["appName"] = "{{project_name.titleCase()}}"
         }
-        create("staging") {
+        create("{{flavor_staging}}") {
             dimension = "default"
             applicationIdSuffix = ".stg"
             manifestPlaceholders["appName"] = "[STG] {{project_name.titleCase()}}"
         }
-        create("development") {
+        create("{{flavor_dev}}") {
             dimension = "default"
             applicationIdSuffix = ".dev"
             manifestPlaceholders["appName"] = "[DEV] {{project_name.titleCase()}}"

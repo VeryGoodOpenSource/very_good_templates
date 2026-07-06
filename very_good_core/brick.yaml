@@ -48,3 +48,11 @@ vars:
     description: Whether the generated project is intended to be published.
     default: false
     prompt: Will the project be published?
+  flavors:
+    type: string
+    description: >-
+      A comma separated list of exactly three flavor names. The names map, in
+      order, to the development, staging and production build configurations
+      (with their respective application id suffixes and app name prefixes).
+    default: development,staging,production
+    prompt: What are the flavor names? (development, staging, production)

@@ -5,30 +5,40 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch development",
+      "name": "Launch {{flavor_dev}}",
       "request": "launch",
       "type": "dart",
-      "program": "lib/main_development.dart",
+      "program": "lib/main_{{flavor_dev}}.dart",
       "args": [
         "--flavor",
-        "development",
+        "{{flavor_dev}}",
         "--target",
-        "lib/main_development.dart"
+        "lib/main_{{flavor_dev}}.dart"
       ]
     },
     {
-      "name": "Launch staging",
+      "name": "Launch {{flavor_staging}}",
       "request": "launch",
       "type": "dart",
-      "program": "lib/main_staging.dart",
-      "args": ["--flavor", "staging", "--target", "lib/main_staging.dart"]
+      "program": "lib/main_{{flavor_staging}}.dart",
+      "args": [
+        "--flavor",
+        "{{flavor_staging}}",
+        "--target",
+        "lib/main_{{flavor_staging}}.dart"
+      ]
     },
     {
-      "name": "Launch production",
+      "name": "Launch {{flavor_prod}}",
       "request": "launch",
       "type": "dart",
-      "program": "lib/main_production.dart",
-      "args": ["--flavor", "production", "--target", "lib/main_production.dart"]
+      "program": "lib/main_{{flavor_prod}}.dart",
+      "args": [
+        "--flavor",
+        "{{flavor_prod}}",
+        "--target",
+        "lib/main_{{flavor_prod}}.dart"
+      ]
     }
   ]
 }

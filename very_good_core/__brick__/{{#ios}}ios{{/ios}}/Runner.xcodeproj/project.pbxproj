@@ -327,7 +327,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3C9C55192B07AC99000E5FCD /* Debug-production */ = {
+		3C9C55192B07AC99000E5FCD /* Debug-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -380,9 +380,9 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug-production";
+			name = "Debug-{{flavor_prod}}";
 		};
-		3C9C551A2B07AC99000E5FCD /* Debug-production */ = {
+		3C9C551A2B07AC99000E5FCD /* Debug-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -391,7 +391,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "{{project_name.titleCase()}}";
-				FLUTTER_TARGET = lib/main_production.dart;
+				FLUTTER_TARGET = lib/main_{{flavor_prod}}.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -405,9 +405,9 @@
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Debug-production";
+			name = "Debug-{{flavor_prod}}";
 		};
-		3C9C551B2B07AC99000E5FCD /* Debug-production */ = {
+		3C9C551B2B07AC99000E5FCD /* Debug-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -422,9 +422,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
-			name = "Debug-production";
+			name = "Debug-{{flavor_prod}}";
 		};
-		3C9C551C2B07ACA4000E5FCD /* Release-production */ = {
+		3C9C551C2B07ACA4000E5FCD /* Release-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -474,9 +474,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Release-production";
+			name = "Release-{{flavor_prod}}";
 		};
-		3C9C551D2B07ACA4000E5FCD /* Release-production */ = {
+		3C9C551D2B07ACA4000E5FCD /* Release-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -485,7 +485,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "{{project_name.titleCase()}}";
-				FLUTTER_TARGET = lib/main_production.dart;
+				FLUTTER_TARGET = lib/main_{{flavor_prod}}.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,9 +498,9 @@
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Release-production";
+			name = "Release-{{flavor_prod}}";
 		};
-		3C9C551E2B07ACA4000E5FCD /* Release-production */ = {
+		3C9C551E2B07ACA4000E5FCD /* Release-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -513,9 +513,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
-			name = "Release-production";
+			name = "Release-{{flavor_prod}}";
 		};
-		3C9C55222B07ACBD000E5FCD /* Profile-production */ = {
+		3C9C55222B07ACBD000E5FCD /* Profile-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -563,9 +563,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Profile-production";
+			name = "Profile-{{flavor_prod}}";
 		};
-		3C9C55232B07ACBD000E5FCD /* Profile-production */ = {
+		3C9C55232B07ACBD000E5FCD /* Profile-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -574,7 +574,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "{{project_name.titleCase()}}";
-				FLUTTER_TARGET = lib/main_production.dart;
+				FLUTTER_TARGET = lib/main_{{flavor_prod}}.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -587,9 +587,9 @@
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Profile-production";
+			name = "Profile-{{flavor_prod}}";
 		};
-		3C9C55242B07ACBD000E5FCD /* Profile-production */ = {
+		3C9C55242B07ACBD000E5FCD /* Profile-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			    BUNDLE_LOADER = "$(TEST_HOST)";
@@ -602,9 +602,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
-			name = "Profile-production";
+			name = "Profile-{{flavor_prod}}";
 		};
-		3C9C55252B07ACE7000E5FCD /* Debug-development */ = {
+		3C9C55252B07ACE7000E5FCD /* Debug-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -657,9 +657,9 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug-development";
+			name = "Debug-{{flavor_dev}}";
 		};
-		3C9C55262B07ACE7000E5FCD /* Debug-development */ = {
+		3C9C55262B07ACE7000E5FCD /* Debug-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -668,7 +668,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] {{project_name.titleCase()}}";
-				FLUTTER_TARGET = lib/main_development.dart;
+				FLUTTER_TARGET = lib/main_{{flavor_dev}}.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -682,9 +682,9 @@
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Debug-development";
+			name = "Debug-{{flavor_dev}}";
 		};
-		3C9C55272B07ACE7000E5FCD /* Debug-development */ = {
+		3C9C55272B07ACE7000E5FCD /* Debug-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -699,9 +699,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
-			name = "Debug-development";
+			name = "Debug-{{flavor_dev}}";
 		};
-		3C9C552B2B07AD09000E5FCD /* Profile-development */ = {
+		3C9C552B2B07AD09000E5FCD /* Profile-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -749,9 +749,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Profile-development";
+			name = "Profile-{{flavor_dev}}";
 		};
-		3C9C552C2B07AD09000E5FCD /* Profile-development */ = {
+		3C9C552C2B07AD09000E5FCD /* Profile-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -760,7 +760,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] {{project_name.titleCase()}}";
-				FLUTTER_TARGET = lib/main_development.dart;
+				FLUTTER_TARGET = lib/main_{{flavor_dev}}.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -773,9 +773,9 @@
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Profile-development";
+			name = "Profile-{{flavor_dev}}";
 		};
-		3C9C552D2B07AD09000E5FCD /* Profile-development */ = {
+		3C9C552D2B07AD09000E5FCD /* Profile-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -788,9 +788,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
-			name = "Profile-development";
+			name = "Profile-{{flavor_dev}}";
 		};
-		3C9C552E2B07AD1B000E5FCD /* Release-development */ = {
+		3C9C552E2B07AD1B000E5FCD /* Release-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -840,9 +840,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Release-development";
+			name = "Release-{{flavor_dev}}";
 		};
-		3C9C552F2B07AD1B000E5FCD /* Release-development */ = {
+		3C9C552F2B07AD1B000E5FCD /* Release-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -851,7 +851,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] {{project_name.titleCase()}}";
-				FLUTTER_TARGET = lib/main_development.dart;
+				FLUTTER_TARGET = lib/main_{{flavor_dev}}.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -864,9 +864,9 @@
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Release-development";
+			name = "Release-{{flavor_dev}}";
 		};
-		3C9C55302B07AD1B000E5FCD /* Release-development */ = {
+		3C9C55302B07AD1B000E5FCD /* Release-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -879,9 +879,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
-			name = "Release-development";
+			name = "Release-{{flavor_dev}}";
 		};
-		3C9C55312B07AD26000E5FCD /* Debug-staging */ = {
+		3C9C55312B07AD26000E5FCD /* Debug-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -934,9 +934,9 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug-staging";
+			name = "Debug-{{flavor_staging}}";
 		};
-		3C9C55322B07AD26000E5FCD /* Debug-staging */ = {
+		3C9C55322B07AD26000E5FCD /* Debug-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -945,7 +945,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] {{project_name.titleCase()}}";
-				FLUTTER_TARGET = lib/main_staging.dart;
+				FLUTTER_TARGET = lib/main_{{flavor_staging}}.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -959,9 +959,9 @@
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Debug-staging";
+			name = "Debug-{{flavor_staging}}";
 		};
-		3C9C55332B07AD26000E5FCD /* Debug-staging */ = {
+		3C9C55332B07AD26000E5FCD /* Debug-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -976,9 +976,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
-			name = "Debug-staging";
+			name = "Debug-{{flavor_staging}}";
 		};
-		3C9C55342B07AD41000E5FCD /* Release-staging */ = {
+		3C9C55342B07AD41000E5FCD /* Release-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1028,9 +1028,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Release-staging";
+			name = "Release-{{flavor_staging}}";
 		};
-		3C9C55352B07AD41000E5FCD /* Release-staging */ = {
+		3C9C55352B07AD41000E5FCD /* Release-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -1039,7 +1039,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] {{project_name.titleCase()}}";
-				FLUTTER_TARGET = lib/main_staging.dart;
+				FLUTTER_TARGET = lib/main_{{flavor_staging}}.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1052,9 +1052,9 @@
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Release-staging";
+			name = "Release-{{flavor_staging}}";
 		};
-		3C9C55362B07AD41000E5FCD /* Release-staging */ = {
+		3C9C55362B07AD41000E5FCD /* Release-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1067,9 +1067,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
-			name = "Release-staging";
+			name = "Release-{{flavor_staging}}";
 		};
-		3C9C55372B07AD4B000E5FCD /* Profile-staging */ = {
+		3C9C55372B07AD4B000E5FCD /* Profile-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1117,9 +1117,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Profile-staging";
+			name = "Profile-{{flavor_staging}}";
 		};
-		3C9C55382B07AD4B000E5FCD /* Profile-staging */ = {
+		3C9C55382B07AD4B000E5FCD /* Profile-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -1128,7 +1128,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] {{project_name.titleCase()}}";
-				FLUTTER_TARGET = lib/main_staging.dart;
+				FLUTTER_TARGET = lib/main_{{flavor_staging}}.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1141,9 +1141,9 @@
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Profile-staging";
+			name = "Profile-{{flavor_staging}}";
 		};
-		3C9C55392B07AD4B000E5FCD /* Profile-staging */ = {
+		3C9C55392B07AD4B000E5FCD /* Profile-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1156,7 +1156,7 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
-			name = "Profile-staging";
+			name = "Profile-{{flavor_staging}}";
 		};
 /* End XCBuildConfiguration section */
 
@@ -1164,50 +1164,50 @@
         331C8087294A63A400263BE5 /* Build configuration list for PBXNativeTarget "RunnerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3C9C551B2B07AC99000E5FCD /* Debug-production */,
-				3C9C55332B07AD26000E5FCD /* Debug-staging */,
-				3C9C55272B07ACE7000E5FCD /* Debug-development */,
-				3C9C551E2B07ACA4000E5FCD /* Release-production */,
-				3C9C55362B07AD41000E5FCD /* Release-staging */,
-				3C9C55302B07AD1B000E5FCD /* Release-development */,
-				3C9C55242B07ACBD000E5FCD /* Profile-production */,
-				3C9C55392B07AD4B000E5FCD /* Profile-staging */,
-				3C9C552D2B07AD09000E5FCD /* Profile-development */,
+				3C9C551B2B07AC99000E5FCD /* Debug-{{flavor_prod}} */,
+				3C9C55332B07AD26000E5FCD /* Debug-{{flavor_staging}} */,
+				3C9C55272B07ACE7000E5FCD /* Debug-{{flavor_dev}} */,
+				3C9C551E2B07ACA4000E5FCD /* Release-{{flavor_prod}} */,
+				3C9C55362B07AD41000E5FCD /* Release-{{flavor_staging}} */,
+				3C9C55302B07AD1B000E5FCD /* Release-{{flavor_dev}} */,
+				3C9C55242B07ACBD000E5FCD /* Profile-{{flavor_prod}} */,
+				3C9C55392B07AD4B000E5FCD /* Profile-{{flavor_staging}} */,
+				3C9C552D2B07AD09000E5FCD /* Profile-{{flavor_dev}} */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-production";
+			defaultConfigurationName = "Release-{{flavor_prod}}";
 		};
 		97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3C9C55192B07AC99000E5FCD /* Debug-production */,
-				3C9C55312B07AD26000E5FCD /* Debug-staging */,
-				3C9C55252B07ACE7000E5FCD /* Debug-development */,
-				3C9C551C2B07ACA4000E5FCD /* Release-production */,
-				3C9C55342B07AD41000E5FCD /* Release-staging */,
-				3C9C552E2B07AD1B000E5FCD /* Release-development */,
-				3C9C55222B07ACBD000E5FCD /* Profile-production */,
-				3C9C55372B07AD4B000E5FCD /* Profile-staging */,
-				3C9C552B2B07AD09000E5FCD /* Profile-development */,
+				3C9C55192B07AC99000E5FCD /* Debug-{{flavor_prod}} */,
+				3C9C55312B07AD26000E5FCD /* Debug-{{flavor_staging}} */,
+				3C9C55252B07ACE7000E5FCD /* Debug-{{flavor_dev}} */,
+				3C9C551C2B07ACA4000E5FCD /* Release-{{flavor_prod}} */,
+				3C9C55342B07AD41000E5FCD /* Release-{{flavor_staging}} */,
+				3C9C552E2B07AD1B000E5FCD /* Release-{{flavor_dev}} */,
+				3C9C55222B07ACBD000E5FCD /* Profile-{{flavor_prod}} */,
+				3C9C55372B07AD4B000E5FCD /* Profile-{{flavor_staging}} */,
+				3C9C552B2B07AD09000E5FCD /* Profile-{{flavor_dev}} */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-production";
+			defaultConfigurationName = "Release-{{flavor_prod}}";
 		};
 		97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3C9C551A2B07AC99000E5FCD /* Debug-production */,
-				3C9C55322B07AD26000E5FCD /* Debug-staging */,
-				3C9C55262B07ACE7000E5FCD /* Debug-development */,
-				3C9C551D2B07ACA4000E5FCD /* Release-production */,
-				3C9C55352B07AD41000E5FCD /* Release-staging */,
-				3C9C552F2B07AD1B000E5FCD /* Release-development */,
-				3C9C55232B07ACBD000E5FCD /* Profile-production */,
-				3C9C55382B07AD4B000E5FCD /* Profile-staging */,
-				3C9C552C2B07AD09000E5FCD /* Profile-development */,
+				3C9C551A2B07AC99000E5FCD /* Debug-{{flavor_prod}} */,
+				3C9C55322B07AD26000E5FCD /* Debug-{{flavor_staging}} */,
+				3C9C55262B07ACE7000E5FCD /* Debug-{{flavor_dev}} */,
+				3C9C551D2B07ACA4000E5FCD /* Release-{{flavor_prod}} */,
+				3C9C55352B07AD41000E5FCD /* Release-{{flavor_staging}} */,
+				3C9C552F2B07AD1B000E5FCD /* Release-{{flavor_dev}} */,
+				3C9C55232B07ACBD000E5FCD /* Profile-{{flavor_prod}} */,
+				3C9C55382B07AD4B000E5FCD /* Profile-{{flavor_staging}} */,
+				3C9C552C2B07AD09000E5FCD /* Profile-{{flavor_dev}} */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-production";
+			defaultConfigurationName = "Release-{{flavor_prod}}";
 		};
 /* End XCConfigurationList section */
 	};

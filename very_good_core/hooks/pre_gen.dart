@@ -19,6 +19,29 @@ void run(HookContext context) {
     ),
   };
 
+  final flavorsVar = context.vars['flavors'] as Object?;
+
+  final flavors = switch (flavorsVar) {
+    null => const ['development', 'staging', 'production'],
+    final String value =>
+      value.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList(),
+    final List<dynamic> value => value.map((e) => '$e'.trim()).toList(),
+    _ => throw ArgumentError.value(
+      flavorsVar,
+      'flavors',
+      'Expected a comma separated String of flavor names',
+    ),
+  };
+
+  if (flavors.length != 3) {
+    throw ArgumentError.value(
+      flavorsVar,
+      'flavors',
+      'Expected exactly 3 flavor names (mapping to the development, staging '
+          'and production build configurations), got ${flavors.length}.',
+    );
+  }
+
   context.vars = {
     /// Below are all the variables that are accessible in the templates.
     ///
@@ -59,6 +82,9 @@ void run(HookContext context) {
     'platforms': selectedPlatformsVar,
     'publishable': configuration.publishable,
     'current_year': clock.now().year.toString(),
+    'flavor_dev': flavors[0],
+    'flavor_staging': flavors[1],
+    'flavor_prod': flavors[2],
     for (final platform in availablePlatforms)
       platform: selectedPlatforms.contains(platform),
   };

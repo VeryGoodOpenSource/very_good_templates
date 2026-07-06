@@ -397,7 +397,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		331C80DB294CF71000263BE5 /* Debug-production */ = {
+		331C80DB294CF71000263BE5 /* Debug-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -409,9 +409,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/my_app";
 			};
-			name = "Debug-production";
+			name = "Debug-{{flavor_prod}}";
 		};
-		331C80DC294CF71000263BE5 /* Release-production */ = {
+		331C80DC294CF71000263BE5 /* Release-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -423,9 +423,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/my_app";
 			};
-			name = "Release-production";
+			name = "Release-{{flavor_prod}}";
 		};
-		331C80DD294CF71000263BE5 /* Profile-production */ = {
+		331C80DD294CF71000263BE5 /* Profile-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -437,9 +437,9 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/my_app";
 			};
-			name = "Profile-production";
+			name = "Profile-{{flavor_prod}}";
 		};
-		338D0CE9231458BD00FA5F75 /* Profile-production */ = {
+		338D0CE9231458BD00FA5F75 /* Profile-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -483,9 +483,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
-			name = "Profile-production";
+			name = "Profile-{{flavor_prod}}";
 		};
-		338D0CEA231458BD00FA5F75 /* Profile-production */ = {
+		338D0CEA231458BD00FA5F75 /* Profile-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -504,17 +504,17 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Profile-production";
+			name = "Profile-{{flavor_prod}}";
 		};
-		338D0CEB231458BD00FA5F75 /* Profile-production */ = {
+		338D0CEB231458BD00FA5F75 /* Profile-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Profile-production";
+			name = "Profile-{{flavor_prod}}";
 		};
-		33CC10F92044A3C60003C045 /* Debug-production */ = {
+		33CC10F92044A3C60003C045 /* Debug-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -565,9 +565,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = "Debug-production";
+			name = "Debug-{{flavor_prod}}";
 		};
-		33CC10FA2044A3C60003C045 /* Release-production */ = {
+		33CC10FA2044A3C60003C045 /* Release-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -611,9 +611,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
-			name = "Release-production";
+			name = "Release-{{flavor_prod}}";
 		};
-		33CC10FC2044A3C60003C045 /* Debug-production */ = {
+		33CC10FC2044A3C60003C045 /* Debug-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -633,9 +633,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Debug-production";
+			name = "Debug-{{flavor_prod}}";
 		};
-		33CC10FD2044A3C60003C045 /* Release-production */ = {
+		33CC10FD2044A3C60003C045 /* Release-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -654,25 +654,25 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Release-production";
+			name = "Release-{{flavor_prod}}";
 		};
-		33CC111C2044C6BA0003C045 /* Debug-production */ = {
+		33CC111C2044C6BA0003C045 /* Debug-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Debug-production";
+			name = "Debug-{{flavor_prod}}";
 		};
-		33CC111D2044C6BA0003C045 /* Release-production */ = {
+		33CC111D2044C6BA0003C045 /* Release-{{flavor_prod}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Release-production";
+			name = "Release-{{flavor_prod}}";
 		};
-		4D081B8A2AEE0EE8009C4C7F /* Debug-staging */ = {
+		4D081B8A2AEE0EE8009C4C7F /* Debug-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -723,9 +723,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = "Debug-staging";
+			name = "Debug-{{flavor_staging}}";
 		};
-		4D081B8B2AEE0EE8009C4C7F /* Debug-staging */ = {
+		4D081B8B2AEE0EE8009C4C7F /* Debug-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -746,9 +746,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Debug-staging";
+			name = "Debug-{{flavor_staging}}";
 		};
-		4D081B8C2AEE0EE8009C4C7F /* Debug-staging */ = {
+		4D081B8C2AEE0EE8009C4C7F /* Debug-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -760,17 +760,17 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/my_app";
 			};
-			name = "Debug-staging";
+			name = "Debug-{{flavor_staging}}";
 		};
-		4D081B8D2AEE0EE8009C4C7F /* Debug-staging */ = {
+		4D081B8D2AEE0EE8009C4C7F /* Debug-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Debug-staging";
+			name = "Debug-{{flavor_staging}}";
 		};
-		4D081B8E2AEE0EEA009C4C7F /* Debug-development */ = {
+		4D081B8E2AEE0EEA009C4C7F /* Debug-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -821,9 +821,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = "Debug-development";
+			name = "Debug-{{flavor_dev}}";
 		};
-		4D081B8F2AEE0EEA009C4C7F /* Debug-development */ = {
+		4D081B8F2AEE0EEA009C4C7F /* Debug-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -844,9 +844,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Debug-development";
+			name = "Debug-{{flavor_dev}}";
 		};
-		4D081B902AEE0EEA009C4C7F /* Debug-development */ = {
+		4D081B902AEE0EEA009C4C7F /* Debug-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -858,17 +858,17 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/my_app";
 			};
-			name = "Debug-development";
+			name = "Debug-{{flavor_dev}}";
 		};
-		4D081B912AEE0EEA009C4C7F /* Debug-development */ = {
+		4D081B912AEE0EEA009C4C7F /* Debug-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Debug-development";
+			name = "Debug-{{flavor_dev}}";
 		};
-		4D081B922AEE0EEE009C4C7F /* Release-development */ = {
+		4D081B922AEE0EEE009C4C7F /* Release-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -912,9 +912,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
-			name = "Release-development";
+			name = "Release-{{flavor_dev}}";
 		};
-		4D081B932AEE0EEE009C4C7F /* Release-development */ = {
+		4D081B932AEE0EEE009C4C7F /* Release-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -934,9 +934,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Release-development";
+			name = "Release-{{flavor_dev}}";
 		};
-		4D081B942AEE0EEE009C4C7F /* Release-development */ = {
+		4D081B942AEE0EEE009C4C7F /* Release-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -948,17 +948,17 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/my_app";
 			};
-			name = "Release-development";
+			name = "Release-{{flavor_dev}}";
 		};
-		4D081B952AEE0EEE009C4C7F /* Release-development */ = {
+		4D081B952AEE0EEE009C4C7F /* Release-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Release-development";
+			name = "Release-{{flavor_dev}}";
 		};
-		4D081B962AEE0EF1009C4C7F /* Release-staging */ = {
+		4D081B962AEE0EF1009C4C7F /* Release-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -1002,9 +1002,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
-			name = "Release-staging";
+			name = "Release-{{flavor_staging}}";
 		};
-		4D081B972AEE0EF1009C4C7F /* Release-staging */ = {
+		4D081B972AEE0EF1009C4C7F /* Release-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -1024,9 +1024,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Release-staging";
+			name = "Release-{{flavor_staging}}";
 		};
-		4D081B982AEE0EF1009C4C7F /* Release-staging */ = {
+		4D081B982AEE0EF1009C4C7F /* Release-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1038,17 +1038,17 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/my_app";
 			};
-			name = "Release-staging";
+			name = "Release-{{flavor_staging}}";
 		};
-		4D081B992AEE0EF1009C4C7F /* Release-staging */ = {
+		4D081B992AEE0EF1009C4C7F /* Release-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Release-staging";
+			name = "Release-{{flavor_staging}}";
 		};
-		4D081B9A2AEE0EF4009C4C7F /* Profile-development */ = {
+		4D081B9A2AEE0EF4009C4C7F /* Profile-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -1092,9 +1092,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
-			name = "Profile-development";
+			name = "Profile-{{flavor_dev}}";
 		};
-		4D081B9B2AEE0EF4009C4C7F /* Profile-development */ = {
+		4D081B9B2AEE0EF4009C4C7F /* Profile-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -1114,9 +1114,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Profile-development";
+			name = "Profile-{{flavor_dev}}";
 		};
-		4D081B9C2AEE0EF4009C4C7F /* Profile-development */ = {
+		4D081B9C2AEE0EF4009C4C7F /* Profile-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1128,17 +1128,17 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/my_app";
 			};
-			name = "Profile-development";
+			name = "Profile-{{flavor_dev}}";
 		};
-		4D081B9D2AEE0EF4009C4C7F /* Profile-development */ = {
+		4D081B9D2AEE0EF4009C4C7F /* Profile-{{flavor_dev}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Profile-development";
+			name = "Profile-{{flavor_dev}}";
 		};
-		4D081B9E2AEE0EF8009C4C7F /* Profile-staging */ = {
+		4D081B9E2AEE0EF8009C4C7F /* Profile-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -1182,9 +1182,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
-			name = "Profile-staging";
+			name = "Profile-{{flavor_staging}}";
 		};
-		4D081B9F2AEE0EF8009C4C7F /* Profile-staging */ = {
+		4D081B9F2AEE0EF8009C4C7F /* Profile-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -1204,9 +1204,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Profile-staging";
+			name = "Profile-{{flavor_staging}}";
 		};
-		4D081BA02AEE0EF8009C4C7F /* Profile-staging */ = {
+		4D081BA02AEE0EF8009C4C7F /* Profile-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1218,15 +1218,15 @@
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/my_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/my_app";
 			};
-			name = "Profile-staging";
+			name = "Profile-{{flavor_staging}}";
 		};
-		4D081BA12AEE0EF8009C4C7F /* Profile-staging */ = {
+		4D081BA12AEE0EF8009C4C7F /* Profile-{{flavor_staging}} */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Profile-staging";
+			name = "Profile-{{flavor_staging}}";
 		};
 /* End XCBuildConfiguration section */
 
@@ -1234,66 +1234,66 @@
 		331C80DE294CF71000263BE5 /* Build configuration list for PBXNativeTarget "RunnerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				331C80DB294CF71000263BE5 /* Debug-production */,
-				4D081B902AEE0EEA009C4C7F /* Debug-development */,
-				4D081B8C2AEE0EE8009C4C7F /* Debug-staging */,
-				331C80DC294CF71000263BE5 /* Release-production */,
-				4D081B942AEE0EEE009C4C7F /* Release-development */,
-				4D081B982AEE0EF1009C4C7F /* Release-staging */,
-				331C80DD294CF71000263BE5 /* Profile-production */,
-				4D081B9C2AEE0EF4009C4C7F /* Profile-development */,
-				4D081BA02AEE0EF8009C4C7F /* Profile-staging */,
+				331C80DB294CF71000263BE5 /* Debug-{{flavor_prod}} */,
+				4D081B902AEE0EEA009C4C7F /* Debug-{{flavor_dev}} */,
+				4D081B8C2AEE0EE8009C4C7F /* Debug-{{flavor_staging}} */,
+				331C80DC294CF71000263BE5 /* Release-{{flavor_prod}} */,
+				4D081B942AEE0EEE009C4C7F /* Release-{{flavor_dev}} */,
+				4D081B982AEE0EF1009C4C7F /* Release-{{flavor_staging}} */,
+				331C80DD294CF71000263BE5 /* Profile-{{flavor_prod}} */,
+				4D081B9C2AEE0EF4009C4C7F /* Profile-{{flavor_dev}} */,
+				4D081BA02AEE0EF8009C4C7F /* Profile-{{flavor_staging}} */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-production";
+			defaultConfigurationName = "Release-{{flavor_prod}}";
 		};
 		33CC10E82044A3C60003C045 /* Build configuration list for PBXProject "Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33CC10F92044A3C60003C045 /* Debug-production */,
-				4D081B8E2AEE0EEA009C4C7F /* Debug-development */,
-				4D081B8A2AEE0EE8009C4C7F /* Debug-staging */,
-				33CC10FA2044A3C60003C045 /* Release-production */,
-				4D081B922AEE0EEE009C4C7F /* Release-development */,
-				4D081B962AEE0EF1009C4C7F /* Release-staging */,
-				338D0CE9231458BD00FA5F75 /* Profile-production */,
-				4D081B9A2AEE0EF4009C4C7F /* Profile-development */,
-				4D081B9E2AEE0EF8009C4C7F /* Profile-staging */,
+				33CC10F92044A3C60003C045 /* Debug-{{flavor_prod}} */,
+				4D081B8E2AEE0EEA009C4C7F /* Debug-{{flavor_dev}} */,
+				4D081B8A2AEE0EE8009C4C7F /* Debug-{{flavor_staging}} */,
+				33CC10FA2044A3C60003C045 /* Release-{{flavor_prod}} */,
+				4D081B922AEE0EEE009C4C7F /* Release-{{flavor_dev}} */,
+				4D081B962AEE0EF1009C4C7F /* Release-{{flavor_staging}} */,
+				338D0CE9231458BD00FA5F75 /* Profile-{{flavor_prod}} */,
+				4D081B9A2AEE0EF4009C4C7F /* Profile-{{flavor_dev}} */,
+				4D081B9E2AEE0EF8009C4C7F /* Profile-{{flavor_staging}} */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-production";
+			defaultConfigurationName = "Release-{{flavor_prod}}";
 		};
 		33CC10FB2044A3C60003C045 /* Build configuration list for PBXNativeTarget "Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33CC10FC2044A3C60003C045 /* Debug-production */,
-				4D081B8F2AEE0EEA009C4C7F /* Debug-development */,
-				4D081B8B2AEE0EE8009C4C7F /* Debug-staging */,
-				33CC10FD2044A3C60003C045 /* Release-production */,
-				4D081B932AEE0EEE009C4C7F /* Release-development */,
-				4D081B972AEE0EF1009C4C7F /* Release-staging */,
-				338D0CEA231458BD00FA5F75 /* Profile-production */,
-				4D081B9B2AEE0EF4009C4C7F /* Profile-development */,
-				4D081B9F2AEE0EF8009C4C7F /* Profile-staging */,
+				33CC10FC2044A3C60003C045 /* Debug-{{flavor_prod}} */,
+				4D081B8F2AEE0EEA009C4C7F /* Debug-{{flavor_dev}} */,
+				4D081B8B2AEE0EE8009C4C7F /* Debug-{{flavor_staging}} */,
+				33CC10FD2044A3C60003C045 /* Release-{{flavor_prod}} */,
+				4D081B932AEE0EEE009C4C7F /* Release-{{flavor_dev}} */,
+				4D081B972AEE0EF1009C4C7F /* Release-{{flavor_staging}} */,
+				338D0CEA231458BD00FA5F75 /* Profile-{{flavor_prod}} */,
+				4D081B9B2AEE0EF4009C4C7F /* Profile-{{flavor_dev}} */,
+				4D081B9F2AEE0EF8009C4C7F /* Profile-{{flavor_staging}} */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-production";
+			defaultConfigurationName = "Release-{{flavor_prod}}";
 		};
 		33CC111B2044C6BA0003C045 /* Build configuration list for PBXAggregateTarget "Flutter Assemble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33CC111C2044C6BA0003C045 /* Debug-production */,
-				4D081B912AEE0EEA009C4C7F /* Debug-development */,
-				4D081B8D2AEE0EE8009C4C7F /* Debug-staging */,
-				33CC111D2044C6BA0003C045 /* Release-production */,
-				4D081B952AEE0EEE009C4C7F /* Release-development */,
-				4D081B992AEE0EF1009C4C7F /* Release-staging */,
-				338D0CEB231458BD00FA5F75 /* Profile-production */,
-				4D081B9D2AEE0EF4009C4C7F /* Profile-development */,
-				4D081BA12AEE0EF8009C4C7F /* Profile-staging */,
+				33CC111C2044C6BA0003C045 /* Debug-{{flavor_prod}} */,
+				4D081B912AEE0EEA009C4C7F /* Debug-{{flavor_dev}} */,
+				4D081B8D2AEE0EE8009C4C7F /* Debug-{{flavor_staging}} */,
+				33CC111D2044C6BA0003C045 /* Release-{{flavor_prod}} */,
+				4D081B952AEE0EEE009C4C7F /* Release-{{flavor_dev}} */,
+				4D081B992AEE0EF1009C4C7F /* Release-{{flavor_staging}} */,
+				338D0CEB231458BD00FA5F75 /* Profile-{{flavor_prod}} */,
+				4D081B9D2AEE0EF4009C4C7F /* Profile-{{flavor_dev}} */,
+				4D081BA12AEE0EF8009C4C7F /* Profile-{{flavor_staging}} */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-production";
+			defaultConfigurationName = "Release-{{flavor_prod}}";
 		};
 /* End XCConfigurationList section */
 	};
