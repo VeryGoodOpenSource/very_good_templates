@@ -40,16 +40,14 @@ void main() {
       when(() => context.vars).thenReturn({});
       when(() => context.logger).thenReturn(logger);
       when(
-        () => logger.progress(
-          any(),
-          options: any(named: 'options'),
-        ),
+        () => logger.progress(any(), options: any(named: 'options')),
       ).thenReturn(progress);
 
       when(() => context.vars).thenReturn({
         post_gen.dartFixOutputVariableKey: true,
         post_gen.projectNameVariableKey: 'project_name',
-        for (final platform in $availablePlatforms) platform: true,
+        for (final platform in [...$availablePlatforms, 'darwin'])
+          platform: true,
       });
 
       when(
@@ -147,11 +145,7 @@ void main() {
           () => veryGoodCli.isInstalled(logger: logger),
         ).thenAnswer((_) => Future.value(false));
 
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
         verify(
           () => logger.warn(
@@ -218,7 +212,8 @@ void main() {
         when(() => context.vars).thenReturn({
           post_gen.dartFixOutputVariableKey: false,
           post_gen.projectNameVariableKey: 'project_name',
-          for (final platform in $availablePlatforms) platform: true,
+          for (final platform in [...$availablePlatforms, 'darwin'])
+            platform: true,
         });
 
         await post_gen.run(context, veryGoodCli: veryGoodCli, dartCli: dartCli);
@@ -242,7 +237,8 @@ void main() {
       test('does not run when no key exists', () async {
         when(() => context.vars).thenReturn({
           post_gen.projectNameVariableKey: 'project_name',
-          for (final platform in $availablePlatforms) platform: true,
+          for (final platform in [...$availablePlatforms, 'darwin'])
+            platform: true,
         });
 
         await post_gen.run(context, veryGoodCli: veryGoodCli, dartCli: dartCli);
@@ -273,11 +269,7 @@ void main() {
           ),
         ).thenAnswer((_) => Future.error(exception));
 
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
         verify(
           () => logger.err(
@@ -296,11 +288,7 @@ void main() {
           ),
         ).thenAnswer((_) => Future.error(exception));
 
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
         verify(
           () => logger.err('Unknown error occurred: $exception'),
@@ -317,11 +305,7 @@ void main() {
           ),
         ).thenAnswer((_) => Future.error(exception));
 
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
         verify(
           () => logger.err(
@@ -340,11 +324,7 @@ void main() {
           ),
         ).thenAnswer((_) => Future.error(exception));
 
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
         verify(
           () => logger.err('Unknown error occurred: $exception'),

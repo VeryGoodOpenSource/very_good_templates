@@ -31,14 +31,12 @@ const $availablePlatforms = [
   'windows',
 ];
 
-/// The platforms that use Pigeon for native bindings.
+/// The federated package suffixes that use Pigeon for native bindings.
 ///
 /// Web is excluded because it does not use native code and therefore does not
 /// require Pigeon code generation.
-const $pigeonPlatforms = [
-  'android',
-  'ios',
-  'macos',
-  'linux',
-  'windows',
-];
+///
+/// iOS and macOS share a single `darwin` package (see [$availablePlatforms]),
+/// so they are represented here by the `darwin` suffix rather than by the
+/// individual `ios` and `macos` platforms.
+const $pigeonPlatforms = ['android', 'darwin', 'linux', 'windows'];

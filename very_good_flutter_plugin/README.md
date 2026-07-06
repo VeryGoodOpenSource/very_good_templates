@@ -45,17 +45,13 @@ A Very Good federated Flutter plugin created by Very Good Ventures 🦄.
 │   ├── android
 │   ├── lib
 │   └── test
-├── my_plugin_ios
-│   ├── ios
+├── my_plugin_darwin
+│   ├── darwin
 │   ├── lib
 │   └── test
 ├── my_plugin_linux
 │   ├── lib
 │   ├── linux
-│   └── test
-├── my_plugin_macos
-│   ├── lib
-│   ├── macos
 │   └── test
 ├── my_plugin_platform_interface
 │   ├── lib

@@ -201,5 +201,41 @@ void main() {
         expect(vars[windowsVariable], isFalse);
       });
     });
+
+    group('darwin variable', () {
+      const darwinVariable = 'darwin';
+
+      test('is set to true if `ios` is in `platforms` variable', () {
+        final vars = <String, dynamic>{
+          'platforms': ['ios'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars[darwinVariable], isTrue);
+      });
+
+      test('is set to true if `macos` is in `platforms` variable', () {
+        final vars = <String, dynamic>{
+          'platforms': ['macos'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars[darwinVariable], isTrue);
+      });
+
+      test('is set to false if neither `ios` nor `macos` is in `platforms` '
+          'variable', () {
+        final vars = <String, dynamic>{'platforms': <String>[]};
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars[darwinVariable], isFalse);
+      });
+    });
   });
 }

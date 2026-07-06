@@ -20,19 +20,15 @@ updates:
   - package-ecosystem: "pub"
     directory: "/{{project_name.snakeCase()}}_android"
     schedule:
-      interval: "daily"{{/android}}{{#ios}}
+      interval: "daily"{{/android}}{{#darwin}}
   - package-ecosystem: "pub"
-    directory: "/{{project_name.snakeCase()}}_ios"
+    directory: "/{{project_name.snakeCase()}}_darwin"
     schedule:
-      interval: "daily"{{/ios}}{{#linux}}
+      interval: "daily"{{/darwin}}{{#linux}}
   - package-ecosystem: "pub"
     directory: "/{{project_name.snakeCase()}}_linux"
     schedule:
-      interval: "daily"{{/linux}}{{#macos}}
-  - package-ecosystem: "pub"
-    directory: "/{{project_name.snakeCase()}}_macos"
-    schedule:
-      interval: "daily"{{/macos}}{{#web}}
+      interval: "daily"{{/linux}}{{#web}}
   - package-ecosystem: "pub"
     directory: "/{{project_name.snakeCase()}}_web"
     schedule:

@@ -1,0 +1,28 @@
+name: {{project_name.snakeCase()}}_darwin
+
+concurrency:
+  group: ${{#mustacheCase}}github.workflow{{/mustacheCase}}-${{#mustacheCase}}github.ref{{/mustacheCase}}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/{{project_name.snakeCase()}}_darwin.yaml"
+      - "{{project_name.snakeCase()}}_darwin/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/{{project_name.snakeCase()}}_darwin.yaml"
+      - "{{project_name.snakeCase()}}_darwin/**"
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      flutter_version: {{{flutterVersion}}}
+      working_directory: {{project_name.snakeCase()}}_darwin
+{{#publishable}}
+  pana:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/pana.yml@v1
+{{/publishable}}

@@ -22,5 +22,10 @@ void run(HookContext context) {
     'currentYear': DateTime.now().year.toString(),
     for (final platform in $availablePlatforms)
       platform: selectedPlatforms.contains(platform),
+    // iOS and macOS share a single Darwin implementation package, so it is
+    // generated whenever either of those platforms is selected.
+    'darwin':
+        selectedPlatforms.contains('ios') ||
+        selectedPlatforms.contains('macos'),
   });
 }

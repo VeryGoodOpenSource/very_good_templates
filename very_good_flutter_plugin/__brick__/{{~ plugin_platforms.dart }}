@@ -4,11 +4,11 @@ flutter:
       android:
         default_package: {{project_name.snakeCase()}}_android{{/android}}{{#ios}}
       ios:
-        default_package: {{project_name.snakeCase()}}_ios{{/ios}}{{#linux}}
+        default_package: {{project_name.snakeCase()}}_darwin{{/ios}}{{#linux}}
       linux:
         default_package: {{project_name.snakeCase()}}_linux{{/linux}}{{#macos}}
       macos:
-        default_package: {{project_name.snakeCase()}}_macos{{/macos}}{{#web}}
+        default_package: {{project_name.snakeCase()}}_darwin{{/macos}}{{#web}}
       web:
         default_package: {{project_name.snakeCase()}}_web{{/web}}{{#windows}}
       windows:
