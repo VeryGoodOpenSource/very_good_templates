@@ -26,6 +26,13 @@ vars:
     description: Whether the generated package is intended to be published.
     default: false
     prompt: Will the package be published?
+  workspace:
+    type: boolean
+    description: >-
+      Whether the generated package should resolve its dependencies from a
+      parent Pub workspace.
+    default: false
+    prompt: Should the package resolve from a parent Pub workspace?
   org_name:
     type: string
     description: The organization name

@@ -4,5 +4,6 @@
   "application_id": "verygood.ventures.test",
   "description": "A very_good_flame_game configuration.",
   "platforms": ["android", "ios", "macos", "web", "windows", "linux"],
-  "publishable": false
+  "publishable": false,
+  "workspace": false
 }
