@@ -4,5 +4,6 @@
   "application_id": "verygood.ventures.test",
   "description": "very_good_core test configuration",
   "platforms": ["android", "ios", "macos", "web", "windows"],
-  "publishable": false
+  "publishable": false,
+  "workspace": false
 }

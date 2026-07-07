@@ -44,7 +44,15 @@ enum _VeryGoodCoreConfigurationVariables {
   ///
   /// Defaults to `false`.
   /// {@endtemplate}
-  publishable._('publishable');
+  publishable._('publishable'),
+
+  /// {@template very_good_core_configuration_variables.workspace}
+  /// Whether the generated project should resolve its dependencies from a
+  /// parent Pub workspace.
+  ///
+  /// Defaults to `false`.
+  /// {@endtemplate}
+  workspace._('workspace');
 
   const _VeryGoodCoreConfigurationVariables._(this.key);
 
@@ -64,6 +72,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     String? organizationName,
     String? description,
     bool? publishable,
+    bool? workspace,
     WindowsApplicationId? windowsApplicationId,
     AppleApplicationId? iOsApplicationId,
     AppleApplicationId? macOsApplicationId,
@@ -72,7 +81,8 @@ class VeryGoodCoreConfiguration extends Equatable {
   }) : projectName = projectName ?? 'my_app',
        organizationName = organizationName ?? 'com.example',
        description = description ?? 'A Very Good App',
-       publishable = publishable ?? false {
+       publishable = publishable ?? false,
+       workspace = workspace ?? false {
     this.windowsApplicationId =
         windowsApplicationId ??
         WindowsApplicationId.fallback(
@@ -159,10 +169,20 @@ class VeryGoodCoreConfiguration extends Equatable {
       );
     }
 
+    final workspace = vars[_VeryGoodCoreConfigurationVariables.workspace.key];
+    if (workspace is! bool?) {
+      throw ArgumentError.value(
+        vars,
+        'vars',
+        '''Expected a value for key "${_VeryGoodCoreConfigurationVariables.workspace.key}" to be of type bool?, got $workspace.''',
+      );
+    }
+
     return VeryGoodCoreConfiguration(
       projectName: projectName,
       organizationName: organizationName,
       publishable: publishable,
+      workspace: workspace,
       iOsApplicationId: applicationId == null || applicationId.isEmpty
           ? null
           : AppleApplicationId(applicationId),
@@ -191,6 +211,9 @@ class VeryGoodCoreConfiguration extends Equatable {
   /// {@macro very_good_core_configuration_variables.publishable}
   final bool publishable;
 
+  /// {@macro very_good_core_configuration_variables.workspace}
+  final bool workspace;
+
   /// {@macro windows_application_id}
   late final WindowsApplicationId windowsApplicationId;
 
@@ -212,6 +235,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     organizationName,
     description,
     publishable,
+    workspace,
     windowsApplicationId,
     iOsApplicationId,
     macOsApplicationId,

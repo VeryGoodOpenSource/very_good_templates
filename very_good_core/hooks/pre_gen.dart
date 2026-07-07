@@ -58,6 +58,7 @@ void run(HookContext context) {
     'windows_application_id': configuration.windowsApplicationId,
     'platforms': selectedPlatformsVar,
     'publishable': configuration.publishable,
+    'workspace': configuration.workspace,
     'current_year': clock.now().year.toString(),
     for (final platform in availablePlatforms)
       platform: selectedPlatforms.contains(platform),

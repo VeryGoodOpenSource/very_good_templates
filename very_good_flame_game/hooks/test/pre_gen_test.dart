@@ -23,6 +23,7 @@ void main() {
           'application_id': 'app.id',
           'description': 'A new Flame project.',
           'publishable': false,
+          'workspace': false,
           'platforms': ['android', 'ios', 'macos', 'windows', 'web', 'linux'],
         };
         when(() => context.vars).thenReturn(vars);
@@ -45,6 +46,7 @@ void main() {
             'macos_application_id': 'app.id',
             'windows_application_id': 'app.id',
             'publishable': false,
+            'workspace': false,
             'current_year': '2020',
             'platforms': ['android', 'ios', 'macos', 'windows', 'web', 'linux'],
             'android': true,
