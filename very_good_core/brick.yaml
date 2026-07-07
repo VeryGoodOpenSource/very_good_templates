@@ -48,3 +48,10 @@ vars:
     description: Whether the generated project is intended to be published.
     default: false
     prompt: Will the project be published?
+  workspace:
+    type: boolean
+    description: >-
+      Whether the generated project should resolve its dependencies from a
+      parent Pub workspace.
+    default: false
+    prompt: Should the project resolve from a parent Pub workspace?

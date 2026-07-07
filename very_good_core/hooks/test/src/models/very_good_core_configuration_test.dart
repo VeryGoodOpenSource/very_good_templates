@@ -43,6 +43,11 @@ void main() {
         final configuration = VeryGoodCoreConfiguration();
         expect(configuration.publishable, isFalse);
       });
+
+      test('workspace to false', () {
+        final configuration = VeryGoodCoreConfiguration();
+        expect(configuration.workspace, isFalse);
+      });
     });
 
     group('throws', () {
@@ -203,6 +208,21 @@ void main() {
                 (error) => error.message,
                 'message',
                 '''Expected a value for key "description" to be of type String?, got 42.''',
+              ),
+            ),
+          );
+        });
+
+        test('when "workspace" is not a bool?', () {
+          final vars = <String, dynamic>{'workspace': 42};
+
+          expect(
+            () => VeryGoodCoreConfiguration.fromHookVars(vars),
+            throwsA(
+              isA<ArgumentError>().having(
+                (error) => error.message,
+                'message',
+                '''Expected a value for key "workspace" to be of type bool?, got 42.''',
               ),
             ),
           );

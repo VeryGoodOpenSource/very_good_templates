@@ -24,6 +24,7 @@ void main() {
           'description': 'A new Flutter project.',
           'platforms': ['android', 'ios', 'macos', 'web', 'windows'],
           'publishable': false,
+          'workspace': false,
         };
         when(() => context.vars).thenReturn(vars);
 
@@ -46,6 +47,7 @@ void main() {
             'windows_application_id': 'app.id',
             'platforms': ['android', 'ios', 'macos', 'web', 'windows'],
             'publishable': false,
+            'workspace': false,
             'current_year': '2020',
             'android': true,
             'ios': true,

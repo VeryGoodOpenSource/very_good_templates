@@ -44,6 +44,13 @@ vars:
     description: Whether the generated package is intended to be published.
     default: false
     prompt: Will the package be published?
+  workspace:
+    type: boolean
+    description: >-
+      Whether the generated plugin should resolve its dependencies from a
+      parent Pub workspace.
+    default: false
+    prompt: Should the plugin resolve from a parent Pub workspace?
   dart_fix_output:
     type: boolean
     description: >-
