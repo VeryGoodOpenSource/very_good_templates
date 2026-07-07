@@ -29,6 +29,19 @@
       "type": "dart",
       "program": "lib/main_production.dart",
       "args": ["--flavor", "production", "--target", "lib/main_production.dart"]
+    },
+    {
+      "name": "Debug Current Widget Test Visually",
+      "request": "launch",
+      "type": "dart",
+      "program": "${file}",
+      "runTestsOnDevice": true
+    },
+    {
+      "name": "Debug Current Test",
+      "request": "launch",
+      "type": "dart",
+      "program": "${file}"
     }
   ]
 }
