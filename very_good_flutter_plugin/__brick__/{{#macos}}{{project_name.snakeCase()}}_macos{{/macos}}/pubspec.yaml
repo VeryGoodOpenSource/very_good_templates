@@ -25,5 +25,5 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.5
-  pigeon: ^27.1.0
+  pigeon: ^27.1.1
   very_good_analysis: ^10.3.0
