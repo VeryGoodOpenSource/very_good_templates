@@ -201,5 +201,120 @@ void main() {
         expect(vars[windowsVariable], isFalse);
       });
     });
+
+    group('supports_ios variable', () {
+      const supportsIosVariable = 'supports_ios';
+
+      test('is true when iOS is selected', () {
+        final vars = <String, dynamic>{
+          'platforms': ['ios'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars[supportsIosVariable], isTrue);
+      });
+
+      test('is true when darwin is selected', () {
+        final vars = <String, dynamic>{
+          'platforms': ['darwin'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars[supportsIosVariable], isTrue);
+      });
+
+      test('is false when neither iOS nor darwin is selected', () {
+        final vars = <String, dynamic>{
+          'platforms': ['macos'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars[supportsIosVariable], isFalse);
+      });
+    });
+
+    group('supports_macos variable', () {
+      const supportsMacosVariable = 'supports_macos';
+
+      test('is true when macOS is selected', () {
+        final vars = <String, dynamic>{
+          'platforms': ['macos'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars[supportsMacosVariable], isTrue);
+      });
+
+      test('is true when darwin is selected', () {
+        final vars = <String, dynamic>{
+          'platforms': ['darwin'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars[supportsMacosVariable], isTrue);
+      });
+
+      test('is false when neither macOS nor darwin is selected', () {
+        final vars = <String, dynamic>{
+          'platforms': ['ios'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars[supportsMacosVariable], isFalse);
+      });
+    });
+
+    group('darwin variable', () {
+      test('is false when darwin is not selected', () {
+        final vars = <String, dynamic>{
+          'platforms': ['ios', 'macos'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars['darwin'], isFalse);
+        expect(vars['ios'], isTrue);
+        expect(vars['macos'], isTrue);
+      });
+
+      test('is true when darwin is selected', () {
+        final vars = <String, dynamic>{
+          'platforms': ['darwin'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars['darwin'], isTrue);
+      });
+
+      test('disables the standalone iOS and macOS packages when selected', () {
+        final vars = <String, dynamic>{
+          'platforms': ['ios', 'macos', 'darwin'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        expect(vars['darwin'], isTrue);
+        expect(vars['ios'], isFalse);
+        expect(vars['macos'], isFalse);
+        expect(vars['supports_ios'], isTrue);
+        expect(vars['supports_macos'], isTrue);
+      });
+    });
   });
 }

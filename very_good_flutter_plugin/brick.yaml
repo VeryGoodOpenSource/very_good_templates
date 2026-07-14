@@ -39,6 +39,7 @@ vars:
       - macos
       - web
       - windows
+      - darwin
   publishable:
     type: boolean
     description: Whether the generated package is intended to be published.

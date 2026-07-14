@@ -15,6 +15,10 @@ void run(HookContext context) {
     ),
   };
 
+  final darwin = selectedPlatforms.contains('darwin');
+  final ios = !darwin && selectedPlatforms.contains('ios');
+  final macos = !darwin && selectedPlatforms.contains('macos');
+
   context.vars.addAll({
     'current_year': clock.now().year.toString(),
     'flutterVersion': $flutterVersion,
@@ -22,5 +26,10 @@ void run(HookContext context) {
     'currentYear': DateTime.now().year.toString(),
     for (final platform in $availablePlatforms)
       platform: selectedPlatforms.contains(platform),
+    'ios': ios,
+    'macos': macos,
+    'supports_ios': ios || darwin,
+    'supports_macos': macos || darwin,
+    'darwin': darwin,
   });
 }
