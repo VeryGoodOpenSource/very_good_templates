@@ -15,6 +15,7 @@ lcov # Graphical tool for displaying coverage reports.
 localizable # Capable of being localized.
 negatable # Capable of being negated.
 nojekyll # File to bypass Jekyll processing on GitHub.
+pbxproj # File extension for an Xcode project file.
 pngs # Abbreviation for an image format named Portable Network Graphics.
 preload # Put information onto a system before it is used.
 prettierignore # Ignore file name for Prettier.

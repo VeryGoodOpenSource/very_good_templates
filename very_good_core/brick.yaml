@@ -43,6 +43,14 @@ vars:
       - macos
       - web
       - windows
+  flavors:
+    type: list
+    description: >-
+      The list of flavors to generate. A `production` flavor is always
+      included. Providing only `production` (or an empty list) generates a
+      plain app without flavors.
+    prompt: Which flavors would you like to include?
+    separator: ","
   publishable:
     type: boolean
     description: Whether the generated project is intended to be published.

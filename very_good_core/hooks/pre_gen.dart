@@ -19,6 +19,8 @@ void run(HookContext context) {
     ),
   };
 
+  final flavors = resolveFlavors(context.vars['flavors'] as Object?);
+
   context.vars = {
     /// Below are all the variables that are accessible in the templates.
     ///
@@ -60,6 +62,7 @@ void run(HookContext context) {
     'publishable': configuration.publishable,
     'workspace': configuration.workspace,
     'current_year': clock.now().year.toString(),
+    'flavors': [for (final flavor in flavors) flavor.toJson()],
     for (final platform in availablePlatforms)
       platform: selectedPlatforms.contains(platform),
   };

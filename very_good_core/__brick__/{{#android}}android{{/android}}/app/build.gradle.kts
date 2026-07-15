@@ -55,26 +55,16 @@ android {
         }
     }
 
-    flavorDimensions += "default"
+{{#flavors}}{{#is_default}}    flavorDimensions += "default"
     productFlavors {
-        create("production") {
+{{#flavors}}        create("{{name}}") {
             dimension = "default"
-            applicationIdSuffix = ""
-            manifestPlaceholders["appName"] = "{{project_name.titleCase()}}"
+            applicationIdSuffix = "{{application_id_suffix}}"
+            manifestPlaceholders["appName"] = "{{{label}}}{{project_name.titleCase()}}"
         }
-        create("staging") {
-            dimension = "default"
-            applicationIdSuffix = ".stg"
-            manifestPlaceholders["appName"] = "[STG] {{project_name.titleCase()}}"
-        }
-        create("development") {
-            dimension = "default"
-            applicationIdSuffix = ".dev"
-            manifestPlaceholders["appName"] = "[DEV] {{project_name.titleCase()}}"
-        }
-    }
+{{/flavors}}    }
 
-    buildTypes {
+{{/is_default}}{{/flavors}}    buildTypes {
         getByName("release") {
             signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
