@@ -8,12 +8,12 @@ environment:
 vars:
   project_name:
     type: string
-    description: The project name
+    description: The project name.
     default: my_app
     prompt: What is the project name?
   org_name:
     type: string
-    description: The organization name
+    description: The organization name.
     default: com.example
     prompt: What is the organization name?
   application_id:
@@ -24,12 +24,12 @@ vars:
     prompt: What is the application id?
   description:
     type: string
-    description: A short project description
-    default: A Very Good App
+    description: A short project description.
+    default: A Very Good App.
     prompt: What is the project description?
   platforms:
     type: array
-    description: The list of supported platforms
+    description: The list of supported platforms.
     prompt: Which platforms would you like to support?
     defaults:
       - android
@@ -46,9 +46,8 @@ vars:
   flavors:
     type: list
     description: >-
-      The list of flavors to generate. A `production` flavor is always
-      included. Providing only `production` (or an empty list) generates a
-      plain app without flavors.
+      The list of flavors to generate.
+      Providing an empty list generates a plain app without flavors.
     prompt: Which flavors would you like to include?
     separator: ","
   publishable:
