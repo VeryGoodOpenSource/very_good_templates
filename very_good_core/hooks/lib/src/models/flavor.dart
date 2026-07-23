@@ -1,39 +1,36 @@
 import 'package:equatable/equatable.dart';
+import 'package:meta/meta.dart';
 
-/// The name of the flavor that is always present and carries no naming
-/// decoration (no application id suffix, no display name prefix).
+/// The name of the flavor that carries no naming decoration
+/// (no application id suffix, no display name prefix).
+
 const defaultFlavorName = 'production';
 
+/// The flavors generated when the `flavors` hook variable is absent.
+const defaultFlavorNames = ['development', 'staging', 'production'];
+
 /// Human friendly abbreviations for the well known flavors.
-///
-/// Any flavor that is not present in this map falls back to using its own
-/// name as the abbreviation. This keeps the generated output identical to the
-/// previous hardcoded behavior for the default flavors while still supporting
-/// arbitrary flavor names.
-const _flavorAbbreviations = <String, String>{
+@internal
+const flavorAbbreviations = {
   'development': 'dev',
   'staging': 'stg',
 };
 
 /// {@template flavor}
-/// A single application flavor (for example `development`, `staging` or
-/// `production`).
-///
-/// Every derived value that the templates need is computed here so that the
-/// logic-less Mustache templates can simply iterate over the list of flavors.
+/// A single application flavor.
 /// {@endtemplate}
 class Flavor extends Equatable {
   /// {@macro flavor}
   const Flavor(this.name);
 
-  /// The flavor name, for example `development`.
+  /// The flavor name.
   final String name;
 
-  /// Whether this is the naming-less default (`production`) flavor.
+  /// Whether this is the naming-less default flavor.
   bool get isDefault => name == defaultFlavorName;
 
   /// The abbreviation used for suffixes, labels and icon names.
-  String get _abbreviation => _flavorAbbreviations[name] ?? name;
+  String get _abbreviation => flavorAbbreviations[name] ?? name;
 
   /// The application id suffix, for example `.dev`.
   ///
@@ -45,20 +42,15 @@ class Flavor extends Equatable {
   /// The default flavor has no prefix.
   String get label => isDefault ? '' : '[${_abbreviation.toUpperCase()}] ';
 
-  /// The app icon asset name suffix, for example `-dev`.
+  /// The app icon asset name suffix.
   ///
   /// The default flavor has no suffix.
   String get iconSuffix => isDefault ? '' : '-$_abbreviation';
 
-  /// The entry point associated with this flavor, for example
-  /// `lib/main_development.dart`.
+  /// The entry point associated with this flavor.
   String get main => 'lib/main_$name.dart';
 
-  /// The entry point file name associated with this flavor, for example
-  /// `main_development.dart`.
-  ///
-  /// Used as the last path segment of a file-loop so that the vanilla
-  /// (no flavors) generation collapses to an empty, skipped path.
+  /// The entry point file name associated with this flavor.
   String get mainFile => 'main_$name.dart';
 
   /// The IntelliJ run configuration file name, for example
@@ -69,7 +61,7 @@ class Flavor extends Equatable {
   String get schemeFile => '$name.xcscheme';
 
   /// The variables consumed by the templates for this flavor.
-  Map<String, dynamic> toJson() => <String, dynamic>{
+  Map<String, dynamic> toJson() => {
     'name': name,
     'is_default': isDefault,
     'application_id_suffix': applicationIdSuffix,
@@ -83,12 +75,7 @@ class Flavor extends Equatable {
       entry.key: entry.value,
   };
 
-  /// Deterministic, collision-safe Xcode object identifiers used within the
-  /// generated `project.pbxproj` files.
-  ///
-  /// Xcode only requires these identifiers to be unique within a single
-  /// `project.pbxproj`; the exact values are irrelevant. They are derived from
-  /// the flavor name so that generation is reproducible.
+  /// XCode object identifiers used in the generated `project.pbxproj` files.
   Map<String, String> _xcodeConfigurationIds() {
     const slots = [
       'debug_project_id',
@@ -105,16 +92,14 @@ class Flavor extends Equatable {
       'release_assemble_id',
       'profile_assemble_id',
     ];
-    return <String, String>{
-      for (final slot in slots) slot: _identifier('$name-$slot'),
-    };
+    final entries = slots.map(
+      (slot) => MapEntry(slot, _identifier('$name-$slot')),
+    );
+    return Map.fromEntries(entries);
   }
 
-  /// Builds a 24 character uppercase hexadecimal identifier from [seed].
   static String _identifier(String seed) {
     final buffer = StringBuffer();
-    // Combine three FNV-1a hashes with different salts to obtain enough
-    // deterministic entropy for a 24 character identifier.
     for (var salt = 0; salt < 3; salt++) {
       buffer.write(
         _fnv1a('$salt:$seed').toRadixString(16).padLeft(8, '0').substring(0, 8),
@@ -138,17 +123,11 @@ class Flavor extends Equatable {
 }
 
 /// Resolves the raw `flavors` hook variable into a list of [Flavor]s.
-///
-/// The raw value can either be a comma separated [String] (for example
-/// `"development,staging"`) or a [List]. The [defaultFlavorName] flavor is
-/// always guaranteed to be present.
-///
-/// When the resolved set contains only the default flavor the returned list is
-/// empty, signaling that the project should be generated without any flavors
-/// (a plain Flutter app).
 List<Flavor> resolveFlavors(Object? raw) {
+  // Absent: preserve the historical default flavors.
+  if (raw == null) return defaultFlavorNames.map(Flavor.new).toList();
+
   final names = switch (raw) {
-    null => const <String>[],
     final String value =>
       value
           .split(',')
@@ -167,14 +146,14 @@ List<Flavor> resolveFlavors(Object? raw) {
     ),
   };
 
+  // Present but empty: generate a plain app without flavors.
+  if (names.isEmpty) return const [];
+
+  // Present and non-empty: respect the provided flavors as-is.
   final ordered = <String>[];
   for (final name in names) {
     if (!ordered.contains(name)) ordered.add(name);
   }
-  if (!ordered.contains(defaultFlavorName)) ordered.add(defaultFlavorName);
-
-  // Only the default flavor means the project has no flavors at all.
-  if (ordered.length == 1) return const [];
 
   return ordered.map(Flavor.new).toList();
 }

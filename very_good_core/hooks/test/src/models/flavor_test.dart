@@ -105,14 +105,29 @@ void main() {
   });
 
   group('resolveFlavors', () {
-    test('returns empty list when raw value is null', () {
-      expect(resolveFlavors(null), isEmpty);
+    test('falls back to default flavors when raw value is null', () {
+      expect(
+        resolveFlavors(null).map((flavor) => flavor.name),
+        equals(defaultFlavorNames),
+      );
     });
 
-    test('returns empty list when only the default flavor is present', () {
-      expect(resolveFlavors(['production']), isEmpty);
+    test('returns empty list when an empty value is provided', () {
       expect(resolveFlavors(<String>[]), isEmpty);
       expect(resolveFlavors(''), isEmpty);
+    });
+
+    test('respects a single provided flavor without augmenting it', () {
+      final flavors = resolveFlavors(['production']);
+      expect(flavors.map((flavor) => flavor.name), equals(['production']));
+    });
+
+    test('does not append the default flavor to a custom list', () {
+      final flavors = resolveFlavors(['development', 'staging']);
+      expect(
+        flavors.map((flavor) => flavor.name),
+        equals(['development', 'staging']),
+      );
     });
 
     test('parses a list of flavor names', () {
@@ -131,14 +146,6 @@ void main() {
       );
     });
 
-    test('always includes the default flavor', () {
-      final flavors = resolveFlavors(['development']);
-      expect(
-        flavors.map((flavor) => flavor.name),
-        equals(['development', 'production']),
-      );
-    });
-
     test('deduplicates flavor names preserving order', () {
       final flavors = resolveFlavors([
         'development',
@@ -147,7 +154,7 @@ void main() {
       ]);
       expect(
         flavors.map((flavor) => flavor.name),
-        equals(['development', 'staging', 'production']),
+        equals(['development', 'staging']),
       );
     });
 
@@ -155,7 +162,7 @@ void main() {
       final flavors = resolveFlavors('free,pro');
       expect(
         flavors.map((flavor) => flavor.name),
-        equals(['free', 'pro', 'production']),
+        equals(['free', 'pro']),
       );
     });
 

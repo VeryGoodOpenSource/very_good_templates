@@ -2,6 +2,7 @@ import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
+import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 
 import '../pre_gen.dart' as pre_gen;
 
@@ -49,7 +50,9 @@ void main() {
             'publishable': false,
             'workspace': false,
             'current_year': '2020',
-            'flavors': <Map<String, dynamic>>[],
+            'flavors': [
+              for (final name in defaultFlavorNames) Flavor(name).toJson(),
+            ],
             'android': true,
             'ios': true,
             'macos': true,

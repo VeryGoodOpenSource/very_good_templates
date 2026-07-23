@@ -9,24 +9,24 @@ vars:
   project_name:
     type: string
     description: The project name.
-    default: my_app
     prompt: What is the project name?
+    default: my_app
   org_name:
     type: string
     description: The organization name.
-    default: com.example
     prompt: What is the organization name?
+    default: com.example
   application_id:
     type: string
     description: >-
-      The application id on Android, Bundle ID on iOS and company name on
-      Windows. If omitted value will be formed by org_name + . + project_name.
+      The application id on Android, Bundle ID on iOS and company name on Windows.
+      If omitted value will be formed by org_name + . + project_name.
     prompt: What is the application id?
   description:
     type: string
     description: A short project description.
-    default: A Very Good App.
     prompt: What is the project description?
+    default: A Very Good App.
   platforms:
     type: array
     description: The list of supported platforms.
@@ -47,18 +47,19 @@ vars:
     type: list
     description: >-
       The list of flavors to generate.
-      Providing an empty list generates a plain app without flavors.
+      Defaults to development, staging and production.
+      Providing empty generates an app with no flavors.
     prompt: Which flavors would you like to include?
     separator: ","
   publishable:
     type: boolean
     description: Whether the generated project is intended to be published.
-    default: false
     prompt: Will the project be published?
+    default: false
   workspace:
     type: boolean
     description: >-
       Whether the generated project should resolve its dependencies from a
       parent Pub workspace.
-    default: false
     prompt: Should the project resolve from a parent Pub workspace?
+    default: false
