@@ -40,4 +40,8 @@ updates:
   - package-ecosystem: "pub"
     directory: "/{{project_name.snakeCase()}}_windows"
     schedule:
-      interval: "daily"{{/windows}}
+      interval: "daily"{{/windows}}{{#darwin}}
+  - package-ecosystem: "pub"
+    directory: "/{{project_name.snakeCase()}}_darwin"
+    schedule:
+      interval: "daily"{{/darwin}}
