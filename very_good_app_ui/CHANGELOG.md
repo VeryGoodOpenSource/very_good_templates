@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.3.0...very_good_app_ui-v0.4.0) (2026-07-23)
+
+
+### Features
+
+* add workspace flag support to monorepo package templates ([#563](https://github.com/VeryGoodOpenSource/very_good_templates/issues/563)) ([64b12f6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/64b12f6add701480c91c250f869fd5b721be8dfb))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#561](https://github.com/VeryGoodOpenSource/very_good_templates/issues/561)) ([0ff0d2f](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0ff0d2f1fad8efedeb18ee5a9663677c108049a1))
+* tighten template dependencies ([#577](https://github.com/VeryGoodOpenSource/very_good_templates/issues/577)) ([48ab9dd](https://github.com/VeryGoodOpenSource/very_good_templates/commit/48ab9dd596a7858a987693d2e385bf3c5f2e6e9d))
+
 ## [0.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.2.2...very_good_app_ui-v0.3.0) (2026-06-19)
 
 
