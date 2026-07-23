@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.7.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.6.0...very_good_flame_game-v1.7.0) (2026-07-23)
+
+
+### Features
+
+* add VS Code debug configurations for tests ([#564](https://github.com/VeryGoodOpenSource/very_good_templates/issues/564)) ([fe80785](https://github.com/VeryGoodOpenSource/very_good_templates/commit/fe8078517d589a57525faf35f4ca3741f0c816d9))
+* add workspace flag support to monorepo package templates ([#563](https://github.com/VeryGoodOpenSource/very_good_templates/issues/563)) ([64b12f6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/64b12f6add701480c91c250f869fd5b721be8dfb))
+
+
+### Bug Fixes
+
+* add macOS and Linux platform support to flame_game template ([#565](https://github.com/VeryGoodOpenSource/very_good_templates/issues/565)) ([472c4c7](https://github.com/VeryGoodOpenSource/very_good_templates/commit/472c4c72919ca07503ab57f9cc7e146c1f96747c))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#561](https://github.com/VeryGoodOpenSource/very_good_templates/issues/561)) ([0ff0d2f](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0ff0d2f1fad8efedeb18ee5a9663677c108049a1))
+* tighten template dependencies ([#581](https://github.com/VeryGoodOpenSource/very_good_templates/issues/581)) ([48dd449](https://github.com/VeryGoodOpenSource/very_good_templates/commit/48dd4495b33fb5c3b7f258e1e0a6cb76924d0720))
+
 ## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.5.1...very_good_flame_game-v1.6.0) (2026-06-19)
 
 
