@@ -50,6 +50,7 @@ void main() {
         post_gen.dartFixOutputVariableKey: true,
         post_gen.projectNameVariableKey: 'project_name',
         for (final platform in $availablePlatforms) platform: true,
+        'darwin': false,
       });
 
       when(
@@ -126,6 +127,50 @@ void main() {
         ),
       ).called($pigeonPlatforms.length);
     });
+
+    test(
+      'runs Pigeon against the shared Darwin package when selected',
+      () async {
+        when(() => context.vars).thenReturn({
+          post_gen.dartFixOutputVariableKey: true,
+          post_gen.projectNameVariableKey: 'project_name',
+          'android': true,
+          'ios': false,
+          'macos': false,
+          'linux': true,
+          'web': true,
+          'windows': true,
+          'darwin': true,
+        });
+
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
+
+        verify(
+          () => dartCli.run(
+            logger: logger,
+            cwd: any(named: 'cwd', that: endsWith('_darwin')),
+            args: any(named: 'args'),
+            command: 'pigeon',
+          ),
+        ).called(1);
+        verifyNever(
+          () => dartCli.run(
+            logger: logger,
+            cwd: any(named: 'cwd', that: endsWith('_ios')),
+            args: any(named: 'args'),
+            command: 'pigeon',
+          ),
+        );
+        verifyNever(
+          () => dartCli.run(
+            logger: logger,
+            cwd: any(named: 'cwd', that: endsWith('_macos')),
+            args: any(named: 'args'),
+            command: 'pigeon',
+          ),
+        );
+      },
+    );
 
     group('warns', () {
       test('if Dart CLI is not installed', () async {

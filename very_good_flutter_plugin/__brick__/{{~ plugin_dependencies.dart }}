@@ -1,5 +1,7 @@
 {{#android}}  {{project_name.snakeCase()}}_android:
-    path: ../{{project_name.snakeCase()}}_android{{/android}}{{#ios}}
+    path: ../{{project_name.snakeCase()}}_android{{/android}}{{#darwin}}
+  {{project_name.snakeCase()}}_darwin:
+    path: ../{{project_name.snakeCase()}}_darwin{{/darwin}}{{#ios}}
   {{project_name.snakeCase()}}_ios:
     path: ../{{project_name.snakeCase()}}_ios{{/ios}}{{#linux}}
   {{project_name.snakeCase()}}_linux:

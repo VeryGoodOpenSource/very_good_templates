@@ -9,7 +9,12 @@ LTWH # From Flutter, abbreviation left, top, width and height.
 macos # MacOs, apple's operating system for Mac.
 mockingjay # A Flutter package for mocking navigation.
 mocktail # A Dart mock package.
+podfile # CocoaPods file declaring dependencies for an Xcode project.
+podfiles # Plural of podfile.
+podspec # CocoaPods specification file describing a native library.
+podspecs # Plural of podspec.
 pubspec # File name where all the package metadata goes in.
+swiftpm # Swift Package Manager, Apple's dependency manager for Swift.
 tracefile # File that records the steps of map execution.
 unawaited # A Dart function to explicitly ignore a future.
 semver # Abbreviation for semantic versioning used in `package:pub_semver`
