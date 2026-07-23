@@ -1,5 +1,24 @@
 # Changelog 
 
+## [1.5.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.4.1...very_good_flutter_plugin-v1.5.0) (2026-07-23)
+
+
+### Features
+
+* add workspace flag support to monorepo package templates ([#563](https://github.com/VeryGoodOpenSource/very_good_templates/issues/563)) ([64b12f6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/64b12f6add701480c91c250f869fd5b721be8dfb))
+* **flutter_plugin:** add opt-in darwin platform ([#578](https://github.com/VeryGoodOpenSource/very_good_templates/issues/578)) ([2d452c4](https://github.com/VeryGoodOpenSource/very_good_templates/commit/2d452c40232129b86b8b4c9eaf7fdbffca8c5266))
+
+
+### Bug Fixes
+
+* **flutter_plugin:** only generate selected platform jobs ([#576](https://github.com/VeryGoodOpenSource/very_good_templates/issues/576)) ([7e85449](https://github.com/VeryGoodOpenSource/very_good_templates/commit/7e85449acf9eb2a6d8f8321d0a5d07006f926203))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#577](https://github.com/VeryGoodOpenSource/very_good_templates/issues/577)) ([48ab9dd](https://github.com/VeryGoodOpenSource/very_good_templates/commit/48ab9dd596a7858a987693d2e385bf3c5f2e6e9d))
+* tighten template dependencies ([#581](https://github.com/VeryGoodOpenSource/very_good_templates/issues/581)) ([48dd449](https://github.com/VeryGoodOpenSource/very_good_templates/commit/48dd4495b33fb5c3b7f258e1e0a6cb76924d0720))
+
 ## [1.4.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.4.0...very_good_flutter_plugin-v1.4.1) (2026-06-22)
 
 
