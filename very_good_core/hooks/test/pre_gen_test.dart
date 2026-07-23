@@ -2,6 +2,7 @@ import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
+import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 
 import '../pre_gen.dart' as pre_gen;
 
@@ -49,6 +50,9 @@ void main() {
             'publishable': false,
             'workspace': false,
             'current_year': '2020',
+            'flavors': [
+              for (final name in defaultFlavorNames) Flavor(name).toJson(),
+            ],
             'android': true,
             'ios': true,
             'macos': true,
@@ -106,6 +110,32 @@ void main() {
         expect(newVars['macos'], isFalse);
         expect(newVars['web'], isFalse);
         expect(newVars['windows'], isFalse);
+      });
+    });
+
+    test('injects resolved flavors', () {
+      withClock(Clock.fixed(DateTime(2020)), () {
+        final vars = {
+          'project_name': 'my_app',
+          'org_name': 'com.example',
+          'application_id': 'app.id',
+          'description': 'A new Flutter project.',
+          'platforms': ['android'],
+          'flavors': ['development', 'staging', 'production'],
+        };
+        when(() => context.vars).thenReturn(vars);
+
+        pre_gen.run(context);
+
+        final newVars =
+            verify(() => context.vars = captureAny()).captured.last
+                as Map<String, dynamic>;
+
+        final flavors = newVars['flavors'] as List<dynamic>;
+        expect(
+          flavors.map((flavor) => (flavor as Map)['name']),
+          equals(['development', 'staging', 'production']),
+        );
       });
     });
 
