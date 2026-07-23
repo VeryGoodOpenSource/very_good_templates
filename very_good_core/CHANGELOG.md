@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.4.0...very_good_core-v1.5.0) (2026-07-23)
+
+
+### Features
+
+* add VS Code debug configurations for tests ([#564](https://github.com/VeryGoodOpenSource/very_good_templates/issues/564)) ([fe80785](https://github.com/VeryGoodOpenSource/very_good_templates/commit/fe8078517d589a57525faf35f4ca3741f0c816d9))
+* add workspace flag support to monorepo package templates ([#563](https://github.com/VeryGoodOpenSource/very_good_templates/issues/563)) ([64b12f6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/64b12f6add701480c91c250f869fd5b721be8dfb))
+
 ## [1.4.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.3.3...very_good_core-v1.4.0) (2026-06-18)
 
 
