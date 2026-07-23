@@ -60,9 +60,21 @@ Future<void> run(
   );
 
   final projectName = context.vars[projectNameVariableKey] as String;
-  final directories = $pigeonPlatforms
-      .where((platform) => context.vars[platform] as bool)
-      .map((platform) => '$cwd/${projectName}_$platform');
+
+  bool isEnabled(String key) => (context.vars[key] as bool?) ?? false;
+
+  final packageSuffixes = <String>[
+    for (final platform in $pigeonPlatforms)
+      if (platform != 'ios' && platform != 'macos' && isEnabled(platform))
+        platform,
+    if (isEnabled('ios')) 'ios',
+    if (isEnabled('macos')) 'macos',
+    if (isEnabled('darwin')) 'darwin',
+  ];
+
+  final directories = packageSuffixes.map(
+    (suffix) => '$cwd/${projectName}_$suffix',
+  );
 
   progress.update('Generating Pigeon bindings 🦾');
 

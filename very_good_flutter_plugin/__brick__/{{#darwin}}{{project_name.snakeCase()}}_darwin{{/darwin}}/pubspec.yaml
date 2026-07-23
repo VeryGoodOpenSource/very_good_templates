@@ -1,0 +1,35 @@
+name: {{project_name.snakeCase()}}_darwin
+description: iOS and macOS implementation of the {{project_name.snakeCase()}} plugin
+version: 0.1.0+1
+{{^publishable}}publish_to: none{{/publishable}}{{#workspace}}
+resolution: workspace{{/workspace}}
+
+environment:
+  sdk: {{{dartSdkVersionBounds}}}
+
+flutter:
+  plugin:
+    implements: {{project_name.snakeCase()}}
+    platforms:
+      ios:
+        pluginClass: {{project_name.pascalCase()}}Plugin
+        dartPluginClass: {{project_name.pascalCase()}}Darwin
+        sharedDarwinSource: true
+      macos:
+        pluginClass: {{project_name.pascalCase()}}Plugin
+        dartPluginClass: {{project_name.pascalCase()}}Darwin
+        sharedDarwinSource: true
+
+dependencies:
+  flutter:
+    sdk: flutter
+  {{project_name.snakeCase()}}_platform_interface:
+    path: ../{{project_name.snakeCase()}}_platform_interface
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.5
+  pigeon: ^27.1.0
+  plugin_platform_interface: ^2.1.8
+  very_good_analysis: ^10.3.0

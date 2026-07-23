@@ -12,7 +12,8 @@ Because `{{project_name.snakeCase()}}` is a [federated plugin][federated_plugins
 - `{{project_name.snakeCase()}}_android` — the Android implementation.{{/android}}{{#ios}}
 - `{{project_name.snakeCase()}}_ios` — the iOS implementation.{{/ios}}{{#linux}}
 - `{{project_name.snakeCase()}}_linux` — the Linux implementation.{{/linux}}{{#macos}}
-- `{{project_name.snakeCase()}}_macos` — the macOS implementation.{{/macos}}{{#web}}
+- `{{project_name.snakeCase()}}_macos` — the macOS implementation.{{/macos}}{{#darwin}}
+- `{{project_name.snakeCase()}}_darwin` — the iOS and macOS implementation.{{/darwin}}{{#web}}
 - `{{project_name.snakeCase()}}_web` — the Web implementation.{{/web}}{{#windows}}
 - `{{project_name.snakeCase()}}_windows` — the Windows implementation.{{/windows}}
 - `{{project_name.snakeCase()}}` — the front-facing app-facing package that users depend on.
@@ -76,7 +77,10 @@ dart pub publish
 {{/linux}}{{#macos}}
 cd ../{{project_name.snakeCase()}}_macos
 dart pub publish
-{{/macos}}{{#web}}
+{{/macos}}{{#darwin}}
+cd ../{{project_name.snakeCase()}}_darwin
+dart pub publish
+{{/darwin}}{{#web}}
 cd ../{{project_name.snakeCase()}}_web
 dart pub publish
 {{/web}}{{#windows}}

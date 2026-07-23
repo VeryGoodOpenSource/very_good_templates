@@ -15,6 +15,7 @@ A Very Good federated Flutter plugin created by Very Good Ventures 🦄.
 - ✅ Configurable Platforms (Android, iOS, MacOS, Linux, Web, Windows)
 - ✅ GitHub Workflow powered by [Very Good Workflows][very_good_workflows_link]
 - ✅ Strict lint rules powered by [Very Good Analysis][very_good_analysis_link]
+- ✅ Optional shared [Darwin][shared_darwin_link] package for iOS and macOS
 - ✅ Pull Request Template
 - ✅ Issue Templates
 - ✅ Dependabot Integration
@@ -67,7 +68,7 @@ A Very Good federated Flutter plugin created by Very Good Ventures 🦄.
 │   ├── lib
 │   └── test
 │   └── windows
-└── LICENSE  
+└── LICENSE
 ```
 
 By default `mason make` will generate the output in the current working directory but a custom output directory can be specified via the [-o option][mason_output_dir]:
@@ -76,7 +77,36 @@ By default `mason make` will generate the output in the current working director
 mason make very_good_flutter_plugin -o ./output_folder
 ```
 
+## Sharing iOS and macOS code 🍎
+
+iOS and macOS share nearly identical implementations. Select `darwin` as a
+platform to replace the standalone `my_plugin_ios` and `my_plugin_macos`
+packages with a single `my_plugin_darwin` Swift Package that implements both
+platforms via Flutter's [shared Darwin source][shared_darwin_link] support:
+
+```
+├── my_plugin_darwin
+│   ├── darwin
+│   ├── lib
+│   └── test
+```
+
+The shared Swift source uses `#if os(iOS)` / `#elseif os(macOS)` guards, so a
+single `MyPluginPlugin` class serves both platforms. `darwin` is mutually
+exclusive with the standalone `ios` and `macos` platforms: selecting it always
+generates the single `my_plugin_darwin` package covering both, and the
+standalone iOS and macOS packages are not generated.
+
+Choosing `darwin` does not change what the plugin supports. The generated app
+package still declares both `ios` and `macos` under `flutter.plugin.platforms`,
+with each pointing at `my_plugin_darwin` as its `default_package`. The example
+app still generates both the `ios` and `macos` Runner projects and exercises
+both in its integration test, so it builds and runs on each Apple platform. The
+only difference from the default layout is that one shared package backs both
+platforms instead of two standalone packages.
+
 [mason_output_dir]: https://docs.brickhub.dev/mason-make#-custom-output-directory
+[shared_darwin_link]: https://flutter.dev/go/plugin-shared-ios-macos
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
 [logo_white]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_white.png
