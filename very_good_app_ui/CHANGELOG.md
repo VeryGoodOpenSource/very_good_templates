@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.4.0...very_good_app_ui-v0.4.1) (2026-08-04)
+
+
+### Miscellaneous Chores
+
+* remove refs to very_good_coverage ([#585](https://github.com/VeryGoodOpenSource/very_good_templates/issues/585)) ([dabfd2d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/dabfd2dfc6e41c2ca7216c3128d3b9f5ad7613f5))
+
 ## [0.4.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.3.0...very_good_app_ui-v0.4.0) (2026-07-27)
 
 
