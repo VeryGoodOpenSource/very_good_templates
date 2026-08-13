@@ -4,13 +4,12 @@ import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
 
 /// Type definition for [Process.run].
-typedef RunProcess =
-    Future<ProcessResult> Function(
-      String executable,
-      List<String> arguments, {
-      String? workingDirectory,
-      bool runInShell,
-    });
+typedef RunProcess = Future<ProcessResult> Function(
+  String executable,
+  List<String> arguments, {
+  String? workingDirectory,
+  bool runInShell,
+});
 
 Future<void> run(
   HookContext context, {
