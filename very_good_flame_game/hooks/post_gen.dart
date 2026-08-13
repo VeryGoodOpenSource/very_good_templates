@@ -5,13 +5,12 @@ import 'package:meta/meta.dart';
 import 'package:very_good_flame_game_hooks/very_good_flame_game_hooks.dart';
 
 /// Type definition for [Process.run].
-typedef RunProcess =
-    Future<ProcessResult> Function(
-      String executable,
-      List<String> arguments, {
-      String? workingDirectory,
-      bool runInShell,
-    });
+typedef RunProcess = Future<ProcessResult> Function(
+  String executable,
+  List<String> arguments, {
+  String? workingDirectory,
+  bool runInShell,
+});
 
 Future<void> run(
   HookContext context, {
