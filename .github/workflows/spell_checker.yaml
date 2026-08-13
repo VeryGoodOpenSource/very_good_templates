@@ -10,5 +10,5 @@ jobs:
   spell_check:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
     with:
-      includes: "**/*.{md,dart}"
+      includes: "**/*.{md,dart,yml,yaml}"
       modified_files_only: false
