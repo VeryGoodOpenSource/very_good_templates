@@ -28,6 +28,7 @@ unicorn # A mythical animal.
 nicorn # "unicorn", but without the "u".
 unmutes # To allow to produce sound again.
 verygood # Very Good, but without a space.
+verygoodapp # Very Good App, used in example organization names.
 xcode # Apple's integrated development environment.
 xxlg # Abbreviation for extra extra large, used in spacing scales.
 xcworkspace # Abbreviation for Xcode workspace.
