@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.5.1...very_good_dart_cli-v1.6.0) (2026-08-17)
+
+
+### Features
+
+* **deps:** upgrade to Flutter 3.47 and Dart 3.13 ([#596](https://github.com/VeryGoodOpenSource/very_good_templates/issues/596)) ([3934101](https://github.com/VeryGoodOpenSource/very_good_templates/commit/39341017d6fa3d252136e3d7e8049eeba846a58c))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#607](https://github.com/VeryGoodOpenSource/very_good_templates/issues/607)) ([76b9d22](https://github.com/VeryGoodOpenSource/very_good_templates/commit/76b9d2264bde9175b6eff93a3978f8336eeb25f9))
+
 ## [1.5.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.5.0...very_good_dart_cli-v1.5.1) (2026-08-10)
 
 
