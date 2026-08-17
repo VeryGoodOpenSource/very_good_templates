@@ -8,28 +8,28 @@ environment:
 vars:
   project_name:
     type: string
-    description: The project name
-    default: my_app
+    description: The project name.
     prompt: What is the project name?
+    default: my_app
   org_name:
     type: string
-    description: The organization name
-    default: com.example
+    description: The organization name.
     prompt: What is the organization name?
+    default: com.example
   application_id:
     type: string
     description: >-
-      The application id on Android, Bundle ID on iOS and company name on
-      Windows. If omitted value will be formed by org_name + . + project_name.
+      The application id on Android, Bundle ID on iOS and company name on Windows.
+      If omitted value will be formed by org_name + . + project_name.
     prompt: What is the application id?
   description:
     type: string
-    description: A short project description
-    default: A Very Good App
+    description: A short project description.
     prompt: What is the project description?
+    default: A Very Good App.
   platforms:
     type: array
-    description: The list of supported platforms
+    description: The list of supported platforms.
     prompt: Which platforms would you like to support?
     defaults:
       - android
@@ -43,15 +43,23 @@ vars:
       - macos
       - web
       - windows
+  flavors:
+    type: list
+    description: >-
+      The list of flavors to generate.
+      Defaults to development, staging and production.
+      Providing empty generates an app with no flavors.
+    prompt: Which flavors would you like to include?
+    separator: ","
   publishable:
     type: boolean
     description: Whether the generated project is intended to be published.
-    default: false
     prompt: Will the project be published?
+    default: false
   workspace:
     type: boolean
     description: >-
       Whether the generated project should resolve its dependencies from a
       parent Pub workspace.
-    default: false
     prompt: Should the project resolve from a parent Pub workspace?
+    default: false

@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="{{flavors.name}}" type="FlutterRunConfigurationType" factoryName="Flutter">
+    <option name="buildFlavor" value="{{flavors.name}}" />
+    <option name="filePath" value="$PROJECT_DIR$/{{{flavors.main}}}" />
+    <method v="2" />
+  </configuration>
+</component>

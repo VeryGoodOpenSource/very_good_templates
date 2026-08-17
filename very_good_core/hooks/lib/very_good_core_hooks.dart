@@ -1,1 +1,1 @@
-export 'src/models/models.dart';
+export 'src/models/models.dart' hide flavorAbbreviations;
