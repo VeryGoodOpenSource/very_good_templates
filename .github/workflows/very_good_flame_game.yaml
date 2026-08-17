@@ -55,4 +55,4 @@ jobs:
       - name: 🧪 Run Tests
         run: |
           cd very_good_flame_game_output
-          very_good test -r --coverage --test-randomize-ordering-seed random --exclude-coverage '**/*.gen.dart'
+          very_good test -r --coverage --min-coverage 100 --test-randomize-ordering-seed random --exclude-coverage '**/*.gen.dart'
