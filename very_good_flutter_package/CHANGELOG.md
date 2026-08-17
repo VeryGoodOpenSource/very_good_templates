@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_package-v1.5.1...very_good_flutter_package-v1.6.0) (2026-08-17)
+
+
+### Features
+
+* **deps:** upgrade to Flutter 3.47 and Dart 3.13 ([#596](https://github.com/VeryGoodOpenSource/very_good_templates/issues/596)) ([3934101](https://github.com/VeryGoodOpenSource/very_good_templates/commit/39341017d6fa3d252136e3d7e8049eeba846a58c))
+
 ## [1.5.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_package-v1.5.0...very_good_flutter_package-v1.5.1) (2026-07-31)
 
 
