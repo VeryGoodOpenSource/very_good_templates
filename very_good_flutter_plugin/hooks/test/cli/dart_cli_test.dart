@@ -16,9 +16,9 @@ class _TestProcess {
   }
 }
 
-class _MockProcess extends Mock implements _TestProcess {}
+class _MockProcess extends Mock implements _TestProcess;
 
-class _MockLogger extends Mock implements Logger {}
+class _MockLogger extends Mock implements Logger;
 
 void main() {
   group(DartCli, () {

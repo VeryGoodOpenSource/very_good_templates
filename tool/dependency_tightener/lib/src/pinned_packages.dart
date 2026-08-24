@@ -7,7 +7,7 @@ library;
 /// Represents a package that should not be auto-updated.
 class PinnedPackage {
   /// Creates a new [PinnedPackage] with the given [name] and [reason].
-  const PinnedPackage({
+  const new({
     required this.name,
     required this.reason,
   });

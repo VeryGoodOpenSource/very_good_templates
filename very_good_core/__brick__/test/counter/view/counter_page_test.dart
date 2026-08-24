@@ -11,7 +11,7 @@ import 'package:{{project_name.snakeCase()}}/counter/counter.dart';
 
 import '../../helpers/helpers.dart';
 
-class MockCounterCubit extends MockCubit<int> implements CounterCubit {}
+class MockCounterCubit extends MockCubit<int> implements CounterCubit;
 
 void main() {
   group('CounterPage', () {

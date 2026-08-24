@@ -8,15 +8,15 @@ import 'package:very_good_flutter_plugin_hooks/version.dart';
 
 import '../post_gen.dart' as post_gen;
 
-class _MockHookContext extends Mock implements HookContext {}
+class _MockHookContext extends Mock implements HookContext;
 
-class _MockLogger extends Mock implements Logger {}
+class _MockLogger extends Mock implements Logger;
 
-class _MockProgress extends Mock implements Progress {}
+class _MockProgress extends Mock implements Progress;
 
-class _MockDartCli extends Mock implements DartCli {}
+class _MockDartCli extends Mock implements DartCli;
 
-class _MockVeryGoodCli extends Mock implements VeryGoodCli {}
+class _MockVeryGoodCli extends Mock implements VeryGoodCli;
 
 void main() {
   group('post gen', () {

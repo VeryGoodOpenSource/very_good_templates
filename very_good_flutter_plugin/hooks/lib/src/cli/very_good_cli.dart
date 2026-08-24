@@ -7,7 +7,7 @@ import 'package:very_good_flutter_plugin_hooks/src/cli/cli.dart';
 ///
 /// * [The Very Good CLI documentation](https://cli.vgv.dev/)
 class VeryGoodCli {
-  const VeryGoodCli._();
+  const new _();
 
   /// A singleton instance of [VeryGoodCli].
   static const instance = VeryGoodCli._();

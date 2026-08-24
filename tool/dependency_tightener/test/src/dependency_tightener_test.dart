@@ -7,9 +7,9 @@ import 'package:test/test.dart';
 
 import '../fixtures/fixtures.dart';
 
-class _MockPubUpdater extends Mock implements PubUpdater {}
+class _MockPubUpdater extends Mock implements PubUpdater;
 
-class _MockFile extends Mock implements File {}
+class _MockFile extends Mock implements File;
 
 void main() {
   late File pubspec;

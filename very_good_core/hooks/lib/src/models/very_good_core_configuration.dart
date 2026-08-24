@@ -54,7 +54,7 @@ enum _VeryGoodCoreConfigurationVariables {
   /// {@endtemplate}
   workspace._('workspace');
 
-  const _VeryGoodCoreConfigurationVariables._(this.key);
+  new _(this.key);
 
   /// The key used in the `HookContext.vars` [Map].
   ///
@@ -67,7 +67,7 @@ enum _VeryGoodCoreConfigurationVariables {
 /// {@endtemplate}
 class VeryGoodCoreConfiguration extends Equatable {
   /// {@macro very_good_core_configuration}
-  VeryGoodCoreConfiguration({
+  new({
     String? projectName,
     String? organizationName,
     String? description,
@@ -118,7 +118,7 @@ class VeryGoodCoreConfiguration extends Equatable {
 
   /// Deserializes a [VeryGoodCoreConfiguration] from a `Map<String, dynamic>`
   /// used to represent the configuration in the `HookContext.vars` map.
-  factory VeryGoodCoreConfiguration.fromHookVars(Map<String, dynamic> vars) {
+  factory fromHookVars(Map<String, dynamic> vars) {
     final projectName =
         vars[_VeryGoodCoreConfigurationVariables.projectName.key];
     if (projectName is! String?) {

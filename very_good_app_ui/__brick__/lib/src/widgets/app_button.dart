@@ -30,7 +30,7 @@ enum AppButtonSize {
 /// {@endtemplate}
 class AppButton extends StatelessWidget {
   /// {@macro app_button}
-  const AppButton({
+  const new({
     required this.onPressed,
     required this.child,
     this.variant = AppButtonVariant.primary,
