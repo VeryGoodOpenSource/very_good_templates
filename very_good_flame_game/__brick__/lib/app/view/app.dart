@@ -54,7 +54,7 @@ class AppView extends StatelessWidget {
             foregroundColor: WidgetStateProperty.all(Colors.white),
           ),
         ),
-        textTheme: GoogleFonts.poppinsTextTheme(),
+        fontFamily: GoogleFonts.poppins().fontFamily,
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
