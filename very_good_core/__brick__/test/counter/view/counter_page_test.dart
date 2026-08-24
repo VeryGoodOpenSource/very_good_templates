@@ -2,16 +2,16 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'package:{{project_name.snakeCase()}}/counter/counter.dart';
 
 import '../../helpers/helpers.dart';
 
-class MockCounterCubit extends MockCubit<int> implements CounterCubit;
+class _MockCounterCubit extends MockCubit<int> implements CounterCubit;
 
 void main() {
   group('CounterPage', () {
@@ -25,7 +25,7 @@ void main() {
     late CounterCubit counterCubit;
 
     setUp(() {
-      counterCubit = MockCounterCubit();
+      counterCubit = _MockCounterCubit();
     });
 
     testWidgets('renders current count', (tester) async {

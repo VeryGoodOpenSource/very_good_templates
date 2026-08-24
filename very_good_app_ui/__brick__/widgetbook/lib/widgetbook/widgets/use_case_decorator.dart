@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A decorator that wraps every use case with a consistent background.
 class UseCaseDecorator extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:{{project_name.snakeCase()}}/game/game.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 
 void main() => runApp(const MyApp());

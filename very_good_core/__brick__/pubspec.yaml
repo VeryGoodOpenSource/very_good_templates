@@ -16,6 +16,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.2
+  material_ui: ^1.0.1
 
 dev_dependencies:
   bloc_lint: ^0.4.2

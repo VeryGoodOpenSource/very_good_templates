@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mockingjay/mockingjay.dart';
 import 'package:{{project_name.snakeCase()}}/game/cubit/cubit.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
