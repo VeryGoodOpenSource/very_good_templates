@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 
