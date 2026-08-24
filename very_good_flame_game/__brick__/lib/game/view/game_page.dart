@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/game.dart' hide Route;
 import 'package:flame_audio/bgm.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:{{project_name.snakeCase()}}/game/game.dart';
 import 'package:{{project_name.snakeCase()}}/gen/assets.gen.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
@@ -67,7 +67,9 @@ class _GameViewState extends State<GameView> {
 
     _game ??=
         widget.game ??
-        {{project_name.pascalCase()}}(
+        {
+          {project_name.pascalCase()},
+        }(
           l10n: context.l10n,
           effectPlayer: context.read<AudioCubit>().effectPlayer,
           textStyle: textStyle,

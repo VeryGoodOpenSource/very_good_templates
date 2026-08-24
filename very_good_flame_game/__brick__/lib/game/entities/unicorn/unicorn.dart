@@ -1,7 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
 import 'package:flame_behaviors/flame_behaviors.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:{{project_name.snakeCase()}}/game/entities/unicorn/behaviors/tapping_behavior.dart';
 import 'package:{{project_name.snakeCase()}}/gen/assets.gen.dart';
 

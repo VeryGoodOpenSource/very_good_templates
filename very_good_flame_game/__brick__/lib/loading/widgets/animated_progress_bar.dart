@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// {@template animated_progress_bar}
 /// A [Widget] that renders a intrinsically animated progress bar.
