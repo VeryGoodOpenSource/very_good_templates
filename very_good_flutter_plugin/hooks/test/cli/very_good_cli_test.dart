@@ -21,7 +21,7 @@ class _MockProcess extends Mock implements _TestProcess;
 class _MockLogger extends Mock implements Logger;
 
 void main() {
-  group('$VeryGoodCli', () {
+  group(VeryGoodCli, () {
     final processResult = ProcessResult(42, ExitCode.success.code, '', '');
     late _TestProcess process;
     late Logger logger;

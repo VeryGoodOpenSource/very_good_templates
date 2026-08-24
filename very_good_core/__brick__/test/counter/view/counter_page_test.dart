@@ -11,7 +11,7 @@ import 'package:{{project_name.snakeCase()}}/counter/counter.dart';
 
 import '../../helpers/helpers.dart';
 
-class MockCounterCubit extends MockCubit<int> implements CounterCubit;
+class _MockCounterCubit extends MockCubit<int> implements CounterCubit;
 
 void main() {
   group('CounterPage', () {
@@ -25,7 +25,7 @@ void main() {
     late CounterCubit counterCubit;
 
     setUp(() {
-      counterCubit = MockCounterCubit();
+      counterCubit = _MockCounterCubit();
     });
 
     testWidgets('renders current count', (tester) async {
