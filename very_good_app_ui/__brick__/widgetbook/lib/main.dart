@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:widgetbook_catalog/widgetbook/widgetbook.dart';
 
 void main() {
