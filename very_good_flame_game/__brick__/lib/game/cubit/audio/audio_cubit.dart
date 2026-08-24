@@ -7,17 +7,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'audio_state.dart';
 
 class AudioCubit extends Cubit<AudioState> {
-  AudioCubit({required AudioPlayer audioPlayer, required Bgm backgroundMusic})
+  new({required AudioPlayer audioPlayer, required Bgm backgroundMusic})
     : effectPlayer = audioPlayer,
       bgm = backgroundMusic,
       super(const AudioState());
 
   @visibleForTesting
-  AudioCubit.test({
-    required this.effectPlayer,
-    required this.bgm,
-    double volume = 1.0,
-  }) : super(AudioState(volume: volume));
+  new test({required this.effectPlayer, required this.bgm, double volume = 1.0})
+    : super(AudioState(volume: volume));
 
   final AudioPlayer effectPlayer;
 
@@ -33,15 +30,15 @@ class AudioCubit extends Cubit<AudioState> {
 
   Future<void> toggleVolume() async {
     if (state.volume == 0) {
-      return _changeVolume(1);
+      return await _changeVolume(1);
     }
-    return _changeVolume(0);
+    return await _changeVolume(0);
   }
 
   @override
   Future<void> close() async {
     await effectPlayer.dispose();
     await bgm.dispose();
-    return super.close();
+    return await super.close();
   }
 }

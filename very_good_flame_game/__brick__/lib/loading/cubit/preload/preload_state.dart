@@ -3,12 +3,9 @@ part of 'preload_cubit.dart';
 /// State for [PreloadCubit].
 class PreloadState extends Equatable {
   /// Create a [PreloadState] with initial conditions.
-  const PreloadState.initial()
-    : totalCount = 0,
-      loadedCount = 0,
-      currentLabel = '';
+  const new initial() : totalCount = 0, loadedCount = 0, currentLabel = '';
 
-  const PreloadState._(this.loadedCount, this.currentLabel, this.totalCount);
+  const new _(this.loadedCount, this.currentLabel, this.totalCount);
 
   /// The total count of load phases to be completed
   final int totalCount;

@@ -14,16 +14,16 @@ import 'package:{{project_name.snakeCase()}}/game/entities/unicorn/behaviors/beh
 import 'package:{{project_name.snakeCase()}}/game/game.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
-class _FakeAssetSource extends Fake implements AssetSource {}
+class _FakeAssetSource extends Fake implements AssetSource;
 
-class _MockImages extends Mock implements Images {}
+class _MockImages extends Mock implements Images;
 
-class _MockAppLocalizations extends Mock implements AppLocalizations {}
+class _MockAppLocalizations extends Mock implements AppLocalizations;
 
-class _MockAudioPlayer extends Mock implements AudioPlayer {}
+class _MockAudioPlayer extends Mock implements AudioPlayer;
 
 class _{{project_name.pascalCase()}} extends {{project_name.pascalCase()}} {
-  _{{project_name.pascalCase()}}({
+  new({
     required super.l10n,
     required super.effectPlayer,
     required super.textStyle,
@@ -105,5 +105,5 @@ Future<Image> _fakeImage() async {
     Paint()..color = const Color(0xFF000000),
   );
   final picture = recorder.endRecording();
-  return picture.toImage(1, 1);
+  return await picture.toImage(1, 1);
 }

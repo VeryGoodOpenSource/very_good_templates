@@ -3,7 +3,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 import 'package:{{project_name.snakeCase()}}/src/command_runner.dart';
 
-class _MockLogger extends Mock implements Logger {}
+class _MockLogger extends Mock implements Logger;
 
 void main() {
   group('sample', () {
@@ -20,9 +20,8 @@ void main() {
 
       expect(exitCode, ExitCode.success.code);
 
-      verify(
-        () => logger.info('Which unicorn has a cold? The Achoo-nicorn!'),
-      ).called(1);
+      verify(() => logger.info('Which unicorn has a cold? The Achoo-nicorn!'))
+          .called(1);
     });
     test('tells a joke in cyan', () async {
       final exitCode = await commandRunner.run(['sample', '-c']);
@@ -41,9 +40,8 @@ void main() {
 
       expect(exitCode, ExitCode.usage.code);
 
-      verify(
-        () => logger.err('Could not find an option or flag "-p".'),
-      ).called(1);
+      verify(() => logger.err('Could not find an option or flag "-p".'))
+          .called(1);
       verify(
         () => logger.info('''
 Usage: $executableName sample [arguments]

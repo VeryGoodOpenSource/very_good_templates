@@ -16,10 +16,7 @@ void main() {
 
   group('pinnedPackages', () {
     test('contains intl package', () {
-      expect(
-        pinnedPackages.any((p) => p.name == 'intl'),
-        isTrue,
-      );
+      expect(pinnedPackages.any((p) => p.name == 'intl'), isTrue);
     });
 
     test('all packages have non-empty names', () {

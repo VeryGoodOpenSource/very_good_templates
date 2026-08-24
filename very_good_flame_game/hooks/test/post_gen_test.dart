@@ -59,16 +59,13 @@ void main() {
       return processResult;
     }
 
-    test(
-      '''fixes `directives_ordering` Dart linter rule and formats after `very_good packages get`''',
-      () async {
-        await post_gen.run(context, runProcess: runProcess);
+    test('''fixes `directives_ordering` Dart linter rule and formats after `very_good packages get`''', () async {
+      await post_gen.run(context, runProcess: runProcess);
 
-        expect(invocations[0], isVeryGoodPackagesGet(directory: projectName));
-        expect(invocations[1], isDartDirectiveOrderingFix(path: projectName));
-        expect(invocations[2], isDartFormat(path: projectName));
-      },
-    );
+      expect(invocations[0], isVeryGoodPackagesGet(directory: projectName));
+      expect(invocations[1], isDartDirectiveOrderingFix(path: projectName));
+      expect(invocations[2], isDartFormat(path: projectName));
+    });
 
     test('logs progress', () async {
       final packagesGetCompleter = Completer<void>();
@@ -99,9 +96,8 @@ void main() {
       packagesGetCompleter.complete();
       await Future<void>.delayed(Duration.zero);
 
-      verify(
-        () => progress.update('Fixing Dart imports ordering...'),
-      ).called(1);
+      verify(() => progress.update('Fixing Dart imports ordering...'))
+          .called(1);
 
       fixCompleter.complete();
       await Future<void>.delayed(Duration.zero);

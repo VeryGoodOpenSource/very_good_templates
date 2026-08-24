@@ -7,10 +7,7 @@ library;
 /// Represents a package that should not be auto-updated.
 class PinnedPackage {
   /// Creates a new [PinnedPackage] with the given [name] and [reason].
-  const new({
-    required this.name,
-    required this.reason,
-  });
+  const new({required this.name, required this.reason});
 
   /// The package name as it appears in pubspec.yaml.
   final String name;

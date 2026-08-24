@@ -98,9 +98,8 @@ void main() {
       pubGetCompleter.complete();
       await Future<void>.delayed(Duration.zero);
 
-      verify(
-        () => progress.update('Fixing Dart imports ordering...'),
-      ).called(1);
+      verify(() => progress.update('Fixing Dart imports ordering...'))
+          .called(1);
 
       fixCompleter.complete();
       await Future<void>.delayed(Duration.zero);
