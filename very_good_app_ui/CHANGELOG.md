@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.5.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.4.1...very_good_app_ui-v0.5.0) (2026-08-31)
+
+
+### Features
+
+* **deps:** upgrade to Flutter 3.47 and Dart 3.13 ([#596](https://github.com/VeryGoodOpenSource/very_good_templates/issues/596)) ([3934101](https://github.com/VeryGoodOpenSource/very_good_templates/commit/39341017d6fa3d252136e3d7e8049eeba846a58c))
+
+
+### Refactors
+
+* export material_ui instead of flutter/material ([#612](https://github.com/VeryGoodOpenSource/very_good_templates/issues/612)) ([77e25db](https://github.com/VeryGoodOpenSource/very_good_templates/commit/77e25dbf9d4af14a38815763e70cd14837a1bcb7))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#607](https://github.com/VeryGoodOpenSource/very_good_templates/issues/607)) ([76b9d22](https://github.com/VeryGoodOpenSource/very_good_templates/commit/76b9d2264bde9175b6eff93a3978f8336eeb25f9))
+* tighten template dependencies ([#614](https://github.com/VeryGoodOpenSource/very_good_templates/issues/614)) ([f84b250](https://github.com/VeryGoodOpenSource/very_good_templates/commit/f84b2507191a6f04b0d84f4af430a0ac5c483e34))
+
 ## [0.4.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.4.0...very_good_app_ui-v0.4.1) (2026-08-04)
 
 
