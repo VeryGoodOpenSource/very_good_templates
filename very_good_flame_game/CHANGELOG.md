@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.8.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.7.1...very_good_flame_game-v1.8.0) (2026-08-31)
+
+
+### Features
+
+* **deps:** upgrade to Flutter 3.47 and Dart 3.13 ([#596](https://github.com/VeryGoodOpenSource/very_good_templates/issues/596)) ([3934101](https://github.com/VeryGoodOpenSource/very_good_templates/commit/39341017d6fa3d252136e3d7e8049eeba846a58c))
+
+
+### Bug Fixes
+
+* **flame_game:** disable google fonts in tests ([#608](https://github.com/VeryGoodOpenSource/very_good_templates/issues/608)) ([d459089](https://github.com/VeryGoodOpenSource/very_good_templates/commit/d459089e4e05e69b82a0d6491852f3a30c4d8a74))
+
+
+### Refactors
+
+* export material_ui instead of flutter/material ([#612](https://github.com/VeryGoodOpenSource/very_good_templates/issues/612)) ([77e25db](https://github.com/VeryGoodOpenSource/very_good_templates/commit/77e25dbf9d4af14a38815763e70cd14837a1bcb7))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#607](https://github.com/VeryGoodOpenSource/very_good_templates/issues/607)) ([76b9d22](https://github.com/VeryGoodOpenSource/very_good_templates/commit/76b9d2264bde9175b6eff93a3978f8336eeb25f9))
+* tighten template dependencies ([#614](https://github.com/VeryGoodOpenSource/very_good_templates/issues/614)) ([f84b250](https://github.com/VeryGoodOpenSource/very_good_templates/commit/f84b2507191a6f04b0d84f4af430a0ac5c483e34))
+
 ## [1.7.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.7.0...very_good_flame_game-v1.7.1) (2026-08-10)
 
 
