@@ -8,7 +8,7 @@ import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 /// {@endtemplate}
 class AppColors extends ThemeExtension<AppColors> {
   /// {@macro app_colors}
-  const AppColors({
+  const new({
     required this.success,
     required this.onSuccess,
     required this.warning,

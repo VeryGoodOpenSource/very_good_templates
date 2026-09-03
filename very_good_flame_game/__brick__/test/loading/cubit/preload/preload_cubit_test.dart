@@ -8,9 +8,9 @@ import 'package:mocktail/mocktail.dart';
 import 'package:{{project_name.snakeCase()}}/gen/assets.gen.dart';
 import 'package:{{project_name.snakeCase()}}/loading/loading.dart';
 
-class _MockImages extends Mock implements Images {}
+class _MockImages extends Mock implements Images;
 
-class _MockAudioCache extends Mock implements AudioCache {}
+class _MockAudioCache extends Mock implements AudioCache;
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -24,9 +24,8 @@ void main() {
         'loads assets',
         setUp: () {
           images = _MockImages();
-          when(
-            () => images.loadAll([Assets.images.unicornAnimation.path]),
-          ).thenAnswer((invocation) => Future.value(<Image>[]));
+          when(() => images.loadAll([Assets.images.unicornAnimation.path]))
+              .thenAnswer((invocation) => Future.value(<Image>[]));
 
           audio = _MockAudioCache();
           when(
@@ -65,9 +64,8 @@ void main() {
           verify(
             () => audio.loadAll([Assets.audio.background, Assets.audio.effect]),
           ).called(1);
-          verify(
-            () => images.loadAll([Assets.images.unicornAnimation.path]),
-          ).called(1);
+          verify(() => images.loadAll([Assets.images.unicornAnimation.path]))
+              .called(1);
         },
       );
     });

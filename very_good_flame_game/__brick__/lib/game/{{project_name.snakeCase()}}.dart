@@ -7,7 +7,7 @@ import 'package:{{project_name.snakeCase()}}/game/game.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
 class {{project_name.pascalCase()}} extends FlameGame {
-  {{project_name.pascalCase()}}({
+  new({
     required this.l10n,
     required this.effectPlayer,
     required this.textStyle,
@@ -31,11 +31,7 @@ class {{project_name.pascalCase()}} extends FlameGame {
 
   @override
   Future<void> onLoad() async {
-    final world = World(
-      children: [
-        Unicorn(position: size / 2),
-      ],
-    );
+    final world = World(children: [Unicorn(position: size / 2)]);
 
     final camera = CameraComponent(world: world);
     await addAll([world, camera]);

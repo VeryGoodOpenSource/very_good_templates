@@ -10,7 +10,7 @@ import 'package:{{project_name.snakeCase()}}/gen/assets.gen.dart';
 part 'preload_state.dart';
 
 class PreloadCubit extends Cubit<PreloadState> {
-  PreloadCubit(this.images, this.audio) : super(const PreloadState.initial());
+  new(this.images, this.audio) : super(const PreloadState.initial());
 
   final Images images;
   final AudioCache audio;
@@ -43,7 +43,7 @@ class PreloadCubit extends Cubit<PreloadState> {
 
 @immutable
 class PreloadPhase {
-  const PreloadPhase(this.label, this.start);
+  const new(this.label, this.start);
 
   final String label;
   final ValueGetter<Future<void>> start;

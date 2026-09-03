@@ -19,7 +19,7 @@ const description = '{{description}}';
 /// {@endtemplate}
 class {{project_name.pascalCase()}}CommandRunner extends CompletionCommandRunner<int> {
   /// {@macro {{project_name.snakeCase()}}_command_runner}
-  {{project_name.pascalCase()}}CommandRunner({Logger? logger, PubUpdater? pubUpdater})
+  new({Logger? logger, PubUpdater? pubUpdater})
     : _logger = logger ?? Logger(),
       _pubUpdater = pubUpdater ?? PubUpdater(),
       super(executableName, description) {

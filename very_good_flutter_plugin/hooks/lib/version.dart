@@ -35,10 +35,4 @@ const $availablePlatforms = [
 ///
 /// Web is excluded because it does not use native code and therefore does not
 /// require Pigeon code generation.
-const $pigeonPlatforms = [
-  'android',
-  'ios',
-  'macos',
-  'linux',
-  'windows',
-];
+const $pigeonPlatforms = ['android', 'ios', 'macos', 'linux', 'windows'];

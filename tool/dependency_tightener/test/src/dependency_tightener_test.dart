@@ -7,9 +7,9 @@ import 'package:test/test.dart';
 
 import '../fixtures/fixtures.dart';
 
-class _MockPubUpdater extends Mock implements PubUpdater {}
+class _MockPubUpdater extends Mock implements PubUpdater;
 
-class _MockFile extends Mock implements File {}
+class _MockFile extends Mock implements File;
 
 void main() {
   late File pubspec;
@@ -50,9 +50,8 @@ void main() {
         currentVersion: any(named: 'currentVersion', that: equals('1.0.3')),
       ),
     ).thenAnswer((_) async => false);
-    when(
-      () => pubUpdater.getLatestVersion(any(that: equals('mocktail'))),
-    ).thenAnswer((_) async => '1.0.4');
+    when(() => pubUpdater.getLatestVersion(any(that: equals('mocktail'))))
+        .thenAnswer((_) async => '1.0.4');
 
     when(
       () => pubUpdater.isUpToDate(
@@ -64,9 +63,8 @@ void main() {
       ),
     ).thenAnswer((_) async => false);
     when(
-      () => pubUpdater.getLatestVersion(
-        any(that: equals('very_good_analysis')),
-      ),
+      () =>
+          pubUpdater.getLatestVersion(any(that: equals('very_good_analysis'))),
     ).thenAnswer((_) async => '10.1.0');
   });
 

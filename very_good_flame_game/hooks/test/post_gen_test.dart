@@ -7,11 +7,11 @@ import 'package:test/test.dart';
 
 import '../post_gen.dart' as post_gen;
 
-class _MockHookContext extends Mock implements HookContext {}
+class _MockHookContext extends Mock implements HookContext;
 
-class _MockLogger extends Mock implements Logger {}
+class _MockLogger extends Mock implements Logger;
 
-class _MockProgress extends Mock implements Progress {}
+class _MockProgress extends Mock implements Progress;
 
 void main() {
   group('post_gen', () {
@@ -59,16 +59,13 @@ void main() {
       return processResult;
     }
 
-    test(
-      '''fixes `directives_ordering` Dart linter rule and formats after `very_good packages get`''',
-      () async {
-        await post_gen.run(context, runProcess: runProcess);
+    test('''fixes `directives_ordering` Dart linter rule and formats after `very_good packages get`''', () async {
+      await post_gen.run(context, runProcess: runProcess);
 
-        expect(invocations[0], isVeryGoodPackagesGet(directory: projectName));
-        expect(invocations[1], isDartDirectiveOrderingFix(path: projectName));
-        expect(invocations[2], isDartFormat(path: projectName));
-      },
-    );
+      expect(invocations[0], isVeryGoodPackagesGet(directory: projectName));
+      expect(invocations[1], isDartDirectiveOrderingFix(path: projectName));
+      expect(invocations[2], isDartFormat(path: projectName));
+    });
 
     test('logs progress', () async {
       final packagesGetCompleter = Completer<void>();
@@ -99,9 +96,8 @@ void main() {
       packagesGetCompleter.complete();
       await Future<void>.delayed(Duration.zero);
 
-      verify(
-        () => progress.update('Fixing Dart imports ordering...'),
-      ).called(1);
+      verify(() => progress.update('Fixing Dart imports ordering...'))
+          .called(1);
 
       fixCompleter.complete();
       await Future<void>.delayed(Duration.zero);
@@ -123,7 +119,7 @@ Matcher isDartDirectiveOrderingFix({required String path}) {
 }
 
 class _IsDartDirectiveOrderingFix extends Matcher {
-  const _IsDartDirectiveOrderingFix({required this._path});
+  const new({required this._path});
 
   /// The value of the path to apply the `dart fix` to.
   final String _path;
@@ -171,7 +167,7 @@ Matcher isVeryGoodPackagesGet({required String directory}) {
 }
 
 class _IsVeryGoodPackagesGet extends Matcher {
-  const _IsVeryGoodPackagesGet({required this._directory});
+  const new({required this._directory});
 
   /// The value of the directory argument passed to `very_good packages get`.
   final String _directory;
@@ -216,7 +212,7 @@ Matcher isDartFormat({required String path}) {
 }
 
 class _IsDartFormat extends Matcher {
-  const _IsDartFormat({required this._path});
+  const new({required this._path});
 
   /// The value of the path to apply the `dart format` to.
   final String _path;

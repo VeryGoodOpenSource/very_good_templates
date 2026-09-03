@@ -3,7 +3,7 @@ import 'package:{{project_name.snakeCase()}}/counter/counter.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {

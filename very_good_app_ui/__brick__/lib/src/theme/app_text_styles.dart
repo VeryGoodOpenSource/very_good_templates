@@ -6,7 +6,7 @@ import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 /// {@endtemplate}
 class AppTextStyles extends ThemeExtension<AppTextStyles> {
   /// {@macro app_text_styles}
-  const AppTextStyles();
+  const new();
 
   // When a custom font is registered in pubspec.yaml, add
   // `fontFamily: 'YourFontFamily'` to each TextStyle below.

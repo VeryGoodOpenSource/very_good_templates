@@ -51,11 +51,7 @@ Future<void> run(
   final progress = logger.progress('Getting dependencies 📦');
 
   await _wrapWithProcessError(
-    () => veryGoodCli.packagesGet(
-      cwd: cwd,
-      logger: logger,
-      recursive: true,
-    ),
+    () => veryGoodCli.packagesGet(cwd: cwd, logger: logger, recursive: true),
     logger: logger,
   );
 
@@ -98,13 +94,10 @@ Future<void> run(
 
   if (dartFixOutput) {
     progress.update('Fixing Dart imports ordering 🔨');
-    await _wrapWithProcessError(
-      () async {
-        await dartCli.fix(logger: logger, cwd: cwd, apply: true);
-        await dartCli.format(logger: logger, cwd: cwd);
-      },
-      logger: logger,
-    );
+    await _wrapWithProcessError(() async {
+      await dartCli.fix(logger: logger, cwd: cwd, apply: true);
+      await dartCli.format(logger: logger, cwd: cwd);
+    }, logger: logger);
   }
 
   progress.complete('Completed post generation ✅');

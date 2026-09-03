@@ -16,7 +16,7 @@ extension type AppleApplicationId(String value) {
   /// and [projectName].
   ///
   /// This is the default fallback value for the application ID.
-  factory AppleApplicationId.fallback({
+  factory fallback({
     required String organizationName,
     required String projectName,
   }) {

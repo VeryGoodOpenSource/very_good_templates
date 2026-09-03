@@ -47,9 +47,8 @@ class CheckPlatformName extends Action {
 
   @override
   Future<bool> execute(Tester tester) async {
-    return ExpectVisible(
-      text: 'Platform Name: $_expectedPlatformName',
-    ).execute(tester);
+    return await ExpectVisible(text: 'Platform Name: $_expectedPlatformName')
+        .execute(tester);
   }
 
   @override

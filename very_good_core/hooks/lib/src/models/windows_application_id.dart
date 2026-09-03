@@ -10,7 +10,7 @@ extension type WindowsApplicationId(String value) {
   /// and [projectName].
   ///
   /// This is the default fallback value for the application ID.
-  factory WindowsApplicationId.fallback({
+  factory fallback({
     required String organizationName,
     required String projectName,
   }) {
