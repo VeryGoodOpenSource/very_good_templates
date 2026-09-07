@@ -1,5 +1,25 @@
 # Changelog 
 
+## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.5.0...very_good_flutter_plugin-v1.6.0) (2026-09-07)
+
+
+### Features
+
+* **deps:** upgrade to Flutter 3.47 and Dart 3.13 ([#596](https://github.com/VeryGoodOpenSource/very_good_templates/issues/596)) ([3934101](https://github.com/VeryGoodOpenSource/very_good_templates/commit/39341017d6fa3d252136e3d7e8049eeba846a58c))
+* upgrade very_good_analysis to 11.0.0 ([#613](https://github.com/VeryGoodOpenSource/very_good_templates/issues/613)) ([6f60da4](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6f60da4ae3a099389a42ddfd3af4948f79e43495))
+
+
+### Refactors
+
+* export material_ui instead of flutter/material ([#612](https://github.com/VeryGoodOpenSource/very_good_templates/issues/612)) ([77e25db](https://github.com/VeryGoodOpenSource/very_good_templates/commit/77e25dbf9d4af14a38815763e70cd14837a1bcb7))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#611](https://github.com/VeryGoodOpenSource/very_good_templates/issues/611)) ([934a91c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/934a91ca170025e2df0faeb7568cb3e2b6ae7cbb))
+* tighten template dependencies ([#614](https://github.com/VeryGoodOpenSource/very_good_templates/issues/614)) ([f84b250](https://github.com/VeryGoodOpenSource/very_good_templates/commit/f84b2507191a6f04b0d84f4af430a0ac5c483e34))
+* tighten template dependencies ([#616](https://github.com/VeryGoodOpenSource/very_good_templates/issues/616)) ([57593db](https://github.com/VeryGoodOpenSource/very_good_templates/commit/57593db13fac342a27d9ced71d41af9f62032838))
+
 ## [1.5.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.4.1...very_good_flutter_plugin-v1.5.0) (2026-07-27)
 
 
