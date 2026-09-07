@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.1.0...very_good_docs_site-v1.2.0) (2026-09-07)
+
+
+### Features
+
+* **deps:** upgrade to Flutter 3.47 and Dart 3.13 ([#596](https://github.com/VeryGoodOpenSource/very_good_templates/issues/596)) ([3934101](https://github.com/VeryGoodOpenSource/very_good_templates/commit/39341017d6fa3d252136e3d7e8049eeba846a58c))
+* upgrade very_good_analysis to 11.0.0 ([#613](https://github.com/VeryGoodOpenSource/very_good_templates/issues/613)) ([6f60da4](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6f60da4ae3a099389a42ddfd3af4948f79e43495))
+
 ## [1.1.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.0.6...very_good_docs_site-v1.1.0) (2026-06-19)
 
 
