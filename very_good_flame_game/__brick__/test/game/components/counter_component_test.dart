@@ -11,12 +11,12 @@ import 'package:mocktail/mocktail.dart';
 import 'package:{{project_name.snakeCase()}}/game/game.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
-class _MockAppLocalizations extends Mock implements AppLocalizations {}
+class _MockAppLocalizations extends Mock implements AppLocalizations;
 
-class _MockAudioPlayer extends Mock implements AudioPlayer {}
+class _MockAudioPlayer extends Mock implements AudioPlayer;
 
 class _{{project_name.pascalCase()}} extends {{project_name.pascalCase()}} {
-  _{{project_name.pascalCase()}}({
+  new({
     required super.l10n,
     required super.effectPlayer,
     required super.textStyle,
@@ -55,9 +55,7 @@ void main() {
       expect(component.text, isNotNull);
     });
 
-    testWithGame('changes text count correctly', createFlameGame, (
-      game,
-    ) async {
+    testWithGame('changes text count correctly', createFlameGame, (game) async {
       final component = CounterComponent(position: Vector2.all(1));
       await game.ensureAdd(component);
 

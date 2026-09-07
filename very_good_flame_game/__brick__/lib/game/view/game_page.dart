@@ -11,7 +11,7 @@ import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 import 'package:{{project_name.snakeCase()}}/loading/cubit/cubit.dart';
 
 class GamePage extends StatelessWidget {
-  const GamePage({super.key});
+  const new({super.key});
 
   static Route<void> route() {
     return MaterialPageRoute<void>(builder: (_) => const GamePage());
@@ -33,7 +33,7 @@ class GamePage extends StatelessWidget {
 }
 
 class GameView extends StatefulWidget {
-  const GameView({super.key, this.game});
+  const new({super.key, this.game});
 
   final FlameGame? game;
 
@@ -61,9 +61,8 @@ class _GameViewState extends State<GameView> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(
-      context,
-    ).textTheme.bodySmall!.copyWith(color: Colors.white, fontSize: 4);
+    final textStyle = Theme.of(context).textTheme.bodySmall!
+        .copyWith(color: Colors.white, fontSize: 4);
 
     _game ??=
         widget.game ??

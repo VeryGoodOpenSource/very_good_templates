@@ -19,20 +19,19 @@ import 'package:{{project_name.snakeCase()}}/loading/cubit/cubit.dart';
 
 import '../../helpers/helpers.dart';
 
-class _FakeAssetSource extends Fake implements AssetSource {}
+class _FakeAssetSource extends Fake implements AssetSource;
 
-class _FakeImage extends Fake implements ui.Image {}
+class _FakeImage extends Fake implements ui.Image;
 
-class _MockAudioCubit extends MockCubit<AudioState> implements AudioCubit {}
+class _MockAudioCubit extends MockCubit<AudioState> implements AudioCubit;
 
-class _MockAudioPlayer extends Mock implements AudioPlayer {}
+class _MockAudioPlayer extends Mock implements AudioPlayer;
 
-class _MockImages extends Mock implements Images {}
+class _MockImages extends Mock implements Images;
 
-class _MockBgm extends Mock implements Bgm {}
+class _MockBgm extends Mock implements Bgm;
 
-class _MockPreloadCubit extends MockCubit<PreloadState>
-    implements PreloadCubit {}
+class _MockPreloadCubit extends MockCubit<PreloadState> implements PreloadCubit;
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

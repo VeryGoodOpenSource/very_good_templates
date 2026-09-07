@@ -9,7 +9,7 @@ import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 import 'package:{{project_name.snakeCase()}}/loading/loading.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class App extends StatelessWidget {
 }
 
 class AppView extends StatelessWidget {
-  const AppView({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {

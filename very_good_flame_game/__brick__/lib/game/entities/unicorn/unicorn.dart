@@ -6,7 +6,7 @@ import 'package:{{project_name.snakeCase()}}/game/entities/unicorn/behaviors/tap
 import 'package:{{project_name.snakeCase()}}/gen/assets.gen.dart';
 
 class Unicorn extends PositionedEntity with HasGameReference {
-  Unicorn({required super.position})
+  new({required super.position})
     : super(
         anchor: Anchor.center,
         size: Vector2.all(32),
@@ -14,7 +14,7 @@ class Unicorn extends PositionedEntity with HasGameReference {
       );
 
   @visibleForTesting
-  Unicorn.test({required super.position, super.behaviors})
+  new test({required super.position, super.behaviors})
     : super(size: Vector2.all(32));
 
   late SpriteAnimationComponent _animationComponent;

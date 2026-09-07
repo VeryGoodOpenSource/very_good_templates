@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 
 class AppBlocObserver extends BlocObserver {
-  const AppBlocObserver();
+  const new();
 
   @override
   void onChange(BlocBase<dynamic> bloc, Change<dynamic> change) {

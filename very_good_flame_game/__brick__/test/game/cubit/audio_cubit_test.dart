@@ -6,11 +6,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:{{project_name.snakeCase()}}/game/cubit/cubit.dart';
 
-class _MockAudioCache extends Mock implements AudioCache {}
+class _MockAudioCache extends Mock implements AudioCache;
 
-class _MockAudioPlayer extends Mock implements AudioPlayer {}
+class _MockAudioPlayer extends Mock implements AudioPlayer;
 
-class _MockBgm extends Mock implements Bgm {}
+class _MockBgm extends Mock implements Bgm;
 
 void main() {
   group('AudioCubit', () {

@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 
 import '../pre_gen.dart' as pre_gen;
 
-class _MockHookContext extends Mock implements HookContext {}
+class _MockHookContext extends Mock implements HookContext;
 
 void main() {
   group('pre_gen', () {
