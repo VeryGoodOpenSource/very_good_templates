@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  material_ui: ^1.1.0
+  material_ui: ^1.1.1
   {{project_name.snakeCase()}}:
     # When depending on this package from a real application you should use:
     #   {{project_name.snakeCase()}}: ^x.y.z
@@ -25,7 +25,7 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  very_good_analysis: ^10.3.0
+  very_good_analysis: ^11.0.0
 
 flutter:
   uses-material-design: true
