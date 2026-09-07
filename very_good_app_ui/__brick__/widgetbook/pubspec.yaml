@@ -10,14 +10,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  material_ui: ^1.1.0
+  material_ui: ^1.1.1
   {{project_name.snakeCase()}}:
     path: ..
   widgetbook: ^3.25.0
   widgetbook_annotation: ^3.11.0
 
 dev_dependencies:
-  build_runner: ^2.16.0
+  build_runner: ^2.16.1
   flutter_test:
     sdk: flutter
   very_good_analysis: ^11.0.0
