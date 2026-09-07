@@ -12,7 +12,7 @@ dependencies:
   audioplayers: ^6.8.1
   bloc: ^9.2.1
   equatable: ^2.1.0
-  flame: ^1.38.0
+  flame: ^1.38.2
   flame_audio: ^2.12.2
   flame_behaviors: ^1.4.0
   flutter:
@@ -22,13 +22,13 @@ dependencies:
     sdk: flutter
   google_fonts: ^8.2.1
   intl: ^0.20.2
-  material_ui: ^1.0.1
+  material_ui: ^1.1.0
 
 dev_dependencies:
   bloc_lint: ^0.4.2
   bloc_test: ^10.0.0
   bloc_tools: ^0.1.0-dev.24
-  flame_test: ^2.3.0
+  flame_test: ^2.3.1
   flutter_test:
     sdk: flutter
   mockingjay: ^2.1.0
