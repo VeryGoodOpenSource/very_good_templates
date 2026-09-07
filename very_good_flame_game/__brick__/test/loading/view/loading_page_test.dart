@@ -14,9 +14,9 @@ import 'package:{{project_name.snakeCase()}}/loading/loading.dart';
 
 import '../../helpers/helpers.dart';
 
-class _MockImages extends Mock implements Images {}
+class _MockImages extends Mock implements Images;
 
-class _MockAudioCache extends Mock implements AudioCache {}
+class _MockAudioCache extends Mock implements AudioCache;
 
 void main() {
   group('LoadingPage', () {
@@ -32,14 +32,13 @@ void main() {
 
       when(() => images.loadAll(any())).thenAnswer((_) async => <Image>[]);
 
-      when(
-        () => audio.loadAll([Assets.audio.background, Assets.audio.effect]),
-      ).thenAnswer(
-        (_) async => [
-          Uri.parse(Assets.audio.background),
-          Uri.parse(Assets.audio.effect),
-        ],
-      );
+      when(() => audio.loadAll([Assets.audio.background, Assets.audio.effect]))
+          .thenAnswer(
+            (_) async => [
+              Uri.parse(Assets.audio.background),
+              Uri.parse(Assets.audio.effect),
+            ],
+          );
     });
 
     testWidgets('basic layout', (tester) async {
@@ -77,9 +76,8 @@ void main() {
     testWidgets('redirects after loading', (tester) async {
       final navigator = MockNavigator();
       when(navigator.canPop).thenReturn(true);
-      when(
-        () => navigator.pushReplacement<void, void>(any()),
-      ).thenAnswer((_) async {});
+      when(() => navigator.pushReplacement<void, void>(any()))
+          .thenAnswer((_) async {});
 
       await tester.pumpApp(
         LoadingPage(),

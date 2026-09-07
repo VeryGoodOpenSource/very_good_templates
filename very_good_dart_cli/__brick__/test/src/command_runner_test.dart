@@ -9,11 +9,11 @@ import 'package:test/test.dart';
 import 'package:{{project_name.snakeCase()}}/src/command_runner.dart';
 import 'package:{{project_name.snakeCase()}}/src/version.dart';
 
-class _MockLogger extends Mock implements Logger {}
+class _MockLogger extends Mock implements Logger;
 
-class _MockProgress extends Mock implements Progress {}
+class _MockProgress extends Mock implements Progress;
 
-class _MockPubUpdater extends Mock implements PubUpdater {}
+class _MockPubUpdater extends Mock implements PubUpdater;
 
 const latestVersion = '0.0.0';
 
@@ -32,9 +32,8 @@ void main() {
     setUp(() {
       pubUpdater = _MockPubUpdater();
 
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenAnswer((_) async => packageVersion);
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenAnswer((_) async => packageVersion);
 
       logger = _MockLogger();
 
@@ -45,9 +44,8 @@ void main() {
     });
 
     test('shows update message when newer version exists', () async {
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenAnswer((_) async => latestVersion);
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenAnswer((_) async => latestVersion);
 
       final result = await commandRunner.run(['--version']);
       expect(result, equals(ExitCode.success.code));
@@ -55,9 +53,8 @@ void main() {
     });
 
     test('shows error message when failed to check for updates', () async {
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenThrow(Exception('Failed to check for updates'));
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenThrow(Exception('Failed to check for updates'));
 
       await commandRunner.run(['--version']);
       verify(() => logger.err('Failed to check for updates.')).called(1);
@@ -65,9 +62,8 @@ void main() {
 
     test('Does not show update message when the shell calls the '
         'completion command', () async {
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenAnswer((_) async => latestVersion);
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenAnswer((_) async => latestVersion);
 
       final result = await commandRunner.run(['completion']);
       expect(result, equals(ExitCode.success.code));
@@ -75,9 +71,8 @@ void main() {
     });
 
     test('does not show update message when using update command', () async {
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenAnswer((_) async => latestVersion);
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenAnswer((_) async => latestVersion);
       when(
         () => pubUpdater.update(
           packageName: packageName,

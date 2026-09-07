@@ -5,7 +5,7 @@ import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 /// {@endtemplate}
 abstract class VeryGoodCoreHooksException implements Exception {
   /// {@macro very_good_core_exception}
-  VeryGoodCoreHooksException({required this.description, required this.help});
+  new({required this.description, required this.help});
 
   /// A message describing the exception.
   final String description;
@@ -29,7 +29,7 @@ $help
 /// {@endtemplate}
 class InvalidAndroidApplicationIdFormat extends VeryGoodCoreHooksException {
   /// {@macro InvalidAndroidApplicationIdFormat}
-  InvalidAndroidApplicationIdFormat(AndroidApplicationId applicationId)
+  new(AndroidApplicationId applicationId)
     : super(
         description:
             '''An invalid Android application ID (${applicationId.value}) format was provided.''',

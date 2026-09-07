@@ -7,7 +7,7 @@ import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 /// {@endtemplate}
 class AppSpacing extends ThemeExtension<AppSpacing> {
   /// {@macro app_spacing}
-  const AppSpacing({
+  const new({
     this.xxs = 4,
     this.xs = 8,
     this.sm = 12,

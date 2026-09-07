@@ -9,16 +9,16 @@ import 'package:{{project_name.snakeCase()}}/game/entities/unicorn/behaviors/beh
 import 'package:{{project_name.snakeCase()}}/game/game.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
-class _FakeImage extends Fake implements Image {}
+class _FakeImage extends Fake implements Image;
 
-class _MockAppLocalizations extends Mock implements AppLocalizations {}
+class _MockAppLocalizations extends Mock implements AppLocalizations;
 
-class _MockAudioPlayer extends Mock implements AudioPlayer {}
+class _MockAudioPlayer extends Mock implements AudioPlayer;
 
-class _MockImages extends Mock implements Images {}
+class _MockImages extends Mock implements Images;
 
 class _{{project_name.pascalCase()}} extends {{project_name.pascalCase()}} {
-  _{{project_name.pascalCase()}}({
+  new({
     required super.l10n,
     required super.effectPlayer,
     required super.textStyle,

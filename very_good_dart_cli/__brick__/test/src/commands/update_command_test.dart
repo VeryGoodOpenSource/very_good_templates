@@ -8,11 +8,11 @@ import 'package:{{project_name.snakeCase()}}/src/command_runner.dart';
 import 'package:{{project_name.snakeCase()}}/src/commands/commands.dart';
 import 'package:{{project_name.snakeCase()}}/src/version.dart';
 
-class _MockLogger extends Mock implements Logger {}
+class _MockLogger extends Mock implements Logger;
 
-class _MockProgress extends Mock implements Progress {}
+class _MockProgress extends Mock implements Progress;
 
-class _MockPubUpdater extends Mock implements PubUpdater {}
+class _MockPubUpdater extends Mock implements PubUpdater;
 
 void main() {
   const latestVersion = '0.0.0';
@@ -32,9 +32,8 @@ void main() {
         pubUpdater: pubUpdater,
       );
 
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenAnswer((_) async => packageVersion);
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenAnswer((_) async => packageVersion);
       when(
         () => pubUpdater.update(
           packageName: packageName,
@@ -62,9 +61,8 @@ void main() {
     });
 
     test('handles pub latest version query errors', () async {
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenThrow(Exception('oops'));
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenThrow(Exception('oops'));
       final result = await commandRunner.run(['update']);
       expect(result, equals(ExitCode.software.code));
       verify(() => logger.progress('Checking for updates')).called(1);
@@ -78,9 +76,8 @@ void main() {
     });
 
     test('handles pub update errors', () async {
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenAnswer((_) async => latestVersion);
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenAnswer((_) async => latestVersion);
       when(
         () => pubUpdater.update(
           packageName: any(named: 'packageName'),
@@ -102,9 +99,8 @@ void main() {
     test('handles pub update process errors', () async {
       const error = 'Oh no! Installing this is not possible right now!';
 
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenAnswer((_) async => latestVersion);
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenAnswer((_) async => latestVersion);
 
       when(
         () => pubUpdater.update(
@@ -127,9 +123,8 @@ void main() {
     });
 
     test('updates when newer version exists', () async {
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenAnswer((_) async => latestVersion);
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenAnswer((_) async => latestVersion);
       when(
         () => pubUpdater.update(
           packageName: any(named: 'packageName'),
@@ -152,15 +147,13 @@ void main() {
     });
 
     test('does not update when already on latest version', () async {
-      when(
-        () => pubUpdater.getLatestVersion(any()),
-      ).thenAnswer((_) async => packageVersion);
+      when(() => pubUpdater.getLatestVersion(any()))
+          .thenAnswer((_) async => packageVersion);
       when(() => logger.progress(any())).thenReturn(_MockProgress());
       final result = await commandRunner.run(['update']);
       expect(result, equals(ExitCode.success.code));
-      verify(
-        () => logger.info('CLI is already at the latest version.'),
-      ).called(1);
+      verify(() => logger.info('CLI is already at the latest version.'))
+          .called(1);
       verifyNever(() => logger.progress('Updating to $latestVersion'));
       verifyNever(
         () => pubUpdater.update(

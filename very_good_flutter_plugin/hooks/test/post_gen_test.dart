@@ -8,15 +8,15 @@ import 'package:very_good_flutter_plugin_hooks/version.dart';
 
 import '../post_gen.dart' as post_gen;
 
-class _MockHookContext extends Mock implements HookContext {}
+class _MockHookContext extends Mock implements HookContext;
 
-class _MockLogger extends Mock implements Logger {}
+class _MockLogger extends Mock implements Logger;
 
-class _MockProgress extends Mock implements Progress {}
+class _MockProgress extends Mock implements Progress;
 
-class _MockDartCli extends Mock implements DartCli {}
+class _MockDartCli extends Mock implements DartCli;
 
-class _MockVeryGoodCli extends Mock implements VeryGoodCli {}
+class _MockVeryGoodCli extends Mock implements VeryGoodCli;
 
 void main() {
   group('post gen', () {
@@ -39,12 +39,8 @@ void main() {
 
       when(() => context.vars).thenReturn({});
       when(() => context.logger).thenReturn(logger);
-      when(
-        () => logger.progress(
-          any(),
-          options: any(named: 'options'),
-        ),
-      ).thenReturn(progress);
+      when(() => logger.progress(any(), options: any(named: 'options')))
+          .thenReturn(progress);
 
       when(() => context.vars).thenReturn({
         post_gen.dartFixOutputVariableKey: true,
@@ -53,13 +49,11 @@ void main() {
         'darwin': false,
       });
 
-      when(
-        () => dartCli.isInstalled(logger: logger),
-      ).thenAnswer((_) => Future.value(true));
+      when(() => dartCli.isInstalled(logger: logger))
+          .thenAnswer((_) => Future.value(true));
 
-      when(
-        () => veryGoodCli.isInstalled(logger: logger),
-      ).thenAnswer((_) => Future.value(true));
+      when(() => veryGoodCli.isInstalled(logger: logger))
+          .thenAnswer((_) => Future.value(true));
 
       when(
         () => veryGoodCli.packagesGet(
@@ -174,9 +168,8 @@ void main() {
 
     group('warns', () {
       test('if Dart CLI is not installed', () async {
-        when(
-          () => dartCli.isInstalled(logger: logger),
-        ).thenAnswer((_) => Future.value(false));
+        when(() => dartCli.isInstalled(logger: logger))
+            .thenAnswer((_) => Future.value(false));
 
         await post_gen.run(context, dartCli: dartCli);
 
@@ -188,15 +181,10 @@ void main() {
       });
 
       test('if Very Good CLI is not installed', () async {
-        when(
-          () => veryGoodCli.isInstalled(logger: logger),
-        ).thenAnswer((_) => Future.value(false));
+        when(() => veryGoodCli.isInstalled(logger: logger))
+            .thenAnswer((_) => Future.value(false));
 
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
         verify(
           () => logger.warn(
@@ -207,31 +195,24 @@ void main() {
     });
 
     group('errors', () {
-      test(
-        'if a $ProcessException is thrown by VeryGoodCLI.packagesGet',
-        () async {
-          const exception = ProcessException('executable', ['arguments']);
-          when(
-            () => veryGoodCli.packagesGet(
-              logger: logger,
-              recursive: true,
-              cwd: any(named: 'cwd'),
-            ),
-          ).thenAnswer((_) => Future.error(exception));
+      test('if a $ProcessException is thrown by packagesGet', () async {
+        const exception = ProcessException('executable', ['arguments']);
+        when(
+          () => veryGoodCli.packagesGet(
+            logger: logger,
+            recursive: true,
+            cwd: any(named: 'cwd'),
+          ),
+        ).thenAnswer((_) => Future.error(exception));
 
-          await post_gen.run(
-            context,
-            dartCli: dartCli,
-            veryGoodCli: veryGoodCli,
-          );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
-          verify(
-            () => logger.err(
-              '''\n\nRunning process ${exception.executable} with ${exception.arguments} failed: ${exception.message}''',
-            ),
-          ).called(1);
-        },
-      );
+        verify(
+          () => logger.err(
+            '''\n\nRunning process ${exception.executable} with ${exception.arguments} failed: ${exception.message}''',
+          ),
+        ).called(1);
+      });
 
       test(
         'if an unknown error is thrown by VeryGoodCLI.packagesGet',
@@ -251,9 +232,8 @@ void main() {
             veryGoodCli: veryGoodCli,
           );
 
-          verify(
-            () => logger.err('Unknown error occurred: $exception'),
-          ).called(1);
+          verify(() => logger.err('Unknown error occurred: $exception'))
+              .called(1);
         },
       );
     });
@@ -318,11 +298,7 @@ void main() {
           ),
         ).thenAnswer((_) => Future.error(exception));
 
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
         verify(
           () => logger.err(
@@ -341,15 +317,10 @@ void main() {
           ),
         ).thenAnswer((_) => Future.error(exception));
 
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
-        verify(
-          () => logger.err('Unknown error occurred: $exception'),
-        ).called(1);
+        verify(() => logger.err('Unknown error occurred: $exception'))
+            .called(1);
       });
 
       test('if a $ProcessException is thrown by DartCli.format', () async {
@@ -362,11 +333,7 @@ void main() {
           ),
         ).thenAnswer((_) => Future.error(exception));
 
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
         verify(
           () => logger.err(
@@ -385,15 +352,10 @@ void main() {
           ),
         ).thenAnswer((_) => Future.error(exception));
 
-        await post_gen.run(
-          context,
-          dartCli: dartCli,
-          veryGoodCli: veryGoodCli,
-        );
+        await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
-        verify(
-          () => logger.err('Unknown error occurred: $exception'),
-        ).called(1);
+        verify(() => logger.err('Unknown error occurred: $exception'))
+            .called(1);
       });
     });
   });

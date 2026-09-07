@@ -10,7 +10,7 @@ import 'package:very_good_flutter_plugin_hooks/src/cli/cli.dart';
 /// * [The Dart command-line tool documentation](https://dart.dev/tools/dart-tool)
 /// * [The Dart command-line source code](https://github.com/dart-lang/sdk/tree/main/pkg/dartdev)
 class DartCli {
-  const DartCli._();
+  const new _();
 
   /// A singleton instance of [DartCli].
   static const instance = DartCli._();

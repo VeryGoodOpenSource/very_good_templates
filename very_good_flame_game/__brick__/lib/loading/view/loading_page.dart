@@ -5,7 +5,7 @@ import 'package:{{project_name.snakeCase()}}/loading/loading.dart';
 import 'package:{{project_name.snakeCase()}}/title/title.dart';
 
 class LoadingPage extends StatefulWidget {
-  const LoadingPage({super.key});
+  const new({super.key});
 
   @override
   State<LoadingPage> createState() => _LoadingPageState();
@@ -30,7 +30,7 @@ class _LoadingPageState extends State<LoadingPage> {
 }
 
 class _LoadingInternal extends StatelessWidget {
-  const _LoadingInternal();
+  const new();
 
   @override
   Widget build(BuildContext context) {

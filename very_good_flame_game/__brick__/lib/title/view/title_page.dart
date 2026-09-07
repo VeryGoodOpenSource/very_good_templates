@@ -3,7 +3,7 @@ import 'package:{{project_name.snakeCase()}}/game/game.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
 class TitlePage extends StatelessWidget {
-  const TitlePage({super.key});
+  const new({super.key});
 
   static Route<void> route() {
     return MaterialPageRoute<void>(builder: (_) => const TitlePage());
@@ -21,7 +21,7 @@ class TitlePage extends StatelessWidget {
 }
 
 class TitleView extends StatelessWidget {
-  const TitleView({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +33,8 @@ class TitleView extends StatelessWidget {
         height: 64,
         child: ElevatedButton(
           onPressed: () async {
-            await Navigator.of(
-              context,
-            ).pushReplacement<void, void>(GamePage.route());
+            await Navigator.of(context)
+                .pushReplacement<void, void>(GamePage.route());
           },
           child: Center(child: Text(l10n.titleButtonStart)),
         ),

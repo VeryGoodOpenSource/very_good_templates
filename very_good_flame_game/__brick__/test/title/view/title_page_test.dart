@@ -24,9 +24,8 @@ void main() {
     testWidgets('starts the game when start button is tapped', (tester) async {
       final navigator = MockNavigator();
       when(navigator.canPop).thenReturn(true);
-      when(
-        () => navigator.pushReplacement<void, void>(any()),
-      ).thenAnswer((_) async {});
+      when(() => navigator.pushReplacement<void, void>(any()))
+          .thenAnswer((_) async {});
 
       await tester.pumpApp(const TitleView(), navigator: navigator);
 
