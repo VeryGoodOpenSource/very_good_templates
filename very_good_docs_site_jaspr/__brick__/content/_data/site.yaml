@@ -1,0 +1,12 @@
+# Site configuration, available to every page as `page.data.site`.
+#
+# `titleBase` is the site name in tab titles ("<page title> | <titleBase>")
+# and the landing page hero title. `tagline` is the hero subtitle.
+titleBase: {{project_name.titleCase()}}
+tagline: {{{description}}}
+favicon: favicon.ico
+lang: en
+# Without this, jaspr_content emits <base href="/"> and every #fragment link
+# (heading anchors, table of contents) resolves against the site root instead
+# of the current page. dart.dev disables it the same way.
+base: false

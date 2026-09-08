@@ -1,0 +1,30 @@
+name: main
+
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v7
+
+      - name: 🎯 Setup Dart
+        uses: dart-lang/setup-dart@v1.8.1
+        with:
+          sdk: "3.13.0"
+
+      - name: 📦 Install Dependencies
+        run: dart pub get
+
+      - name: ✨ Check Formatting
+        run: dart format --set-exit-if-changed .
+
+      - name: 🕵️ Analyze
+        run: dart analyze --fatal-infos --fatal-warnings .
+
+      - name: 👷 Build website
+        run: |
+          dart pub global activate jaspr_cli 0.23.4
+          jaspr build

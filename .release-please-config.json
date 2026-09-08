@@ -44,6 +44,14 @@
         "brick.yaml"
       ]
     },
+    "very_good_docs_site_jaspr": {
+      "release-type": "simple",
+      "version-file": "version.txt",
+      "component": "very_good_docs_site_jaspr",
+      "extra-files": [
+        "brick.yaml"
+      ]
+    },
     "very_good_flame_game": {
       "release-type": "simple",
       "version-file": "version.txt",
