@@ -1,0 +1,35 @@
+{
+  "information_for_contributors": [
+    "Hand-written, unlike bash.json which is a vendored TextMate grammar.",
+    "The upstream YAML grammar (https://github.com/textmate/yaml.tmbundle) relies on Oniguruma extended-mode regexes ((?x) free-spacing), which Dart's RegExp cannot parse, so syntax_highlight_lite throws 'FormatException: Invalid group' on it.",
+    "This covers flat scalars, which is what the shipped content uses. Replace it with the upstream grammar once syntax_highlight_lite gains an Oniguruma-compatible regex engine."
+  ],
+  "name": "YAML",
+  "scopeName": "source.yaml",
+  "patterns": [
+    {
+      "match": "#.*$",
+      "name": "comment.line.number-sign.yaml"
+    },
+    {
+      "match": "^\\s*-?\\s*[A-Za-z0-9_.-]+(?=\\s*:)",
+      "name": "entity.name.tag.yaml"
+    },
+    {
+      "match": "'[^']*'",
+      "name": "string.quoted.single.yaml"
+    },
+    {
+      "match": "\"[^\"]*\"",
+      "name": "string.quoted.double.yaml"
+    },
+    {
+      "match": "\\b(true|false|null)\\b",
+      "name": "constant.language.yaml"
+    },
+    {
+      "match": "\\b\\d+(\\.\\d+)?\\b",
+      "name": "constant.numeric.yaml"
+    }
+  ]
+}

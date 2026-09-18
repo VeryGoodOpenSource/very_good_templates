@@ -1,0 +1,28 @@
+name: very_good_docs_site_jaspr
+description: A Very Good documentation site powered by Jaspr created by Very Good Ventures.
+repository: >-
+  https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_docs_site_jaspr
+version: 0.1.0
+environment:
+  mason: ^0.1.0
+vars:
+  project_name:
+    type: string
+    description: The site name
+    default: my_docs_site
+    prompt: What is the site name?
+  description:
+    type: string
+    description: The site description
+    default: A very good docs site
+    prompt: What is the site description?
+  publishable:
+    type: boolean
+    description: Whether the generated site is intended to be published.
+    default: false
+    prompt: Will the site be published?
+  org_name:
+    type: string
+    description: The organization name
+    default: my_org
+    prompt: What is the repo organization name?
