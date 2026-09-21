@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.6.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.6.0...very_good_core-v1.6.1) (2026-09-21)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump equatable from 2.1.0 to 3.0.0 in /very_good_core/hooks ([#630](https://github.com/VeryGoodOpenSource/very_good_templates/issues/630)) ([85419b0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/85419b097e140288c327fc8455f97a736a1abf3f))
+* tighten template dependencies ([#618](https://github.com/VeryGoodOpenSource/very_good_templates/issues/618)) ([a98c67d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a98c67d7226055a1c41efb9778af0e4162ea6352))
+* tighten template dependencies ([#627](https://github.com/VeryGoodOpenSource/very_good_templates/issues/627)) ([111cc64](https://github.com/VeryGoodOpenSource/very_good_templates/commit/111cc64b4734e2ea153d46bac0f54d46e013b5b3))
+
 ## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.5.0...very_good_core-v1.6.0) (2026-09-07)
 
 
