@@ -24,7 +24,6 @@ roadmap # A plan or strategy intended to achieve a particular goal.
 routable # Capable of being routed.
 SDK's # Belonging to an SDK.
 theming # Give a particular theme or setting.
-toplevel # From `git rev-parse --show-toplevel`, the root directory of a repository.
 unicorn # A mythical animal.
 nicorn # "unicorn", but without the "u".
 unmutes # To allow to produce sound again.
