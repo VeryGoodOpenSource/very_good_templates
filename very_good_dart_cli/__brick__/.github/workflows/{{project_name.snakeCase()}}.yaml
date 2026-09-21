@@ -36,7 +36,7 @@ jobs:
         **/*.md
         !brick/**/*.md
         .*/**/*.md
-      modified_files_only: false{{^workspace}}
+      modified_files_only: false
 
   verify-version:
     runs-on: ubuntu-latest
@@ -54,4 +54,4 @@ jobs:
           dart pub get
 
       - name: 🔎 Verify version
-        run: dart run test --run-skipped -t version-verify{{/workspace}}
+        run: dart run test --run-skipped -t version-verify
