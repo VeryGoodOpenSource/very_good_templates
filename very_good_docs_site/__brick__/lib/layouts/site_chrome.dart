@@ -4,13 +4,11 @@ import 'package:jaspr_content/jaspr_content.dart';
 
 import 'package:{{project_name.snakeCase()}}/src/speculation_rules.dart';
 
-/// Site-wide chrome shared by every layout, following dart.dev's `DashLayout`
-/// pattern of centralizing cross-layout head tags and body wrappers in one
-/// base instead of repeating them per layout.
+/// Site-wide chrome shared by every layout: the head tags and page shell
+/// that would otherwise be repeated per layout.
 ///
-/// dart.dev uses an abstract base class because its layouts are fully
-/// hand-rolled. This template keeps jaspr_content's `DocsLayout` for the docs
-/// chrome, so the shared pieces live in a mixin both layouts can apply.
+/// It is a mixin so it can apply both to jaspr_content's `DocsLayout` and to
+/// a hand-written `PageLayoutBase`.
 mixin SiteChrome on PageLayoutBase {
   /// The site-wide footer rendered at the bottom of the page shell.
   Component? get siteFooter;
@@ -24,9 +22,8 @@ mixin SiteChrome on PageLayoutBase {
   }
 
   /// Wraps a layout's content in a full-viewport flex column above
-  /// [siteFooter], the way Infima's `#__docusaurus` flex column does in the
-  /// Docusaurus template: when the content is shorter than the screen, the
-  /// footer is anchored to the bottom of the viewport.
+  /// [siteFooter], so the footer stays anchored to the bottom of the viewport
+  /// when the content is shorter than the screen.
   Component buildShell(Component content) =>
       div(classes: 'page-shell', [content, ?siteFooter]);
 

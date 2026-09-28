@@ -3,19 +3,14 @@ import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_content/jaspr_content.dart';
 import 'package:jaspr_content/theme.dart';
 
-/// A footer link to edit the current page's source on GitHub, mirroring the
-/// Docusaurus `editUrl` feature.
-///
-/// Rendered as plain text with no pencil icon, the way docs.flutter.dev
-/// renders its "View source or report an issue" affordance.
+/// A footer link to edit the current page's source on GitHub.
 class EditPageButton extends StatelessComponent {
   /// Creates an edit link built from [editUrlBase] and the page's source path.
   const EditPageButton({required this.editUrlBase, super.key});
 
   /// The URL the page's source path is appended to when building the edit
-  /// link, e.g. `https://github.com/<org>/<repo>/edit/main/content`. Like
-  /// Docusaurus's `editUrl`, this keeps the repository layout knowledge at
-  /// the configuration site.
+  /// link, e.g. `https://github.com/<org>/<repo>/edit/main/content`. Passing
+  /// it in keeps knowledge of the repository layout in `main.server.dart`.
   final String editUrlBase;
 
   @override

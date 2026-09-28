@@ -9,8 +9,8 @@ typedef FooterLink = ({String label, String href});
 /// A titled column of links in a [SiteFooter].
 typedef FooterColumn = ({String title, List<FooterLink> links});
 
-/// The site-wide navigation footer, mirroring the Docusaurus template's
-/// three-column footer (Docs / Resources / More).
+/// The site-wide navigation footer, rendering one column per
+/// [FooterColumn].
 class SiteFooter extends StatelessComponent {
   /// Creates a site-wide footer rendering the given [columns].
   const SiteFooter({required this.columns, super.key});

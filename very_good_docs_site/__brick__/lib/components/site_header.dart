@@ -8,9 +8,8 @@ import 'package:{{project_name.snakeCase()}}/src/colors.dart';
 /// A navbar link entry.
 typedef NavLink = ({String label, String href});
 
-/// The site navbar, mirroring the Docusaurus template's navbar layout:
-/// brand (logo + title) with left-aligned nav items immediately after it,
-/// and icon items pushed to the right.
+/// The site navbar: the brand (logo and title) with left-aligned nav items
+/// immediately after it, and icon items pushed to the right.
 ///
 /// The site name comes from the `titleBase` key in `content/_data/site.yaml`,
 /// the same source the tab title and landing hero use.

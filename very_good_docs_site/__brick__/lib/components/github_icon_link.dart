@@ -1,19 +1,14 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
-/// An icon-only link to the GitHub repository, mirroring the Docusaurus
-/// template's `navbar-github-icon` item.
+/// An icon-only link to the GitHub repository.
 ///
 /// The mark is referenced out of `web/images/icons/github.svg`, which holds a
 /// single `<symbol>` carrying its own `viewBox` and `fill="currentColor"`, so
 /// the icon inherits the surrounding text color and is sized purely in CSS.
-/// This is how dart.dev and docs.flutter.dev render their brand marks: the
-/// path data stays out of the Dart source and out of every rendered page, and
-/// the browser caches the file once for the site.
-///
-/// Material Symbols is the flagship answer for general UI icons (menu,
-/// search, copy), but it costs a webfont download, so it only pays off once
-/// the icon surface is more than a handful of marks.
+/// The path data stays out of every rendered page, and the browser caches the
+/// file once for the whole site. Add more marks to `web/images/icons/` the
+/// same way.
 class GitHubIconLink extends StatelessComponent {
   /// Creates an icon link to the given [repo].
   const GitHubIconLink({required this.repo, super.key});

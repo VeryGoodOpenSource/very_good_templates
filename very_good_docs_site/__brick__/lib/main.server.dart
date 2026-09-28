@@ -55,8 +55,8 @@ void main() {
 
   runApp(
     ContentApp(
-      // No template engine: Mustache templating in markdown would collide
-      // with Mason's brick rendering once this becomes a template.
+      // No template engine is configured, so markdown renders exactly as
+      // written. Set `templateEngine` to use page data inside content.
       parsers: const [MarkdownParser()],
       extensions: [HeadingAnchorsExtension(), const TableOfContentsExtension()],
       components: [

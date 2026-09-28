@@ -12,9 +12,8 @@ import 'package:jaspr/jaspr.dart';
 /// time the click lands, so navigation is effectively instant and back /
 /// forward keep working natively.
 ///
-/// This is the same approach dart.dev uses (`_buildSpeculationRulesHead` in
-/// its `DashLayout`). Add the `no-prerender` class to any link that must not
-/// be speculatively loaded, such as one with side effects.
+/// Add the `no-prerender` class to any link that must not be prerendered,
+/// such as one with side effects.
 ///
 /// Unsupported browsers simply ignore the tag.
 final Component speculationRules = RawText(

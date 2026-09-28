@@ -20,6 +20,8 @@ nojekyll # File to bypass Jekyll processing on GitHub.
 pngs # Abbreviation for an image format named Portable Network Graphics.
 preload # Put information onto a system before it is used.
 prerender # Render a page ahead of the navigation that requests it.
+prerendered # Past tense of prerender.
+prerenders # Third-person form of prerender.
 prettierignore # Ignore file name for Prettier.
 prettierrc # Configuration file name for Prettier.
 recase # Casing once again.

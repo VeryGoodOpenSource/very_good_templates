@@ -23,6 +23,7 @@ Generated sites are Dart only. There is no Node.js toolchain, no
 - ✅ Docs powered by Markdown
 - ✅ Filesystem-driven Sidebar
 - ✅ Customizable Theming
+- ✅ 100% Test Coverage
 - ✅ MIT License
 
 ## Output 📦
@@ -49,6 +50,7 @@ Generated sites are Dart only. There is no Node.js toolchain, no
 │   │   └── overview.md
 │   └── index.md
 ├── grammars
+│   ├── LICENSE.md
 │   ├── bash.json
 │   └── yaml.json
 ├── lib
@@ -70,6 +72,11 @@ Generated sites are Dart only. There is no Node.js toolchain, no
 │       ├── colors.dart
 │       └── speculation_rules.dart
 ├── pubspec.yaml
+├── test
+│   ├── components
+│   ├── helpers
+│   ├── layouts
+│   └── src
 └── web
     ├── .nojekyll
     ├── favicon.ico
@@ -87,7 +94,7 @@ Starting with 2.0 it generates a Jaspr site. The concepts map as follows:
 | Toolchain | Node.js, npm | Dart only |
 | Config | `docusaurus.config.js` | `content/_data/site.yaml` + `lib/main.server.dart` |
 | Sidebar | `sidebars.js` | Generated from the filesystem |
-| Landing page | `src/pages/index.tsx` | `lib/layouts/home_layout.dart` |
+| Landing page | `src/pages/index.tsx` | `lib/layouts/home_layout.dart` + `content/index.md` frontmatter |
 | Theming | Infima CSS variables | `ColorToken`s in `lib/src/colors.dart` |
 | Navigation | Client-side router | Real browser navigation, accelerated by Speculation Rules |
 | Admonitions | `:::tip` | `<Info>`, `<Warning>`, `<Error>`, `<Success>` |

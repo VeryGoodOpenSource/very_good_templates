@@ -24,7 +24,13 @@ jobs:
       - name: 🕵️ Analyze
         run: dart analyze --fatal-infos --fatal-warnings .
 
+      - name: 🧪 Run Tests
+        run: dart test --test-randomize-ordering-seed random
+
       - name: 👷 Build website
-        run: |
-          dart pub global activate jaspr_cli 0.23.4
-          jaspr build
+        run: dart run jaspr_cli:jaspr build
+
+      # jaspr build regenerates the options files from the components in use.
+      # Commit the regenerated files whenever this step fails.
+      - name: 🔍 Verify Generated Files
+        run: git diff --exit-code lib/main.client.options.dart lib/main.server.options.dart

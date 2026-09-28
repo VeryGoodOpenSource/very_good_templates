@@ -18,5 +18,6 @@ pubspec # File name where all the package metadata goes in.
 swiftpm # Swift Package Manager, Apple's dependency manager for Swift.
 tracefile # File that records the steps of map execution.
 unawaited # A Dart function to explicitly ignore a future.
+zoomable # From jaspr_content's `ZoomableImage` component, named in generated options files.
 semver # Abbreviation for semantic versioning used in `package:pub_semver`
 multiline # Referring to multiline string format.
