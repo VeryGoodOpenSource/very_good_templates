@@ -7,7 +7,10 @@ Developed with 💙 by [Very Good Ventures][very_good_ventures_link] 🦄
 [![License: MIT][license_badge]][license_link]
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 
-A Very Good documentation site template powered by [Docusaurus][docusaurus_link] created by Very Good Ventures 🦄.
+A Very Good documentation site template powered by [Jaspr][jaspr_link] created by Very Good Ventures 🦄.
+
+Generated sites are Dart only. There is no Node.js toolchain, no
+`package.json`, no npm, and no JavaScript build configuration.
 
 ## What's Included ✨
 
@@ -18,62 +21,81 @@ A Very Good documentation site template powered by [Docusaurus][docusaurus_link]
 - ✅ Light/Dark Mode
 - ✅ Landing Page
 - ✅ Docs powered by Markdown
+- ✅ Filesystem-driven Sidebar
 - ✅ Customizable Theming
 - ✅ MIT License
 
 ## Output 📦
 
 ```sh
-├── .eslintrc.js
 ├── .github
-│   ├── ISSUE_TEMPLATE
-│   │   ├── bug_report.md
-│   │   ├── build.md
-│   │   ├── chore.md
-│   │   ├── ci.md
-│   │   ├── config.yml
-│   │   ├── documentation.md
-│   │   ├── feature_request.md
-│   │   ├── performance.md
-│   │   ├── refactor.md
-│   │   ├── revert.md
-│   │   ├── style.md
-│   │   └── test.md
-│   ├── PULL_REQUEST_TEMPLATE.md
-│   ├── dependabot.yml
-│   └── workflows
-│       └── main.yaml
+│   ├── ISSUE_TEMPLATE
+│   │   └── ...
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── dependabot.yml
+│   └── workflows
+│       └── main.yaml
 ├── .gitignore
-├── .prettierignore
-├── .prettierrc
 ├── LICENSE
 ├── README.md
-├── babel.config.js
-├── docs
-│   └── overview.md
-├── docusaurus.config.js
-├── package.json
-├── sidebars.js
-├── src
-│   ├── css
-│   │   └── custom.css
-│   └── pages
-│       ├── index.module.css
-│       └── index.tsx
-├── static
-│   ├── .nojekyll
-│   └── img
-│       ├── hero.svg
-│       ├── hero_dark.svg
-│       ├── logo.svg
-│       ├── pillar1.svg
-│       ├── pillar2.svg
-│       └── pillar3.svg
-├── tsconfig.json
-└── yarn.lock
+├── analysis_options.yaml
+├── content
+│   ├── _data
+│   │   └── site.yaml
+│   ├── docs
+│   │   ├── guides
+│   │   │   ├── installation.md
+│   │   │   └── usage.md
+│   │   └── overview.md
+│   └── index.md
+├── grammars
+│   ├── bash.json
+│   └── yaml.json
+├── lib
+│   ├── components
+│   │   ├── edit_page_button.dart
+│   │   ├── github_icon_link.dart
+│   │   ├── site_footer.dart
+│   │   └── site_header.dart
+│   ├── layouts
+│   │   ├── app_docs_layout.dart
+│   │   ├── home_layout.dart
+│   │   └── site_chrome.dart
+│   ├── main.client.dart
+│   ├── main.client.options.dart
+│   ├── main.server.dart
+│   ├── main.server.options.dart
+│   └── src
+│       ├── auto_sidebar.dart
+│       ├── colors.dart
+│       └── speculation_rules.dart
+├── pubspec.yaml
+└── web
+    ├── .nojekyll
+    ├── favicon.ico
+    └── images
+        └── ...
 ```
 
-By default `mason make` will generate the output in the current working directory but a custom output directory can be specified via the [-o option][mason_output_dir]:
+## Migrating From 1.x 🔍
+
+Versions 1.x of this template generated a [Docusaurus][docusaurus_link] site.
+Starting with 2.0 it generates a Jaspr site. The concepts map as follows:
+
+| Concern | 1.x (Docusaurus) | 2.x (Jaspr) |
+| --- | --- | --- |
+| Toolchain | Node.js, npm | Dart only |
+| Config | `docusaurus.config.js` | `content/_data/site.yaml` + `lib/main.server.dart` |
+| Sidebar | `sidebars.js` | Generated from the filesystem |
+| Landing page | `src/pages/index.tsx` | `lib/layouts/home_layout.dart` |
+| Theming | Infima CSS variables | `ColorToken`s in `lib/src/colors.dart` |
+| Navigation | Client-side router | Real browser navigation, accelerated by Speculation Rules |
+| Admonitions | `:::tip` | `<Info>`, `<Warning>`, `<Error>`, `<Success>` |
+| Static assets | `static/img/` | `web/images/` |
+| Build output | `build/` | `build/jaspr/` |
+
+Use the [`-o` flag][mason_output_dir] to generate the site into a specific
+directory:
 
 ```sh
 mason make very_good_docs_site -o ./output_folder
@@ -81,8 +103,9 @@ mason make very_good_docs_site -o ./output_folder
 
 [mason_output_dir]: https://docs.brickhub.dev/mason-make#-custom-output-directory
 [docusaurus_link]: https://docusaurus.io
+[jaspr_link]: https://jaspr.site
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
 [logo_white]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_white.png#gh-dark-mode-only
-[very_good_ventures_link_dark]: https://verygood.ventures#gh-dark-mode-only
 [very_good_ventures_link]: https://verygood.ventures
+[very_good_ventures_link_dark]: https://verygood.ventures#gh-dark-mode-only

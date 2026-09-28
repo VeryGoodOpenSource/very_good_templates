@@ -18,12 +18,8 @@ updates:
     directory: "/very_good_dart_cli/hooks"
     schedule:
       interval: "daily"
-  - package-ecosystem: "npm"
-    directory: "/very_good_docs_site/__brick__"
-    schedule:
-      interval: "daily"
   - package-ecosystem: "pub"
-    directory: "/very_good_docs_site_jaspr/hooks"
+    directory: "/very_good_docs_site/hooks"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"

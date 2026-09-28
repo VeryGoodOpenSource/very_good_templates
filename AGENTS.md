@@ -18,7 +18,6 @@ top-level directory (except `tool/` and `.github/`) is a self-contained brick.
 - `very_good_dart_cli`
 - `very_good_dart_package`
 - `very_good_docs_site`
-- `very_good_docs_site_jaspr`
 - `very_good_flame_game`
 - `very_good_flutter_package`
 - `very_good_flutter_plugin`

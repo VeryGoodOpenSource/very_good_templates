@@ -1,5 +1,0 @@
----
-layout: home
-description: >-
-  {{{description}}}
----
