@@ -5,7 +5,14 @@ import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 void run(HookContext context) {
   final configuration = VeryGoodCoreConfiguration.fromHookVars(context.vars);
 
-  const availablePlatforms = ['android', 'ios', 'macos', 'web', 'windows'];
+  const availablePlatforms = [
+    'android',
+    'ios',
+    'linux',
+    'macos',
+    'web',
+    'windows',
+  ];
 
   final selectedPlatformsVar = context.vars['platforms'] as Object?;
 
@@ -54,6 +61,7 @@ void run(HookContext context) {
     'android_namespace': configuration.androidNamespace,
     'android_application_id': configuration.androidApplicationId,
     'ios_application_id': configuration.iOsApplicationId,
+    'linux_application_id': configuration.linuxApplicationId,
     'macos_application_id': configuration.macOsApplicationId,
     'windows_application_id': configuration.windowsApplicationId,
     'platforms': selectedPlatformsVar,

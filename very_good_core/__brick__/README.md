@@ -31,7 +31,7 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
-_\*{{project_name.titleCase()}} works on iOS, Android, Web, and Windows._
+_\*{{project_name.titleCase()}} works on iOS, Android, Web, Linux, and Windows._
 
 ---
 

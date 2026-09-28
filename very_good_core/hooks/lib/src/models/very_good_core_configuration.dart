@@ -73,6 +73,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     String? description,
     bool? publishable,
     bool? workspace,
+    LinuxApplicationId? linuxApplicationId,
     WindowsApplicationId? windowsApplicationId,
     AppleApplicationId? iOsApplicationId,
     AppleApplicationId? macOsApplicationId,
@@ -83,6 +84,12 @@ class VeryGoodCoreConfiguration extends Equatable {
        description = description ?? 'A Very Good App',
        publishable = publishable ?? false,
        workspace = workspace ?? false {
+    this.linuxApplicationId =
+        linuxApplicationId ??
+        LinuxApplicationId.fallback(
+          organizationName: this.organizationName,
+          projectName: this.projectName,
+        );
     this.windowsApplicationId =
         windowsApplicationId ??
         WindowsApplicationId.fallback(
@@ -183,6 +190,9 @@ class VeryGoodCoreConfiguration extends Equatable {
       organizationName: organizationName,
       publishable: publishable,
       workspace: workspace,
+      linuxApplicationId: applicationId == null || applicationId.isEmpty
+          ? null
+          : LinuxApplicationId(applicationId),
       iOsApplicationId: applicationId == null || applicationId.isEmpty
           ? null
           : AppleApplicationId(applicationId),
@@ -214,6 +224,9 @@ class VeryGoodCoreConfiguration extends Equatable {
   /// {@macro very_good_core_configuration_variables.workspace}
   final bool workspace;
 
+  /// {@macro linux_application_id}
+  late final LinuxApplicationId linuxApplicationId;
+
   /// {@macro windows_application_id}
   late final WindowsApplicationId windowsApplicationId;
 
@@ -236,6 +249,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     description,
     publishable,
     workspace,
+    linuxApplicationId,
     windowsApplicationId,
     iOsApplicationId,
     macOsApplicationId,

@@ -22,7 +22,7 @@ void main() {
           'org_name': 'com.example',
           'application_id': 'app.id',
           'description': 'A new Flutter project.',
-          'platforms': ['android', 'ios', 'macos', 'web', 'windows'],
+          'platforms': ['android', 'ios', 'linux', 'macos', 'web', 'windows'],
           'publishable': false,
           'workspace': false,
         };
@@ -43,14 +43,16 @@ void main() {
             'android_namespace': 'app.id',
             'android_application_id': 'app.id',
             'ios_application_id': 'app.id',
+            'linux_application_id': 'app.id',
             'macos_application_id': 'app.id',
             'windows_application_id': 'app.id',
-            'platforms': ['android', 'ios', 'macos', 'web', 'windows'],
+            'platforms': ['android', 'ios', 'linux', 'macos', 'web', 'windows'],
             'publishable': false,
             'workspace': false,
             'current_year': '2020',
             'android': true,
             'ios': true,
+            'linux': true,
             'macos': true,
             'web': true,
             'windows': true,
@@ -79,6 +81,7 @@ void main() {
         expect(newVars['android'], isTrue);
         expect(newVars['web'], isTrue);
         expect(newVars['ios'], isFalse);
+        expect(newVars['linux'], isFalse);
         expect(newVars['macos'], isFalse);
         expect(newVars['windows'], isFalse);
       });

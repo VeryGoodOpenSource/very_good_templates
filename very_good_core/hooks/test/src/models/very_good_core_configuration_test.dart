@@ -24,6 +24,11 @@ void main() {
         expect(configuration.windowsApplicationId.value, 'com.example.my-app');
       });
 
+      test('linuxApplicationId to "com.example.my_app"', () {
+        final configuration = VeryGoodCoreConfiguration();
+        expect(configuration.linuxApplicationId.value, 'com.example.my_app');
+      });
+
       test('iOsApplicationId to "com.example.my-app"', () {
         final configuration = VeryGoodCoreConfiguration();
         expect(configuration.iOsApplicationId.value, 'com.example.my-app');
@@ -103,6 +108,9 @@ void main() {
               windowsApplicationId: WindowsApplicationId(
                 'com.verygood.very_good_app',
               ),
+              linuxApplicationId: LinuxApplicationId(
+                'com.verygood.very_good_app',
+              ),
               iOsApplicationId: AppleApplicationId(
                 'com.verygood.very_good_app',
               ),
@@ -136,6 +144,9 @@ void main() {
               description: 'A Very Good App',
               windowsApplicationId: WindowsApplicationId(
                 'com.verygood.very-good-app',
+              ),
+              linuxApplicationId: LinuxApplicationId(
+                'com.verygood.very_good_app',
               ),
               iOsApplicationId: AppleApplicationId(
                 'com.verygood.very-good-app',
