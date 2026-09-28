@@ -19,8 +19,9 @@ vars:
   application_id:
     type: string
     description: >-
-      The application id on Android, Bundle ID on iOS and company name on
-      Windows. If omitted value will be formed by org_name + . + project_name.
+      The application id on Android, Bundle ID on iOS, company name on
+      Windows and application id on Linux. If omitted value will be formed by
+      org_name + . + project_name.
     prompt: What is the application id?
   description:
     type: string
@@ -34,12 +35,14 @@ vars:
     defaults:
       - android
       - ios
+      - linux
       - macos
       - web
       - windows
     values:
       - android
       - ios
+      - linux
       - macos
       - web
       - windows

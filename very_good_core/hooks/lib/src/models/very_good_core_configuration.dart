@@ -25,8 +25,9 @@ enum _VeryGoodCoreConfigurationVariables {
   organizationName._('org_name'),
 
   /// {@template very_good_core_configuration_variables.application_id}
-  /// The application id on Android, Bundle ID on iOS and company name on
-  /// Windows. If omitted value will be formed by org_name + . + project_name.
+  /// The application id on Android, Bundle ID on iOS, company name on
+  /// Windows, and application id on Linux. If omitted value will be formed
+  /// by org_name + . + project_name.
   ///
   /// Has no default specified within the `brick.yaml`.
   /// {@endtemplate}
@@ -73,6 +74,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     String? description,
     bool? publishable,
     bool? workspace,
+    LinuxApplicationId? linuxApplicationId,
     WindowsApplicationId? windowsApplicationId,
     AppleApplicationId? iOsApplicationId,
     AppleApplicationId? macOsApplicationId,
@@ -83,6 +85,12 @@ class VeryGoodCoreConfiguration extends Equatable {
        description = description ?? 'A Very Good App',
        publishable = publishable ?? false,
        workspace = workspace ?? false {
+    this.linuxApplicationId =
+        linuxApplicationId ??
+        LinuxApplicationId.fallback(
+          organizationName: this.organizationName,
+          projectName: this.projectName,
+        );
     this.windowsApplicationId =
         windowsApplicationId ??
         WindowsApplicationId.fallback(
@@ -109,6 +117,9 @@ class VeryGoodCoreConfiguration extends Equatable {
         );
     if (!this.androidApplicationId.isValid) {
       throw InvalidAndroidApplicationIdFormat(this.androidApplicationId);
+    }
+    if (!this.linuxApplicationId.isValid) {
+      throw InvalidLinuxApplicationIdFormat(this.linuxApplicationId);
     }
 
     this.androidNamespace =
@@ -178,23 +189,30 @@ class VeryGoodCoreConfiguration extends Equatable {
       );
     }
 
+    final effectiveApplicationId = (applicationId?.isNotEmpty ?? false)
+        ? applicationId
+        : null;
+
     return VeryGoodCoreConfiguration(
       projectName: projectName,
       organizationName: organizationName,
       publishable: publishable,
       workspace: workspace,
-      iOsApplicationId: applicationId == null || applicationId.isEmpty
-          ? null
-          : AppleApplicationId(applicationId),
-      macOsApplicationId: applicationId == null || applicationId.isEmpty
-          ? null
-          : AppleApplicationId(applicationId),
-      windowsApplicationId: applicationId == null || applicationId.isEmpty
-          ? null
-          : WindowsApplicationId(applicationId),
-      androidApplicationId: applicationId == null || applicationId.isEmpty
-          ? null
-          : AndroidApplicationId(applicationId),
+      linuxApplicationId: effectiveApplicationId != null
+          ? LinuxApplicationId(effectiveApplicationId)
+          : null,
+      iOsApplicationId: effectiveApplicationId != null
+          ? AppleApplicationId(effectiveApplicationId)
+          : null,
+      macOsApplicationId: effectiveApplicationId != null
+          ? AppleApplicationId(effectiveApplicationId)
+          : null,
+      windowsApplicationId: effectiveApplicationId != null
+          ? WindowsApplicationId(effectiveApplicationId)
+          : null,
+      androidApplicationId: effectiveApplicationId != null
+          ? AndroidApplicationId(effectiveApplicationId)
+          : null,
       description: description,
     );
   }
@@ -213,6 +231,9 @@ class VeryGoodCoreConfiguration extends Equatable {
 
   /// {@macro very_good_core_configuration_variables.workspace}
   final bool workspace;
+
+  /// {@macro linux_application_id}
+  late final LinuxApplicationId linuxApplicationId;
 
   /// {@macro windows_application_id}
   late final WindowsApplicationId windowsApplicationId;
@@ -236,6 +257,7 @@ class VeryGoodCoreConfiguration extends Equatable {
     description,
     publishable,
     workspace,
+    linuxApplicationId,
     windowsApplicationId,
     iOsApplicationId,
     macOsApplicationId,
