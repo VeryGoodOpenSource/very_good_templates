@@ -37,27 +37,17 @@ jobs:
           mason get
           mason make very_good_docs_site -c very_good_docs_site/config.json --on-conflict overwrite -o very_good_docs_site_output
 
-      - name: ⚙️ Setup Node
-        uses: actions/setup-node@v7
-        with:
-          node-version: 22.x
-
       - name: 📦 Install Dependencies
-        run: |
-          cd very_good_docs_site_output
-          npm i
+        run: dart pub get --directory very_good_docs_site_output
 
-      - name: ✨ Check Format
-        run: |
-          cd very_good_docs_site_output
-          npm run format:check
+      - name: ✨ Check Formatting
+        run: dart format --set-exit-if-changed very_good_docs_site_output
 
-      - name: 🧹 Lint
-        run: |
-          cd very_good_docs_site_output
-          npm run lint
+      - name: 🕵️ Analyze
+        run: dart analyze --fatal-infos --fatal-warnings very_good_docs_site_output
 
       - name: 👷 Build website
         run: |
+          dart pub global activate jaspr_cli 0.23.4
           cd very_good_docs_site_output
-          npm run build
+          jaspr build

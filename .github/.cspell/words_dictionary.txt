@@ -8,15 +8,18 @@ changelog's # Plural of changelog
 dependabot # Automated dependency updates built into GitHub.
 deserializes # The process of reconstructing a data structure or object from a series of bytes or a string in order to instantiate the object for consumption.
 docusaurs # An optimized site generator in React.
+frontmatter # The YAML metadata block at the top of a markdown file.
 genhtml # Tool to generate an HTML view from LCOV coverage data files.
 gobject # Base system for the GTK library used in Linux.
 gradlew # Wrapper tool that uses Gradle.
+infima # The CSS framework Docusaurus builds its default theme on.
 lcov # Graphical tool for displaying coverage reports.
 localizable # Capable of being localized.
 negatable # Capable of being negated.
 nojekyll # File to bypass Jekyll processing on GitHub.
 pngs # Abbreviation for an image format named Portable Network Graphics.
 preload # Put information onto a system before it is used.
+prerender # Render a page ahead of the navigation that requests it.
 prettierignore # Ignore file name for Prettier.
 prettierrc # Configuration file name for Prettier.
 recase # Casing once again.

@@ -9,4 +9,5 @@ inicio # "Start" in Spanish.
 juego # "Game" in Spanish.
 mostrado # "Shown" in Spanish.
 página # "Page" in Spanish.
+speculationrules # The `type` value of a `<script>` tag holding Speculation Rules.
 texto # "Text" in Spanish.
