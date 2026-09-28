@@ -24,6 +24,11 @@ void main() {
         expect(configuration.windowsApplicationId.value, 'com.example.my-app');
       });
 
+      test('linuxApplicationId to "com.example.my_app"', () {
+        final configuration = VeryGoodCoreConfiguration();
+        expect(configuration.linuxApplicationId.value, 'com.example.my_app');
+      });
+
       test('iOsApplicationId to "com.example.my-app"', () {
         final configuration = VeryGoodCoreConfiguration();
         expect(configuration.iOsApplicationId.value, 'com.example.my-app');
@@ -81,6 +86,35 @@ void main() {
           );
         });
       });
+
+      group('a $InvalidLinuxApplicationIdFormat when Linux ID', () {
+        test('has special characters', () {
+          expect(
+            () => VeryGoodCoreConfiguration(
+              linuxApplicationId: LinuxApplicationId('com.example.my_app!'),
+            ),
+            throwsA(isA<InvalidLinuxApplicationIdFormat>()),
+          );
+        });
+
+        test('parts start with numeric character', () {
+          expect(
+            () => VeryGoodCoreConfiguration(
+              linuxApplicationId: LinuxApplicationId('1com.1example.1my_app'),
+            ),
+            throwsA(isA<InvalidLinuxApplicationIdFormat>()),
+          );
+        });
+
+        test('has a single part', () {
+          expect(
+            () => VeryGoodCoreConfiguration(
+              linuxApplicationId: LinuxApplicationId('com'),
+            ),
+            throwsA(isA<InvalidLinuxApplicationIdFormat>()),
+          );
+        });
+      });
     });
 
     group('fromHookVars', () {
@@ -101,6 +135,9 @@ void main() {
               organizationName: 'com.verygood',
               description: 'A Very Good App',
               windowsApplicationId: WindowsApplicationId(
+                'com.verygood.very_good_app',
+              ),
+              linuxApplicationId: LinuxApplicationId(
                 'com.verygood.very_good_app',
               ),
               iOsApplicationId: AppleApplicationId(
@@ -136,6 +173,9 @@ void main() {
               description: 'A Very Good App',
               windowsApplicationId: WindowsApplicationId(
                 'com.verygood.very-good-app',
+              ),
+              linuxApplicationId: LinuxApplicationId(
+                'com.verygood.very_good_app',
               ),
               iOsApplicationId: AppleApplicationId(
                 'com.verygood.very-good-app',
@@ -227,7 +267,33 @@ void main() {
             ),
           );
         });
+
+        test('when "publishable" is not a bool?', () {
+          final vars = <String, dynamic>{'publishable': 42};
+
+          expect(
+            () => VeryGoodCoreConfiguration.fromHookVars(vars),
+            throwsA(
+              isA<ArgumentError>().having(
+                (error) => error.message,
+                'message',
+                '''Expected a value for key "publishable" to be of type bool?, got 42.''',
+              ),
+            ),
+          );
+        });
       });
+    });
+  });
+
+  group('$VeryGoodCoreHooksException', () {
+    test('toString includes exception type, description, and help', () {
+      final exception = InvalidAndroidApplicationIdFormat(
+        AndroidApplicationId('com.example.bad!'),
+      );
+      final result = exception.toString();
+      expect(result, contains('[$VeryGoodCoreHooksException]'));
+      expect(result, contains('com.example.bad!'));
     });
   });
 }
