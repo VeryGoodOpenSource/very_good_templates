@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.7.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.6.0...very_good_core-v1.7.0) (2026-09-28)
+
+
+### Features
+
+* **very_good_core:** add flavor support for Linux ([#633](https://github.com/VeryGoodOpenSource/very_good_templates/issues/633)) ([1d6c6bd](https://github.com/VeryGoodOpenSource/very_good_templates/commit/1d6c6bd87c323818a79730220a2d23146621bd45))
+* **very_good_core:** add Linux platform support ([#632](https://github.com/VeryGoodOpenSource/very_good_templates/issues/632)) ([d16f6a3](https://github.com/VeryGoodOpenSource/very_good_templates/commit/d16f6a327fd2ed20c90c730c4fda2111e30280ea))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump equatable from 2.1.0 to 3.0.0 in /very_good_core/hooks ([#630](https://github.com/VeryGoodOpenSource/very_good_templates/issues/630)) ([85419b0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/85419b097e140288c327fc8455f97a736a1abf3f))
+* tighten template dependencies ([#618](https://github.com/VeryGoodOpenSource/very_good_templates/issues/618)) ([a98c67d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a98c67d7226055a1c41efb9778af0e4162ea6352))
+* tighten template dependencies ([#627](https://github.com/VeryGoodOpenSource/very_good_templates/issues/627)) ([111cc64](https://github.com/VeryGoodOpenSource/very_good_templates/commit/111cc64b4734e2ea153d46bac0f54d46e013b5b3))
+* tighten template dependencies ([#631](https://github.com/VeryGoodOpenSource/very_good_templates/issues/631)) ([038a0df](https://github.com/VeryGoodOpenSource/very_good_templates/commit/038a0df18ec65fc4a6d9969715f7da008f795ca5))
+
 ## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.5.0...very_good_core-v1.6.0) (2026-09-07)
 
 
