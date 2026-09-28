@@ -50,6 +50,18 @@ endfunction()
 set(FLUTTER_MANAGED_DIR "${CMAKE_CURRENT_SOURCE_DIR}/flutter")
 add_subdirectory(${FLUTTER_MANAGED_DIR})
 
+# Flavor-specific configuration. FLUTTER_APP_FLAVOR is set by the Flutter tool
+# when building with --flavor.
+if(FLUTTER_APP_FLAVOR STREQUAL "development")
+  set(APPLICATION_ID "${APPLICATION_ID}.dev")
+  set(APPLICATION_NAME "[DEV] {{project_name.titleCase()}}")
+elseif(FLUTTER_APP_FLAVOR STREQUAL "staging")
+  set(APPLICATION_ID "${APPLICATION_ID}.stg")
+  set(APPLICATION_NAME "[STG] {{project_name.titleCase()}}")
+else()
+  set(APPLICATION_NAME "{{project_name.titleCase()}}")
+endif()
+
 # System-level dependencies.
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK REQUIRED IMPORTED_TARGET gtk+-3.0)
