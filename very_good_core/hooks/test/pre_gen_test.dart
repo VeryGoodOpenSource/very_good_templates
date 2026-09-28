@@ -106,6 +106,7 @@ void main() {
 
         expect(newVars['android'], isTrue);
         expect(newVars['ios'], isTrue);
+        expect(newVars['linux'], isFalse);
         expect(newVars['macos'], isFalse);
         expect(newVars['web'], isFalse);
         expect(newVars['windows'], isFalse);

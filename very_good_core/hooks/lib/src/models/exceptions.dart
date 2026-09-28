@@ -50,3 +50,27 @@ For more information, see the "Set the application ID" Android documentation:
 ''',
       );
 }
+
+/// {@template InvalidLinuxApplicationIdFormat}
+/// An exception thrown when an invalid Linux application ID format is
+/// given.
+/// {@endtemplate}
+class InvalidLinuxApplicationIdFormat extends VeryGoodCoreHooksException {
+  /// {@macro InvalidLinuxApplicationIdFormat}
+  new(LinuxApplicationId applicationId)
+    : super(
+        description:
+            '''An invalid Linux application ID (${applicationId.value}) format was provided.''',
+        help:
+            '''
+Try adjusting your Linux application ID (${applicationId.value}) to match the following format:
+
+* It must have at least two segments (one or more dots).
+* Each segment must start with a letter.
+* All characters must be alphanumeric or an underscore [a-zA-Z0-9_].
+
+For more information, see the GTK Application ID documentation:
+* https://docs.gtk.org/gio/type_func.Application.id_is_valid.html.
+''',
+      );
+}

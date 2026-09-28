@@ -86,6 +86,35 @@ void main() {
           );
         });
       });
+
+      group('a $InvalidLinuxApplicationIdFormat when Linux ID', () {
+        test('has special characters', () {
+          expect(
+            () => VeryGoodCoreConfiguration(
+              linuxApplicationId: LinuxApplicationId('com.example.my_app!'),
+            ),
+            throwsA(isA<InvalidLinuxApplicationIdFormat>()),
+          );
+        });
+
+        test('parts start with numeric character', () {
+          expect(
+            () => VeryGoodCoreConfiguration(
+              linuxApplicationId: LinuxApplicationId('1com.1example.1my_app'),
+            ),
+            throwsA(isA<InvalidLinuxApplicationIdFormat>()),
+          );
+        });
+
+        test('has a single part', () {
+          expect(
+            () => VeryGoodCoreConfiguration(
+              linuxApplicationId: LinuxApplicationId('com'),
+            ),
+            throwsA(isA<InvalidLinuxApplicationIdFormat>()),
+          );
+        });
+      });
     });
 
     group('fromHookVars', () {
@@ -238,7 +267,33 @@ void main() {
             ),
           );
         });
+
+        test('when "publishable" is not a bool?', () {
+          final vars = <String, dynamic>{'publishable': 42};
+
+          expect(
+            () => VeryGoodCoreConfiguration.fromHookVars(vars),
+            throwsA(
+              isA<ArgumentError>().having(
+                (error) => error.message,
+                'message',
+                '''Expected a value for key "publishable" to be of type bool?, got 42.''',
+              ),
+            ),
+          );
+        });
       });
+    });
+  });
+
+  group('$VeryGoodCoreHooksException', () {
+    test('toString includes exception type, description, and help', () {
+      final exception = InvalidAndroidApplicationIdFormat(
+        AndroidApplicationId('com.example.bad!'),
+      );
+      final result = exception.toString();
+      expect(result, contains('[$VeryGoodCoreHooksException]'));
+      expect(result, contains('com.example.bad!'));
     });
   });
 }
