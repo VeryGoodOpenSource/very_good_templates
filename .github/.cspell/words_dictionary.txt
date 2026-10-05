@@ -33,6 +33,9 @@ xcode # Apple's integrated development environment.
 xxlg # Abbreviation for extra extra large, used in spacing scales.
 xcworkspace # Abbreviation for Xcode workspace.
 xcassets # Abbreviation for Xcode assets.
+xcschemes # Directory holding shared Xcode schemes.
+pbxproj # Xcode project file.
+codesign # Apple's code signing, as in the --no-codesign flag.
 hola # part of translations example
 mundo # part of translations example
 saludo # part of translations example
