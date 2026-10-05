@@ -35,11 +35,15 @@ flutter pub get
 # Repeat per flavor scheme in ios/Runner.xcodeproj/xcshareddata/xcschemes/
 flutter build ios --config-only --no-codesign --debug \
   --flavor development -t lib/main_development.dart
+# Also build without a flavor to cover the Runner scheme
+flutter build ios --config-only --no-codesign --debug \
+  -t lib/main_development.dart
 git status --short ios
 ```
 
-Any output from `git status` is drift. Build every flavor: some migrations
-only touch the scheme being built.
+Any output from `git status` is drift. Build every flavor and once without a
+flavor: some migrations only touch the scheme being built. The no-flavor build
+may fail on a missing `Debug` configuration, but migrations run before that.
 
 ---
 
