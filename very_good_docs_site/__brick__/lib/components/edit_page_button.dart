@@ -8,9 +8,8 @@ class EditPageButton extends StatelessComponent {
   /// Creates an edit link built from [editUrlBase] and the page's source path.
   const EditPageButton({required this.editUrlBase, super.key});
 
-  /// The URL the page's source path is appended to when building the edit
-  /// link, e.g. `https://github.com/<org>/<repo>/edit/main/content`. Passing
-  /// it in keeps knowledge of the repository layout in `main.server.dart`.
+  /// The URL the page's source path is appended to, for example
+  /// `https://github.com/<org>/<repo>/edit/main/content`.
   final String editUrlBase;
 
   @override

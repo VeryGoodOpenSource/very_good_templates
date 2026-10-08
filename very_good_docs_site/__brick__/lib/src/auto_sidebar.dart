@@ -1,17 +1,11 @@
-/// Builds [SidebarGroup]s automatically from the markdown files on disk, so
-/// adding a page never requires editing a navigation file.
-///
-/// This only runs on the server during pre-rendering (static mode), so
-/// `dart:io` is safe to use here. It must never be imported from
-/// `main.client.dart` or any `@client` component.
-library;
-
 import 'dart:io';
 
 import 'package:jaspr_content/components/sidebar.dart';
 import 'package:yaml/yaml.dart';
 
 /// Scans [directory] for markdown files and builds sidebar groups.
+///
+/// Uses `dart:io`, so it must only be imported from server code.
 ///
 /// - Files directly inside [directory] form the first (untitled) group.
 /// - Each immediate subdirectory becomes a titled group (title-cased name),
@@ -75,7 +69,6 @@ class _SidebarEntry {
   final String title;
   final String href;
 
-  /// The `sidebar_position` frontmatter value, or `null` when unset.
   final int? position;
 }
 
@@ -89,7 +82,6 @@ List<SidebarLink> _sortedLinks(List<_SidebarEntry> entries) {
   entries.sort((a, b) {
     final byPosition = switch ((a.position, b.position)) {
       (final int a, final int b) => a.compareTo(b),
-      // Entries with no `sidebar_position` sort after positioned ones.
       (int(), null) => -1,
       (null, int()) => 1,
       (null, null) => 0,
@@ -131,10 +123,6 @@ _SidebarEntry _entryFor(File file, Directory root, String urlPrefix) {
   return _SidebarEntry(title: title, href: href, position: position);
 }
 
-/// Splits [content] into its parsed YAML frontmatter and the body below it.
-///
-/// Content with no frontmatter block, or with one that is not a YAML map,
-/// yields empty frontmatter and the unchanged content as the body.
 ({Map<Object?, Object?> frontmatter, String body}) _splitFrontmatter(
   String content,
 ) {

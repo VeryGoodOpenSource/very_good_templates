@@ -11,11 +11,7 @@ typedef NavLink = ({String label, String href});
 /// The site navbar: the brand (logo and title) with left-aligned nav items
 /// immediately after it, and icon items pushed to the right.
 ///
-/// The site name comes from the `titleBase` key in `content/_data/site.yaml`,
-/// the same source the tab title and landing hero use.
-///
-/// This replaces `jaspr_content`'s `Header`, whose `items` always render on
-/// the right with no left-aligned slot.
+/// The site name comes from the `titleBase` key in `content/_data/site.yaml`.
 class SiteHeader extends StatelessComponent {
   /// Creates a site navbar.
   const SiteHeader({
@@ -95,8 +91,6 @@ class SiteHeader extends StatelessComponent {
           gap: .column(1.rem),
         ),
         css('.header-nav-link', [
-          // inline-flex + center keeps the label vertically centered instead
-          // of stretching to the full navbar height.
           css('&').styles(
             display: .inlineFlex,
             transition: Transition('opacity', duration: 150.ms),

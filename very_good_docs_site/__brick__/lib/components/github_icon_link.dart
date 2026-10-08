@@ -3,12 +3,8 @@ import 'package:jaspr/jaspr.dart';
 
 /// An icon-only link to the GitHub repository.
 ///
-/// The mark is referenced out of `web/images/icons/github.svg`, which holds a
-/// single `<symbol>` carrying its own `viewBox` and `fill="currentColor"`, so
-/// the icon inherits the surrounding text color and is sized purely in CSS.
-/// The path data stays out of every rendered page, and the browser caches the
-/// file once for the whole site. Add more marks to `web/images/icons/` the
-/// same way.
+/// The icon is a `<symbol>` in `web/images/icons/github.svg` that uses
+/// `fill="currentColor"`, so it inherits the surrounding text color.
 class GitHubIconLink extends StatelessComponent {
   /// Creates an icon link to the given [repo].
   const GitHubIconLink({required this.repo, super.key});
@@ -23,7 +19,6 @@ class GitHubIconLink extends StatelessComponent {
       href: 'https://github.com/$repo',
       target: .blank,
       attributes: const {'aria-label': 'GitHub repository'},
-      // The link already carries the label, so the mark is decorative.
       const [
         svg(
           attributes: {'aria-hidden': 'true'},

@@ -3,9 +3,7 @@ import 'package:jaspr_content/jaspr_content.dart';
 
 import 'package:{{project_name.snakeCase()}}/layouts/site_chrome.dart';
 
-/// A [DocsLayout] that also renders the shared site chrome: the
-/// [SiteChrome.siteFooter] below the docs content and the site-wide head
-/// tags, so the navigation footer appears on every page.
+/// A [DocsLayout] wrapped in the shared [SiteChrome].
 class AppDocsLayout extends DocsLayout with SiteChrome {
   /// Creates a docs layout wrapped in the shared site chrome.
   const AppDocsLayout({

@@ -55,17 +55,11 @@ void main() {
 
   runApp(
     ContentApp(
-      // No template engine is configured, so markdown renders exactly as
-      // written. Set `templateEngine` to use page data inside content.
       parsers: const [MarkdownParser()],
       extensions: [HeadingAnchorsExtension(), const TableOfContentsExtension()],
       components: [
         Callout(),
         CodeBlock(
-          // The default highlighter only knows Dart, and a fence tagged with
-          // an unregistered language fails the build rather than degrading,
-          // so every language used in `content/` needs a grammar here. This
-          // runs on the server only, so reading from the filesystem is safe.
           grammars: {
             'bash': File('grammars/bash.json').readAsStringSync(),
             'yaml': File('grammars/yaml.json').readAsStringSync(),
@@ -74,8 +68,6 @@ void main() {
         const Image(zoom: true),
       ],
       layouts: [
-        // First layout is the fallback for pages without a `layout` key,
-        // so DocsLayout must come first.
         AppDocsLayout(
           header: buildHeader(showSidebarToggle: true),
           sidebar: Sidebar(groups: buildSidebarGroups()),
@@ -85,7 +77,6 @@ void main() {
           siteFooter: footer,
         ),
         HomeLayout(
-          // The landing page has no sidebar, so it hides the sidebar toggle.
           header: buildHeader(showSidebarToggle: false),
           siteFooter: footer,
           cta: (label: 'Get Started', href: docsEntryRoute),
