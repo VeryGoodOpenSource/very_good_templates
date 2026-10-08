@@ -18,7 +18,6 @@ mixin SiteChrome on PageLayoutBase {
   Iterable<Component> buildHead(Page page) sync* {
     yield* super.buildHead(page);
     yield speculationRules;
-    yield Style(styles: _styles);
   }
 
   /// Wraps a layout's content in a full-viewport flex column above
@@ -26,15 +25,17 @@ mixin SiteChrome on PageLayoutBase {
   /// when the content is shorter than the screen.
   Component buildShell(Component content) =>
       div(classes: 'page-shell', [content, ?siteFooter]);
-
-  static final List<StyleRule> _styles = [
-    css('.page-shell').styles(
-      display: Display.flex,
-      minHeight: 100.vh,
-      flexDirection: FlexDirection.column,
-    ),
-    // The content grows to push the footer to the bottom of the viewport.
-    css('.page-shell > :first-child')
-        .styles(flex: const Flex(grow: 1, shrink: 0, basis: Unit.auto)),
-  ];
 }
+
+/// The styles for [SiteChrome], bundled into the site stylesheet.
+///
+/// They live at the top level because `@css` is only picked up on top-level
+/// declarations and static members of classes, not of mixins.
+@css
+List<StyleRule> get siteChromeStyles => [
+  css('.page-shell')
+      .styles(display: .flex, minHeight: 100.vh, flexDirection: .column),
+  // The content grows to push the footer to the bottom of the viewport.
+  css('.page-shell > :first-child')
+      .styles(flex: const Flex(grow: 1, shrink: 0, basis: .auto)),
+];

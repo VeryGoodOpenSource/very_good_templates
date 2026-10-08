@@ -40,5 +40,12 @@ void main() {
       );
       expect(columns.last.querySelector('a')!.text, equals('GitHub'));
     });
+
+    testServer('declares styles for its classes', (tester) async {
+      final css = await tester.renderCss(SiteFooter.styles);
+
+      expect(css, contains('.site-footer'));
+      expect(css, contains('.site-footer-column'));
+    });
   });
 }

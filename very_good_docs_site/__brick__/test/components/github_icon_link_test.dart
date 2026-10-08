@@ -34,5 +34,11 @@ void main() {
         equals('/images/icons/github.svg#github'),
       );
     });
+
+    testServer('declares styles for its classes', (tester) async {
+      final css = await tester.renderCss(GitHubIconLink.styles);
+
+      expect(css, contains('.github-icon-link'));
+    });
   });
 }

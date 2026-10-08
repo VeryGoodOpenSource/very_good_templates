@@ -16,32 +16,28 @@ class EditPageButton extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     final pagePath = context.page.path;
-    return Component.fragment([
-      Document.head(children: [Style(styles: _styles)]),
-      a(
-        classes: 'edit-page-link',
-        href: '$editUrlBase/$pagePath',
-        target: Target.blank,
-        const [Component.text('Edit this page')],
-      ),
-    ]);
+    return a(
+      classes: 'edit-page-link',
+      href: '$editUrlBase/$pagePath',
+      target: .blank,
+      const [.text('Edit this page')],
+    );
   }
 
-  static final List<StyleRule> _styles = [
+  /// The styles for this component, bundled into the site stylesheet.
+  @css
+  static List<StyleRule> get styles => [
     css('.edit-page-link', [
       css('&').styles(
-        display: Display.inlineFlex,
-        alignItems: AlignItems.center,
-        gap: Gap.column(0.3.em),
+        display: .inlineFlex,
+        alignItems: .center,
+        gap: .column(0.3.em),
         color: ContentColors.primary,
-        fontWeight: FontWeight.w500,
-        textDecoration: TextDecoration.none,
+        fontWeight: .w500,
+        textDecoration: .none,
       ),
-      css('&:hover').styles(
-        textDecoration: const TextDecoration(
-          line: TextDecorationLine.underline,
-        ),
-      ),
+      css('&:hover')
+          .styles(textDecoration: const TextDecoration(line: .underline)),
     ]),
   ];
 }

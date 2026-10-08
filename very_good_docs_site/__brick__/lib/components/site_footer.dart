@@ -20,59 +20,51 @@ class SiteFooter extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return Component.fragment([
-      Document.head(children: [Style(styles: _styles)]),
-      footer(classes: 'site-footer', [
-        div(classes: 'site-footer-columns', [
-          for (final column in columns)
-            div(classes: 'site-footer-column', [
-              div(classes: 'site-footer-title', [Component.text(column.title)]),
-              ul([
-                for (final link in column.links)
-                  li([
-                    a(href: link.href, [Component.text(link.label)]),
-                  ]),
-              ]),
+    return footer(classes: 'site-footer', [
+      div(classes: 'site-footer-columns', [
+        for (final column in columns)
+          div(classes: 'site-footer-column', [
+            div(classes: 'site-footer-title', [.text(column.title)]),
+            ul([
+              for (final link in column.links)
+                li([
+                  a(href: link.href, [.text(link.label)]),
+                ]),
             ]),
-        ]),
+          ]),
       ]),
     ]);
   }
 
-  static final List<StyleRule> _styles = [
+  /// The styles for this component, bundled into the site stylesheet.
+  @css
+  static List<StyleRule> get styles => [
     css('.site-footer', [
       css('&').styles(
-        padding: Padding.symmetric(vertical: 2.rem, horizontal: 1.rem),
-        margin: Margin.only(top: 4.rem),
+        padding: .symmetric(vertical: 2.rem, horizontal: 1.rem),
+        margin: .only(top: 4.rem),
         flex: const Flex(shrink: 0),
         backgroundColor: AppColors.footerBackground,
       ),
       css('.site-footer-columns').styles(
-        display: Display.flex,
+        display: .flex,
         maxWidth: 72.rem,
-        margin: const Margin.symmetric(horizontal: Unit.auto),
-        flexWrap: FlexWrap.wrap,
-        gap: Gap.all(2.rem),
+        margin: const .symmetric(horizontal: .auto),
+        flexWrap: .wrap,
+        gap: .all(2.rem),
       ),
       css('.site-footer-column')
           .styles(flex: Flex(grow: 1, shrink: 1, basis: 12.rem)),
       css('.site-footer-title').styles(
-        margin: Margin.only(bottom: 1.rem),
-        fontWeight: FontWeight.w700,
+        margin: .only(bottom: 1.rem),
+        fontWeight: .w700,
       ),
-      css('ul').styles(
-        padding: Padding.zero,
-        margin: Margin.zero,
-        listStyle: ListStyle.none,
-      ),
-      css('li').styles(margin: Margin.only(bottom: .5.rem)),
+      css('ul').styles(padding: .zero, margin: .zero, listStyle: .none),
+      css('li').styles(margin: .only(bottom: .5.rem)),
       css('a', [
-        css('&').styles(textDecoration: TextDecoration.none),
-        css('&:hover').styles(
-          textDecoration: const TextDecoration(
-            line: TextDecorationLine.underline,
-          ),
-        ),
+        css('&').styles(textDecoration: .none),
+        css('&:hover')
+            .styles(textDecoration: const TextDecoration(line: .underline)),
       ]),
     ]),
   ];

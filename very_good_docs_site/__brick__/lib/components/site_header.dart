@@ -42,85 +42,79 @@ class SiteHeader extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     final title = context.page.data.site['titleBase'] as String? ?? '';
-    return Component.fragment([
-      Document.head(children: [Style(styles: _styles)]),
-      header(classes: 'header', [
-        if (showSidebarToggle) const SidebarToggleButton(),
-        a(classes: 'header-title', href: '/', [
-          img(src: logo, alt: 'Logo'),
-          span([Component.text(title)]),
+    return header(classes: 'header', [
+      if (showSidebarToggle) const SidebarToggleButton(),
+      a(classes: 'header-title', href: '/', [
+        img(src: logo, alt: 'Logo'),
+        span([.text(title)]),
+      ]),
+      if (leftItems.isNotEmpty)
+        nav(classes: 'header-nav', [
+          for (final item in leftItems)
+            a(classes: 'header-nav-link', href: item.href, [.text(item.label)]),
         ]),
-        if (leftItems.isNotEmpty)
-          nav(classes: 'header-nav', [
-            for (final item in leftItems)
-              a(classes: 'header-nav-link', href: item.href, [
-                Component.text(item.label),
-              ]),
-          ]),
-        div(classes: 'header-content', [
-          div(classes: 'header-items', rightItems),
-        ]),
+      div(classes: 'header-content', [
+        div(classes: 'header-items', rightItems),
       ]),
     ]);
   }
 
-  static final List<StyleRule> _styles = [
+  /// The styles for this component, bundled into the site stylesheet.
+  @css
+  static List<StyleRule> get styles => [
     css('.header', [
       css('&').styles(
-        display: Display.flex,
+        display: .flex,
         height: 4.rem,
-        padding: Padding.symmetric(horizontal: 1.rem, vertical: .25.rem),
-        margin: const Margin.symmetric(horizontal: Unit.auto),
-        border: Border.only(
+        padding: .symmetric(horizontal: 1.rem, vertical: .25.rem),
+        margin: const .symmetric(horizontal: .auto),
+        border: .only(
           bottom: BorderSide(color: AppColors.headerBorder, width: 1.px),
         ),
-        alignItems: AlignItems.center,
-        gap: Gap.column(1.rem),
+        alignItems: .center,
+        gap: .column(1.rem),
       ),
-      css.media(MediaQuery.all(minWidth: 768.px), [
-        css('&').styles(padding: Padding.symmetric(horizontal: 2.5.rem)),
+      css.media(.all(minWidth: 768.px), [
+        css('&').styles(padding: .symmetric(horizontal: 2.5.rem)),
       ]),
       css('.header-title', [
         css('&').styles(
-          display: Display.inlineFlex,
-          alignItems: AlignItems.center,
-          gap: Gap.column(.75.rem),
-          textDecoration: TextDecoration.none,
+          display: .inlineFlex,
+          alignItems: .center,
+          gap: .column(.75.rem),
+          textDecoration: .none,
         ),
-        css('img').styles(width: Unit.auto, height: 1.5.rem),
-        css('span').styles(fontWeight: FontWeight.w700),
+        css('img').styles(width: .auto, height: 1.5.rem),
+        css('span').styles(fontWeight: .w700),
       ]),
       css('.header-nav', [
         css('&').styles(
-          display: Display.flex,
+          display: .flex,
           height: 100.percent,
-          alignItems: AlignItems.center,
-          gap: Gap.column(1.rem),
+          alignItems: .center,
+          gap: .column(1.rem),
         ),
         css('.header-nav-link', [
           // inline-flex + center keeps the label vertically centered instead
           // of stretching to the full navbar height.
           css('&').styles(
-            display: Display.inlineFlex,
+            display: .inlineFlex,
             transition: Transition('opacity', duration: 150.ms),
-            alignItems: AlignItems.center,
-            fontWeight: FontWeight.w500,
-            textDecoration: TextDecoration.none,
+            alignItems: .center,
+            fontWeight: .w500,
+            textDecoration: .none,
           ),
           css('&:hover').styles(opacity: 0.7),
         ]),
       ]),
       css('.header-content').styles(
-        display: Display.flex,
-        justifyContent: JustifyContent.end,
-        alignItems: AlignItems.center,
+        display: .flex,
+        justifyContent: .end,
+        alignItems: .center,
         flex: const Flex(grow: 1),
       ),
-      css('.header-items').styles(
-        display: Display.flex,
-        alignItems: AlignItems.center,
-        gap: Gap.column(0.75.rem),
-      ),
+      css('.header-items')
+          .styles(display: .flex, alignItems: .center, gap: .column(0.75.rem)),
     ]),
   ];
 }

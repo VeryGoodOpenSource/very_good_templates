@@ -22,5 +22,11 @@ void main() {
       expect(link.attributes['target'], equals('_blank'));
       expect(link.text, equals('Edit this page'));
     });
+
+    testServer('declares styles for its classes', (tester) async {
+      final css = await tester.renderCss(EditPageButton.styles);
+
+      expect(css, contains('.edit-page-link'));
+    });
   });
 }

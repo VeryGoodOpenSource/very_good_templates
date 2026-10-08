@@ -27,3 +27,6 @@ dev_dependencies:
 
 jaspr:
   mode: static
+  # Emits every `@css` declaration into a single cacheable stylesheet
+  # instead of inlining it into each pre-rendered page.
+  styles: standalone

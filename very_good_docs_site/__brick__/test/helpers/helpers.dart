@@ -1,3 +1,4 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/server.dart';
 import 'package:jaspr_content/jaspr_content.dart';
 import 'package:jaspr_test/server_test.dart';
@@ -28,5 +29,12 @@ extension RenderComponent on ServerTester {
     final contextPage = page ?? buildPage();
     pumpComponent(Page.wrap(contextPage, [contextPage], component));
     return request('/');
+  }
+
+  /// Renders [styles] the way the build writes them to the site stylesheet,
+  /// and returns the resulting CSS.
+  Future<String> renderCss(List<StyleRule> styles) async {
+    final response = await render(Style(styles: styles));
+    return response.document!.querySelector('style')!.text;
   }
 }

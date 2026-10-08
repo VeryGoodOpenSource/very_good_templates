@@ -40,12 +40,6 @@ class HomeLayout extends PageLayoutBase with SiteChrome {
   String get name => 'home';
 
   @override
-  Iterable<Component> buildHead(Page page) sync* {
-    yield* super.buildHead(page);
-    yield Style(styles: _styles);
-  }
-
-  @override
   Component buildBody(Page page, Component child) {
     final siteData = page.data.site;
     final title = siteData['titleBase'] as String? ?? '';
@@ -77,12 +71,10 @@ class HomeLayout extends PageLayoutBase with SiteChrome {
           div(classes: 'header-container', [header]),
         main_([
           section(classes: 'hero', [
-            h1([Component.text(title)]),
-            p(classes: 'hero-tagline', [Component.text(tagline)]),
+            h1([.text(title)]),
+            p(classes: 'hero-tagline', [.text(tagline)]),
             if (cta case final cta?)
-              a(classes: 'hero-cta', href: cta.href, [
-                Component.text(cta.label),
-              ]),
+              a(classes: 'hero-cta', href: cta.href, [.text(cta.label)]),
             if (heroImages case (:final light, :final dark)) ...[
               img(
                 classes: 'hero-image hero-image-light',
@@ -103,8 +95,8 @@ class HomeLayout extends PageLayoutBase with SiteChrome {
               for (final pillar in pillars)
                 div(classes: 'feature', [
                   img(src: pillar.image, alt: pillar.title, width: 200),
-                  h3([Component.text(pillar.title)]),
-                  p([Component.text(pillar.description)]),
+                  h3([.text(pillar.title)]),
+                  p([.text(pillar.description)]),
                 ]),
             ]),
           child,
@@ -113,70 +105,72 @@ class HomeLayout extends PageLayoutBase with SiteChrome {
     );
   }
 
-  static final List<StyleRule> _styles = [
+  /// The styles for this layout, bundled into the site stylesheet.
+  @css
+  static List<StyleRule> get styles => [
     css('.home', [
       css('.header-container').styles(
-        position: const Position.sticky(top: Unit.zero),
+        position: const .sticky(top: .zero),
         zIndex: const ZIndex(10),
         raw: {'backdrop-filter': 'blur(8px)'},
       ),
       css('.hero', [
         css('&').styles(
-          display: Display.flex,
-          padding: Padding.symmetric(vertical: 4.rem, horizontal: 1.rem),
-          flexDirection: FlexDirection.column,
-          alignItems: AlignItems.center,
-          textAlign: TextAlign.center,
+          display: .flex,
+          padding: .symmetric(vertical: 4.rem, horizontal: 1.rem),
+          flexDirection: .column,
+          alignItems: .center,
+          textAlign: .center,
         ),
         css('h1').styles(
-          margin: Margin.only(bottom: 1.5.rem),
+          margin: .only(bottom: 1.5.rem),
           fontSize: 3.rem,
         ),
         css('.hero-tagline').styles(
-          margin: Margin.only(bottom: 2.rem),
+          margin: .only(bottom: 2.rem),
           fontSize: 1.5.rem,
         ),
         css('.hero-cta').styles(
-          display: Display.inlineBlock,
-          padding: Padding.symmetric(vertical: .75.rem, horizontal: 2.rem),
-          radius: BorderRadius.circular(.5.rem),
+          display: .inlineBlock,
+          padding: .symmetric(vertical: .75.rem, horizontal: 2.rem),
+          radius: .circular(.5.rem),
           color: AppColors.heroCtaText,
-          fontWeight: FontWeight.w700,
-          textDecoration: TextDecoration.none,
+          fontWeight: .w700,
+          textDecoration: .none,
           backgroundColor: ContentColors.primary,
         ),
         css('.hero-image').styles(
           maxWidth: 100.percent,
-          margin: Margin.only(top: 3.rem),
+          margin: .only(top: 3.rem),
         ),
-        css('.hero-image-dark').styles(display: Display.none),
+        css('.hero-image-dark').styles(display: .none),
       ]),
       css('.features', [
         css('&').styles(
-          display: Display.flex,
+          display: .flex,
           maxWidth: 72.rem,
-          padding: Padding.symmetric(vertical: 2.rem, horizontal: 1.rem),
-          margin: const Margin.symmetric(horizontal: Unit.auto),
-          flexWrap: FlexWrap.wrap,
-          justifyContent: JustifyContent.center,
-          gap: Gap.all(2.rem),
+          padding: .symmetric(vertical: 2.rem, horizontal: 1.rem),
+          margin: const .symmetric(horizontal: .auto),
+          flexWrap: .wrap,
+          justifyContent: .center,
+          gap: .all(2.rem),
         ),
         css('.feature', [
           css('&').styles(
             maxWidth: 20.rem,
             flex: Flex(grow: 1, shrink: 1, basis: 16.rem),
-            textAlign: TextAlign.center,
+            textAlign: .center,
           ),
           css('img').styles(
-            display: Display.block,
-            margin: const Margin.symmetric(horizontal: Unit.auto),
+            display: .block,
+            margin: const .symmetric(horizontal: .auto),
           ),
         ]),
       ]),
     ]),
     css('html[data-theme="dark"] .home', [
-      css('.hero-image-light').styles(display: Display.none),
-      css('.hero-image-dark').styles(display: Display.inline),
+      css('.hero-image-light').styles(display: .none),
+      css('.hero-image-dark').styles(display: .inline),
     ]),
   ];
 }

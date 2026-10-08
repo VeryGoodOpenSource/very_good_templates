@@ -19,7 +19,7 @@ void main() {
       tester,
     ) async {
       final response = await tester.render(
-        layout.buildLayout(page, const Component.text('Page content')),
+        layout.buildLayout(page, const .text('Page content')),
         page: page,
       );
       final shell = response.document!.querySelector('.page-shell')!;
@@ -31,7 +31,7 @@ void main() {
 
     testServer('adds the site chrome to the head', (tester) async {
       final response = await tester.render(
-        layout.buildLayout(page, const Component.text('')),
+        layout.buildLayout(page, const .text('')),
         page: page,
       );
 

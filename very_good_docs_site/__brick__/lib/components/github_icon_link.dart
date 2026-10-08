@@ -18,35 +18,34 @@ class GitHubIconLink extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return Component.fragment([
-      Document.head(children: [Style(styles: _styles)]),
-      a(
-        classes: 'github-icon-link',
-        href: 'https://github.com/$repo',
-        target: Target.blank,
-        attributes: const {'aria-label': 'GitHub repository'},
-        // The link already carries the label, so the mark is decorative.
-        const [
-          svg(
-            attributes: {'aria-hidden': 'true'},
-            [
-              Component.element(
-                tag: 'use',
-                attributes: {'href': '/images/icons/github.svg#github'},
-              ),
-            ],
-          ),
-        ],
-      ),
-    ]);
+    return a(
+      classes: 'github-icon-link',
+      href: 'https://github.com/$repo',
+      target: .blank,
+      attributes: const {'aria-label': 'GitHub repository'},
+      // The link already carries the label, so the mark is decorative.
+      const [
+        svg(
+          attributes: {'aria-hidden': 'true'},
+          [
+            .element(
+              tag: 'use',
+              attributes: {'href': '/images/icons/github.svg#github'},
+            ),
+          ],
+        ),
+      ],
+    );
   }
 
-  static final List<StyleRule> _styles = [
+  /// The styles for this component, bundled into the site stylesheet.
+  @css
+  static List<StyleRule> get styles => [
     css('.github-icon-link', [
       css('&').styles(
-        display: Display.inlineFlex,
+        display: .inlineFlex,
         transition: Transition('opacity', duration: 150.ms),
-        alignItems: AlignItems.center,
+        alignItems: .center,
       ),
       css('&:hover').styles(opacity: 0.7),
       css('svg').styles(width: 24.px, height: 24.px),

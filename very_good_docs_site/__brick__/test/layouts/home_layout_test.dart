@@ -34,7 +34,7 @@ void main() {
 
     testServer('renders the title and tagline from site data', (tester) async {
       final response = await tester.render(
-        layout.buildLayout(page, const Component.text('')),
+        layout.buildLayout(page, const .text('')),
         page: page,
       );
       final hero = response.document!.querySelector('.hero')!;
@@ -48,7 +48,7 @@ void main() {
 
     testServer('renders the call to action', (tester) async {
       final response = await tester.render(
-        layout.buildLayout(page, const Component.text('')),
+        layout.buildLayout(page, const .text('')),
         page: page,
       );
       final cta = response.document!.querySelector('a.hero-cta')!;
@@ -59,7 +59,7 @@ void main() {
 
     testServer('renders a hero image per color mode', (tester) async {
       final response = await tester.render(
-        layout.buildLayout(page, const Component.text('')),
+        layout.buildLayout(page, const .text('')),
         page: page,
       );
       final document = response.document!;
@@ -76,7 +76,7 @@ void main() {
 
     testServer('renders a feature per pillar', (tester) async {
       final response = await tester.render(
-        layout.buildLayout(page, const Component.text('')),
+        layout.buildLayout(page, const .text('')),
         page: page,
       );
       final features = response.document!.querySelectorAll('.feature');
@@ -96,7 +96,7 @@ void main() {
       tester,
     ) async {
       final response = await tester.render(
-        layout.buildLayout(page, const Component.text('Page content')),
+        layout.buildLayout(page, const .text('Page content')),
         page: page,
       );
       final document = response.document!;
@@ -111,7 +111,7 @@ void main() {
 
     testServer('adds the site chrome to the head', (tester) async {
       final response = await tester.render(
-        layout.buildLayout(page, const Component.text('')),
+        layout.buildLayout(page, const .text('')),
         page: page,
       );
 
@@ -136,7 +136,7 @@ void main() {
       );
 
       final response = await tester.render(
-        const HomeLayout().buildLayout(incomplete, const Component.text('')),
+        const HomeLayout().buildLayout(incomplete, const .text('')),
         page: incomplete,
       );
 
@@ -150,7 +150,7 @@ void main() {
       final empty = buildPage();
 
       final response = await tester.render(
-        const HomeLayout().buildLayout(empty, const Component.text('')),
+        const HomeLayout().buildLayout(empty, const .text('')),
         page: empty,
       );
       final document = response.document!;
@@ -161,6 +161,13 @@ void main() {
       expect(document.querySelector('.hero-cta'), isNull);
       expect(document.querySelector('.hero-image'), isNull);
       expect(document.querySelector('.features'), isNull);
+    });
+
+    testServer('declares styles for its classes', (tester) async {
+      final css = await tester.renderCss(HomeLayout.styles);
+
+      expect(css, contains('.home .hero'));
+      expect(css, contains('.home .features'));
     });
   });
 }

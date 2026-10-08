@@ -106,5 +106,12 @@ void main() {
         isNull,
       );
     });
+
+    testServer('declares styles for its classes', (tester) async {
+      final css = await tester.renderCss(SiteHeader.styles);
+
+      expect(css, contains('.header'));
+      expect(css, contains('.header-nav-link'));
+    });
   });
 }
