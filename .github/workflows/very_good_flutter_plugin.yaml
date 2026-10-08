@@ -99,6 +99,11 @@ jobs:
         working-directory: very_good_flutter_plugin/very_good_flutter_plugin_output/very_good_flutter_plugin_output/example
 
     steps:
+      - name: "harness: Enable long paths"
+        if: runner.os == 'Windows'
+        run: git config --system core.longpaths true
+        working-directory: .
+
       - name: "harness: Git Checkout"
         uses: actions/checkout@v7
 
@@ -112,6 +117,7 @@ jobs:
         working-directory: very_good_flutter_plugin/
         run: |
           dart pub global activate mason_cli 0.1.3
+          dart pub global activate very_good_cli 1.1.1
           mason get
           mason make very_good_flutter_plugin -c config.json --on-conflict overwrite --platforms ${{ matrix.platform }} -o very_good_flutter_plugin_output
 
