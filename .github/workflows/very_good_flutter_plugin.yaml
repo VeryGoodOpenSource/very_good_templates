@@ -75,7 +75,8 @@ jobs:
           very_good test -r --coverage --test-randomize-ordering-seed random --exclude-coverage '**/*.g.dart **/*.gen.dart' --collect-coverage-from=all
 
   # Temporary harness for the Fluttium replacement spike (issue #484).
-  # Generates the plugin for one platform, then runs the same e2e steps as
+  # Generates the plugin for one platform into the workspace root, matching
+  # the layout of a generated repository, then runs the same e2e steps as
   # the generated workflow. Steps prefixed with "harness:" exist only here and
   # are excluded from timing comparisons.
   e2e:
@@ -98,7 +99,7 @@ jobs:
         # The generated Windows jobs use the default pwsh shell, which also
         # resolves the .bat shims pub creates for global executables.
         shell: ${{ matrix.shell || 'bash' }}
-        working-directory: very_good_flutter_plugin/very_good_flutter_plugin_output/very_good_flutter_plugin_output/example
+        working-directory: very_good_flutter_plugin_output/example
 
     steps:
       - name: "harness: Enable long paths"
@@ -121,7 +122,7 @@ jobs:
           dart pub global activate mason_cli 0.1.3
           dart pub global activate very_good_cli 1.1.1
           mason get
-          mason make very_good_flutter_plugin -c config.json --on-conflict overwrite --platforms ${{ matrix.platform }} -o very_good_flutter_plugin_output
+          mason make very_good_flutter_plugin -c config.json --on-conflict overwrite --platforms ${{ matrix.platform }} -o ..
 
       # Fluttium: mirrors the jobs in
       # very_good_flutter_plugin/__brick__/.github/workflows/{{project_name.snakeCase()}}.yaml
@@ -161,7 +162,7 @@ jobs:
         with:
           api-level: 29
           script: fluttium test flows/test_platform_name.yaml -d android
-          working-directory: very_good_flutter_plugin/very_good_flutter_plugin_output/very_good_flutter_plugin_output/example
+          working-directory: very_good_flutter_plugin_output/example
 
       - name: Start Simulator
         if: matrix.tool == 'fluttium' && matrix.platform == 'ios'
