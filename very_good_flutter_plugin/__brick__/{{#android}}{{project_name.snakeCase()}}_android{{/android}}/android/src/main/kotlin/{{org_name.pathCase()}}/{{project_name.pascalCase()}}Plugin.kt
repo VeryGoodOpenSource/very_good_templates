@@ -16,7 +16,7 @@ class {{project_name.pascalCase()}}Plugin : FlutterPlugin, {{project_name.pascal
         {{project_name.pascalCase()}}Api.setUp(binding.binaryMessenger, null)
     }
 
-    override fun getPlatformName(callback: (Result<String?>) -> Unit) {
-        callback(Result.success("Android ${android.os.Build.VERSION.RELEASE}"))
+    override suspend fun getPlatformName(): String? {
+        return "Android ${android.os.Build.VERSION.RELEASE}"
     }
 }
