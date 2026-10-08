@@ -87,7 +87,7 @@ jobs:
           - { tool: fluttium, platform: ios, runner: macos-latest }
           - { tool: fluttium, platform: macos, runner: macos-latest }
           - { tool: fluttium, platform: web, runner: ubuntu-latest }
-          - { tool: fluttium, platform: windows, runner: windows-latest }
+          - { tool: fluttium, platform: windows, runner: windows-latest, shell: pwsh }
 
     name: e2e (${{ matrix.tool }}, ${{ matrix.platform }})
 
@@ -95,7 +95,9 @@ jobs:
 
     defaults:
       run:
-        shell: bash
+        # The generated Windows jobs use the default pwsh shell, which also
+        # resolves the .bat shims pub creates for global executables.
+        shell: ${{ matrix.shell || 'bash' }}
         working-directory: very_good_flutter_plugin/very_good_flutter_plugin_output/very_good_flutter_plugin_output/example
 
     steps:
