@@ -34,30 +34,33 @@ jobs:
       - name: 🧱 Mason Make
         run: |
           dart pub global activate mason_cli 0.1.3
+          dart pub global activate very_good_cli 1.1.1
           mason get
           mason make very_good_docs_site -c very_good_docs_site/config.json --on-conflict overwrite -o very_good_docs_site_output
 
-      - name: ⚙️ Setup Node
-        uses: actions/setup-node@v7
-        with:
-          node-version: 22.x
-
       - name: 📦 Install Dependencies
-        run: |
-          cd very_good_docs_site_output
-          npm i
+        run: dart pub get --directory very_good_docs_site_output
 
-      - name: ✨ Check Format
-        run: |
-          cd very_good_docs_site_output
-          npm run format:check
+      - name: ✨ Check Formatting
+        run: dart format --set-exit-if-changed very_good_docs_site_output
 
-      - name: 🧹 Lint
+      - name: 🕵️ Analyze
+        run: dart analyze --fatal-infos --fatal-warnings very_good_docs_site_output
+
+      - name: 🧪 Run Tests
         run: |
           cd very_good_docs_site_output
-          npm run lint
+          very_good dart test -j 4 --optimization --min-coverage 100 --test-randomize-ordering-seed random
 
       - name: 👷 Build website
         run: |
           cd very_good_docs_site_output
-          npm run build
+          dart run jaspr_cli:jaspr build
+
+      # jaspr build regenerates the options files from the components in use,
+      # so the committed copies in the brick must match what it writes.
+      - name: 🔍 Verify Generated Files
+        run: |
+          for file in main.client.options.dart main.server.options.dart; do
+            diff very_good_docs_site/__brick__/lib/$file very_good_docs_site_output/lib/$file
+          done
