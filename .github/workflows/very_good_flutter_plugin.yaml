@@ -97,6 +97,8 @@ jobs:
           - { tool: integration_test, platform: web, runner: ubuntu-latest }
           - { tool: integration_test, platform: windows, runner: windows-latest, shell: pwsh }
           - { tool: integration_test, platform: linux, runner: ubuntu-latest }
+          - { tool: patrol, platform: android, runner: ubuntu-latest }
+          - { tool: patrol, platform: web, runner: ubuntu-latest }
 
     name: e2e (${{ matrix.tool }}, ${{ matrix.platform }}${{ matrix.target && format(' -> {0}', matrix.target) || '' }})
 
@@ -291,3 +293,50 @@ jobs:
       - name: E2E Tests
         if: matrix.tool == 'integration_test' && env.TARGET == 'linux'
         run: xvfb-run flutter test integration_test -d linux
+
+      # Patrol: mirrors the patrol_* jobs in
+      # very_good_flutter_plugin/__brick__/.github/workflows/{{project_name.snakeCase()}}.yaml
+      - name: Install Patrol CLI
+        if: matrix.tool == 'patrol'
+        run: flutter pub global activate patrol_cli
+
+      - name: Enable KVM
+        if: matrix.tool == 'patrol' && env.TARGET == 'android'
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD Cache
+        if: matrix.tool == 'patrol' && env.TARGET == 'android'
+        uses: actions/cache@v6
+        id: patrol-avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-29-x86_64
+
+      - name: Cache AVD Snapshot
+        if: matrix.tool == 'patrol' && env.TARGET == 'android' && steps.patrol-avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: E2E Tests
+        if: matrix.tool == 'patrol' && env.TARGET == 'android'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          script: patrol test -t patrol_test/app_test.dart -d emulator-5554
+          working-directory: ../e2e/very_good_flutter_plugin_output/example
+
+      - name: E2E Tests
+        if: matrix.tool == 'patrol' && env.TARGET == 'web'
+        run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless

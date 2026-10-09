@@ -341,3 +341,72 @@ jobs:
       - name: E2E Tests
         run: xvfb-run flutter test integration_test -d linux
 {{/linux}}
+{{#android}}
+  patrol_android:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Patrol CLI
+        run: flutter pub global activate patrol_cli
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD Cache
+        uses: actions/cache@v6
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-29-x86_64
+
+      - name: Cache AVD Snapshot
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: E2E Tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          script: patrol test -t patrol_test/app_test.dart -d emulator-5554
+          working-directory: {{project_name.snakeCase()}}/example
+{{/android}}
+{{#web}}
+  patrol_web:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Patrol CLI
+        run: flutter pub global activate patrol_cli
+
+      - name: E2E Tests
+        run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless
+{{/web}}
