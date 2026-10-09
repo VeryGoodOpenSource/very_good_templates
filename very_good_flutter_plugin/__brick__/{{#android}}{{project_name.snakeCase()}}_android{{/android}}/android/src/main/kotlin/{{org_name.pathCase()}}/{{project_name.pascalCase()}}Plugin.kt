@@ -17,6 +17,6 @@ class {{project_name.pascalCase()}}Plugin : FlutterPlugin, {{project_name.pascal
     }
 
     override suspend fun getPlatformName(): String? {
-        return "Android ${android.os.Build.VERSION.RELEASE}"
+        return "Android"
     }
 }
