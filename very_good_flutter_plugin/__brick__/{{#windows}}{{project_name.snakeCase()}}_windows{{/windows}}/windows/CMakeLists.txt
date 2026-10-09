@@ -7,6 +7,8 @@ set(PLUGIN_NAME "${PROJECT_NAME}_plugin")
 add_library(${PLUGIN_NAME} SHARED
   "{{project_name.snakeCase()}}_windows_plugin.cpp"
   "include/{{project_name.snakeCase()}}_windows/{{project_name.snakeCase()}}_windows.h"
+  "messages.g.cpp"
+  "messages.g.h"
 )
 apply_standard_settings(${PLUGIN_NAME})
 set_target_properties(${PLUGIN_NAME} PROPERTIES CXX_VISIBILITY_PRESET hidden)
