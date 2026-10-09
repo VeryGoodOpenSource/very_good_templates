@@ -127,10 +127,10 @@ jobs:
       # Fluttium: mirrors the jobs in
       # very_good_flutter_plugin/__brick__/.github/workflows/{{project_name.snakeCase()}}.yaml
       - if: matrix.tool == 'fluttium' && matrix.platform == 'android'
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v6
         with:
           distribution: "temurin"
-          java-version: "11"
+          java-version: "17"
 
       - name: Install Fluttium
         if: matrix.tool == 'fluttium'
@@ -145,7 +145,7 @@ jobs:
 
       - name: AVD Cache
         if: matrix.tool == 'fluttium' && matrix.platform == 'android'
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: avd-cache
         with:
           path: |
