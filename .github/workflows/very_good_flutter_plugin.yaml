@@ -168,7 +168,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: fluttium test flows/test_platform_name.yaml -d android
+          script: fluttium --verbose test flows/test_platform_name.yaml -d android
           working-directory: ../e2e/very_good_flutter_plugin_output/example
 
       - name: Start Simulator
