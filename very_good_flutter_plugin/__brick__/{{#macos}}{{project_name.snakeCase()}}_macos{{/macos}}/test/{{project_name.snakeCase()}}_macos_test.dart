@@ -11,7 +11,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group({{project_name.pascalCase()}}MacOS, () {
-    const kPlatformName = 'MacOS';
+    const kPlatformName = 'macOS';
     late {{project_name.pascalCase()}}MacOS {{project_name.camelCase()}};
     late {{project_name.pascalCase()}}Api api;
 
