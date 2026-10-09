@@ -40,7 +40,7 @@ class CheckPlatformName extends Action {
     if (_isAndroid()) return 'Android';
     if (_isIOS()) return 'iOS';
     if (_isLinux()) return 'Linux';
-    if (_isMacOS()) return 'MacOS';
+    if (_isMacOS()) return 'macOS';
     if (_isWindows()) return 'Windows';
     throw UnsupportedError('Unsupported platform ${Platform.operatingSystem}');
   }

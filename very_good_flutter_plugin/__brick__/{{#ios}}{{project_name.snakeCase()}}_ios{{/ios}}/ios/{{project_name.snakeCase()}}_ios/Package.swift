@@ -29,5 +29,6 @@ let package = Package(
                 // https://developer.apple.com/documentation/xcode/bundling-resources-with-a-swift-package
             ]
         )
-    ]
+    ],
+    swiftLanguageModes: [.v5]
 )

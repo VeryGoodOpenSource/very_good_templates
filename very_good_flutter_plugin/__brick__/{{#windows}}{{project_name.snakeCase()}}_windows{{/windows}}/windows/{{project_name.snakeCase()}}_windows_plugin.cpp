@@ -3,18 +3,23 @@
 // This must be included before many other Windows headers.
 #include <windows.h>
 
-#include <flutter/method_channel.h>
 #include <flutter/plugin_registrar_windows.h>
-#include <flutter/standard_method_codec.h>
 
-#include <map>
+#include <functional>
 #include <memory>
+#include <optional>
+#include <string>
+
+#include "messages.g.h"
 
 namespace {
 
-using flutter::EncodableValue;
+using {{project_name.snakeCase()}}::ErrorOr;
+using {{project_name.snakeCase()}}::{{project_name.pascalCase()}}Api;
 
-class {{project_name.pascalCase()}}Windows : public flutter::Plugin {
+class {{project_name.pascalCase()}}Windows
+    : public flutter::Plugin,
+      public {{project_name.pascalCase()}}Api {
  public:
   static void RegisterWithRegistrar(flutter::PluginRegistrarWindows *registrar);
 
@@ -22,27 +27,22 @@ class {{project_name.pascalCase()}}Windows : public flutter::Plugin {
 
   virtual ~{{project_name.pascalCase()}}Windows();
 
- private:
-  // Called when a method is called on this plugin's channel from Dart.
-  void HandleMethodCall(
-      const flutter::MethodCall<flutter::EncodableValue> &method_call,
-      std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result);
+  // Disallow copy and assign.
+  {{project_name.pascalCase()}}Windows(const {{project_name.pascalCase()}}Windows &) = delete;
+  {{project_name.pascalCase()}}Windows &operator=(const {{project_name.pascalCase()}}Windows &) = delete;
+
+  // {{project_name.pascalCase()}}Api:
+  void GetPlatformName(
+      std::function<void(ErrorOr<std::optional<std::string>> reply)> result)
+      override;
 };
 
 // static
 void {{project_name.pascalCase()}}Windows::RegisterWithRegistrar(
     flutter::PluginRegistrarWindows *registrar) {
-  auto channel =
-      std::make_unique<flutter::MethodChannel<flutter::EncodableValue>>(
-          registrar->messenger(), "{{project_name.snakeCase()}}_windows",
-          &flutter::StandardMethodCodec::GetInstance());
-
   auto plugin = std::make_unique<{{project_name.pascalCase()}}Windows>();
 
-  channel->SetMethodCallHandler(
-      [plugin_pointer = plugin.get()](const auto &call, auto result) {
-        plugin_pointer->HandleMethodCall(call, std::move(result));
-      });
+  {{project_name.pascalCase()}}Api::SetUp(registrar->messenger(), plugin.get());
 
   registrar->AddPlugin(std::move(plugin));
 }
@@ -51,15 +51,9 @@ void {{project_name.pascalCase()}}Windows::RegisterWithRegistrar(
 
 {{project_name.pascalCase()}}Windows::~{{project_name.pascalCase()}}Windows() {}
 
-void {{project_name.pascalCase()}}Windows::HandleMethodCall(
-    const flutter::MethodCall<flutter::EncodableValue> &method_call,
-    std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
-  if (method_call.method_name().compare("getPlatformName") == 0) {
-    result->Success(EncodableValue("Windows"));
-  }
-  else {
-    result->NotImplemented();
-  }
+void {{project_name.pascalCase()}}Windows::GetPlatformName(
+    std::function<void(ErrorOr<std::optional<std::string>> reply)> result) {
+  result(std::optional<std::string>("Windows"));
 }
 
 }  // namespace

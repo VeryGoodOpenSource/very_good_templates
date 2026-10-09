@@ -9,7 +9,7 @@ public class {{project_name.pascalCase()}}Plugin: NSObject, FlutterPlugin, {{pro
     registrar.publish(instance)
   }
 
-  func getPlatformName(completion: @escaping (Result<String?, Error>) -> Void) {
-    completion(.success("macOS"))
+  func getPlatformName() async throws -> String? {
+    return "macOS"
   }
 }
