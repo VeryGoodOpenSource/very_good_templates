@@ -47,3 +47,6 @@ app.*.map.json
 
 # Fluttium related files
 .fluttium_*_launcher.dart
+
+# Patrol related files
+**/test_bundle.dart

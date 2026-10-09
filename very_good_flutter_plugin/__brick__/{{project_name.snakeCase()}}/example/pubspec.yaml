@@ -25,7 +25,13 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
+  patrol: ^4.10.0
   very_good_analysis: ^11.0.0
 
 flutter:
   uses-material-design: true
+
+patrol:
+{{#android}}  android:
+    package_name: {{org_name.dotCase()}}.example
+{{/android}}
