@@ -261,7 +261,7 @@ jobs:
         run: |
           UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
           echo "$UDID"
-          xcrun simctl boot "${UDID:?No Simulator with this name found}"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
 
       - name: E2E Tests
         run: flutter test integration_test -d iPhone

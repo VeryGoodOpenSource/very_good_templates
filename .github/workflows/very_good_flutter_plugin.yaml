@@ -97,6 +97,9 @@ jobs:
 
     runs-on: ${{ matrix.runner }}
 
+    # Hung simulator or emulator sessions would otherwise run for 6 hours.
+    timeout-minutes: 45
+
     env:
       # The device the e2e tests run on. Differs from the brick platform only
       # for darwin, which generates one package for both iOS and macOS.
@@ -250,7 +253,7 @@ jobs:
         run: |
           UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
           echo "$UDID"
-          xcrun simctl boot "${UDID:?No Simulator with this name found}"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
 
       - name: E2E Tests
         if: matrix.tool == 'integration_test' && env.TARGET == 'ios'
