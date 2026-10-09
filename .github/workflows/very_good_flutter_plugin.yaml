@@ -89,10 +89,18 @@ jobs:
           - { tool: fluttium, platform: macos, runner: macos-latest }
           - { tool: fluttium, platform: web, runner: ubuntu-latest }
           - { tool: fluttium, platform: windows, runner: windows-latest, shell: pwsh }
+          - { tool: integration_test, platform: android, runner: ubuntu-latest }
+          - { tool: integration_test, platform: ios, runner: macos-latest }
+          - { tool: integration_test, platform: darwin, target: ios, runner: macos-latest }
 
-    name: e2e (${{ matrix.tool }}, ${{ matrix.platform }})
+    name: e2e (${{ matrix.tool }}, ${{ matrix.platform }}${{ matrix.target && format(' -> {0}', matrix.target) || '' }})
 
     runs-on: ${{ matrix.runner }}
+
+    env:
+      # The device the e2e tests run on. Differs from the brick platform only
+      # for darwin, which generates one package for both iOS and macOS.
+      TARGET: ${{ matrix.target || matrix.platform }}
 
     defaults:
       run:
@@ -196,3 +204,54 @@ jobs:
       - name: E2E Tests
         if: matrix.tool == 'fluttium' && matrix.platform == 'windows'
         run: fluttium test flows/test_platform_name.yaml -d windows
+
+      # integration_test: mirrors the integration_test_* jobs in
+      # very_good_flutter_plugin/__brick__/.github/workflows/{{project_name.snakeCase()}}.yaml
+      - name: Enable KVM
+        if: matrix.tool == 'integration_test' && env.TARGET == 'android'
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD Cache
+        if: matrix.tool == 'integration_test' && env.TARGET == 'android'
+        uses: actions/cache@v6
+        id: it-avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-29-x86_64
+
+      - name: Cache AVD Snapshot
+        if: matrix.tool == 'integration_test' && env.TARGET == 'android' && steps.it-avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: E2E Tests
+        if: matrix.tool == 'integration_test' && env.TARGET == 'android'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          script: flutter test integration_test -d emulator-5554
+          working-directory: ../e2e/very_good_flutter_plugin_output/example
+
+      - name: Start Simulator
+        if: matrix.tool == 'integration_test' && env.TARGET == 'ios'
+        # Start an iPhone simulator
+        run: |
+          UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
+          echo "$UDID"
+          xcrun simctl boot "${UDID:?No Simulator with this name found}"
+
+      - name: E2E Tests
+        if: matrix.tool == 'integration_test' && env.TARGET == 'ios'
+        run: flutter test integration_test -d iPhone
