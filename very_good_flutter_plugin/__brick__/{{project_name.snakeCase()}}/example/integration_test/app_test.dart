@@ -25,7 +25,7 @@ String expectedPlatformName() {
 {{/web}}{{#android}}  if (Platform.isAndroid) return 'Android';
 {{/android}}{{#supports_ios}}  if (Platform.isIOS) return 'iOS';
 {{/supports_ios}}{{#linux}}  if (Platform.isLinux) return 'Linux';
-{{/linux}}{{#supports_macos}}  if (Platform.isMacOS) return 'MacOS';
+{{/linux}}{{#supports_macos}}  if (Platform.isMacOS) return 'macOS';
 {{/supports_macos}}{{#windows}}  if (Platform.isWindows) return 'Windows';
 {{/windows}}  throw UnsupportedError('Unsupported platform ${Platform.operatingSystem}');
 }
