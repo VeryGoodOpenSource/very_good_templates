@@ -264,7 +264,7 @@ jobs:
 
       - name: E2E Tests
         if: matrix.tool == 'integration_test' && env.TARGET == 'ios'
-        run: flutter test integration_test -d iPhone
+        run: flutter test integration_test -d iPhone --verbose
 
       - name: E2E Tests
         if: matrix.tool == 'integration_test' && env.TARGET == 'macos'
@@ -339,4 +339,4 @@ jobs:
 
       - name: E2E Tests
         if: matrix.tool == 'patrol' && env.TARGET == 'web'
-        run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless
+        run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless --verbose
