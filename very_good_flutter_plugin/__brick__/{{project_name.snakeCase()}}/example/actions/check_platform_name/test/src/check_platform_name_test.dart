@@ -89,7 +89,7 @@ void main() {
           ),
         ),
         (
-          'MacOS',
+          'macOS',
           CheckPlatformName(
             isAndroid: isFalse,
             isIOS: isFalse,
