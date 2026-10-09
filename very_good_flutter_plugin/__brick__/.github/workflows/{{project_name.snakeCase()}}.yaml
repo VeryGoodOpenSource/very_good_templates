@@ -266,3 +266,77 @@ jobs:
       - name: E2E Tests
         run: flutter test integration_test -d iPhone
 {{/supports_ios}}
+{{#supports_macos}}
+  integration_test_macos:
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: E2E Tests
+        run: flutter test integration_test -d macos
+{{/supports_macos}}
+{{#web}}
+  integration_test_web:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Start ChromeDriver
+        # Uses the ChromeDriver that matches the runner's preinstalled Chrome.
+        run: |
+          "$CHROMEWEBDRIVER/chromedriver" --port=4444 &
+
+      - name: E2E Tests
+        run: flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server
+{{/web}}
+{{#windows}}
+  integration_test_windows:
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: E2E Tests
+        run: flutter test integration_test -d windows
+{{/windows}}
+{{#linux}}
+  integration_test_linux:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev liblzma-dev
+
+      - name: E2E Tests
+        run: xvfb-run flutter test integration_test -d linux
+{{/linux}}
