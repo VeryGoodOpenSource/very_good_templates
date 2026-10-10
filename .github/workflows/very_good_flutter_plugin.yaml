@@ -374,3 +374,11 @@ jobs:
       - name: E2E Tests
         if: matrix.tool == 'maestro' && env.TARGET == 'web'
         run: maestro test --headless .maestro/test_platform_name_web.yaml
+
+      - name: "harness: Upload Maestro debug output"
+        if: failure() && matrix.tool == 'maestro'
+        uses: actions/upload-artifact@v7
+        with:
+          name: maestro-debug-${{ matrix.platform }}-${{ env.TARGET }}-${{ github.run_attempt }}
+          path: ~/.maestro/tests/
+          if-no-files-found: ignore
