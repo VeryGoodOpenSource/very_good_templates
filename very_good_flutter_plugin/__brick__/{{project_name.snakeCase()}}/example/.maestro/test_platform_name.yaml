@@ -2,5 +2,8 @@
 appId: ${APP_ID}
 ---
 - launchApp
-- tapOn: "Get Platform Name"
+# Retry if the first tap lands before the debug build is ready for input.
+- tapOn:
+    text: "Get Platform Name"
+    retryTapIfNoChange: true
 - assertVisible: "Platform Name: ${PLATFORM_NAME}"
