@@ -360,4 +360,4 @@ jobs:
 
       - name: E2E Tests
         if: matrix.tool == 'patrol' && env.TARGET == 'macos'
-        run: patrol test -t patrol_test/app_test.dart -d macos
+        run: patrol test -t patrol_test/app_test.dart -d macos --verbose
