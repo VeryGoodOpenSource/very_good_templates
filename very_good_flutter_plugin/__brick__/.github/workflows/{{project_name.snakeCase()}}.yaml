@@ -411,3 +411,30 @@ jobs:
         # The runner's default browser locale is rejected by the Flutter web engine.
         run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless --web-locale en-US
 {{/web}}
+{{#supports_ios}}
+  patrol_ios:
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Patrol CLI
+        run: flutter pub global activate patrol_cli
+
+      - name: Start Simulator
+        # Start an iPhone simulator
+        run: |
+          UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
+          echo "$UDID"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
+          echo "SIMULATOR_UDID=$UDID" >> "$GITHUB_ENV"
+
+      - name: E2E Tests
+        run: patrol test -t patrol_test/app_test.dart -d "$SIMULATOR_UDID"
+{{/supports_ios}}

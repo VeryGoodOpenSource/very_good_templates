@@ -99,6 +99,8 @@ jobs:
           - { tool: integration_test, platform: linux, runner: ubuntu-latest }
           - { tool: patrol, platform: android, runner: ubuntu-latest }
           - { tool: patrol, platform: web, runner: ubuntu-latest }
+          - { tool: patrol, platform: ios, runner: macos-latest }
+          - { tool: patrol, platform: darwin, target: ios, runner: macos-latest }
 
     name: e2e (${{ matrix.tool }}, ${{ matrix.platform }}${{ matrix.target && format(' -> {0}', matrix.target) || '' }})
 
@@ -340,3 +342,16 @@ jobs:
       - name: E2E Tests
         if: matrix.tool == 'patrol' && env.TARGET == 'web'
         run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless --web-locale en-US
+
+      - name: Start Simulator
+        if: matrix.tool == 'patrol' && env.TARGET == 'ios'
+        # Start an iPhone simulator
+        run: |
+          UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
+          echo "$UDID"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
+          echo "SIMULATOR_UDID=$UDID" >> "$GITHUB_ENV"
+
+      - name: E2E Tests
+        if: matrix.tool == 'patrol' && env.TARGET == 'ios'
+        run: patrol test -t patrol_test/app_test.dart -d "$SIMULATOR_UDID"
