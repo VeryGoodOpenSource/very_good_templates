@@ -339,4 +339,4 @@ jobs:
 
       - name: E2E Tests
         if: matrix.tool == 'patrol' && env.TARGET == 'web'
-        run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless --verbose
+        run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless --web-locale en-US

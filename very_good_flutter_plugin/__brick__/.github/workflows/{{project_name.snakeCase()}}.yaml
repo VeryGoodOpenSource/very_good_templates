@@ -408,5 +408,6 @@ jobs:
         run: flutter pub global activate patrol_cli
 
       - name: E2E Tests
-        run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless
+        # The runner's default browser locale is rejected by the Flutter web engine.
+        run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless --web-locale en-US
 {{/web}}
