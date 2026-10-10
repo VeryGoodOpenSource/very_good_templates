@@ -103,6 +103,9 @@ jobs:
           - { tool: patrol, platform: darwin, target: ios, runner: macos-latest }
           - { tool: patrol, platform: macos, runner: macos-latest }
           - { tool: patrol, platform: darwin, target: macos, runner: macos-latest }
+          - { tool: maestro, platform: android, runner: ubuntu-latest }
+          - { tool: maestro, platform: ios, runner: macos-latest }
+          - { tool: maestro, platform: darwin, target: ios, runner: macos-latest }
 
     name: e2e (${{ matrix.tool }}, ${{ matrix.platform }}${{ matrix.target && format(' -> {0}', matrix.target) || '' }})
 
@@ -360,4 +363,75 @@ jobs:
 
       - name: E2E Tests
         if: matrix.tool == 'patrol' && env.TARGET == 'macos'
-        run: patrol test -t patrol_test/app_test.dart -d macos --verbose
+        run: patrol test -t patrol_test/app_test.dart -d macos
+
+      # Maestro: mirrors the maestro_* jobs in
+      # very_good_flutter_plugin/__brick__/.github/workflows/{{project_name.snakeCase()}}.yaml
+      # The org_name in very_good_flutter_plugin/config.json is very_good_ventures.
+      - name: Install Maestro CLI
+        if: matrix.tool == 'maestro'
+        run: |
+          curl -fsSL "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+
+      - name: Build App
+        if: matrix.tool == 'maestro' && env.TARGET == 'android'
+        run: flutter build apk --debug
+
+      - name: Enable KVM
+        if: matrix.tool == 'maestro' && env.TARGET == 'android'
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD Cache
+        if: matrix.tool == 'maestro' && env.TARGET == 'android'
+        uses: actions/cache@v6
+        id: maestro-avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-29-x86_64
+
+      - name: Cache AVD Snapshot
+        if: matrix.tool == 'maestro' && env.TARGET == 'android' && steps.maestro-avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: E2E Tests
+        if: matrix.tool == 'maestro' && env.TARGET == 'android'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          script: |
+            adb install build/app/outputs/flutter-apk/app-debug.apk
+            maestro test .maestro/test_platform_name.yaml -e APP_ID=very.good.ventures.example -e PLATFORM_NAME=Android
+          working-directory: ../e2e/very_good_flutter_plugin_output/example
+
+      - name: Build App
+        if: matrix.tool == 'maestro' && env.TARGET == 'ios'
+        run: flutter build ios --simulator --debug
+
+      - name: Start Simulator
+        if: matrix.tool == 'maestro' && env.TARGET == 'ios'
+        # Start an iPhone simulator
+        run: |
+          UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
+          echo "$UDID"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
+          echo "SIMULATOR_UDID=$UDID" >> "$GITHUB_ENV"
+
+      - name: E2E Tests
+        if: matrix.tool == 'maestro' && env.TARGET == 'ios'
+        run: |
+          xcrun simctl install "$SIMULATOR_UDID" build/ios/iphonesimulator/Runner.app
+          maestro --device "$SIMULATOR_UDID" test .maestro/test_platform_name.yaml -e APP_ID=very.good.ventures -e PLATFORM_NAME=iOS
