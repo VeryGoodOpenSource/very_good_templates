@@ -34,4 +34,6 @@ flutter:
 patrol:
 {{#android}}  android:
     package_name: {{org_name.dotCase()}}.example
-{{/android}}
+{{/android}}{{#supports_ios}}  ios:
+    bundle_id: {{org_name.dotCase()}}
+{{/supports_ios}}
