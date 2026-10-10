@@ -106,6 +106,7 @@ jobs:
           - { tool: maestro, platform: android, runner: ubuntu-latest }
           - { tool: maestro, platform: ios, runner: macos-latest }
           - { tool: maestro, platform: darwin, target: ios, runner: macos-latest }
+          - { tool: maestro, platform: web, runner: ubuntu-latest }
 
     name: e2e (${{ matrix.tool }}, ${{ matrix.platform }}${{ matrix.target && format(' -> {0}', matrix.target) || '' }})
 
@@ -435,3 +436,16 @@ jobs:
         run: |
           xcrun simctl install "$SIMULATOR_UDID" build/ios/iphonesimulator/Runner.app
           maestro --device "$SIMULATOR_UDID" test .maestro/test_platform_name.yaml -e APP_ID=very.good.ventures -e PLATFORM_NAME=iOS
+
+      - name: Build App
+        if: matrix.tool == 'maestro' && env.TARGET == 'web'
+        run: flutter build web
+
+      - name: Serve App
+        if: matrix.tool == 'maestro' && env.TARGET == 'web'
+        run: |
+          python3 -m http.server 8080 --directory build/web &
+
+      - name: E2E Tests
+        if: matrix.tool == 'maestro' && env.TARGET == 'web'
+        run: maestro test --headless .maestro/test_platform_name_web.yaml

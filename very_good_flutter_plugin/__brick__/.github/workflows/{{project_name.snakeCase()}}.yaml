@@ -548,3 +548,31 @@ jobs:
           xcrun simctl install "$SIMULATOR_UDID" build/ios/iphonesimulator/Runner.app
           maestro --device "$SIMULATOR_UDID" test .maestro/test_platform_name.yaml -e APP_ID={{org_name.dotCase()}} -e PLATFORM_NAME=iOS
 {{/supports_ios}}
+{{#web}}
+  maestro_web:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Maestro CLI
+        run: |
+          curl -fsSL "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+
+      - name: Build App
+        run: flutter build web
+
+      - name: Serve App
+        run: |
+          python3 -m http.server 8080 --directory build/web &
+
+      - name: E2E Tests
+        run: maestro test --headless .maestro/test_platform_name_web.yaml
+{{/web}}
