@@ -438,3 +438,22 @@ jobs:
       - name: E2E Tests
         run: patrol test -t patrol_test/app_test.dart -d "$SIMULATOR_UDID"
 {{/supports_ios}}
+{{#supports_macos}}
+  patrol_macos:
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Patrol CLI
+        run: flutter pub global activate patrol_cli
+
+      - name: E2E Tests
+        run: patrol test -t patrol_test/app_test.dart -d macos
+{{/supports_macos}}

@@ -101,6 +101,8 @@ jobs:
           - { tool: patrol, platform: web, runner: ubuntu-latest }
           - { tool: patrol, platform: ios, runner: macos-latest }
           - { tool: patrol, platform: darwin, target: ios, runner: macos-latest }
+          - { tool: patrol, platform: macos, runner: macos-latest }
+          - { tool: patrol, platform: darwin, target: macos, runner: macos-latest }
 
     name: e2e (${{ matrix.tool }}, ${{ matrix.platform }}${{ matrix.target && format(' -> {0}', matrix.target) || '' }})
 
@@ -355,3 +357,7 @@ jobs:
       - name: E2E Tests
         if: matrix.tool == 'patrol' && env.TARGET == 'ios'
         run: patrol test -t patrol_test/app_test.dart -d "$SIMULATOR_UDID"
+
+      - name: E2E Tests
+        if: matrix.tool == 'patrol' && env.TARGET == 'macos'
+        run: patrol test -t patrol_test/app_test.dart -d macos
