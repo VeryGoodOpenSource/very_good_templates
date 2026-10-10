@@ -1,0 +1,7 @@
+# Serve the web build on port 8080, then run with:
+# maestro test --headless .maestro/test_platform_name_web.yaml
+url: http://localhost:8080
+---
+- launchApp
+- tapOn: "Get Platform Name"
+- assertVisible: "Platform Name: Web"

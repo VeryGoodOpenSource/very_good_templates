@@ -1,8 +1,17 @@
-import 'package:material_ui/material_ui.dart';
+{{#web}}import 'package:flutter/foundation.dart';
+import 'package:flutter/semantics.dart';
+{{/web}}import 'package:material_ui/material_ui.dart';
 import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 
-void main() => runApp(const MyApp());
-
+{{#web}}void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Maestro finds widgets on the web through the semantics tree, which
+  // Flutter web only builds when requested.
+  if (kIsWeb) SemanticsBinding.instance.ensureSemantics();
+  runApp(const MyApp());
+}
+{{/web}}{{^web}}void main() => runApp(const MyApp());
+{{/web}}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
