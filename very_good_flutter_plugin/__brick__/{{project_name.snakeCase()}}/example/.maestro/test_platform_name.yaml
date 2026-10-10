@@ -1,0 +1,9 @@
+# Run with: maestro test .maestro/test_platform_name.yaml -e APP_ID=<app id> -e PLATFORM_NAME=<platform>
+appId: ${APP_ID}
+---
+- launchApp
+# Retry if the first tap lands before the debug build is ready for input.
+- tapOn:
+    text: "Get Platform Name"
+    retryTapIfNoChange: true
+- assertVisible: "Platform Name: ${PLATFORM_NAME}"

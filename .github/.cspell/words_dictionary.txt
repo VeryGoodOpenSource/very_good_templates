@@ -39,3 +39,8 @@ codesign # Apple's code signing, as in the --no-codesign flag.
 hola # part of translations example
 mundo # part of translations example
 saludo # part of translations example
+myplugin # Placeholder plugin name used in example bundle identifiers.
+chromedriver # WebDriver for Chrome, used to run Flutter web integration tests.
+iphonesimulator # Xcode SDK name for the iOS simulator.
+simctl # Xcode command line tool to control simulators.
+xcrun # Xcode command line tool runner.

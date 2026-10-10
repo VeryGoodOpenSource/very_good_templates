@@ -73,3 +73,312 @@ jobs:
         run: |
           cd $OUTPUT
           very_good test -r --coverage --test-randomize-ordering-seed random --exclude-coverage '**/*.g.dart **/*.gen.dart' --collect-coverage-from=all
+
+  # Temporary harness for the Fluttium replacement spike (issue #484).
+  # Generates the plugin for one platform into a directory next to the
+  # checkout, matching the layout of a generated repository, then runs the
+  # same e2e steps as the generated workflow. Steps prefixed with "harness:" exist only here and
+  # are excluded from timing comparisons.
+  e2e:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { tool: integration_test, platform: android, runner: ubuntu-latest }
+          - { tool: integration_test, platform: ios, runner: macos-latest }
+          - { tool: integration_test, platform: darwin, target: ios, runner: macos-latest }
+          - { tool: integration_test, platform: macos, runner: macos-latest }
+          - { tool: integration_test, platform: darwin, target: macos, runner: macos-latest }
+          - { tool: integration_test, platform: web, runner: ubuntu-latest }
+          - { tool: integration_test, platform: windows, runner: windows-latest, shell: pwsh }
+          - { tool: integration_test, platform: linux, runner: ubuntu-latest }
+          - { tool: patrol, platform: android, runner: ubuntu-latest }
+          - { tool: patrol, platform: web, runner: ubuntu-latest }
+          - { tool: patrol, platform: ios, runner: macos-latest }
+          - { tool: patrol, platform: darwin, target: ios, runner: macos-latest }
+          - { tool: patrol, platform: macos, runner: macos-latest }
+          - { tool: patrol, platform: darwin, target: macos, runner: macos-latest }
+          - { tool: maestro, platform: android, runner: ubuntu-latest }
+          - { tool: maestro, platform: ios, runner: macos-latest }
+          - { tool: maestro, platform: darwin, target: ios, runner: macos-latest }
+          - { tool: maestro, platform: web, runner: ubuntu-latest }
+
+    name: e2e (${{ matrix.tool }}, ${{ matrix.platform }}${{ matrix.target && format(' -> {0}', matrix.target) || '' }})
+
+    runs-on: ${{ matrix.runner }}
+
+    # Hung simulator or emulator sessions would otherwise run for 6 hours.
+    timeout-minutes: 45
+
+    env:
+      # The device the e2e tests run on. Differs from the brick platform only
+      # for darwin, which generates one package for both iOS and macOS.
+      TARGET: ${{ matrix.target || matrix.platform }}
+
+    defaults:
+      run:
+        # The generated Windows jobs use the default pwsh shell, which also
+        # resolves the .bat shims pub creates for global executables.
+        shell: ${{ matrix.shell || 'bash' }}
+        working-directory: ../e2e/very_good_flutter_plugin_output/example
+
+    steps:
+      - name: "harness: Enable long paths"
+        if: runner.os == 'Windows'
+        run: git config --system core.longpaths true
+        working-directory: .
+
+      - name: "harness: Git Checkout"
+        uses: actions/checkout@v7
+
+      - name: "harness: Setup Flutter"
+        uses: subosito/flutter-action@v2.23.0
+        with:
+          cache: true
+          flutter-version: "3.47.x"
+
+      - name: "harness: Mason Make"
+        working-directory: very_good_flutter_plugin/
+        run: |
+          dart pub global activate mason_cli 0.1.3
+          dart pub global activate very_good_cli 1.1.1
+          mason get
+          mason make very_good_flutter_plugin -c config.json --on-conflict overwrite --platforms ${{ matrix.platform }} -o ../../e2e
+
+      # integration_test: mirrors the integration_test_* jobs in
+      # very_good_flutter_plugin/__brick__/.github/workflows/{{project_name.snakeCase()}}.yaml
+      - name: Enable KVM
+        if: matrix.tool == 'integration_test' && env.TARGET == 'android'
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD Cache
+        if: matrix.tool == 'integration_test' && env.TARGET == 'android'
+        uses: actions/cache@v6
+        id: it-avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-29-x86_64
+
+      - name: Cache AVD Snapshot
+        if: matrix.tool == 'integration_test' && env.TARGET == 'android' && steps.it-avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: E2E Tests
+        if: matrix.tool == 'integration_test' && env.TARGET == 'android'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          script: flutter test integration_test -d emulator-5554
+          working-directory: ../e2e/very_good_flutter_plugin_output/example
+
+      - name: Start Simulator
+        if: matrix.tool == 'integration_test' && env.TARGET == 'ios'
+        # Start an iPhone simulator
+        run: |
+          UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
+          echo "$UDID"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
+
+      - name: E2E Tests
+        if: matrix.tool == 'integration_test' && env.TARGET == 'ios'
+        run: flutter test integration_test -d iPhone
+
+      - name: E2E Tests
+        if: matrix.tool == 'integration_test' && env.TARGET == 'macos'
+        run: flutter test integration_test -d macos
+
+      - name: Start ChromeDriver
+        if: matrix.tool == 'integration_test' && env.TARGET == 'web'
+        # Uses the ChromeDriver that matches the runner's preinstalled Chrome.
+        run: |
+          "$CHROMEWEBDRIVER/chromedriver" --port=4444 &
+
+      - name: E2E Tests
+        if: matrix.tool == 'integration_test' && env.TARGET == 'web'
+        run: flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server
+
+      - name: E2E Tests
+        if: matrix.tool == 'integration_test' && env.TARGET == 'windows'
+        run: flutter test integration_test -d windows
+
+      - name: Install Dependencies
+        if: matrix.tool == 'integration_test' && env.TARGET == 'linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev libstdc++-12-dev
+
+      - name: E2E Tests
+        if: matrix.tool == 'integration_test' && env.TARGET == 'linux'
+        run: xvfb-run flutter test integration_test -d linux
+
+      # Patrol: mirrors the patrol_* jobs in
+      # very_good_flutter_plugin/__brick__/.github/workflows/{{project_name.snakeCase()}}.yaml
+      - name: Install Patrol CLI
+        if: matrix.tool == 'patrol'
+        run: flutter pub global activate patrol_cli
+
+      - name: Enable KVM
+        if: matrix.tool == 'patrol' && env.TARGET == 'android'
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD Cache
+        if: matrix.tool == 'patrol' && env.TARGET == 'android'
+        uses: actions/cache@v6
+        id: patrol-avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-29-x86_64
+
+      - name: Cache AVD Snapshot
+        if: matrix.tool == 'patrol' && env.TARGET == 'android' && steps.patrol-avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: E2E Tests
+        if: matrix.tool == 'patrol' && env.TARGET == 'android'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          script: patrol test -t patrol_test/app_test.dart -d emulator-5554
+          working-directory: ../e2e/very_good_flutter_plugin_output/example
+
+      - name: E2E Tests
+        if: matrix.tool == 'patrol' && env.TARGET == 'web'
+        run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless --web-locale en-US
+
+      - name: Start Simulator
+        if: matrix.tool == 'patrol' && env.TARGET == 'ios'
+        # Start an iPhone simulator
+        run: |
+          UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
+          echo "$UDID"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
+          echo "SIMULATOR_UDID=$UDID" >> "$GITHUB_ENV"
+
+      - name: E2E Tests
+        if: matrix.tool == 'patrol' && env.TARGET == 'ios'
+        run: patrol test -t patrol_test/app_test.dart -d "$SIMULATOR_UDID"
+
+      - name: E2E Tests
+        if: matrix.tool == 'patrol' && env.TARGET == 'macos'
+        run: patrol test -t patrol_test/app_test.dart -d macos
+
+      # Maestro: mirrors the maestro_* jobs in
+      # very_good_flutter_plugin/__brick__/.github/workflows/{{project_name.snakeCase()}}.yaml
+      # The org_name in very_good_flutter_plugin/config.json is very_good_ventures.
+      - name: Install Maestro CLI
+        if: matrix.tool == 'maestro'
+        run: |
+          curl -fsSL "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+
+      - name: Build App
+        if: matrix.tool == 'maestro' && env.TARGET == 'android'
+        run: flutter build apk --debug
+
+      - name: Enable KVM
+        if: matrix.tool == 'maestro' && env.TARGET == 'android'
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD Cache
+        if: matrix.tool == 'maestro' && env.TARGET == 'android'
+        uses: actions/cache@v6
+        id: maestro-avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-29-x86_64
+
+      - name: Cache AVD Snapshot
+        if: matrix.tool == 'maestro' && env.TARGET == 'android' && steps.maestro-avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: E2E Tests
+        if: matrix.tool == 'maestro' && env.TARGET == 'android'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          script: |
+            adb install build/app/outputs/flutter-apk/app-debug.apk
+            maestro test .maestro/test_platform_name.yaml -e APP_ID=very.good.ventures.example -e PLATFORM_NAME=Android
+          working-directory: ../e2e/very_good_flutter_plugin_output/example
+
+      - name: Build App
+        if: matrix.tool == 'maestro' && env.TARGET == 'ios'
+        run: flutter build ios --simulator --debug
+
+      - name: Start Simulator
+        if: matrix.tool == 'maestro' && env.TARGET == 'ios'
+        # Start an iPhone simulator
+        run: |
+          UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
+          echo "$UDID"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
+          echo "SIMULATOR_UDID=$UDID" >> "$GITHUB_ENV"
+
+      - name: E2E Tests
+        if: matrix.tool == 'maestro' && env.TARGET == 'ios'
+        env:
+          # Hosted macOS runners can take longer than the 2 minute default.
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: 180000
+        run: |
+          xcrun simctl install "$SIMULATOR_UDID" build/ios/iphonesimulator/Runner.app
+          maestro --device "$SIMULATOR_UDID" test .maestro/test_platform_name.yaml -e APP_ID=very.good.ventures -e PLATFORM_NAME=iOS
+
+      - name: Build App
+        if: matrix.tool == 'maestro' && env.TARGET == 'web'
+        run: flutter build web
+
+      - name: Serve App
+        if: matrix.tool == 'maestro' && env.TARGET == 'web'
+        run: |
+          python3 -m http.server 8080 --directory build/web &
+
+      - name: E2E Tests
+        if: matrix.tool == 'maestro' && env.TARGET == 'web'
+        run: maestro test --headless .maestro/test_platform_name_web.yaml
+
+      - name: "harness: Upload Maestro debug output"
+        if: failure() && matrix.tool == 'maestro'
+        uses: actions/upload-artifact@v7
+        with:
+          name: maestro-debug-${{ matrix.platform }}-${{ env.TARGET }}-${{ github.run_attempt }}
+          path: ~/.maestro/tests/
+          if-no-files-found: ignore

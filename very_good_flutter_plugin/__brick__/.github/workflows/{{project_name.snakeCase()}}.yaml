@@ -36,39 +36,39 @@ jobs:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/pana.yml@v1
 {{/publishable}}
 {{#android}}
-  android:
-    runs-on: macos-latest
+  integration_test_android:
+    runs-on: ubuntu-latest
 
     defaults:
       run:
         working-directory: {{project_name.snakeCase()}}/example
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v3
-        with:
-          distribution: "temurin"
-          java-version: "11"
+      - uses: actions/checkout@v7
 
       - uses: subosito/flutter-action@v2
 
-      - name: Install Fluttium
-        run: flutter pub global activate fluttium_cli
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
 
       - name: AVD Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: avd-cache
         with:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-29
+          key: avd-29-x86_64
 
       - name: Cache AVD Snapshot
         if: steps.avd-cache.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
+          arch: x86_64
           force-avd-creation: false
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: false
@@ -78,11 +78,12 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: fluttium test flows/test_platform_name.yaml -d android
+          arch: x86_64
+          script: flutter test integration_test -d emulator-5554
           working-directory: {{project_name.snakeCase()}}/example
 {{/android}}
-{{#ios}}
-  ios:
+{{#supports_ios}}
+  integration_test_ios:
     runs-on: macos-latest
 
     defaults:
@@ -90,68 +91,97 @@ jobs:
         working-directory: {{project_name.snakeCase()}}/example
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: subosito/flutter-action@v2
-
-      - name: Install Fluttium
-        run: flutter pub global activate fluttium_cli
 
       - name: Start Simulator
         # Start an iPhone simulator
         run: |
           UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
-          echo $UDID
-          xcrun simctl boot "${UDID:?No Simulator with this name found}"
+          echo "$UDID"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
 
       - name: E2E Tests
-        run: fluttium test flows/test_platform_name.yaml -d iPhone
-{{/ios}}
-{{#linux}}
-  linux:
-    runs-on: ubuntu-latest
-    if: false # todo(renancaraujo): https://github.com/wolfenrain/fluttium/issues/345
+        run: flutter test integration_test -d iPhone
+{{/supports_ios}}
+{{#supports_macos}}
+  integration_test_macos:
+    runs-on: macos-latest
+
     defaults:
       run:
         working-directory: {{project_name.snakeCase()}}/example
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: E2E Tests
+        run: flutter test integration_test -d macos
+{{/supports_macos}}
+{{#web}}
+  integration_test_web:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Start ChromeDriver
+        # Uses the ChromeDriver that matches the runner's preinstalled Chrome.
+        run: |
+          "$CHROMEWEBDRIVER/chromedriver" --port=4444 &
+
+      - name: E2E Tests
+        run: flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server
+{{/web}}
+{{#windows}}
+  integration_test_windows:
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: E2E Tests
+        run: flutter test integration_test -d windows
+{{/windows}}
+{{#linux}}
+  integration_test_linux:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
 
       - uses: subosito/flutter-action@v2
 
       - name: Install Dependencies
+        # https://docs.flutter.dev/platform-integration/linux/setup
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev liblzma-dev
-
-      - name: Install Fluttium
-        run: flutter pub global activate fluttium_cli
+          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev libstdc++-12-dev
 
       - name: E2E Tests
-        run: xvfb-run fluttium test flows/test_platform_name.yaml -d linux
+        run: xvfb-run flutter test integration_test -d linux
 {{/linux}}
-{{#macos}}
-  macos:
-    runs-on: macos-13
-
-    defaults:
-      run:
-        working-directory: {{project_name.snakeCase()}}/example
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: subosito/flutter-action@v2
-
-      - name: Install Fluttium
-        run: flutter pub global activate fluttium_cli
-
-      - name: E2E Tests
-        run: fluttium test flows/test_platform_name.yaml -d macos
-{{/macos}}
-{{#web}}
-  web:
+{{#android}}
+  patrol_android:
     runs-on: ubuntu-latest
 
     defaults:
@@ -159,32 +189,232 @@ jobs:
         working-directory: {{project_name.snakeCase()}}/example
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: subosito/flutter-action@v2
 
-      - name: Install Fluttium
-        run: flutter pub global activate fluttium_cli
+      - name: Install Patrol CLI
+        run: flutter pub global activate patrol_cli
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD Cache
+        uses: actions/cache@v6
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-29-x86_64
+
+      - name: Cache AVD Snapshot
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
 
       - name: E2E Tests
-        run: xvfb-run fluttium test flows/test_platform_name.yaml -d chrome
-{{/web}}
-{{#windows}}
-  windows:
-    runs-on: windows-2019
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          script: patrol test -t patrol_test/app_test.dart -d emulator-5554
+          working-directory: {{project_name.snakeCase()}}/example
+{{/android}}
+{{#web}}
+  patrol_web:
+    runs-on: ubuntu-latest
 
     defaults:
       run:
         working-directory: {{project_name.snakeCase()}}/example
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: subosito/flutter-action@v2
 
-      - name: Install Fluttium
-        run: flutter pub global activate fluttium_cli
+      - name: Install Patrol CLI
+        run: flutter pub global activate patrol_cli
 
       - name: E2E Tests
-        run: fluttium test flows/test_platform_name.yaml -d windows
-{{/windows}}
+        # The runner's default browser locale is rejected by the Flutter web engine.
+        run: patrol test -t patrol_test/app_test.dart -d chrome --web-headless --web-locale en-US
+{{/web}}
+{{#supports_ios}}
+  patrol_ios:
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Patrol CLI
+        run: flutter pub global activate patrol_cli
+
+      - name: Start Simulator
+        # Start an iPhone simulator
+        run: |
+          UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
+          echo "$UDID"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
+          echo "SIMULATOR_UDID=$UDID" >> "$GITHUB_ENV"
+
+      - name: E2E Tests
+        run: patrol test -t patrol_test/app_test.dart -d "$SIMULATOR_UDID"
+{{/supports_ios}}
+{{#supports_macos}}
+  patrol_macos:
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Patrol CLI
+        run: flutter pub global activate patrol_cli
+
+      - name: E2E Tests
+        run: patrol test -t patrol_test/app_test.dart -d macos
+{{/supports_macos}}
+{{#android}}
+  maestro_android:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Maestro CLI
+        run: |
+          curl -fsSL "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+
+      - name: Build App
+        run: flutter build apk --debug
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD Cache
+        uses: actions/cache@v6
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-29-x86_64
+
+      - name: Cache AVD Snapshot
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: E2E Tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          script: |
+            adb install build/app/outputs/flutter-apk/app-debug.apk
+            maestro test .maestro/test_platform_name.yaml -e APP_ID={{org_name.dotCase()}}.example -e PLATFORM_NAME=Android
+          working-directory: {{project_name.snakeCase()}}/example
+{{/android}}
+{{#supports_ios}}
+  maestro_ios:
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Maestro CLI
+        run: |
+          curl -fsSL "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+
+      - name: Build App
+        run: flutter build ios --simulator --debug
+
+      - name: Start Simulator
+        # Start an iPhone simulator
+        run: |
+          UDID=$(xcrun xctrace list devices | grep "^iPhone" | awk '{gsub(/[()]/,""); print $NF}' | head -n 1)
+          echo "$UDID"
+          xcrun simctl bootstatus "${UDID:?No Simulator with this name found}" -b
+          echo "SIMULATOR_UDID=$UDID" >> "$GITHUB_ENV"
+
+      - name: E2E Tests
+        env:
+          # Hosted macOS runners can take longer than the 2 minute default.
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: 180000
+        run: |
+          xcrun simctl install "$SIMULATOR_UDID" build/ios/iphonesimulator/Runner.app
+          maestro --device "$SIMULATOR_UDID" test .maestro/test_platform_name.yaml -e APP_ID={{org_name.dotCase()}} -e PLATFORM_NAME=iOS
+{{/supports_ios}}
+{{#web}}
+  maestro_web:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: {{project_name.snakeCase()}}/example
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Install Maestro CLI
+        run: |
+          curl -fsSL "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+
+      - name: Build App
+        run: flutter build web
+
+      - name: Serve App
+        run: |
+          python3 -m http.server 8080 --directory build/web &
+
+      - name: E2E Tests
+        run: maestro test --headless .maestro/test_platform_name_web.yaml
+{{/web}}
