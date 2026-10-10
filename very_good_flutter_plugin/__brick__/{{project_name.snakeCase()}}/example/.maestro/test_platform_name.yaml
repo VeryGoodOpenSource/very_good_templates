@@ -1,0 +1,6 @@
+# Run with: maestro test .maestro/test_platform_name.yaml -e APP_ID=<app id> -e PLATFORM_NAME=<platform>
+appId: ${APP_ID}
+---
+- launchApp
+- tapOn: "Get Platform Name"
+- assertVisible: "Platform Name: ${PLATFORM_NAME}"
