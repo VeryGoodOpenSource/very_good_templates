@@ -16,6 +16,9 @@
   ],
   "useGitignore": true,
   "words": [
-    "fluttium"
+    "chromedriver",
+    "iphonesimulator",
+    "simctl",
+    "xcrun"
   ]
 }
