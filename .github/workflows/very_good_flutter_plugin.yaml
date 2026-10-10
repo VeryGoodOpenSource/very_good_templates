@@ -433,6 +433,9 @@ jobs:
 
       - name: E2E Tests
         if: matrix.tool == 'maestro' && env.TARGET == 'ios'
+        env:
+          # Hosted macOS runners can take longer than the 2 minute default.
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: 180000
         run: |
           xcrun simctl install "$SIMULATOR_UDID" build/ios/iphonesimulator/Runner.app
           maestro --device "$SIMULATOR_UDID" test .maestro/test_platform_name.yaml -e APP_ID=very.good.ventures -e PLATFORM_NAME=iOS

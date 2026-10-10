@@ -544,6 +544,9 @@ jobs:
           echo "SIMULATOR_UDID=$UDID" >> "$GITHUB_ENV"
 
       - name: E2E Tests
+        env:
+          # Hosted macOS runners can take longer than the 2 minute default.
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: 180000
         run: |
           xcrun simctl install "$SIMULATOR_UDID" build/ios/iphonesimulator/Runner.app
           maestro --device "$SIMULATOR_UDID" test .maestro/test_platform_name.yaml -e APP_ID={{org_name.dotCase()}} -e PLATFORM_NAME=iOS
