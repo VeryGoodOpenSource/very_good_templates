@@ -1,7 +1,7 @@
 import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 
 /// Visual variants for [AppButton].
-enum AppButtonVariant() {
+enum AppButtonVariant {
   /// A filled button with the primary color.
   primary,
 
@@ -9,11 +9,11 @@ enum AppButtonVariant() {
   secondary,
 
   /// An outlined button.
-  outline
+  outline,
 }
 
 /// Size variants for [AppButton].
-enum AppButtonSize() {
+enum AppButtonSize {
   /// A small button.
   small,
 
@@ -21,7 +21,7 @@ enum AppButtonSize() {
   medium,
 
   /// A large button.
-  large
+  large,
 }
 
 /// {@template app_button}
