@@ -13,9 +13,9 @@ import 'package:{{project_name.snakeCase()}}_platform_interface/src/method_chann
 /// this interface will be broken by newly added
 /// [{{project_name.pascalCase()}}Platform] methods.
 /// {@endtemplate}
-abstract class {{project_name.pascalCase()}}Platform() extends PlatformInterface {
+abstract class {{project_name.pascalCase()}}Platform extends PlatformInterface {
   /// {@macro {{project_name.snakeCase()}}_platform}
-  this : super(token: _token);
+  new() : super(token: _token);
 
   static final Object _token = Object();
 
