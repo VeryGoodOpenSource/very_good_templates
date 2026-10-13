@@ -6,34 +6,27 @@ import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 /// Provides semantic colors for success, warning, and info states
 /// along with their on-color variants.
 /// {@endtemplate}
-class AppColors extends ThemeExtension<AppColors> {
-  /// {@macro app_colors}
-  const new({
-    required this.success,
-    required this.onSuccess,
-    required this.warning,
-    required this.onWarning,
-    required this.info,
-    required this.onInfo,
-  });
-
+class const AppColors({
   /// The color used for success states.
-  final Color success;
+  required final Color success,
 
   /// The color used for content on top of [success].
-  final Color onSuccess;
+  required final Color onSuccess,
 
   /// The color used for warning states.
-  final Color warning;
+  required final Color warning,
 
   /// The color used for content on top of [warning].
-  final Color onWarning;
+  required final Color onWarning,
 
   /// The color used for informational states.
-  final Color info;
+  required final Color info,
 
   /// The color used for content on top of [info].
-  final Color onInfo;
+  required final Color onInfo,
+}) extends ThemeExtension<AppColors> {
+  /// {@macro app_colors}
+  this;
 
   @override
   AppColors copyWith({

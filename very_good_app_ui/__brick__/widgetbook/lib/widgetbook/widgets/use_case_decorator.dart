@@ -1,12 +1,13 @@
 import 'package:material_ui/material_ui.dart';
 
 /// A decorator that wraps every use case with a consistent background.
-class UseCaseDecorator extends StatelessWidget {
-  /// Creates a [UseCaseDecorator].
-  const UseCaseDecorator({required this.child, super.key});
-
+class const UseCaseDecorator({
   /// The use case widget to wrap.
-  final Widget child;
+  required final Widget child,
+  super.key,
+}) extends StatelessWidget {
+  /// Creates a [UseCaseDecorator].
+  this;
 
   @override
   Widget build(BuildContext context) {
