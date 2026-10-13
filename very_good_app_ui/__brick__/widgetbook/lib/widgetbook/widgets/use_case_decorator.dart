@@ -6,9 +6,6 @@ class const UseCaseDecorator({
   required final Widget child,
   super.key,
 }) extends StatelessWidget {
-  /// Creates a [UseCaseDecorator].
-  this;
-
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
