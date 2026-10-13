@@ -115,12 +115,10 @@ Matcher isDartDirectiveOrderingFix({required String path}) {
   return _IsDartDirectiveOrderingFix(path: path);
 }
 
-class _IsDartDirectiveOrderingFix extends Matcher {
-  const new({required this._path});
-
+class const _IsDartDirectiveOrderingFix({
   /// The value of the path to apply the `dart fix` to.
-  final String _path;
-
+  required final String _path,
+}) extends Matcher {
   @override
   bool matches(dynamic item, Map<dynamic, dynamic> matchState) {
     if (item is! Invocation) {
@@ -163,12 +161,10 @@ Matcher isDartPubGet({required String directory}) {
   return _IsDartPubGet(directory: directory);
 }
 
-class _IsDartPubGet extends Matcher {
-  const new({required this._directory});
-
+class const _IsDartPubGet({
   /// The value of the `--directory` argument passed to `dart pub get`.
-  final String _directory;
-
+  required final String _directory,
+}) extends Matcher {
   @override
   bool matches(dynamic item, Map<dynamic, dynamic> matchState) {
     if (item is! Invocation) {

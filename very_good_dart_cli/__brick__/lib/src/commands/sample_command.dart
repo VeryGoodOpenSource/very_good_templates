@@ -6,9 +6,9 @@ import 'package:mason_logger/mason_logger.dart';
 /// `{{executable_name.snakeCase()}} sample`
 /// A [Command] to exemplify a sub command
 /// {@endtemplate}
-class SampleCommand extends Command<int> {
+class SampleCommand({required final Logger _logger}) extends Command<int> {
   /// {@macro sample_command}
-  new({required this._logger}) {
+  this {
     argParser.addFlag(
       'cyan',
       abbr: 'c',
@@ -22,8 +22,6 @@ class SampleCommand extends Command<int> {
 
   @override
   String get name => 'sample';
-
-  final Logger _logger;
 
   @override
   Future<int> run() async {
