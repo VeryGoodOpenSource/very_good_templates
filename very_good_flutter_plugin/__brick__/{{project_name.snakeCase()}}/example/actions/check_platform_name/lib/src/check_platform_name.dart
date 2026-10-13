@@ -12,28 +12,16 @@ import 'package:fluttium/fluttium.dart';
 /// - checkPlatformName:
 /// ```
 /// {@endtemplate}
-class CheckPlatformName extends Action {
+class const CheckPlatformName({
+  @visibleForTesting final bool Function() _isAndroid = _platformIsAndroid,
+  @visibleForTesting final bool Function() _isIOS = _platformIsIOS,
+  @visibleForTesting final bool Function() _isLinux = _platformIsLinux,
+  @visibleForTesting final bool Function() _isMacOS = _platformIsMacOS,
+  @visibleForTesting final bool Function() _isWindows = _platformIsWindows,
+  @visibleForTesting final bool _isWeb = kIsWeb,
+}) extends Action {
   /// {@macro check_platform_name}
-  const CheckPlatformName({
-    @visibleForTesting this._isAndroid = _platformIsAndroid,
-    @visibleForTesting this._isIOS = _platformIsIOS,
-    @visibleForTesting this._isLinux = _platformIsLinux,
-    @visibleForTesting this._isMacOS = _platformIsMacOS,
-    @visibleForTesting this._isWindows = _platformIsWindows,
-    @visibleForTesting this._isWeb = kIsWeb,
-  });
-
-  final bool _isWeb;
-
-  final bool Function() _isAndroid;
-
-  final bool Function() _isIOS;
-
-  final bool Function() _isLinux;
-
-  final bool Function() _isMacOS;
-
-  final bool Function() _isWindows;
+  this;
 
   String get _expectedPlatformName {
     if (_isWeb) return 'Web';
