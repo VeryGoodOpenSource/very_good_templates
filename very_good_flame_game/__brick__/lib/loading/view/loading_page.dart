@@ -27,9 +27,7 @@ class _LoadingPageState extends State<LoadingPage> {
   }
 }
 
-class _LoadingInternal extends StatelessWidget {
-  const new();
-
+class const _LoadingInternal() extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final primaryTextTheme = Theme.of(context).primaryTextTheme;
