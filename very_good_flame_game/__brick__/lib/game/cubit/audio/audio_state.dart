@@ -1,9 +1,6 @@
 part of 'audio_cubit.dart';
 
-class AudioState extends Equatable {
-  const new({this.volume = 1});
-  final double volume;
-
+class const AudioState({final double volume = 1}) extends Equatable {
   AudioState copyWith({double? volume}) {
     return AudioState(volume: volume ?? this.volume);
   }

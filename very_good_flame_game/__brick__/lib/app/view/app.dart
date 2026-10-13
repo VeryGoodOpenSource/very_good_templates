@@ -8,9 +8,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 import 'package:{{project_name.snakeCase()}}/loading/loading.dart';
 
-class App extends StatelessWidget {
-  const new({super.key});
-
+class const App({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -31,9 +29,7 @@ class App extends StatelessWidget {
   }
 }
 
-class AppView extends StatelessWidget {
-  const new({super.key});
-
+class const AppView({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

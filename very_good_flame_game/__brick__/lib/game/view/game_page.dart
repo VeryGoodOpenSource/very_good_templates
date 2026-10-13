@@ -10,9 +10,7 @@ import 'package:{{project_name.snakeCase()}}/gen/assets.gen.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 import 'package:{{project_name.snakeCase()}}/loading/cubit/cubit.dart';
 
-class GamePage extends StatelessWidget {
-  const new({super.key});
-
+class const GamePage({super.key}) extends StatelessWidget {
   static Route<void> route() {
     return MaterialPageRoute<void>(builder: (_) => const GamePage());
   }
@@ -32,11 +30,8 @@ class GamePage extends StatelessWidget {
   }
 }
 
-class GameView extends StatefulWidget {
-  const new({super.key, this.game});
-
-  final FlameGame? game;
-
+class const GameView({super.key, final FlameGame? game})
+    extends StatefulWidget {
   @override
   State<GameView> createState() => _GameViewState();
 }

@@ -4,9 +4,7 @@ import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 import 'package:{{project_name.snakeCase()}}/loading/loading.dart';
 import 'package:{{project_name.snakeCase()}}/title/title.dart';
 
-class LoadingPage extends StatefulWidget {
-  const new({super.key});
-
+class const LoadingPage({super.key}) extends StatefulWidget {
   @override
   State<LoadingPage> createState() => _LoadingPageState();
 }
@@ -29,9 +27,7 @@ class _LoadingPageState extends State<LoadingPage> {
   }
 }
 
-class _LoadingInternal extends StatelessWidget {
-  const new();
-
+class const _LoadingInternal() extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final primaryTextTheme = Theme.of(context).primaryTextTheme;
