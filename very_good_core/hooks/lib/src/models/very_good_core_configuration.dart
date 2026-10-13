@@ -9,7 +9,12 @@ import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 /// See also:
 ///
 /// * [brick.yaml documentation](https://docs.brickhub.dev/brick-structure#brickyaml)
-enum _VeryGoodCoreConfigurationVariables {
+enum _VeryGoodCoreConfigurationVariables._(
+  /// The key used in the `HookContext.vars` [Map].
+  ///
+  /// This should match the variable key in the `brick.yaml`.
+  final String key,
+) {
   /// {@template very_good_core_configuration_variables.project_name}
   /// The project name.
   ///
@@ -54,37 +59,26 @@ enum _VeryGoodCoreConfigurationVariables {
   /// Defaults to `false`.
   /// {@endtemplate}
   workspace._('workspace');
-
-  new _(this.key);
-
-  /// The key used in the `HookContext.vars` [Map].
-  ///
-  /// This should match the variable key in the `brick.yaml`.
-  final String key;
 }
 
 /// {@template very_good_core_configuration}
 /// Configuration for the `very_good_core` brick.
 /// {@endtemplate}
-class VeryGoodCoreConfiguration extends Equatable {
+class VeryGoodCoreConfiguration({
+  String? projectName,
+  String? organizationName,
+  String? description,
+  bool? publishable,
+  bool? workspace,
+  LinuxApplicationId? linuxApplicationId,
+  WindowsApplicationId? windowsApplicationId,
+  AppleApplicationId? iOsApplicationId,
+  AppleApplicationId? macOsApplicationId,
+  AndroidApplicationId? androidApplicationId,
+  AndroidNamespace? androidNamespace,
+}) extends Equatable {
   /// {@macro very_good_core_configuration}
-  new({
-    String? projectName,
-    String? organizationName,
-    String? description,
-    bool? publishable,
-    bool? workspace,
-    LinuxApplicationId? linuxApplicationId,
-    WindowsApplicationId? windowsApplicationId,
-    AppleApplicationId? iOsApplicationId,
-    AppleApplicationId? macOsApplicationId,
-    AndroidApplicationId? androidApplicationId,
-    AndroidNamespace? androidNamespace,
-  }) : projectName = projectName ?? 'my_app',
-       organizationName = organizationName ?? 'com.example',
-       description = description ?? 'A Very Good App',
-       publishable = publishable ?? false,
-       workspace = workspace ?? false {
+  this {
     this.linuxApplicationId =
         linuxApplicationId ??
         LinuxApplicationId.fallback(
@@ -218,19 +212,19 @@ class VeryGoodCoreConfiguration extends Equatable {
   }
 
   /// {@macro very_good_core_configuration_variables.project_name}
-  final String projectName;
+  final String projectName = projectName ?? 'my_app';
 
   /// {@macro very_good_core_configuration_variables.organization_name}
-  final String organizationName;
+  final String organizationName = organizationName ?? 'com.example';
 
   /// {@macro very_good_core_configuration_variables.description}
-  final String description;
+  final String description = description ?? 'A Very Good App';
 
   /// {@macro very_good_core_configuration_variables.publishable}
-  final bool publishable;
+  final bool publishable = publishable ?? false;
 
   /// {@macro very_good_core_configuration_variables.workspace}
-  final bool workspace;
+  final bool workspace = workspace ?? false;
 
   /// {@macro linux_application_id}
   late final LinuxApplicationId linuxApplicationId;
