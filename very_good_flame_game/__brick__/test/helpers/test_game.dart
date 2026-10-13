@@ -1,7 +1,7 @@
 import 'package:flame/game.dart';
 
-class TestGame() extends FlameGame {
-  this {
+class TestGame extends FlameGame {
+  new() {
     images.prefix = '';
   }
 }
