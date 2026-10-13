@@ -11,9 +11,6 @@ import 'package:{{project_name.snakeCase()}}/src/version.dart';
 /// {@endtemplate}
 class UpdateCommand({required final Logger _logger, PubUpdater? pubUpdater})
     extends Command<int> {
-  /// {@macro update_command}
-  this;
-
   final PubUpdater _pubUpdater = pubUpdater ?? PubUpdater();
 
   @override
