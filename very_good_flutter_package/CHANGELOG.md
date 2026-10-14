@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_package-v1.6.0...very_good_flutter_package-v1.6.1) (2026-10-14)
+
+
+### Refactors
+
+* use primary constructors ([#656](https://github.com/VeryGoodOpenSource/very_good_templates/issues/656)) ([bd8f72c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd8f72c4268d0b853328f290cfa49fb66e195506))
+
 ## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_package-v1.5.1...very_good_flutter_package-v1.6.0) (2026-09-07)
 
 
