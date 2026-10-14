@@ -6,6 +6,8 @@ set(PLUGIN_NAME "${PROJECT_NAME}_plugin")
 
 list(APPEND PLUGIN_SOURCES
   "{{project_name.snakeCase()}}_linux_plugin.cc"
+  "messages.g.cc"
+  "messages.g.h"
 )
 
 add_library(${PLUGIN_NAME} SHARED
