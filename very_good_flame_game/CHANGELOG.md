@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.8.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.8.0...very_good_flame_game-v1.8.1) (2026-10-14)
+
+
+### Refactors
+
+* use primary constructors ([#656](https://github.com/VeryGoodOpenSource/very_good_templates/issues/656)) ([bd8f72c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd8f72c4268d0b853328f290cfa49fb66e195506))
+
+
+### Miscellaneous Chores
+
+* remove Flutter tool generated plugin registrant files from bricks ([#660](https://github.com/VeryGoodOpenSource/very_good_templates/issues/660)) ([57d97e6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/57d97e66ecb7390c38c8020798dd0c525f8afc98))
+* tighten template dependencies ([#618](https://github.com/VeryGoodOpenSource/very_good_templates/issues/618)) ([a98c67d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a98c67d7226055a1c41efb9778af0e4162ea6352))
+* tighten template dependencies ([#627](https://github.com/VeryGoodOpenSource/very_good_templates/issues/627)) ([111cc64](https://github.com/VeryGoodOpenSource/very_good_templates/commit/111cc64b4734e2ea153d46bac0f54d46e013b5b3))
+* tighten template dependencies ([#631](https://github.com/VeryGoodOpenSource/very_good_templates/issues/631)) ([038a0df](https://github.com/VeryGoodOpenSource/very_good_templates/commit/038a0df18ec65fc4a6d9969715f7da008f795ca5))
+* tighten template dependencies ([#644](https://github.com/VeryGoodOpenSource/very_good_templates/issues/644)) ([d87cf6f](https://github.com/VeryGoodOpenSource/very_good_templates/commit/d87cf6f6b7e0d83be0f956723a614f91d082d0fb))
+* tighten template dependencies ([#655](https://github.com/VeryGoodOpenSource/very_good_templates/issues/655)) ([3b36a0e](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3b36a0e6a6205d13e7fc2b97d652d289dda35724))
+
 ## [1.8.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.7.1...very_good_flame_game-v1.8.0) (2026-09-07)
 
 
