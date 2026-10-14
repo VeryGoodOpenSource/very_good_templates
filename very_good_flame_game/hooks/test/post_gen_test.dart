@@ -118,12 +118,10 @@ Matcher isDartDirectiveOrderingFix({required String path}) {
   return _IsDartDirectiveOrderingFix(path: path);
 }
 
-class _IsDartDirectiveOrderingFix extends Matcher {
-  const new({required this._path});
-
+class const _IsDartDirectiveOrderingFix({
   /// The value of the path to apply the `dart fix` to.
-  final String _path;
-
+  required final String _path,
+}) extends Matcher {
   @override
   bool matches(dynamic item, Map<dynamic, dynamic> matchState) {
     if (item is! Invocation) {
@@ -166,12 +164,10 @@ Matcher isVeryGoodPackagesGet({required String directory}) {
   return _IsVeryGoodPackagesGet(directory: directory);
 }
 
-class _IsVeryGoodPackagesGet extends Matcher {
-  const new({required this._directory});
-
+class const _IsVeryGoodPackagesGet({
   /// The value of the directory argument passed to `very_good packages get`.
-  final String _directory;
-
+  required final String _directory,
+}) extends Matcher {
   @override
   bool matches(dynamic item, Map<dynamic, dynamic> matchState) {
     if (item is! Invocation) return false;
@@ -211,12 +207,10 @@ Matcher isDartFormat({required String path}) {
   return _IsDartFormat(path: path);
 }
 
-class _IsDartFormat extends Matcher {
-  const new({required this._path});
-
+class const _IsDartFormat({
   /// The value of the path to apply the `dart format` to.
-  final String _path;
-
+  required final String _path,
+}) extends Matcher {
   @override
   bool matches(dynamic item, Map<dynamic, dynamic> matchState) {
     if (item is! Invocation) return false;

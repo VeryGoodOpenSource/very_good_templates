@@ -3,16 +3,16 @@ import 'package:very_good_core_hooks/very_good_core_hooks.dart';
 /// {@template very_good_core_exception}
 /// An exception thrown by the `very_good_core` hooks.
 /// {@endtemplate}
-abstract class VeryGoodCoreHooksException implements Exception {
-  /// {@macro very_good_core_exception}
-  new({required this.description, required this.help});
-
+abstract class VeryGoodCoreHooksException({
   /// A message describing the exception.
-  final String description;
+  required final String description,
 
   /// A message describing how to resolve the exception, or signposting to
   /// additional resources.
-  final String help;
+  required final String help,
+}) implements Exception {
+  /// {@macro very_good_core_exception}
+  this;
 
   @override
   String toString() =>
@@ -27,9 +27,10 @@ $help
 /// An exception thrown when an invalid Android application ID format is
 /// given.
 /// {@endtemplate}
-class InvalidAndroidApplicationIdFormat extends VeryGoodCoreHooksException {
+class InvalidAndroidApplicationIdFormat(AndroidApplicationId applicationId)
+    extends VeryGoodCoreHooksException {
   /// {@macro InvalidAndroidApplicationIdFormat}
-  new(AndroidApplicationId applicationId)
+  this
     : super(
         description:
             '''An invalid Android application ID (${applicationId.value}) format was provided.''',
@@ -55,9 +56,10 @@ For more information, see the "Set the application ID" Android documentation:
 /// An exception thrown when an invalid Linux application ID format is
 /// given.
 /// {@endtemplate}
-class InvalidLinuxApplicationIdFormat extends VeryGoodCoreHooksException {
+class InvalidLinuxApplicationIdFormat(LinuxApplicationId applicationId)
+    extends VeryGoodCoreHooksException {
   /// {@macro InvalidLinuxApplicationIdFormat}
-  new(LinuxApplicationId applicationId)
+  this
     : super(
         description:
             '''An invalid Linux application ID (${applicationId.value}) format was provided.''',

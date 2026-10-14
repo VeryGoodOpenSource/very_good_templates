@@ -2,9 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:{{project_name.snakeCase()}}/counter/counter.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
-class App extends StatelessWidget {
-  const new({super.key});
-
+class const App({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

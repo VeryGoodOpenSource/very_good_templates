@@ -9,13 +9,9 @@ import 'package:{{project_name.snakeCase()}}/src/version.dart';
 /// {@template update_command}
 /// A command which updates the CLI.
 /// {@endtemplate}
-class UpdateCommand extends Command<int> {
-  /// {@macro update_command}
-  new({required this._logger, PubUpdater? pubUpdater})
-    : _pubUpdater = pubUpdater ?? PubUpdater();
-
-  final Logger _logger;
-  final PubUpdater _pubUpdater;
+class UpdateCommand({required final Logger _logger, PubUpdater? pubUpdater})
+    extends Command<int> {
+  final PubUpdater _pubUpdater = pubUpdater ?? PubUpdater();
 
   @override
   String get description => 'Update the CLI.';

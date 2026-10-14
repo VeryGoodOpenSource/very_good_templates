@@ -5,38 +5,30 @@ import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 /// {@template app_spacing}
 /// Spacing scale tokens for consistent layout throughout the app.
 /// {@endtemplate}
-class AppSpacing extends ThemeExtension<AppSpacing> {
-  /// {@macro app_spacing}
-  const new({
-    this.xxs = 4,
-    this.xs = 8,
-    this.sm = 12,
-    this.md = 16,
-    this.lg = 24,
-    this.xlg = 32,
-    this.xxlg = 48,
-  });
-
+class const AppSpacing({
   /// Extra extra small spacing: 4px.
-  final double xxs;
+  final double xxs = 4,
 
   /// Extra small spacing: 8px.
-  final double xs;
+  final double xs = 8,
 
   /// Small spacing: 12px.
-  final double sm;
+  final double sm = 12,
 
   /// Medium spacing: 16px.
-  final double md;
+  final double md = 16,
 
   /// Large spacing: 24px.
-  final double lg;
+  final double lg = 24,
 
   /// Extra large spacing: 32px.
-  final double xlg;
+  final double xlg = 32,
 
   /// Extra extra large spacing: 48px.
-  final double xxlg;
+  final double xxlg = 48,
+}) extends ThemeExtension<AppSpacing> {
+  /// {@macro app_spacing}
+  this;
 
   @override
   AppSpacing copyWith({

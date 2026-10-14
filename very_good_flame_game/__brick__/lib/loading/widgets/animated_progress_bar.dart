@@ -5,26 +5,23 @@ import 'package:material_ui/material_ui.dart';
 ///
 /// [progress] should be between 0 and 1;
 /// {@endtemplate}
-class AnimatedProgressBar extends StatelessWidget {
-  /// {@macro animated_progress_bar}
-  const new({
-    required this.progress,
-    required this.backgroundColor,
-    required this.foregroundColor,
-    super.key,
-  }) : assert(
-         progress >= 0.0 && progress <= 1.0,
-         'Progress should be set between 0.0 and 1.0',
-       );
+class const AnimatedProgressBar({
+  /// The current progress for the bar.
+  required final double progress,
 
   /// The background color of the progress bar.
-  final Color backgroundColor;
+  required final Color backgroundColor,
 
   /// The foreground color of the progress bar.
-  final Color foregroundColor;
-
-  /// The current progress for the bar.
-  final double progress;
+  required final Color foregroundColor,
+  super.key,
+}) extends StatelessWidget {
+  /// {@macro animated_progress_bar}
+  this
+    : assert(
+        progress >= 0.0 && progress <= 1.0,
+        'Progress should be set between 0.0 and 1.0',
+      );
 
   /// The duration of the animation on [AnimatedProgressBar]
   static const Duration intrinsicAnimationDuration = Duration(

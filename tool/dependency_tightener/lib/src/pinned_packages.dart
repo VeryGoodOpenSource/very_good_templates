@@ -5,15 +5,15 @@
 library;
 
 /// Represents a package that should not be auto-updated.
-class PinnedPackage {
-  /// Creates a new [PinnedPackage] with the given [name] and [reason].
-  const new({required this.name, required this.reason});
-
+class const PinnedPackage({
   /// The package name as it appears in pubspec.yaml.
-  final String name;
+  required final String name,
 
   /// The reason this package is pinned.
-  final String reason;
+  required final String reason,
+}) {
+  /// Creates a new [PinnedPackage] with the given [name] and [reason].
+  this;
 }
 
 /// The set of packages that should not be auto-updated.
