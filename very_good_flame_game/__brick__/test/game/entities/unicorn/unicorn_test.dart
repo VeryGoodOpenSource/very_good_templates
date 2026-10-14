@@ -17,14 +17,12 @@ class _MockAudioPlayer extends Mock implements AudioPlayer;
 
 class _MockImages extends Mock implements Images;
 
-class _{{project_name.pascalCase()}} extends {{project_name.pascalCase()}} {
-  new({
-    required super.l10n,
-    required super.effectPlayer,
-    required super.textStyle,
-    required super.images,
-  });
-
+class _{{project_name.pascalCase()}}({
+  required super.l10n,
+  required super.effectPlayer,
+  required super.textStyle,
+  required super.images,
+}) extends {{project_name.pascalCase()}} {
   @override
   Future<void> onLoad() async {}
 }

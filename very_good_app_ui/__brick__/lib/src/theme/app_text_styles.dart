@@ -4,9 +4,9 @@ import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 /// Typography system template. Subject to change based on project Figma specs.
 /// Provides both desktop and mobile text styles.
 /// {@endtemplate}
-class AppTextStyles extends ThemeExtension<AppTextStyles> {
+class const AppTextStyles() extends ThemeExtension<AppTextStyles> {
   /// {@macro app_text_styles}
-  const new();
+  this;
 
   // When a custom font is registered in pubspec.yaml, add
   // `fontFamily: 'YourFontFamily'` to each TextStyle below.

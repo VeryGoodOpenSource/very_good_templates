@@ -17,12 +17,12 @@ const description = '{{description}}';
 /// $ {{executable_name.snakeCase()}} --version
 /// ```
 /// {@endtemplate}
-class {{project_name.pascalCase()}}CommandRunner extends CompletionCommandRunner<int> {
+class {{project_name.pascalCase()}}CommandRunner({
+  Logger? logger,
+  PubUpdater? pubUpdater,
+}) extends CompletionCommandRunner<int> {
   /// {@macro {{project_name.snakeCase()}}_command_runner}
-  new({Logger? logger, PubUpdater? pubUpdater})
-    : _logger = logger ?? Logger(),
-      _pubUpdater = pubUpdater ?? PubUpdater(),
-      super(executableName, description) {
+  this : super(executableName, description) {
     // Add root options and flags
     argParser
       ..addFlag(
@@ -44,8 +44,8 @@ class {{project_name.pascalCase()}}CommandRunner extends CompletionCommandRunner
   @override
   void printUsage() => _logger.info(usage);
 
-  final Logger _logger;
-  final PubUpdater _pubUpdater;
+  final Logger _logger = logger ?? Logger();
+  final PubUpdater _pubUpdater = pubUpdater ?? PubUpdater();
 
   @override
   Future<int> run(Iterable<String> args) async {

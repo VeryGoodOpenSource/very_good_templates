@@ -9,11 +9,9 @@ import 'package:{{project_name.snakeCase()}}/gen/assets.gen.dart';
 
 part 'preload_state.dart';
 
-class PreloadCubit extends Cubit<PreloadState> {
-  new(this.images, this.audio) : super(const PreloadState.initial());
-
-  final Images images;
-  final AudioCache audio;
+class PreloadCubit(final Images images, final AudioCache audio)
+    extends Cubit<PreloadState> {
+  this : super(const PreloadState.initial());
 
   /// Load items sequentially allows display of what is being loaded
   Future<void> loadSequentially() async {
@@ -42,9 +40,7 @@ class PreloadCubit extends Cubit<PreloadState> {
 }
 
 @immutable
-class PreloadPhase {
-  const new(this.label, this.start);
-
-  final String label;
-  final ValueGetter<Future<void>> start;
-}
+class const PreloadPhase(
+  final String label,
+  final ValueGetter<Future<void>> start,
+);

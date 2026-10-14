@@ -2,9 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:{{project_name.snakeCase()}}/game/game.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
-class TitlePage extends StatelessWidget {
-  const new({super.key});
-
+class const TitlePage({super.key}) extends StatelessWidget {
   static Route<void> route() {
     return MaterialPageRoute<void>(builder: (_) => const TitlePage());
   }
@@ -20,9 +18,7 @@ class TitlePage extends StatelessWidget {
   }
 }
 
-class TitleView extends StatelessWidget {
-  const new({super.key});
-
+class const TitleView({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;

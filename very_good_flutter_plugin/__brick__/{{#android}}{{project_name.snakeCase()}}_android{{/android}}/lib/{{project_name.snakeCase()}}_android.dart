@@ -5,14 +5,14 @@ import 'package:{{project_name.snakeCase()}}_platform_interface/{{project_name.s
 /// {@template {{project_name.snakeCase()}}_android}
 /// The Android implementation of [{{project_name.pascalCase()}}Platform].
 /// {@endtemplate}
-class {{project_name.pascalCase()}}Android extends {{project_name.pascalCase()}}Platform {
+class {{project_name.pascalCase()}}Android({
+  @visibleForTesting {{project_name.pascalCase()}}Api? api,
+}) extends {{project_name.pascalCase()}}Platform {
   /// {@macro {{project_name.snakeCase()}}_android}
-  {{project_name.pascalCase()}}Android({
-    @visibleForTesting {{project_name.pascalCase()}}Api? api,
-  }) : api = api ?? {{project_name.pascalCase()}}Api();
+  this;
 
   /// The API used to interact with the native platform.
-  final {{project_name.pascalCase()}}Api api;
+  final {{project_name.pascalCase()}}Api api = api ?? {{project_name.pascalCase()}}Api();
 
   /// Registers this class as the default instance of
   /// [{{project_name.pascalCase()}}Platform].

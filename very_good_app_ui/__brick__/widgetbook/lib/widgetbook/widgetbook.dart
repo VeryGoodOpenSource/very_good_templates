@@ -6,10 +6,7 @@ import 'package:{{project_name.snakeCase()}}/{{project_name.snakeCase()}}.dart';
 
 /// The Widgetbook catalog app.
 @widgetbook.App()
-class WidgetbookApp extends StatelessWidget {
-  /// Creates a [WidgetbookApp].
-  const WidgetbookApp({super.key});
-
+class const WidgetbookApp({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Widgetbook.material(

@@ -28,27 +28,22 @@ enum AppButtonSize {
 /// A styled button that composes Material's [FilledButton] and
 /// [OutlinedButton] with app-specific sizing and theming.
 /// {@endtemplate}
-class AppButton extends StatelessWidget {
-  /// {@macro app_button}
-  const new({
-    required this.onPressed,
-    required this.child,
-    this.variant = AppButtonVariant.primary,
-    this.size = AppButtonSize.medium,
-    super.key,
-  });
-
+class const AppButton({
   /// Called when the button is tapped.
-  final VoidCallback? onPressed;
+  required final VoidCallback? onPressed,
 
   /// The button's content, typically a [Text] widget.
-  final Widget child;
+  required final Widget child,
 
   /// The visual variant of the button.
-  final AppButtonVariant variant;
+  final AppButtonVariant variant = AppButtonVariant.primary,
 
   /// The size of the button.
-  final AppButtonSize size;
+  final AppButtonSize size = AppButtonSize.medium,
+  super.key,
+}) extends StatelessWidget {
+  /// {@macro app_button}
+  this;
 
   @override
   Widget build(BuildContext context) {
