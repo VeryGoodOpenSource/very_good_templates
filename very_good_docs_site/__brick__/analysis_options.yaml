@@ -1,0 +1,17 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+linter:
+  rules:
+    # The `const new(...)` form this rule asks for needs the experimental
+    # 'primary-constructors' feature. The analyzer accepts it, but the CFE
+    # that build_runner compiles with rejects it, so `jaspr build` fails.
+    # Re-enable once primary constructors ship as stable.
+    unnecessary_type_name_in_constructor: false
+
+plugins:
+  jaspr_lints:
+    version: ^0.7.2
+    diagnostics:
+      styles_ordering: true
+      sort_children_last: true
+      prefer_html_components: true

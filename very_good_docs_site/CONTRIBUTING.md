@@ -28,5 +28,5 @@ work, tests, or other changes before your pull request can be ultimately
 accepted.
 
 [conventional_commits_link]: https://www.conventionalcommits.org/en/v1.0.0
-[bug_report_link]: https://github.com/VeryGoodOpenSource/dart_frog/issues/new?assignees=&labels=bug&template=bug_report.md&title=fix%3A+
+[bug_report_link]: https://github.com/VeryGoodOpenSource/very_good_templates/issues/new?assignees=&labels=bug&template=bug_report.md&title=fix%3A+
 [very_good_ventures_link]: https://verygood.ventures
