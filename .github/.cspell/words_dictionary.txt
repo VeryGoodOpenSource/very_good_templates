@@ -26,6 +26,7 @@ SDK's # Belonging to an SDK.
 theming # Give a particular theme or setting.
 unicorn # A mythical animal.
 nicorn # "unicorn", but without the "u".
+unicoder # The AI coding bot, configured by unicoder.yaml.
 unmutes # To allow to produce sound again.
 verygood # Very Good, but without a space.
 verygoodapp # Very Good App, used in example organization names.
