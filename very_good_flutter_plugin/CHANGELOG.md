@@ -1,5 +1,33 @@
 # Changelog 
 
+## [1.6.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.6.0...very_good_flutter_plugin-v1.6.1) (2026-10-20)
+
+
+### Bug Fixes
+
+* **very_good_flutter_plugin:** add Pigeon sources to Linux CMakeLists.txt ([#659](https://github.com/VeryGoodOpenSource/very_good_templates/issues/659)) ([fcb1f7b](https://github.com/VeryGoodOpenSource/very_good_templates/commit/fcb1f7bd6c83c155a3fd9c6a056f2629232ca0ec))
+* **very_good_flutter_plugin:** align macOS platform name with e2e tests ([#651](https://github.com/VeryGoodOpenSource/very_good_templates/issues/651)) ([9f80a06](https://github.com/VeryGoodOpenSource/very_good_templates/commit/9f80a061c4da9db37caf86fb4fb17da0d5f41334))
+* **very_good_flutter_plugin:** conform Swift plugins to Pigeon async API ([#653](https://github.com/VeryGoodOpenSource/very_good_templates/issues/653)) ([9e203e0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/9e203e0f779331b21b2d5f9938a52a17b6d40b0c))
+* **very_good_flutter_plugin:** implement Pigeon API in Windows plugin ([#650](https://github.com/VeryGoodOpenSource/very_good_templates/issues/650)) ([d73dcbe](https://github.com/VeryGoodOpenSource/very_good_templates/commit/d73dcbefb707bbc22ca14fc42e8801bd5ea85a42))
+* **very_good_flutter_plugin:** return bare Android platform name ([#652](https://github.com/VeryGoodOpenSource/very_good_templates/issues/652)) ([f435f05](https://github.com/VeryGoodOpenSource/very_good_templates/commit/f435f0593d518679e6131c7d5c710bc442c29985))
+* **very_good_flutter_plugin:** update Android plugin to use suspend fun signature ([#642](https://github.com/VeryGoodOpenSource/very_good_templates/issues/642)) ([a2bc5a6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a2bc5a6b7669997ce193cc21a0b08af06cd522d2))
+
+
+### Refactors
+
+* use primary constructors ([#656](https://github.com/VeryGoodOpenSource/very_good_templates/issues/656)) ([bd8f72c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd8f72c4268d0b853328f290cfa49fb66e195506))
+
+
+### Miscellaneous Chores
+
+* remove Flutter tool generated plugin registrant files from bricks ([#660](https://github.com/VeryGoodOpenSource/very_good_templates/issues/660)) ([57d97e6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/57d97e66ecb7390c38c8020798dd0c525f8afc98))
+* tighten template dependencies ([#618](https://github.com/VeryGoodOpenSource/very_good_templates/issues/618)) ([a98c67d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a98c67d7226055a1c41efb9778af0e4162ea6352))
+* tighten template dependencies ([#627](https://github.com/VeryGoodOpenSource/very_good_templates/issues/627)) ([111cc64](https://github.com/VeryGoodOpenSource/very_good_templates/commit/111cc64b4734e2ea153d46bac0f54d46e013b5b3))
+* tighten template dependencies ([#631](https://github.com/VeryGoodOpenSource/very_good_templates/issues/631)) ([038a0df](https://github.com/VeryGoodOpenSource/very_good_templates/commit/038a0df18ec65fc4a6d9969715f7da008f795ca5))
+* tighten template dependencies ([#644](https://github.com/VeryGoodOpenSource/very_good_templates/issues/644)) ([d87cf6f](https://github.com/VeryGoodOpenSource/very_good_templates/commit/d87cf6f6b7e0d83be0f956723a614f91d082d0fb))
+* tighten template dependencies ([#655](https://github.com/VeryGoodOpenSource/very_good_templates/issues/655)) ([3b36a0e](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3b36a0e6a6205d13e7fc2b97d652d289dda35724))
+* tighten template dependencies ([#663](https://github.com/VeryGoodOpenSource/very_good_templates/issues/663)) ([1714353](https://github.com/VeryGoodOpenSource/very_good_templates/commit/171435394467e2709a64fdf5189735baf0bf856c))
+
 ## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flutter_plugin-v1.5.0...very_good_flutter_plugin-v1.6.0) (2026-09-07)
 
 
