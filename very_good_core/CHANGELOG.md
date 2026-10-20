@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.7.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.6.0...very_good_core-v1.7.0) (2026-10-20)
+
+
+### Features
+
+* **very_good_core:** add flavor support for Linux ([#633](https://github.com/VeryGoodOpenSource/very_good_templates/issues/633)) ([1d6c6bd](https://github.com/VeryGoodOpenSource/very_good_templates/commit/1d6c6bd87c323818a79730220a2d23146621bd45))
+* **very_good_core:** add Linux platform support ([#632](https://github.com/VeryGoodOpenSource/very_good_templates/issues/632)) ([d16f6a3](https://github.com/VeryGoodOpenSource/very_good_templates/commit/d16f6a327fd2ed20c90c730c4fda2111e30280ea))
+* **very_good_core:** align iOS project with current Flutter migrations ([#637](https://github.com/VeryGoodOpenSource/very_good_templates/issues/637)) ([7eb0e87](https://github.com/VeryGoodOpenSource/very_good_templates/commit/7eb0e879acdb8dd729ed88f10a910cd392443493))
+
+
+### Refactors
+
+* use primary constructors ([#656](https://github.com/VeryGoodOpenSource/very_good_templates/issues/656)) ([bd8f72c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd8f72c4268d0b853328f290cfa49fb66e195506))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump equatable from 2.1.0 to 3.0.0 in /very_good_core/hooks ([#630](https://github.com/VeryGoodOpenSource/very_good_templates/issues/630)) ([85419b0](https://github.com/VeryGoodOpenSource/very_good_templates/commit/85419b097e140288c327fc8455f97a736a1abf3f))
+* remove Flutter tool generated plugin registrant files from bricks ([#660](https://github.com/VeryGoodOpenSource/very_good_templates/issues/660)) ([57d97e6](https://github.com/VeryGoodOpenSource/very_good_templates/commit/57d97e66ecb7390c38c8020798dd0c525f8afc98))
+* tighten template dependencies ([#618](https://github.com/VeryGoodOpenSource/very_good_templates/issues/618)) ([a98c67d](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a98c67d7226055a1c41efb9778af0e4162ea6352))
+* tighten template dependencies ([#627](https://github.com/VeryGoodOpenSource/very_good_templates/issues/627)) ([111cc64](https://github.com/VeryGoodOpenSource/very_good_templates/commit/111cc64b4734e2ea153d46bac0f54d46e013b5b3))
+* tighten template dependencies ([#631](https://github.com/VeryGoodOpenSource/very_good_templates/issues/631)) ([038a0df](https://github.com/VeryGoodOpenSource/very_good_templates/commit/038a0df18ec65fc4a6d9969715f7da008f795ca5))
+* tighten template dependencies ([#644](https://github.com/VeryGoodOpenSource/very_good_templates/issues/644)) ([d87cf6f](https://github.com/VeryGoodOpenSource/very_good_templates/commit/d87cf6f6b7e0d83be0f956723a614f91d082d0fb))
+* tighten template dependencies ([#655](https://github.com/VeryGoodOpenSource/very_good_templates/issues/655)) ([3b36a0e](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3b36a0e6a6205d13e7fc2b97d652d289dda35724))
+* tighten template dependencies ([#663](https://github.com/VeryGoodOpenSource/very_good_templates/issues/663)) ([1714353](https://github.com/VeryGoodOpenSource/very_good_templates/commit/171435394467e2709a64fdf5189735baf0bf856c))
+
 ## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.5.0...very_good_core-v1.6.0) (2026-09-07)
 
 
