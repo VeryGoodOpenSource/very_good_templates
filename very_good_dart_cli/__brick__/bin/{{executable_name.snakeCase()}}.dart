@@ -1,3 +1,5 @@
+#!/usr/bin/env dart
+
 import 'dart:io';
 
 import 'package:{{project_name.snakeCase()}}/src/command_runner.dart';
