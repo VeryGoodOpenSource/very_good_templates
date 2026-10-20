@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.6.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.6.0...very_good_dart_cli-v1.6.1) (2026-10-20)
+
+
+### Bug Fixes
+
+* **very_good_dart_cli:** remove space in config.yml ([#619](https://github.com/VeryGoodOpenSource/very_good_templates/issues/619)) ([b4cc277](https://github.com/VeryGoodOpenSource/very_good_templates/commit/b4cc277414d7d9dcc846060c3272522c5986f671))
+* **very_good_dart_cli:** support workspace resolution in build_verify check ([#625](https://github.com/VeryGoodOpenSource/very_good_templates/issues/625)) ([6a82f2b](https://github.com/VeryGoodOpenSource/very_good_templates/commit/6a82f2bcd73dcb57a5cc84439e232d818769da8a))
+
+
+### Refactors
+
+* use primary constructors ([#656](https://github.com/VeryGoodOpenSource/very_good_templates/issues/656)) ([bd8f72c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd8f72c4268d0b853328f290cfa49fb66e195506))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#627](https://github.com/VeryGoodOpenSource/very_good_templates/issues/627)) ([111cc64](https://github.com/VeryGoodOpenSource/very_good_templates/commit/111cc64b4734e2ea153d46bac0f54d46e013b5b3))
+* tighten template dependencies ([#655](https://github.com/VeryGoodOpenSource/very_good_templates/issues/655)) ([3b36a0e](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3b36a0e6a6205d13e7fc2b97d652d289dda35724))
+* tighten template dependencies ([#663](https://github.com/VeryGoodOpenSource/very_good_templates/issues/663)) ([1714353](https://github.com/VeryGoodOpenSource/very_good_templates/commit/171435394467e2709a64fdf5189735baf0bf856c))
+
 ## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_cli-v1.5.1...very_good_dart_cli-v1.6.0) (2026-09-07)
 
 
