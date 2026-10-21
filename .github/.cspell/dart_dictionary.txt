@@ -3,6 +3,7 @@ audioplayers # A Flutter plugin to play multiple simultaneously audio files.
 cupertino # Flutter module containing iOS-style widgets.
 endtemplate # Dart doc macro used to end a reusable piece of documentation.
 fluttium # User flow testing tool for Flutter.
+jaspr # A web framework for building websites in Dart.
 lerp # Linear interpolation, commonly used in Flutter for animating between values.
 widgetbook # A Flutter package for cataloging widgets.
 LTWH # From Flutter, abbreviation left, top, width and height.
@@ -17,5 +18,6 @@ pubspec # File name where all the package metadata goes in.
 swiftpm # Swift Package Manager, Apple's dependency manager for Swift.
 tracefile # File that records the steps of map execution.
 unawaited # A Dart function to explicitly ignore a future.
+zoomable # From jaspr_content's `ZoomableImage` component, named in generated options files.
 semver # Abbreviation for semantic versioning used in `package:pub_semver`
 multiline # Referring to multiline string format.
