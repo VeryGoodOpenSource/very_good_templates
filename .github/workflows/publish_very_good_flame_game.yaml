@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/mason_publish.yml@v1
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/mason_publish.yml@v2
     with:
       working_directory: "very_good_flame_game"
     secrets:
