@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/dependency_tightener.yaml"
-      - "tool/dependency_tightener"
+      - "tool/dependency_tightener/**"
 
 jobs:
   build:
