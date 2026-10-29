@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dependency_tightener/src/graceful_pubspec_parse.dart';
+import 'package:dependency_tightener/src/pubspec_resolver.dart';
 import 'package:dependency_tightener/src/sdk_pinned_config.dart';
 import 'package:pub_semver/pub_semver.dart';
 import 'package:pub_updater/pub_updater.dart';
@@ -24,22 +25,28 @@ import 'package:pub_updater/pub_updater.dart';
 /// by SDK dependencies (like `intl` being pinned by `flutter_localizations`)
 /// will be automatically detected and skipped.
 ///
+/// If a [resolver] is provided, tightened constraints that would make the
+/// dependencies fail to resolve are skipped. When the dependencies don't
+/// resolve before tightening, no constraint is tightened, since the conflicts
+/// can't be attributed to a specific update.
+///
 /// See also:
 ///
 /// * [parseDirectHostedDependencies], which parses the direct hosted
 /// dependencies from a provided YAML string, that might have mustache
 /// variables.
 /// * [getAutoSkipPackages], which detects SDK-pinned packages.
+/// * [PubspecResolver], which checks whether the dependencies resolve.
 /// * [Caret syntax documentation](https://dart.dev/tools/pub/dependencies#caret-syntax)
 Future<void> tightenDependencies(
   File pubspec, {
   required PubUpdater pubUpdater,
   Set<String>? skipPackages,
   bool autoDetectSdkPinned = true,
+  PubspecResolver? resolver,
   void Function(Object? object) log = print,
 }) async {
   final pubspecContent = pubspec.readAsStringSync();
-  var newPubspecContent = pubspecContent;
 
   // Combine manually specified skip packages with auto-detected SDK-pinned
   final effectiveSkipPackages = <String>{
@@ -51,7 +58,8 @@ Future<void> tightenDependencies(
     log('Skipping packages: $effectiveSkipPackages');
   }
 
-  final dependencies = parseDirectHostedDependencies(newPubspecContent);
+  final dependencies = parseDirectHostedDependencies(pubspecContent);
+  final updates = <_DependencyUpdate>[];
 
   for (final dependency in dependencies) {
     final name = dependency.hosted!.name;
@@ -80,18 +88,74 @@ Future<void> tightenDependencies(
       final rawLatestVersion = await pubUpdater.getLatestVersion(
         dependency.hosted!.name,
       );
-      final newVersionConstraint = '^$rawLatestVersion';
-
-      newPubspecContent = newPubspecContent.replaceAll(
-        '$name: $versionConstraint',
-        '$name: $newVersionConstraint',
+      updates.add(
+        _DependencyUpdate(
+          name: name,
+          previousConstraint: '$versionConstraint',
+          newConstraint: '^$rawLatestVersion',
+        ),
       );
-
-      log('Updated $name to $newVersionConstraint in ${pubspec.path}');
     }
+  }
+
+  if (updates.isEmpty) return;
+
+  var newPubspecContent = updates.fold(
+    pubspecContent,
+    (content, update) => update.applyTo(content),
+  );
+  var appliedUpdates = updates;
+
+  if (resolver != null && !await resolver.canResolve(newPubspecContent)) {
+    if (!await resolver.canResolve(pubspecContent)) {
+      log(
+        'Skipped tightening ${pubspec.path}, its dependencies do not resolve '
+        'before tightening',
+      );
+      return;
+    }
+
+    // Apply the updates one at a time, keeping only those that still resolve.
+    newPubspecContent = pubspecContent;
+    appliedUpdates = [];
+    for (final update in updates) {
+      final candidateContent = update.applyTo(newPubspecContent);
+      if (await resolver.canResolve(candidateContent)) {
+        newPubspecContent = candidateContent;
+        appliedUpdates.add(update);
+      } else {
+        log(
+          'Skipped updating ${update.name} to ${update.newConstraint} in '
+          '${pubspec.path}, its dependencies would not resolve',
+        );
+      }
+    }
+  }
+
+  for (final update in appliedUpdates) {
+    log('Updated ${update.name} to ${update.newConstraint} in ${pubspec.path}');
   }
 
   if (newPubspecContent != pubspecContent) {
     pubspec.writeAsStringSync(newPubspecContent);
+  }
+}
+
+class _DependencyUpdate {
+  const new({
+    required this.name,
+    required this.previousConstraint,
+    required this.newConstraint,
+  });
+
+  final String name;
+  final String previousConstraint;
+  final String newConstraint;
+
+  String applyTo(String pubspecContent) {
+    return pubspecContent.replaceAll(
+      '$name: $previousConstraint',
+      '$name: $newConstraint',
+    );
   }
 }
