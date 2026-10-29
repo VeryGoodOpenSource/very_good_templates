@@ -12,24 +12,48 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - uses: dart-lang/setup-dart@v1.8.1
+      # Flutter (which includes Dart) is required to check that tightened
+      # dependencies still resolve. Keep in sync with the brick workflows.
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2.23.0
         with:
-          sdk: "3.13.0"
+          cache: true
+          flutter-version: "3.47.x"
 
       - name: 📦 Install dependencies
         run: dart pub get --directory tool/dependency_tightener
 
       - name: 🪢 Tighten dependencies
         # SDK-pinned packages (like intl via flutter_localizations) are
-        # automatically detected and skipped by the dependency tightener.
+        # automatically detected and skipped by the dependency tightener, as
+        # are updates that would make the dependencies fail to resolve.
+        shell: bash
         run: |
-          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_app_ui/__brick__
-          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_core/__brick__
-          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_dart_cli/__brick__
-          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_dart_package/__brick__
-          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_flame_game/__brick__
-          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_flutter_package/__brick__
-          dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory very_good_flutter_plugin/__brick__
+          bricks=(
+            very_good_app_ui
+            very_good_core
+            very_good_dart_cli
+            very_good_dart_package
+            very_good_flame_game
+            very_good_flutter_package
+            very_good_flutter_plugin
+          )
+          for brick in "${bricks[@]}"; do
+            dart run tool/dependency_tightener/bin/dependency_tightener.dart --directory "$brick/__brick__"
+          done 2>&1 | tee "$RUNNER_TEMP/dependency_tightener.log"
+
+      - name: 📝 Write Pull Request Body
+        shell: bash
+        run: |
+          {
+            echo "Tighten dependencies for all direct hosted dependencies in templated pubspec.yaml files."
+            if grep -q '^Skipped' "$RUNNER_TEMP/dependency_tightener.log"; then
+              echo
+              echo "The following updates were skipped:"
+              echo
+              grep '^Skipped' "$RUNNER_TEMP/dependency_tightener.log" | sed 's/^/- /'
+            fi
+          } > "$RUNNER_TEMP/pull_request_body.md"
 
       - name: 🤖 Config Git User
         run: |
@@ -43,8 +67,7 @@ jobs:
           branch: vgvbot/dependency_tightener
           commit-message: "chore: tighten template dependencies"
           title: "chore: tighten template dependencies"
-          body: |
-            Tighten dependencies for all direct hosted dependencies in templated pubspec.yaml files.
+          body-path: ${{ runner.temp }}/pull_request_body.md
           labels: bot
           author: VGV Bot <vgvbot@users.noreply.github.com>
           assignees: vgvbot
