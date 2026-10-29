@@ -31,11 +31,20 @@ Future<void> main(List<String> args) async {
       'include-pinned',
       help: 'Include pinned packages in version tightening (not recommended).',
       negatable: false,
+    )
+    ..addFlag(
+      'check-resolution',
+      help:
+          'Skip tightened constraints that would make the dependencies fail '
+          'to resolve. Requires the Dart SDK, and the Flutter SDK for '
+          'Flutter packages.',
+      defaultsTo: true,
     );
   final arguments = argumentParser.parse(args);
 
   final targetDirectory = Directory(arguments['directory'] as String);
   final includePinned = arguments['include-pinned'] as bool;
+  final checkResolution = arguments['check-resolution'] as bool;
 
   final skipPackages = <String>{};
   if (!includePinned) {
@@ -54,11 +63,13 @@ Future<void> main(List<String> args) async {
       .toList();
 
   final pubUpdater = PubUpdater();
+  final resolver = checkResolution ? PubspecResolver() : null;
   for (final pubspec in pubspecFiles) {
     await tightenDependencies(
       pubspec,
       skipPackages: skipPackages.isEmpty ? null : skipPackages,
       pubUpdater: pubUpdater,
+      resolver: resolver,
     );
   }
 }
