@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.6.0...very_good_dart_package-v1.6.1) (2026-10-20)
+
+
+### Refactors
+
+* use primary constructors ([#656](https://github.com/VeryGoodOpenSource/very_good_templates/issues/656)) ([bd8f72c](https://github.com/VeryGoodOpenSource/very_good_templates/commit/bd8f72c4268d0b853328f290cfa49fb66e195506))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#655](https://github.com/VeryGoodOpenSource/very_good_templates/issues/655)) ([3b36a0e](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3b36a0e6a6205d13e7fc2b97d652d289dda35724))
+
 ## [1.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_dart_package-v1.5.1...very_good_dart_package-v1.6.0) (2026-09-07)
 
 
