@@ -26,6 +26,7 @@ dart bin/dependency_tightener.dart --directory path/to/directory
 - `directory`: The directory containing the `pubspec.yaml` files to be updated. When unspecified, it defaults to the current working directory.
 - `skip-packages`: A comma-separated list of additional package names to skip version tightening. Note that pinned packages are always skipped by default (see below).
 - `include-pinned`: Include pinned packages in version tightening. This is not recommended as it may cause version conflicts with the Flutter SDK.
+- `[no-]check-resolution`: Skip tightened constraints that would make the dependencies fail to resolve (see below). Enabled by default.
 
 ### Output
 
@@ -48,6 +49,16 @@ dependencies:
 ```
 
 💡 **Note**: The script will replace the previous versions with a version constraint range that is tightened to the latest version. It will always use the [caret syntax](https://dart.dev/tools/pub/dependencies#caret-syntax), even if the previous version was pinned.
+
+## Resolution check
+
+Tightening a dependency to its latest version can conflict with other dependencies in the same `pubspec.yaml`. For example, a new `build_runner` may require a version of `build` that another dependency doesn't support yet.
+
+To avoid this, the script checks that the tightened dependencies still resolve. Since templated `pubspec.yaml` files can't be resolved directly, it builds a copy with only the hosted and SDK dependencies, and runs `pub get` on it in a temporary directory (`flutter pub get` for Flutter packages, `dart pub get` otherwise).
+
+When the tightened dependencies don't resolve, the updates are applied one at a time and those that would break resolution are skipped and logged. If the dependencies don't resolve even before tightening, the file is left unchanged.
+
+The check requires the Dart SDK, and the Flutter SDK for Flutter packages. To disable it, use `--no-check-resolution`.
 
 ## Pinned Packages
 

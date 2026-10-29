@@ -11,6 +11,8 @@ class _MockPubUpdater extends Mock implements PubUpdater;
 
 class _MockFile extends Mock implements File;
 
+class _MockPubspecResolver extends Mock implements PubspecResolver;
+
 void main() {
   late File pubspec;
   late PubUpdater pubUpdater;
@@ -129,5 +131,115 @@ dev_dependencies:
         'Updated very_good_analysis to ^10.1.0 in pubspec.yaml',
       ]),
     );
+  });
+
+  group('with a resolver', () {
+    late PubspecResolver resolver;
+
+    setUp(() {
+      resolver = _MockPubspecResolver();
+      when(() => resolver.canResolve(any())).thenAnswer((_) async => true);
+    });
+
+    test('applies all updates when they resolve', () async {
+      await tightenDependencies(
+        pubspec,
+        pubUpdater: pubUpdater,
+        resolver: resolver,
+        log: (object) => {},
+      );
+
+      verify(() => resolver.canResolve(any())).called(1);
+      verify(
+        () => pubspec.writeAsStringSync(
+          any(
+            that: allOf(
+              contains('plugin_platform_interface: ^2.2.0'),
+              contains('mocktail: ^1.0.4'),
+              contains('very_good_analysis: ^10.1.0'),
+            ),
+          ),
+        ),
+      ).called(1);
+    });
+
+    test('skips updates that do not resolve', () async {
+      when(() => resolver.canResolve(any(that: contains('mocktail: ^1.0.4'))))
+          .thenAnswer((_) async => false);
+      final logs = <Object?>[];
+
+      await tightenDependencies(
+        pubspec,
+        pubUpdater: pubUpdater,
+        resolver: resolver,
+        log: logs.add,
+      );
+
+      verify(
+        () => pubspec.writeAsStringSync(
+          any(
+            that: allOf(
+              contains('plugin_platform_interface: ^2.2.0'),
+              contains('mocktail: ^1.0.3'),
+              contains('very_good_analysis: ^10.1.0'),
+            ),
+          ),
+        ),
+      ).called(1);
+      const skippedLog =
+          'Skipped updating mocktail to ^1.0.4 in pubspec.yaml, its '
+          'dependencies would not resolve';
+      expect(
+        logs,
+        containsAll([
+          'Updated plugin_platform_interface to ^2.2.0 in pubspec.yaml',
+          skippedLog,
+          'Updated very_good_analysis to ^10.1.0 in pubspec.yaml',
+        ]),
+      );
+      expect(
+        logs,
+        isNot(contains('Updated mocktail to ^1.0.4 in pubspec.yaml')),
+      );
+    });
+
+    test('skips the file when it does not resolve before tightening', () async {
+      when(() => resolver.canResolve(any())).thenAnswer((_) async => false);
+      final logs = <Object?>[];
+
+      await tightenDependencies(
+        pubspec,
+        pubUpdater: pubUpdater,
+        resolver: resolver,
+        log: logs.add,
+      );
+
+      verify(() => resolver.canResolve(pubspec1)).called(1);
+      verifyNever(() => pubspec.writeAsStringSync(any()));
+      expect(
+        logs,
+        contains(
+          'Skipped tightening pubspec.yaml, its dependencies do not resolve '
+          'before tightening',
+        ),
+      );
+    });
+
+    test('does not check resolution when there are no updates', () async {
+      await tightenDependencies(
+        pubspec,
+        pubUpdater: pubUpdater,
+        resolver: resolver,
+        log: (object) => {},
+        skipPackages: {
+          'plugin_platform_interface',
+          'mocktail',
+          'very_good_analysis',
+        },
+      );
+
+      verifyNever(() => resolver.canResolve(any()));
+      verifyNever(() => pubspec.writeAsStringSync(any()));
+    });
   });
 }
