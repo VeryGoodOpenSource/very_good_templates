@@ -14,8 +14,10 @@ typedef RunProcess = Future<ProcessResult> Function(
 Future<void> run(
   HookContext context, {
   @visibleForTesting RunProcess runProcess = Process.run,
+  @visibleForTesting bool? isWindows,
 }) async {
   final projectName = context.vars['project_name'] as String;
+  final executableName = (context.vars['executable_name'] as String).snakeCase;
 
   final progress = context.logger.progress('Getting Dart dependencies...');
 
@@ -41,6 +43,17 @@ Future<void> run(
     '--apply',
     '--code=directives_ordering',
   ], workingDirectory: Directory.current.path);
+
+  // Mason does not preserve file permissions, so the entrypoint is made
+  // executable to allow running it directly through its shebang.
+  if (!(isWindows ?? Platform.isWindows)) {
+    progress.update('Making entrypoint executable...');
+
+    await runProcess('chmod', [
+      '+x',
+      'bin/$executableName.dart',
+    ], workingDirectory: Directory.current.path);
+  }
 
   progress.complete('Completed post generation');
 }

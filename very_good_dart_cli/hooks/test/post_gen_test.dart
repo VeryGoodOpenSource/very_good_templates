@@ -24,9 +24,15 @@ void main() {
     /// The value of the `project_name` context variable.
     const projectName = 'project_name';
 
+    /// The value of the `executable_name` context variable.
+    const executableName = 'executable-name';
+
     setUp(() {
       context = _MockHookContext();
-      when(() => context.vars).thenReturn({'project_name': projectName});
+      when(() => context.vars).thenReturn({
+        'project_name': projectName,
+        'executable_name': executableName,
+      });
 
       logger = _MockLogger();
       when(() => context.logger).thenReturn(logger);
@@ -69,6 +75,23 @@ void main() {
       },
     );
 
+    test('makes the entrypoint executable when not on Windows', () async {
+      await post_gen.run(context, runProcess: runProcess, isWindows: false);
+
+      expect(invocations, hasLength(3));
+      expect(
+        invocations[2],
+        isChmodExecutable(path: 'bin/executable_name.dart'),
+      );
+    });
+
+    test('does not make the entrypoint executable on Windows', () async {
+      await post_gen.run(context, runProcess: runProcess, isWindows: true);
+
+      expect(invocations, hasLength(2));
+      verifyNever(() => progress.update('Making entrypoint executable...'));
+    });
+
     test('logs progress', () async {
       final pubGetCompleter = Completer<void>();
       final fixCompleter = Completer<void>();
@@ -91,7 +114,11 @@ void main() {
             return processResult;
           };
 
-      final postGen = post_gen.run(context, runProcess: runProcess);
+      final postGen = post_gen.run(
+        context,
+        runProcess: runProcess,
+        isWindows: false,
+      );
 
       verify(() => logger.progress('Getting Dart dependencies...')).called(1);
 
@@ -104,6 +131,8 @@ void main() {
       fixCompleter.complete();
       await Future<void>.delayed(Duration.zero);
 
+      verify(() => progress.update('Making entrypoint executable...'))
+          .called(1);
       verify(() => progress.complete('Completed post generation')).called(1);
 
       await postGen;
@@ -154,6 +183,49 @@ class const _IsDartDirectiveOrderingFix({
     return mismatchDescription.add(
       'is not a `dart fix` for directives_ordering',
     );
+  }
+}
+
+Matcher isChmodExecutable({required String path}) {
+  return _IsChmodExecutable(path: path);
+}
+
+class const _IsChmodExecutable({
+  /// The path of the file to make executable.
+  required final String _path,
+}) extends Matcher {
+  @override
+  bool matches(dynamic item, Map<dynamic, dynamic> matchState) {
+    if (item is! Invocation) {
+      return false;
+    }
+
+    final invocation = item;
+    final executableName = invocation.positionalArguments[0] as String;
+    final arguments = invocation.positionalArguments[1] as List<String>;
+    final workingDirectory =
+        invocation.namedArguments[const Symbol('workingDirectory')] as String?;
+
+    return executableName == 'chmod' &&
+        arguments.length == 2 &&
+        arguments[0] == '+x' &&
+        arguments[1] == _path &&
+        workingDirectory == Directory.current.path;
+  }
+
+  @override
+  Description describe(Description description) {
+    return description.add('is a `chmod +x $_path`');
+  }
+
+  @override
+  Description describeMismatch(
+    dynamic item,
+    Description mismatchDescription,
+    Map<dynamic, dynamic> matchState,
+    bool verbose,
+  ) {
+    return mismatchDescription.add('is not a `chmod +x $_path`');
   }
 }
 
