@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.8.1...very_good_flame_game-v1.8.2) (2026-11-10)
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#674](https://github.com/VeryGoodOpenSource/very_good_templates/issues/674)) ([11d3cc3](https://github.com/VeryGoodOpenSource/very_good_templates/commit/11d3cc34497232f3c6e8702db045d79869bb32b1))
+
 ## [1.8.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_flame_game-v1.8.0...very_good_flame_game-v1.8.1) (2026-11-03)
 
 
