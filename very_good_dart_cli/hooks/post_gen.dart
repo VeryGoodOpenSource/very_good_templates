@@ -15,17 +15,20 @@ Future<void> run(
   HookContext context, {
   @visibleForTesting RunProcess runProcess = Process.run,
 }) async {
-  final projectName = context.vars['project_name'] as String;
-
   final progress = context.logger.progress('Getting Dart dependencies...');
+
+  // Mason runs this hook with the generated project root as the working
+  // directory and the brick writes its files directly there, with no
+  // `<project_name>/` subfolder, so every command targets the current
+  // directory.
 
   // We have to `pub get` the generated project to ensure that the analysis
   // is able to fix the imports with the correct analysis options.
-  await runProcess('dart', [
+  await _runOrFail(context, progress, runProcess, const [
     'pub',
     'get',
-    '--directory=$projectName',
-  ], workingDirectory: Directory.current.path);
+    '--directory=.',
+  ]);
 
   progress.update('Fixing Dart imports ordering...');
 
@@ -35,12 +38,39 @@ Future<void> run(
   //
   // We only fix for the [directives_ordering](https://dart.dev/tools/linter-rules/directives_ordering)
   // linter rules, as the other rule should be tackled by the template itself.
-  await runProcess('dart', [
+  await _runOrFail(context, progress, runProcess, const [
     'fix',
-    projectName,
+    '.',
     '--apply',
     '--code=directives_ordering',
-  ], workingDirectory: Directory.current.path);
+  ]);
 
   progress.complete('Completed post generation');
+}
+
+/// Runs `dart` with the given [arguments] in the current directory, surfacing
+/// a non-zero exit code by failing the [progress] and throwing a
+/// [ProcessException] instead of silently ignoring the failure.
+Future<void> _runOrFail(
+  HookContext context,
+  Progress progress,
+  RunProcess runProcess,
+  List<String> arguments,
+) async {
+  final result = await runProcess(
+    'dart',
+    arguments,
+    workingDirectory: Directory.current.path,
+  );
+
+  if (result.exitCode != ExitCode.success.code) {
+    progress.fail();
+    context.logger.err('${result.stderr}');
+    throw ProcessException(
+      'dart',
+      arguments,
+      '${result.stderr}',
+      result.exitCode,
+    );
+  }
 }
