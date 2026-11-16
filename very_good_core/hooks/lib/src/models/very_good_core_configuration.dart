@@ -58,7 +58,7 @@ enum _VeryGoodCoreConfigurationVariables._(
   ///
   /// Defaults to `false`.
   /// {@endtemplate}
-  workspace._('workspace');
+  workspace._('workspace'),
 }
 
 /// {@template very_good_core_configuration}

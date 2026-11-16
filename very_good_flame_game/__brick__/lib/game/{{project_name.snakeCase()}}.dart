@@ -41,7 +41,7 @@ class {{project_name.pascalCase()}} extends FlameGame {
 
     // add a HUD component showing number of taps on unicorn
     counterComponent = CounterComponent(position: Vector2(0, 0));
-    camera.viewport.add(counterComponent!);
+    await camera.viewport.add(counterComponent!);
     _positionCounterComponent(size);
   }
 
