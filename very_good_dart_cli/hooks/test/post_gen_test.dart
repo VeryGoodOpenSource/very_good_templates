@@ -70,8 +70,10 @@ void main() {
       () async {
         await post_gen.run(context, runProcess: runProcess);
 
-        expect(invocations[0], isDartPubGet(directory: projectName));
-        expect(invocations[1], isDartDirectiveOrderingFix(path: projectName));
+        // Mason runs the hook with the generated project root as the working
+        // directory, so both commands target the current directory (`.`).
+        expect(invocations[0], isDartPubGet(directory: '.'));
+        expect(invocations[1], isDartDirectiveOrderingFix(path: '.'));
       },
     );
 
@@ -90,6 +92,18 @@ void main() {
 
       expect(invocations, hasLength(2));
       verifyNever(() => progress.update('Making entrypoint executable...'));
+    });
+
+    test('throws a ProcessException when a command fails', () async {
+      processResult = ProcessResult(0, ExitCode.software.code, null, 'oops');
+
+      await expectLater(
+        post_gen.run(context, runProcess: runProcess),
+        throwsA(isA<ProcessException>()),
+      );
+
+      verify(() => progress.fail()).called(1);
+      verify(() => logger.err('oops')).called(1);
     });
 
     test('logs progress', () async {
