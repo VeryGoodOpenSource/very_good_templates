@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.6.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.5.1...very_good_app_ui-v0.6.0) (2026-11-17)
+
+
+### Features
+
+* update to Flutter 3.50.0 and Dart 3.14.0 ([#681](https://github.com/VeryGoodOpenSource/very_good_templates/issues/681)) ([0d0597a](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0d0597ae0c8977772feeed36aa9c47a8ba8ec8bd))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#674](https://github.com/VeryGoodOpenSource/very_good_templates/issues/674)) ([11d3cc3](https://github.com/VeryGoodOpenSource/very_good_templates/commit/11d3cc34497232f3c6e8702db045d79869bb32b1))
+* tighten template dependencies ([#689](https://github.com/VeryGoodOpenSource/very_good_templates/issues/689)) ([3050e04](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3050e04f90dd449de9fc30f54495ed22215ddc3c))
+
 ## [0.5.1](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_app_ui-v0.5.0...very_good_app_ui-v0.5.1) (2026-11-03)
 
 
