@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.2.0...very_good_docs_site-v1.3.0) (2026-11-17)
+
+
+### Features
+
+* update to Flutter 3.50.0 and Dart 3.14.0 ([#681](https://github.com/VeryGoodOpenSource/very_good_templates/issues/681)) ([0d0597a](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0d0597ae0c8977772feeed36aa9c47a8ba8ec8bd))
+
 ## [1.2.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_docs_site-v1.1.0...very_good_docs_site-v1.2.0) (2026-09-07)
 
 
