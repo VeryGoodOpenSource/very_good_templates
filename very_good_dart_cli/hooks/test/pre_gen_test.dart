@@ -2,6 +2,7 @@ import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
+import 'package:yaml/yaml.dart';
 
 import '../pre_gen.dart' as pre_gen;
 
@@ -41,9 +42,45 @@ void main() {
             'publishable': false,
             'org_name': 'Very Good Ventures',
             'current_year': '2020',
+            'pubspec_description': '"A Very Good Dart CLI"',
           }),
         );
       });
+    });
+
+    group('pubspec_description', () {
+      const descriptions = [
+        'Sign-in client: Google Identity wrapper',
+        '# not a comment',
+        '- not a list',
+        '&anchor',
+        '*alias',
+        '{not: a map}',
+        '[not, a, list]',
+        "Google's CLI",
+        'A "quoted" CLI',
+        r'C:\path\to\CLI',
+        'multi\nline',
+        'Café 🚀',
+        '',
+      ];
+
+      for (final description in descriptions) {
+        test('round-trips through YAML: "$description"', () {
+          when(() => context.vars).thenReturn({'description': description});
+
+          pre_gen.run(context);
+
+          final newVars =
+              verify(() => context.vars = captureAny()).captured.last
+                  as Map<String, dynamic>;
+          final pubspec = loadYaml(
+            'description: ${newVars['pubspec_description']}',
+          ) as YamlMap;
+
+          expect(pubspec['description'], equals(description));
+        });
+      }
     });
   });
 }
