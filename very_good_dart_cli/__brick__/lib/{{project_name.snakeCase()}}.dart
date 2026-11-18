@@ -1,4 +1,4 @@
-/// {{project_name.snakeCase()}}, {{description}}
+/// {{project_name.snakeCase()}}, {{{description}}}
 ///
 /// ```sh
 /// # activate {{project_name.snakeCase()}}
