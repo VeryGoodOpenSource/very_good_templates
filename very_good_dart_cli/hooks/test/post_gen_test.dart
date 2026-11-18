@@ -24,9 +24,15 @@ void main() {
     /// The value of the `project_name` context variable.
     const projectName = 'project_name';
 
+    /// The value of the `executable_name` context variable.
+    const executableName = 'executable-name';
+
     setUp(() {
       context = _MockHookContext();
-      when(() => context.vars).thenReturn({'project_name': projectName});
+      when(() => context.vars).thenReturn({
+        'project_name': projectName,
+        'executable_name': executableName,
+      });
 
       logger = _MockLogger();
       when(() => context.logger).thenReturn(logger);
