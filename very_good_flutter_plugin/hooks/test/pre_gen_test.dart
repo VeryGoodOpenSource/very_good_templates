@@ -3,6 +3,7 @@ import 'package:mason/mason.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 import 'package:very_good_flutter_plugin_hooks/version.dart';
+import 'package:yaml/yaml.dart';
 
 import '../pre_gen.dart' as pre_gen;
 
@@ -49,6 +50,42 @@ void main() {
 
         expect(vars['current_year'], '2026');
       });
+    });
+
+    group('pubspec_description', () {
+      const descriptions = [
+        'Sign-in client: Google Identity wrapper',
+        '# not a comment',
+        '- not a list',
+        '&anchor',
+        '*alias',
+        '{not: a map}',
+        '[not, a, list]',
+        "Google's plugin",
+        'A "quoted" plugin',
+        r'C:\path\to\plugin',
+        'multi\nline',
+        'Café 🚀',
+        '',
+      ];
+
+      for (final description in descriptions) {
+        test('round-trips through YAML: "$description"', () {
+          final vars = <String, dynamic>{
+            'description': description,
+            'platforms': <String>[],
+          };
+          when(() => context.vars).thenReturn(vars);
+
+          pre_gen.run(context);
+
+          final pubspec = loadYaml(
+            'description: ${vars['pubspec_description']}',
+          ) as YamlMap;
+
+          expect(pubspec['description'], equals(description));
+        });
+      }
     });
 
     test('throws ArgumentError when no platforms are passed', () {
