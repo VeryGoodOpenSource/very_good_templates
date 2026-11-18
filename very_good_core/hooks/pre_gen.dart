@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
 import 'package:very_good_core_hooks/very_good_core_hooks.dart';
@@ -58,6 +60,10 @@ void run(HookContext context) {
     'project_name': configuration.projectName,
     'org_name': configuration.organizationName,
     'description': configuration.description,
+    // A JSON string is also a valid YAML double-quoted scalar, so any
+    // description renders safely in both `pubspec.yaml` and `manifest.json`.
+    'pubspec_description': jsonEncode(configuration.description),
+    'manifest_description': jsonEncode(configuration.description),
     'android_namespace': configuration.androidNamespace,
     'android_application_id': configuration.androidApplicationId,
     'ios_application_id': configuration.iOsApplicationId,
