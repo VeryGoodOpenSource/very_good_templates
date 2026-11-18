@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:clock/clock.dart';
 import 'package:mason/mason.dart';
 import 'package:very_good_flame_game_hooks/very_good_flame_game_hooks.dart';
@@ -57,6 +59,9 @@ void run(HookContext context) {
     'project_name': config.projectName,
     'org_name': config.organizationName,
     'description': config.description,
+    // A JSON string is a valid YAML double-quoted scalar, so any description
+    // renders safely as the `description` value in `pubspec.yaml`.
+    'pubspec_description': jsonEncode(config.description),
     'android_namespace': config.androidNamespace,
     'android_application_id': config.androidApplicationId,
     'ios_application_id': config.iOsApplicationId,
