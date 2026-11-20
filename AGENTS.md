@@ -155,8 +155,7 @@ the check inline.
 | `very_good_<name>_hooks.yaml`   | Formats, analyzes, and tests the hook package                   |
 | `publish_very_good_<name>.yaml` | Publishes to brickhub.dev on version tag                        |
 | `release_please.yaml`           | Opens/updates release PRs on push to `main`                     |
-| `semantic_pull_request.yaml`    | Enforces Conventional Commit PR titles                          |
-| `spell_checker.yaml`            | Runs cspell on all `.md` and `.dart` files                      |
+| `ci.yaml`                       | Enforces Conventional Commit PR titles and runs cspell          |
 | `bot_dependency_tightener.yaml` | Weekly automated dependency tightening                          |
 
 [mason]: https://docs.brickhub.dev
