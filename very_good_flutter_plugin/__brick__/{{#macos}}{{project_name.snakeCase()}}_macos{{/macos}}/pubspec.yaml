@@ -26,4 +26,4 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^1.0.5
   pigeon: ^30.0.4
-  very_good_analysis: ^11.0.0
+  very_good_analysis: ^11.1.0-rc.1

@@ -50,10 +50,10 @@ void main() {
       });
 
       when(() => dartCli.isInstalled(logger: logger))
-          .thenAnswer((_) => Future.value(true));
+          .thenAnswer((_) => Future.syncValue(true));
 
       when(() => veryGoodCli.isInstalled(logger: logger))
-          .thenAnswer((_) => Future.value(true));
+          .thenAnswer((_) => Future.syncValue(true));
 
       when(
         () => veryGoodCli.packagesGet(
@@ -169,7 +169,7 @@ void main() {
     group('warns', () {
       test('if Dart CLI is not installed', () async {
         when(() => dartCli.isInstalled(logger: logger))
-            .thenAnswer((_) => Future.value(false));
+            .thenAnswer((_) => Future.syncValue(false));
 
         await post_gen.run(context, dartCli: dartCli);
 
@@ -182,7 +182,7 @@ void main() {
 
       test('if Very Good CLI is not installed', () async {
         when(() => veryGoodCli.isInstalled(logger: logger))
-            .thenAnswer((_) => Future.value(false));
+            .thenAnswer((_) => Future.syncValue(false));
 
         await post_gen.run(context, dartCli: dartCli, veryGoodCli: veryGoodCli);
 
