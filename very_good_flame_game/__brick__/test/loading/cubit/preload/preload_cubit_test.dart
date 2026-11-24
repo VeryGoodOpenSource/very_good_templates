@@ -25,7 +25,7 @@ void main() {
         setUp: () {
           images = _MockImages();
           when(() => images.loadAll([Assets.images.unicornAnimation.path]))
-              .thenAnswer((invocation) => Future.value(<Image>[]));
+              .thenAnswer((invocation) => Future.syncValue(<Image>[]));
 
           audio = _MockAudioCache();
           when(
