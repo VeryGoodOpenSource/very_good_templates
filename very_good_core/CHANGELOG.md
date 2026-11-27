@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.8.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.7.0...very_good_core-v1.8.0) (2026-11-27)
+
+
+### Features
+
+* update to Flutter 3.50.0 and Dart 3.14.0 ([#681](https://github.com/VeryGoodOpenSource/very_good_templates/issues/681)) ([0d0597a](https://github.com/VeryGoodOpenSource/very_good_templates/commit/0d0597ae0c8977772feeed36aa9c47a8ba8ec8bd))
+
+
+### Bug Fixes
+
+* quote description in pubspec.yaml ([#690](https://github.com/VeryGoodOpenSource/very_good_templates/issues/690)) ([a097b0e](https://github.com/VeryGoodOpenSource/very_good_templates/commit/a097b0e4c26401fc41dfa030b072bc6789b6f5a1))
+
+
+### Miscellaneous Chores
+
+* tighten template dependencies ([#674](https://github.com/VeryGoodOpenSource/very_good_templates/issues/674)) ([11d3cc3](https://github.com/VeryGoodOpenSource/very_good_templates/commit/11d3cc34497232f3c6e8702db045d79869bb32b1))
+* tighten template dependencies ([#689](https://github.com/VeryGoodOpenSource/very_good_templates/issues/689)) ([3050e04](https://github.com/VeryGoodOpenSource/very_good_templates/commit/3050e04f90dd449de9fc30f54495ed22215ddc3c))
+
 ## [1.7.0](https://github.com/VeryGoodOpenSource/very_good_templates/compare/very_good_core-v1.6.0...very_good_core-v1.7.0) (2026-11-03)
 
 
