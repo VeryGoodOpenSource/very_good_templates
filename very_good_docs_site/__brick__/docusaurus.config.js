@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer').themes.vsDark;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '{{project_name.titleCase()}}',
-  tagline: '{{{description}}}',
+  tagline: {{{config_description}}},
   url: 'https://{{project_name.paramCase()}}.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',

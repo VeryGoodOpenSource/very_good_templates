@@ -8,7 +8,7 @@ import 'package:{{project_name.snakeCase()}}/src/version.dart';
 
 const executableName = '{{executable_name.snakeCase()}}';
 const packageName = '{{project_name.snakeCase()}}';
-const description = '{{description}}';
+const description = {{{dart_description}}};
 
 /// {@template {{project_name.snakeCase()}}_command_runner}
 /// A [CommandRunner] for the CLI.
